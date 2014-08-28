@@ -1,0 +1,104 @@
+._css3m {
+         display: none  }.demo {
+         width: 980px;
+         margin: 0px auto;
+        }
+        .demo h1 {
+                margin: 33px 0 25px;
+        }
+        .demo h3 {
+                margin: 10px 0;
+        }
+        pre {
+                background: #fff;
+        }
+         @media only screen and (max-width: 780px) {
+        .demo {
+                margin: 5%;
+                width: 90%;
+        }
+        .how-use {
+                float: left;
+                width: 300px;
+                display: none;
+        }
+        }
+        #tabInfo {
+                display: none;
+        }
+        
+        #apDiv1 {
+	position:absolute;
+	left:602px;
+	top:-19px;
+	width:208px;
+	height:90px;
+	z-index:1;
+}
+        #apDiv2 {
+	position: absolute;
+	left: 1032px;
+	top: 51px;
+	width: 69px;
+	height: 52px;
+	z-index: 1;
+}
+        #apDiv3 {
+	position: absolute;
+	left: 977px;
+	top: 3px;
+	width: 54px;
+	height: 51px;
+	z-index: 1;
+}
+        #apDiv4 {
+	position: absolute;
+	left: 852px;
+	top: 233px;
+	width: 64px;
+	height: 31px;
+	z-index: 1;
+}
+        #apDiv5 {
+	position: absolute;
+	left: 1100px;
+	top: 223px;
+	width: 62px;
+	height: 28px;
+	z-index: 1;
+}
+        #Logoheader {
+	position: absolute;
+	left: 20px;
+	top: 17px;
+	width: 72px;
+	height: 45px;
+	z-index: 1;
+}
+        #apDiv7 {
+	position: absolute;
+	left: 1058px;
+	top: 56px;
+	width: 36px;
+	height: 35px;
+	z-index: 1;
+}
+        #fotoperfil {
+	position: absolute;
+	left: 90%;
+	top: 12%;
+	width: 44px;
+	height: 45px;
+	z-index: 1;
+}
+        body,td,th {
+	font-family: GOTHIC;
+}
+        #apDiv9 {
+	position: absolute;
+	left: 915px;
+	top: 110px;
+	width: 329px;
+	height: 34px;
+	z-index: 1;
+}

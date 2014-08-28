@@ -1,0 +1,80 @@
+#menu {  text-align: center;
+/*font-size: 0.7em;*/
+width: 620px;
+margin: 5px auto;
+position: relative;
+left:18%;
+top:-52%;
+z-index:3;
+
+
+}
+#menu ul { list-style-type: none;}
+
+#menu ul li.nivel1 { float: left;
+width: 140px;
+margin-right: 0px;
+position: relative;
+
+
+}
+#menu ul li { float: left;}
+
+#menu ul li a {display: table-caption;
+text-decoration: none;
+font-size: 16px;
+color: #fff;
+background-color: #004080;
+border: solid 1px #fff;
+padding: 5px 0px 5px 0px;
+position: relative;
+border-radius: 12px; /*radio aki*/
+/*background-color:rgba(2,2,2,0.6);*/
+}
+#menu ul li a:hover, #menu ul li:hover a.nivel1 {
+background-color:rgba(0,64,128,0.6);
+color: #fff;
+position: relative;
+border-bottom: solid 0px #004080;
+
+
+}
+#menu ul li a.nivel1 {display: block!important;display: inline-block;
+}
+#menu ul li ul {display: none;
+}
+#menu ul li a:hover ul, #menu ul li:hover ul {display: block;
+position: absolute;width: 600px;border: solid 2px rgba(0,64,128,0.6);border-top: none; 
+/*cambiar tama;o sub nemu*/
+background-color:rgba(0,64,128,0.6);
+/*background-color: #004080;*/
+border-radius: 25px;
+
+/*aki borde menu*/
+}
+#menu ul li ul li a {width: 120px;
+padding: 15px 0px 15px 0px;
+border: none;
+color: #fff;
+/*background-color: #004080;*/
+background-color:rgba(65,105,225,0.1);
+font-size: 12px;
+
+/*tama;o letra*/
+}
+#menu ul li ul li a:hover {
+position: relative;
+text-decoration: underline;
+border-bottom: none;
+}
+table.falsa {border-collapse:collapse;
+border:0px;
+/*float: left;*/
+position: relative;
+}
+ul.uno {left: -360px;}
+ul.dos {left: -510px;}
+ul.tres {left: -328px;}
+ul.cuatro {left: -280px;}
+ul.cinco {left: -656px;}
+

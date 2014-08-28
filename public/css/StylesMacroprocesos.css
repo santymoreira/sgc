@@ -1,0 +1,287 @@
+ #caja_flotante{
+        position: absolute;
+        top:0;
+        left: 10px;
+        border: 1px solid #CCC;
+        background-color: #F2F2F2;
+        width:100px;}
+#apDiv1 {
+	position: absolute;
+	left: 306px;
+	top: 300px;
+	width: 84px;
+	height: 857px;
+	z-index: 1;
+}
+#apDiv2 {
+	position: absolute;
+	left: 167px;
+	top: 170px;
+	width: 791px;
+	height: 487px;
+	z-index: 1;
+}
+#apDiv3 {
+	position: absolute;
+	left: 379px;
+	top: 255px;
+	width: 534px;
+	height: 62px;
+	z-index: 1;
+}
+#apDiv4 {
+	position: absolute;
+	left: 146px;
+	top: 82px;
+	width: 671px;
+	height: 145px;
+	z-index: 1;
+}
+#apDiv5 {
+	position: absolute;
+	left: 143px;
+	top: 78px;
+	width: 612px;
+	height: 72px;
+	z-index: 1;
+}
+#apDiv6 {
+	position: absolute;
+	left: 341px;
+	top: 270px;
+	width: 679px;
+	height: 68px;
+	z-index: 1;
+}
+#apDiv7 {
+	position: absolute;
+	left: 145px;
+	top: 165px;
+	width: 609px;
+	height: 72px;
+	z-index: 1;
+}
+#apDiv8 {
+	position: absolute;
+	left: 151px;
+	top: 276px;
+	width: 678px;
+	height: 72px;
+	z-index: 1;
+}
+#apDiv9 {
+	position: absolute;
+	left: 150px;
+	top: 267px;
+	width: 174px;
+	height: 71px;
+	z-index: 1;
+}
+#apDiv10 {
+	position: absolute;
+	left: 338px;
+	top: 267px;
+	width: 231px;
+	height: 72px;
+	z-index: 1;
+}
+#apDiv11 {
+	position: absolute;
+	left: 576px;
+	top: 266px;
+	width: 173px;
+	height: 73px;
+	z-index: 1;
+}
+#apDiv12 {
+	position: absolute;
+	left: 151px;
+	top: 243px;
+	width: 663px;
+	height: 29px;
+	z-index: 1;
+}
+#apDiv13 {
+	position: absolute;
+	left: 162px;
+	top: 247px;
+	width: 572px;
+	height: 11px;
+	z-index: 1;
+}
+#apDiv14 {
+	position: absolute;
+	left: 171px;
+	top: 353px;
+	width: 566px;
+	height: 11px;
+	z-index: 1;
+}
+#apDiv15 {
+	position: absolute;
+	left: 153px;
+	top: 376px;
+	width: 598px;
+	height: 73px;
+	z-index: 1;
+}
+#apDiv16 {
+	position: absolute;
+	left: 149px;
+	top: 464px;
+	width: 602px;
+	height: 73px;
+	z-index: 1;
+}
+#apDiv17 {
+	position: absolute;
+	left: 149px;
+	top: 553px;
+	width: 175px;
+	height: 72px;
+	z-index: 1;
+}
+#apDiv18 {
+	position: absolute;
+	left: 533px;
+	top: 455px;
+	width: 234px;
+	height: 74px;
+	z-index: 1;
+}
+#apDiv19 {
+	position: absolute;
+	left: 332px;
+	top: 553px;
+	width: 230px;
+	height: 72px;
+	z-index: 2;
+}
+#apDiv20 {
+	position: absolute;
+	left: 572px;
+	top: 552px;
+	width: 173px;
+	height: 73px;
+	z-index: 1;
+}
+#apDiv21 {
+	position: absolute;
+	left: 125px;
+	top: 178px;
+	width: 951px;
+	height: 644px;
+	z-index: 1;
+}
+#apDiv22 {
+	position: absolute;
+	left: 267px;
+	top: 266px;
+	width: 672px;
+	height: 54px;
+	z-index: 1;
+}
+#apDiv23 {
+	position: absolute;
+	left: 268px;
+	top: 360px;
+	width: 671px;
+	height: 54px;
+	z-index: 1;
+}
+#apDiv24 {
+	position: absolute;
+	left: 339px;
+	top: 439px;
+	width: 669px;
+	height: 55px;
+	z-index: 1;
+}
+#apDiv25 {
+	position: absolute;
+	left: 340px;
+	top: 442px;
+	width: 190px;
+	height: 77px;
+	z-index: 1;
+}
+#apDiv26 {
+	position: absolute;
+	left: 273px;
+	top: 458px;
+	width: 204px;
+	height: 68px;
+	z-index: 1;
+}
+#apDiv27 {
+	position: absolute;
+	left: 492px;
+	top: 459px;
+	width: 205px;
+	height: 67px;
+	z-index: 1;
+}
+#apDiv28 {
+	position: absolute;
+	left: 716px;
+	top: 458px;
+	width: 209px;
+	height: 69px;
+	z-index: 1;
+}
+#apDiv29 {
+	position: absolute;
+	left: 276px;
+	top: 594px;
+	width: 670px;
+	height: 53px;
+	z-index: 1;
+}
+#apDiv30 {
+	position: absolute;
+	left: 272px;
+	top: 694px;
+	width: 669px;
+	height: 54px;
+	z-index: 1;
+}
+#apDiv31 {
+	position:absolute;
+	left:581px;
+	top:-12px;
+	width:249px;
+	height:113px;
+	z-index:1;
+}
+#apDiv32 {
+	position:absolute;
+	left:892px;
+	top:3px;
+	width:93px;
+	height:95px;
+	z-index:1;
+}
+#apDiv33 {
+	position: absolute;
+	left: 17px;
+	top: 16px;
+	width: 67px;
+	height: 34px;
+	z-index: 1;
+}
+#apDiv34 {
+	position: absolute;
+	left: 966px;
+	top: 7px;
+	width: 58px;
+	height: 55px;
+	z-index: 1;
+}
+#apDiv35 {
+	position: absolute;
+	left: 874px;
+	top: 121px;
+	width: 294px;
+	height: 32px;
+	z-index: 1;
+}
