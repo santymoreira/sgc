@@ -35,8 +35,7 @@
                                                 	<li>Mensaje de la Comision</li>
                                                 	<li>Contactanos</li>
                                                 	<li>Redes Sociales</li>
-                                                  <li>Redes Sociales</li>
-                                            	</ul>                         
+                                             	</ul>                         
                       							<div class="resp-tabs-container">
                           							<div id="central-content">
                               							<center><img src="{{ asset('images/Utilitarios/logo.png'); }}"> </img></center>
