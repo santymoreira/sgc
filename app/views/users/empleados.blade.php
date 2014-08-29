@@ -57,7 +57,6 @@
 						<th  class="fuentes">Correo Electrónico</th>
 						<th  class="fuentes">Celular</th>
 						<th  class="fuentes">Convencional</th>
-						<th  class="fuentes">Tipo de Usuario</th>
 						<th  class="fuentes">Acciones</th>
 					</tr>
 				</thead>
@@ -70,7 +69,6 @@
 							<td class="fuentes">{{ $user->EMAIL }}</td>
 							<td class="fuentes">{{ $user->CELULAR }}</td>
 							<td class="fuentes">{{ $user->CONVENCIONAL }}</td>
-							<td class="fuentes">{{ $user->DESCRIPCION }}</td>
 							<td class="fuentes">
 								<a href="../show/{{ $user->COD_EMPLEADO }}"><span class="label label-info">Ver</span></a>
 								<a href="../edit/{{ $user->COD_EMPLEADO }}"><span class="label label-success">Editar</span></a>
