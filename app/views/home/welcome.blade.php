@@ -35,6 +35,7 @@
                                                 	<li>Mensaje de la Comision</li>
                                                 	<li>Contactanos</li>
                                                 	<li>Redes Sociales</li>
+                                                  <li>Redes Sociales</li>
                                             	</ul>                         
                       							<div class="resp-tabs-container">
                           							<div id="central-content">
