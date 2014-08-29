@@ -50,7 +50,7 @@
   			<h4>Actualización de Empleados</h4>
   		</div>
   		<div class="panel-body" >
-		   @if (!empty($user))  	
+		  	@foreach($user as $user)
   				<form method="post" action="../update/{{ $user->COD_EMPLEADO }}">
 				<p>
 						<input value="{{ $user->CI }}" type="text" name="ci" placeholder="Cédula de Identidad" class="form-control" required>
@@ -94,7 +94,7 @@
 						<option value="9">Secretaria del CIADES</option>
 					</select>
 				@elseif($user->COD_TIPO == 2)
-				<select  class="form-control">
+				<select name="tipos"  class="form-control">
 						<option value="2">Administrativo</option>
 						<option value="1">Director de Escuela</option>
 						<option value="4">Docente</option>
@@ -106,7 +106,7 @@
 						<option value="9">Secretaria del CIADES</option>
 				</select>
 				@elseif($user->COD_TIPO == 3)	
-				<select  class="form-control">		
+				<select name="tipos"  class="form-control">		
 						<option value="3">Trabajador</option>
 						<option value="2">Administrativo</option>
 						<option value="1">Director de Escuela</option>
@@ -118,7 +118,7 @@
 						<option value="9">Secretaria del CIADES</option>
 				</select>
 				@elseif($user->COD_TIPO == 4)	
-				<select  class="form-control">	
+				<select name="tipos"  class="form-control">	
 						<option value="4">Docente</option>
 						<option value="5">Decano</option>
 						<option value="3">Trabajador</option>
@@ -130,7 +130,7 @@
 						<option value="9">Secretaria del CIADES</option>
 				</select>
 				@elseif($user->COD_TIPO == 5)	
-				<select  class="form-control">
+				<select name="tipos"  class="form-control">
 						<option value="5">Decano</option>
 						<option value="4">Docente</option>
 						<option value="3">Trabajador</option>
@@ -142,7 +142,7 @@
 						<option value="9">Secretaria del CIADES</option>
 				</select>
 				@elseif($user->COD_TIPO == 6)	
-				<select  class="form-control">
+				<select name="tipos"  class="form-control">
 						<option value="5">Decano</option>
 						<option value="4">Docente</option>
 						<option value="3">Trabajador</option>
@@ -154,7 +154,7 @@
 						<option value="9">Secretaria del CIADES</option>
 				</select>
 				@elseif($user->COD_TIPO == 7)	
-				<select  class="form-control">
+				<select name="tipos"  class="form-control">
 						<option value="7">Bibliotecario</option>
 						<option value="5">Decano</option>
 						<option value="4">Docente</option>
@@ -166,7 +166,7 @@
 						<option value="9">Secretaria del CIADES</option>
 				</select>
 				@elseif($user->COD_TIPO == 8)	
-				<select  class="form-control">
+				<select name="tipos" class="form-control">
 						<option value="8">Responsable de UPREX</option>
 						<option value="7">Bibliotecario</option>
 						<option value="5">Decano</option>
@@ -178,7 +178,7 @@
 						<option value="9">Secretaria del CIADES</option>
 				</select>
 				@else	
-				<select  class="form-control">
+				<select name="tipos"  class="form-control">
 						<option value="9">Secretaria del CIADES</option>
 						<option value="8">Responsable de UPREX</option>
 						<option value="7">Bibliotecario</option>
@@ -194,7 +194,7 @@
 					 <input type="submit" value="Guardar" class="btn btn-success">
 					  <a href="/users" class="btn btn-default">Regresar</a>
 				</form>
-		    @endif	
+		    @endforeach
 		</div>
 
 @stop

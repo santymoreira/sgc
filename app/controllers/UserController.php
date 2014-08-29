@@ -100,7 +100,7 @@ class UserController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$user= empleado::find($id);
+		$user= DB::select('CALL ShowEmpleado('.$id.')');
 		return View::make('users.edit')->with('user',$user);
 	}
 	/**
@@ -111,17 +111,24 @@ class UserController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$user= empleado::find($id);
+		$empleado= Empleado::find($id);
 		
-		$user->CI= Input::get('ci');
-		$user->NOMBRES= Input::get('nombres');
-		$user->SEXO= Input::get('sexo');
-		$user->EMAIL= Input::get('email');
-		$user->CELULAR= Input::get('celular');
-		$user->CONVENCIONAL= Input::get('convencional');
-		$user->password= Hash::make(Input::get('ci'));
+		$empleado->CI= Input::get('ci');
+		$empleado->NOMBRES= Input::get('nombres');
+		$empleado->SEXO= Input::get('sexo');
+		$empleado->EMAIL= Input::get('email');
+		$empleado->CELULAR= Input::get('celular');
+		$empleado->CONVENCIONAL= Input::get('convencional');
+		$empleado->password= Hash::make(Input::get('ci'));
+		
+		//Variable de tipos
+		$tipo=Input::get('tipos');
+		
+		if($empleado->save()){
 
-		if($user->save()){
+			$tipos=TipoEmpleado::find($tipo); 
+			$empleado->tipos()->save($tipos);
+		
 			Session::flash('message','Actualizado correctamente!');
 			Session::flash('class','success');			
 		}else{
@@ -139,9 +146,13 @@ class UserController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		$user= empleado::find($id);
+			
 		
-		if($user->delete()){
+		
+		$empleado= empleado::find($id);
+
+		
+		if($empleado->delete()){
 			Session::flash('message','Eliminado correctamente!');
 			Session::flash('class','success');			
 		}else{
