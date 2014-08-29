@@ -22,7 +22,7 @@
                             <div id="central">
                                 <div id="central-content">
                                     <div id="avance"></div>
-                                        <center><label>Cumplimiento&nbsp;&nbsp;&nbsp;</label><a rel="floatbox" class="fbPopup" href="Vista/ReportesIndicadores/pChart2.1.4/examples/pictures/avancefade.jpg" /><input type="image" src="{{asset('images/chart_bar.png'); }}"/></a> </center>
+                                        <center><label>Cumplimiento&nbsp;&nbsp;&nbsp;</label><a rel="floatbox" class="fbPopup" href="Vista/ReportesIndicadores/pChart2.1.4/examples/pictures/avancefade.jpg" /><input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/></a> </center>
                                         </br>
                                          </br>
                                          <div class="demo">
@@ -35,11 +35,10 @@
                                                 	<li>Mensaje de la Comision</li>
                                                 	<li>Contactanos</li>
                                                 	<li>Redes Sociales</li>
-                                                  <li>Se me quemó el pastel :(</li>
                                             	</ul>                         
                       							<div class="resp-tabs-container">
                           							<div id="central-content">
-                              							<center><img src="{{ asset('images/logoIndex.png'); }}"> </img></center>
+                              							<center><img src="{{ asset('images/Utilitarios/logo.png'); }}"> </img></center>
                           							</div>
                          							<div id="central-content">
                             							<center><h1>Misión</h1></center></br>
@@ -72,9 +71,9 @@
                               <center><h1>Contáctanos</h1></center></br>
                                <p align="justify">La comisión de Gestión de Calidad de la Facultad cuenta con los siguientes contactos:</p></br></br>
                                <p align="justify"><b> Facebook Oficial:</b> <a href="https://www.facebook.com/facultadde.empresas.1" target="_blanck">www.facebook.com/facultadde.empresas.1</a> </p></br>
-                               <img src="{{ asset('images/facebook.gif'); }}" width="40" height="40" alt=""/> <br></br>
+                               <img src="{{ asset('images/Utilitarios/facebook.gif'); }}" width="40" height="40" alt=""/> <br></br>
                                <p align="justify"><b> Twitter Oficial:</b> <a href="https://twitter.com/FadeEspoch" target="_blanck" >twitter.com/FadeEspoch</a>   </p></br>  
-                               <img src="{{ asset('images/twitter.png'); }}" width="40" height="40" alt=""/> <br></br>
+                               <img src="{{ asset('images/Utilitarios/twitter.png'); }}" width="40" height="40" alt=""/> <br></br>
                               
                           </div>
                           <div id="central-content">

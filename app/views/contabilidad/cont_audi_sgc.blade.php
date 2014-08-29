@@ -27,7 +27,7 @@
         <div class="layout-cell content">    
             <div id="central"> 
                <div id="central-content"> </br></br>
-                   <center><img src="{{ asset('images/SGContabilidad1.png') }}"></center>    
+                   <center><img src="{{ asset('images/Contabilidad/contabilidad.png') }}"></center>    
                </div>
             </div>
              

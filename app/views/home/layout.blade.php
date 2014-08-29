@@ -70,15 +70,15 @@
                          <!--    <div id="fotoperfil"><img src="{{ asset('images/fotoreal.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>-->
 @if (Auth::user() && Session::get('tipo'))
 <!--<div id="fotoperfil"><img src="images/{{Session::get('ci') }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>-->
-<div id="fotoperfil"><img src="{{ asset('images/'.Auth::user()->CI); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>
+<div id="fotoperfil"><img src="{{ asset('images/Login/'.Auth::user()->CI); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>
 @else
-   <div id="fotoperfil"><img src="{{ asset('images/fotoreal.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>
+   <div id="fotoperfil"><img src="{{ asset('images/Login/fotoreal.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>
 @endif
 
 
                            
                         </a>        
-                        <div class="header-png"><img src="{{ asset('images/header.png'); }}" width="1134" height="137" /> 
+                        <div class="header-png"><img src="{{ asset('images/Utilitarios/header.png'); }}" width="1134" height="137" /> 
   @show  
                       @section('options')
                   	<div id="menu">
@@ -119,10 +119,10 @@
           				<div id="loginContainer">
                   @if (Auth::user() && Session::get('tipo'))
                 			 <a href="{{ url('logout'); }}" id="loginButto">
-                        <img id="imgLogin" src="{{ asset('images/cerrar sesion.png'); }}" border=0>
+                        <img id="imgLogin" src="{{ asset('images/Login/cerrar sesion.png'); }}" border=0>
                       </a>
                   @else
-                  <a href="#" id="loginButton"><img id="imgLogin" src="{{ asset('images/iniciar sesion.png'); }}" border=0></a>
+                  <a href="#" id="loginButton"><img id="imgLogin" src="{{ asset('images/Login/iniciar sesion.png'); }}" border=0></a>
                      
                   @endif
 
@@ -151,7 +151,7 @@
                 			</div>
             			</div>
           			</div>
-                <div id="Logoheader"><img src="{{ asset('images/SGCheader.png'); }}" width="426"></div> 
+                <div id="Logoheader"><img src="{{ asset('images/Utilitarios/SGCheader.png'); }}" width="426"></div> 
                  </div>
 
                     @show
