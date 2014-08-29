@@ -123,11 +123,14 @@ class UserController extends \BaseController {
 		
 		//Variable de tipos
 		$tipo=Input::get('tipos');
+		$lastype=Input::get('lastype');
 		
 		if($empleado->save()){
 
-			$tipos=TipoEmpleado::find($tipo); 
-			$empleado->tipos()->save($tipos);
+			//$tipos=TipoEmpleado::find($tipo); 
+			//$empleado->tipos()->save($tipos);
+			DB::update('update empleado_tipo set COD_TIPO = ?, COD_EMPLEADO = ? where COD_TIPO = ? and COD_EMPLEADO= ?', array($tipo, $id, $lastype, $id)); 
+
 		
 			Session::flash('message','Actualizado correctamente!');
 			Session::flash('class','success');			

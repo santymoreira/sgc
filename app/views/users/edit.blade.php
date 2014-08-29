@@ -191,6 +191,7 @@
 				</select>
 				@endif
 				</p>
+					<input type="hidden" value="{{ $user->COD_TIPO }}" name="lastype">
 					 <input type="submit" value="Guardar" class="btn btn-success">
 					  <a href="/users" class="btn btn-default">Regresar</a>
 				</form>
