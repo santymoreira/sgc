@@ -27,7 +27,7 @@
         <div class="layout-cell content">    
             <div id="central"> 
                <div id="central-content"> </br></br>
-                   <center><img src="{{ asset('images/Empresas.png') }}" width="850" height="295"></center>    
+                   <center><img src="{{ asset('images/empresas/Empresas.png') }}" width="850" height="295"></center>    
                </div>
             </div>
              
