@@ -2,8 +2,10 @@
 
 @section('Different_Styles')
 	@parent
-	{{ HTML::style('css/StylesAdministrativa.css'); }}
-
+{{ HTML::style('css/StylesAdministrativa.css'); }}
+  {{ HTML::style('css/Evaluacionfloatbox.css'); }}
+  {{ HTML::script('js/Evaluacionfloatbox.js'); }}
+  {{ HTML::script('js/FocusAdministrativa.js'); }}
 
 @stop
 
@@ -152,7 +154,43 @@
                          <img src="{{ asset('images/ProcesosEscuelas/cod_afeg04-05.png'); }}" width="51" height="12" id="afeg04_5">
                      </a>    
              </div> 
-		    <center>
+		   
+               <!-- Botones de responsables entradas(azul) Salidas(rojo) -->
+           
+             <div id="apDiv57">
+                <img src="{{ asset('images/Responsables/internos.png'); }}">
+              </div>
+             <div id="apDiv58">
+                <img id="decanato" onmouseout="Back_Decanato()" onmouseover="CambiaImagenes_Decanato()" src="{{ asset('images/Responsables/decanato.png'); }}"/>
+             </div>
+             <div id="apDiv59">
+                <img src="{{ asset('images/Responsables/externos.png'); }}">
+              </div>
+             <div id="apDiv60">
+                <img id="estatutos" onmouseout="Back_Estatutos()" onmouseover="Imagenes_Estatutos()" src="{{ asset('images/Responsables/estatutoazul.png'); }}">
+              </div>
+             <div id="apDiv61">
+                <img id="noidentificado" onmouseout="Back_NoId()" onmouseover="Imagenes_NoId()"src="{{ asset('images/Responsables/procesoNoId_rojo.png'); }}">
+              </div>
+             <div id="apDiv63">
+                <img src="{{ asset('images/Responsables/internos_dere.png'); }}">
+             </div>
+             <div id="apDiv65">
+                <img id="rojoNoId" onmouseover="ImgRojoNoId()" onmouseout="RojoBackNoId()" src="{{ asset('images/Responsables/procesoNoId_rojo.png'); }}">
+             </div>
+             <div id="apDiv66">
+                <img id="rojoDecanato" onmouseover="ImgRojoDecanato()" onmouseout="RojoBackDecanato()" src="{{ asset('images/Responsables/decanato.png'); }}">
+             </div>
+             <div id="apDiv67">
+                <img id="rojoComision" onmouseover="ImgRojoComision()" onmouseout="RojoBackComision()" src="{{ asset('images/Responsables/comisionplanificacion.png'); }}">
+             </div>
+             <div id="apDiv68">
+                <img src="{{ asset('images/Responsables/externos.png'); }}">
+             </div>
+
+            <!-- Footer --> 
+
+        <center>
 				   <p style="font-size:10px;color:#03F; position:relative; bottom:0;" >Copyright © 2014. All Rights Reserved.</p>
 			</center>
 	 </div>
