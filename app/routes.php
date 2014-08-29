@@ -111,6 +111,31 @@ Route::get('home/welcome', 'ContabilidadController@home'); //Ojo creo que esta m
 Route::get('contabilidad/cont_audi_sgc', 'ContabilidadController@contabilidadsgc');
 Route::get('contabilidad/macroprocesos', 'ContabilidadController@macroprocesos');
 Route::get('contabilidad/M_Administrativa', 'ContabilidadController@administrativa');
+Route::get('contabilidad/M_Academica', 'ContabilidadController@academica');
+Route::get('contabilidad/M_Docencia', 'ContabilidadController@docencia');
+Route::get('contabilidad/M_Investigacion', 'ContabilidadController@investigacion');
+Route::get('contabilidad/M_Vinculacion', 'ContabilidadController@vinculacion');
+Route::get('contabilidad/M_Asistencia', 'ContabilidadController@asistencia');
+Route::get('contabilidad/M_Mantenimiento', 'ContabilidadController@mantenimiento');
+
+//Facultad Administración de Empresas
+
+Route::get('home/welcome', 'FadeController@home');
+Route::get('fade/fade_sgc', 'FadeController@fadesgc');
+Route::get('fade/macroprocesos', 'FadeController@macroprocesos');
+Route::get('fade/MF_Administrativa', 'FadeController@administrativa');
+Route::get('fade/MF_Academica', 'FadeController@academica');
+Route::get('fade/MF_Calidad', 'FadeController@calidad');
+Route::get('fade/MF_Docencia', 'FadeController@docencia');
+Route::get('fade/MF_Investigacion', 'FadeController@investigacion');
+Route::get('fade/MF_Vinculacion', 'FadeController@vinculacion');
+Route::get('fade/MF_Asistencia', 'FadeController@asistencia');
+Route::get('fade/MF_Academico', 'FadeController@academico');
+Route::get('fade/MF_Financiero', 'FadeController@financiero');
+Route::get('fade/MF_Mantenimiento', 'FadeController@mantenimiento');
+Route::get('fade/MF_Transporte', 'FadeController@transporte');
+Route::get('fade/MF_Informatico', 'FadeController@informatico');
+
 
 //Escuela de Educación a Distancia
 Route::get('home/welcome', 'DistanciaController@home');  
@@ -141,4 +166,22 @@ Route::get('marketing/macroprocesos', 'MarketingController@macroprocesos');
 Route::get('home/welcome', 'TransporteController@home');
 Route::get('transporte/transporte_sgc', 'TransporteController@transportesgc');
 Route::get('transporte/macroprocesos', 'TransporteController@macroprocesos');
+
+//Administración de Empleados
+
+Route::get('users/empleados/{cod}', 'UserController@listado');
+
+//Guardar Empleado
+Route::get('users/create', 'UserController@newuser');
+Route::post('users/store','UserController@store');
+
+//Editar Empleado
+Route::get('users/edit/{cod}', 'UserController@edit');
+Route::post('users/update/{cod}','UserController@update');
+
+//Eliminar Empleado
+Route::get('users/destroy/{cod}','UserController@destroy');
+
+//Mostrar un empleado
+  Route::get('users/show/{cod}', 'UserController@show');
 

@@ -1,0 +1,13 @@
+.fuentes{
+	
+	font-family: 
+	Verdana, Arial, Helvetica; 
+	font-size: 11px; 	
+}
+div {
+  margin: .4em 0;
+}
+div label {
+  width: 25%;
+  float: left;
+}

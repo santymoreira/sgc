@@ -6,9 +6,9 @@
    	
    			 <div id="menu">
 						<ul>
-				               <li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio');}}
-							  <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/macroprocesos', 'Macroprocesos');}}
-							  <li class="nivel1"><a onclick="Alert()" class="nivel1" {{ HTML::link('users/empleados/2', 'Administración');}} 
+				              <li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio');}}
+							  <li class="nivel1"><a class="nivel1" {{ HTML::link('fade/macroprocesos', 'Macroprocesos');}}
+							  <li class="nivel1"><a onclick="Alert()" class="nivel1">Administración</a></li>
 							  <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a></li>
 						</ul>
 				  </div> 
@@ -27,7 +27,7 @@
         <div class="layout-cell content">    
             <div id="central"> 
                <div id="central-content"> </br></br>
-                   <center><img src="{{ asset('images/Contabilidad/contabilidad.png') }}"></center>    
+                   <center><img src="{{ asset('images/Contabilidad/contabilidad.png') }}" width="850" height="295"></center>    
                </div>
             </div>
              

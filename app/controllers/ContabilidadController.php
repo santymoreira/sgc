@@ -29,4 +29,28 @@ class ContabilidadController extends BaseController {
 	{
 		return View::make('contabilidad.M_Administrativa');
 	}
+	public function academica()
+	{
+		return View::make('contabilidad.M_Academica');
+	}
+	public function docencia()
+	{
+		return View::make('contabilidad.M_Docencia');
+	}
+	public function investigacion()
+	{
+		return View::make('contabilidad.M_Investigacion');
+	}
+	public function vinculacion()
+	{
+		return View::make('contabilidad.M_Vinculacion');
+	}
+	public function asistencia()
+	{
+		return View::make('contabilidad.M_Asistencia');
+	}
+	public function mantenimiento()
+	{
+		return View::make('contabilidad.M_Mantenimiento');
+	}
 }

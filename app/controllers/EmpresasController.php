@@ -13,16 +13,44 @@ class EmpresasController extends BaseController {
 	|
 	|	
 	*/
-public function home()
-{
-	return View::make('home/welcome');
-}
-public function empresasgc()
-		{
-			return View::make('empresas.empresas_sgc');
-		}
+	public function home()
+	{
+		return View::make('home/welcome');
+	}
+	public function empresasgc()
+	{
+		return View::make('empresas.empresas_sgc');
+	}
 	public function macroprocesos()
 	{
 		return View::make('empresas.macroprocesos');
+	}	
+	public function administrativa()
+	{
+		return View::make('empresas.M_Administrativa');
+	}
+	public function academica()
+	{
+		return View::make('empresas.M_Academica');
+	}
+	public function docencia()
+	{
+		return View::make('empresas.M_Docencia');
+	}
+	public function investigacion()
+	{
+		return View::make('empresas.M_Investigacion');
+	}
+	public function vinculacion()
+	{
+		return View::make('empresas.M_Vinculacion');
+	}
+	public function asistencia()
+	{
+		return View::make('empresas.M_Asistencia');
+	}
+	public function mantenimiento()
+	{
+		return View::make('empresas.M_Mantenimiento');
 	}	
 }

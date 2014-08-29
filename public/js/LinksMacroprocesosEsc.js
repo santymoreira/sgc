@@ -1,37 +1,31 @@
                
+        //Enlaces a los macroprocesos de las Escuelas
 
                 function GestionAdmin()
                 { 
-                           location.href = "M_Administrativa";
+                    location.href = "M_Administrativa";
                 }
-             
-
-
-
-
-
-
-                function GestionAcademica()
+               function GestionAcademica()
                 {
-                    location.href = "Macroprocesos/GestionAcademica.php";
+                    location.href = "M_Academica";
                 }
                function Docencia()
                 {
-                    location.href = "Macroprocesos/Docencia.php";
+                    location.href = "M_Docencia";
                 } 
                 function Investigacion()
                 {
-                    location.href = "Macroprocesos/Investigacion.php";
+                    location.href = "M_Investigacion";
                 }
                 function Vinculacion()
                 {
-                    location.href = "Macroprocesos/Vinculacion.php";
+                    location.href = "M_Vinculacion";
                 }
                 function Asistencia()
                 {
-                    location.href = "Macroprocesos/Asistencia.php";
+                    location.href = "M_Asistencia";
                 }
                 function Mantenimiento()
                 {
-                    location.href = "Macroprocesos/Mantenimiento.php"
+                    location.href = "M_Mantenimiento"
                 }

@@ -5,18 +5,14 @@
 
 class TipoEmpleado extends Eloquent
 {
-    /**
-     * Set timestamps off
-     */
-    public $timestamps = false;
-    protected $table = 'tipo_empleado';
- 
-    /**
-     * Get users with a certain role
-     */
-    public function empleados(){
-        return $this->belongsToMany('Empleado', 'empleado_tipo', 'COD_TIPO', 'COD_EMPLEADO');
-    }
+        public $timestamps=false;
+        protected $table='tipo_empleado';
+        protected $primaryKey = 'COD_TIPO';
+
+        public function empleados(){
+
+            return $this->belongsToMany('Empleado','empleado_tipo','COD_EMPLEADO','COD_TIPO');
+        }  
 }
 
 ?>

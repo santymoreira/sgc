@@ -17,13 +17,40 @@ class MarketingController extends BaseController {
 	{
 		return View::make('home/welcome');
 	}
-
 	public function marketingsgc()
-		{
-			return View::make('marketing.marketing_sgc');
-		}
+	{
+		return View::make('marketing.marketing_sgc');
+	}
 	public function macroprocesos()
 	{
 		return View::make('marketing.macroprocesos');
-	}	
+	}
+	public function administrativa()
+	{
+		return View::make('marketing.M_Administrativa');
+	}
+	public function academica()
+	{
+		return View::make('marketing.M_Academica');
+	}
+	public function docencia()
+	{
+		return View::make('marketing.M_Docencia');
+	}
+	public function investigacion()
+	{
+		return View::make('marketing.M_Investigacion');
+	}
+	public function vinculacion()
+	{
+		return View::make('marketing.M_Vinculacion');
+	}
+	public function asistencia()
+	{
+		return View::make('marketing.M_Asistencia');
+	}
+	public function mantenimiento()
+	{
+		return View::make('marketing.M_Mantenimiento');
+	}		
 }

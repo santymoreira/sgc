@@ -28,8 +28,12 @@ Class Empleado extends Eloquent implements UserInterface{
         return $this->password;
     }
 
-    public function tipos_empleado(){
+    public function tipos(){
         return $this->belongsToMany('TipoEmpleado', 'empleado_tipo', 'COD_EMPLEADO', 'COD_TIPO');
+    }
+
+    public function escuelas(){
+        return $this->belongsToMany('Escuela', 'empleado_escuela', 'COD_EMPLEADO', 'COD_ESCUELA');
     }
 
 public function getRememberToken() {

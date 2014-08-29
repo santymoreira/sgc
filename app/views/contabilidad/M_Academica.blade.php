@@ -33,7 +33,7 @@
 	 <div class="content-layout" >
 
             <div id="apDiv32">
-                <img src="{{ asset('images/contabilidad/academica.png'); }}">
+                <img src="{{ asset('images/marketing/academica.png'); }}">
             </div>
 
            <!-- Procesos de la Gestión Academica -->

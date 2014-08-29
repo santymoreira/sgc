@@ -24,5 +24,33 @@ class DistanciaController extends BaseController {
 	public function macroprocesos()
 	{
 		return View::make('E_distancia.macroprocesos');
+	}
+	public function administrativa()
+	{
+		return View::make('E_distancia.M_Administrativa');
+	}
+	public function academica()
+	{
+		return View::make('E_distancia.M_Academica');
+	}
+	public function docencia()
+	{
+		return View::make('E_distancia.M_Docencia');
+	}
+	public function investigacion()
+	{
+		return View::make('E_distancia.M_Investigacion');
+	}
+	public function vinculacion()
+	{
+		return View::make('E_distancia.M_Vinculacion');
+	}
+	public function asistencia()
+	{
+		return View::make('E_distancia.M_Asistencia');
+	}
+	public function mantenimiento()
+	{
+		return View::make('E_distancia.M_Mantenimiento');
 	}	
 }
