@@ -18,16 +18,12 @@ class UserController extends \BaseController {
 		
 		//Valiables table empleado
 		$var=Input::get('nombres');
-		$temp=Input::get('tipo');
-
-		//Escuelas a las que pertence.
-		$esc1=Input::get('empresas');
-		$esc2=Input::get('financiera');
-		$esc3=Input::get('marketing');
-		$esc4=Input::get('exterior');
-		$esc5=Input::get('transporte');
-		$esc6=Input::get('contabilidad');
-		$esc7=Input::get('distancia');
+		
+		//Tipos empleado
+		$temp1=Input::get('docente');
+		$temp2=Input::get('director');
+		$temp3=Input::get('administrativo');
+		$temp4=Input::get('trabajador');
 
 		//Información Peronal
 		$empleado->CI= Input::get('ci');
@@ -38,52 +34,53 @@ class UserController extends \BaseController {
 		$empleado->CONVENCIONAL= Input::get('convencional');
 		$empleado->password= Hash::make(Input::get('ci'));
 
-		//Validaciones.
-
-			//Datos a validar
-		/*	$ced=Input::get('ci');
-			$name=Input::get('nombres');
-			$sex=Input::get('sexo');
-			$mail= Input::get('email');
-			$phone=Input::get('celular');
-			$movil= Input::get('convencional');
-			
-
-			$validar=Validator::make($nuevoEmpleado,$reglas,$mensajes); */
-			
-
-
+	
 		if($empleado->save()){
 
 			$query=DB::select('SELECT COD_EMPLEADO FROM empleado WHERE NOMBRES =?', array($var));
 			foreach ($query as $cont) {	$aux = $cont->COD_EMPLEADO; }
 			
-			//Store in the table Pivot
+			//Id del usuario.
 			 $empleado=Empleado::find($aux);
-		     $tipos=TipoEmpleado::find($temp); 
 
 
-		    //Save in the table pivot (empleado_tipo) y (empleado_escuela)	
-		    if ($empleado->tipos()->save($tipos)) {
 		    
-				if (!empty($esc1)) {
-					  $escuelas=Escuela::find($esc1); 
-					  $empleado->escuelas()->save($escuelas);
-				}		    
-		    	if (!empty($esc6)) {
-					  $escuelas1=Escuela::find($esc6); 
-					  $empleado->escuelas()->save($escuelas1);
-				}
-					Session::flash('message','Guardado correctamente!');
-					Session::flash('class','success');
-		    }	
+		   //Save in the table pivot (empleado_tipo) and (empleado_escuela)	
+
+			 	$escuelas=Escuela::find(2); 
+			    $empleado->escuelas()->save($escuelas);
+			  
+			    if (!empty($temp1))
+			    {
+			    	 $tipos1=TipoEmpleado::find($temp1); 
+			    	 $empleado->tipos()->save($tipos1);
+			   }
+			    if (!empty($temp2))
+			    {
+			    	 $tipos2=TipoEmpleado::find($temp2); 
+			    	 $empleado->tipos()->save($tipos2);
+			    }
+			    if (!empty($temp3))
+			    {
+			    	 $tipos3=TipoEmpleado::find($temp3); 
+			    	 $empleado->tipos()->save($tipos3);
+			    }
+			    if (!empty($temp4))
+			    {
+			    	 $tipos4=TipoEmpleado::find($temp4); 
+			    	 $empleado->tipos()->save($tipos4);
+			    }
+
+			Session::flash('message','Guardado correctamente!');
+			Session::flash('class','success');
+		   
 		}
 		else{
 				Session::flash('message','A ocurrido un error!');
 				Session::flash('class','danger');	
 			}
 		return Redirect::to('users/create');
-	}
+}
 
 	public function show($id)
 	{

@@ -72,43 +72,20 @@
 					<input type="text" name="convencional" placeholder="Teléfono convencional" class="form-control" >
 				</p>
 
-				<p>
-					<select name="tipo"  class="form-control">
-						<option value="4" selected>Docente</option>
-						<option value="1">Director de Escuela</option>
-						<option value="2">Administrativo</option>
-						<option value="3">Trabajador</option>
-						<option value="5">Decano</option>
-						<option value="6">Vicedecano</option>
-						<option value="7">Bibliotecario</option>
-						<option value="8">Responsable de UPREX</option>
-						<option value="9">Secretaria del CIADES</option>
-					</select>
-				</p>
-				
 				<fieldset>
-					  <legend>Pertenece a: </legend>
+					  <legend>Función: </legend>
 					 
 					  <div>
-					  		<input type="checkbox" name="empresas" value="1">ESCUELA DE INGENIERÍA EN EMPRESAS<br>
+					  		<input type="checkbox" name="docente" value="4">Docente<br>
 					  </div>
 					   <div>
-					  		<input type="checkbox" name="financiera" value="7"> ESCUELA DE INGENIERIA FINANCIERA <br>
+					  		<input type="checkbox" name="director" value="1">Director de Escuela<br>
 					  </div> 
 					   <div>
-					  		<input type="checkbox" name="marketing" value="4"> ESCUELA DE INGENIERíA EN MARKETING - IMK<br>
+					  		<input type="checkbox" name="administrativo" value="2"> Administrativo <br>
 					  </div>
 					   <div>
-					  		<input type="checkbox" name="exterior" value="3"> ESCUELA DE INGENIERíA COMERCIO EXTERIOR - IFCE<br>
-					  </div>
-					  <div>
-					  		<input type="checkbox" name="transporte" value="6"> ESCUELA DE INGENIERIA EN GESTION DE TRANSPORTE - EIGT <br>
-					  </div>
-					  <div>
-					  		<input type="checkbox" name="contabilidad" value="2"> ESCUELA DE INGENIERíA EN CONTABILIDAD Y AUDITORIA - ICA <br>
-					  </div>
- 					   <div>
-					  		<input type="checkbox" name="distancia" value="5"> ESCUELA DE INGENIERIA DE EMPRESAS, MODALIDAD FORMACIÓN DUAL PRESENCIAL - IE-MFDP<br>
+					  		<input type="checkbox" name="trabajador" value="3"> Trabajador <br>
 					  </div>
 				</fieldset> <br>
 				<p>
