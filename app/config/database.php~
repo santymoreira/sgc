@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'sistemadegestion',
 			'username'  => 'root',
-			'password'  => 'santymysql',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

@@ -9,7 +9,15 @@
 				               <li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio');}}
 							  <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/macroprocesos', 'Macroprocesos');}}
 							  <li class="nivel1"><a onclick="Alert()" class="nivel1" {{ HTML::link('users/empleados/2', 'Administración');}} 
-							  <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a></li>
+							  <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a>
+							  	<ul class="cuatro">
+            						<li><a {{ HTML::link('reportes/individual/2', 'Individual');}} </a></li>
+									<li><a {{ HTML::link('reportes/mensual/2', 'Mensual');}} </a></li>
+                					<li><a {{ HTML::link('reportes/mensual_e/2', 'Mensual Empleados');}} </a></li>
+                					<li><a {{ HTML::link('reportes/individual_e/2', 'Individual Empleados');}} </a></li>
+                 					<li><a {{ HTML::link('descargas', 'Descargas');}} </a></li>
+        						</ul>
+							  </li>
 						</ul>
 				  </div> 
 @stop
