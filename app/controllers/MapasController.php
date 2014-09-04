@@ -25,6 +25,26 @@ class MapasController extends BaseController {
 		{
 			return View::make('mapas.cont_audi_sgc');
 		}	
+	public function empresasgc()
+		{
+			return View::make('mapas.empresas_sgc');
+		}	
+	public function exteriorsgc()
+		{
+			return View::make('mapas.exterior_sgc');
+		}
+	public function finanzasgc()
+		{
+			return View::make('mapas.finanzas_sgc');
+		}	
+	public function marketingsgc()
+		{
+			return View::make('mapas.marketing_sgc');
+		}	
+	public function transportesgc()
+		{
+			return View::make('mapas.transporte_sgc');
+		}	
 	public function macroprocesos()
 	{
 		return View::make('mapas.macroprocesos');

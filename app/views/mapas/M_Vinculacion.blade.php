@@ -32,11 +32,35 @@
 
 	<div class="content-layout" >
      	
-        @if($var =1)
+        @if($var == 1)
      		 <div id="apDiv32">
-     		 	<img src="{{ asset('images/marketing/vinculacion.png'); }}">
+     		  	<img src="{{ asset('images/contabilidad/vinculacion.png'); }}">
      		 </div>
-			  @endif 
+			  @elseif($var ==2)
+        <div id="apDiv32">
+            <img src="{{ asset('images/distancia/vinculacion.png'); }}">
+         </div>
+         @elseif($var ==3)
+        <div id="apDiv32">
+            <img src="{{ asset('images/empresas/vinculacion.png'); }}">
+         </div>
+        @elseif($var ==4)
+        <div id="apDiv32">
+            <img src="{{ asset('images/exterior/vinculacion.png'); }}">
+         </div>
+        @elseif($var ==5)
+        <div id="apDiv32">
+            <img src="{{ asset('images/finanzas/vinculacion.png'); }}">
+         </div>
+          @elseif($var ==6)
+        <div id="apDiv32">
+            <img src="{{ asset('images/marketing/vinculacion.png'); }}">
+         </div>
+          @elseif($var ==7)
+        <div id="apDiv32">
+            <img src="{{ asset('images/transporte/vinculacion.png'); }}">
+         </div>
+        @endif
 			<!-- Procesos de la Getión de Vinculación -->
 
 			<div id="apDiv95">

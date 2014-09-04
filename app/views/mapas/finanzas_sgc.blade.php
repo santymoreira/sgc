@@ -24,6 +24,7 @@
 @stop
 
 @section('body')
+		{{Session::put('escuela','5')}}
         <div class="layout-cell content">    
             <div id="central"> 
                <div id="central-content"> </br></br>

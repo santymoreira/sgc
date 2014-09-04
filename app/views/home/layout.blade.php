@@ -86,13 +86,13 @@
   									<li class="nivel1"><a href="#" class="nivel1">SGC</a>
 										<ul class="uno">
                 							 <li>{{ HTML::link('fade/fade_sgc', 'Facultad de Empresas'); }}</li>
-                              <li>{{ HTML::link('contabilidad/transporte_sgc', 'Gestión de Trasporte'); }}</li>
-                              <li>{{ HTML::link('contabilidad/empresas_sgc', 'Administración de Empresas'); }}</li>
-                              <li>{{ HTML::link('contabilidad/marketing_sgc', 'Marketing'); }}</li>
+                              <li>{{ HTML::link('transporte/transporte_sgc', 'Gestión de Trasporte'); }}</li>
+                              <li>{{ HTML::link('empresas/empresas_sgc', 'Administración de Empresas'); }}</li>
+                              <li>{{ HTML::link('marketing/marketing_sgc', 'Marketing'); }}</li>
                               <li>{{ HTML::link('contabilidad/cont_audi_sgc', 'Contabilidad y Auditoria'); }}</li>
                               <li>{{ HTML::link('E_distancia/distancia_sgc', 'Educación a Distancia'); }}</li>
-                              <li>{{ HTML::link('contabilidad/exterior_sgc', 'Comercio Exterior'); }}</li>
-                              <li>{{ HTML::link('contabilidad/finanzas_sgc', 'Finanzas'); }}</li>
+                              <li>{{ HTML::link('C_exterior/exterior_sgc', 'Comercio Exterior'); }}</li>
+                              <li>{{ HTML::link('finanzas/finanzas_sgc', 'Finanzas'); }}</li>
 										</ul>
   									</li>
   									<li class="nivel1"><a href="#" class="nivel1">BSC</a>

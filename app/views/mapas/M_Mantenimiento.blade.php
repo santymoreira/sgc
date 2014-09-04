@@ -32,11 +32,35 @@
 
 		<div class="content-layout" >
      	
-            @if($var =1)
+            @if($var == 1)
      		 <div id="apDiv32">
-     		 	<img src="{{ asset('images/marketing/mantenimiento.png') }}">
+     		 	<img src="{{ asset('images/contabilidad/mantenimiento.png') }}">
      		 </div>
-            @endif    
+            @elseif($var == 2)
+            <div id="apDiv32">
+                <img src="{{ asset('images/distancia/mantenimiento.png') }}">
+             </div>
+              @elseif($var == 3)
+            <div id="apDiv32">
+                <img src="{{ asset('images/empresas/mantenimiento.png') }}">
+             </div>
+             @elseif($var == 4)
+            <div id="apDiv32">
+                <img src="{{ asset('images/exterior/mantenimiento.png') }}">
+             </div>
+              @elseif($var == 5)
+            <div id="apDiv32">
+                <img src="{{ asset('images/finanzas/mantenimiento.png') }}">
+             </div>
+               @elseif($var == 6)
+            <div id="apDiv32">
+                <img src="{{ asset('images/marketing/mantenimiento.png') }}">
+             </div>
+               @elseif($var == 7)
+            <div id="apDiv32">
+                <img src="{{ asset('images/transporte/mantenimiento.png') }}">
+             </div>
+            @endif   
 
 			<!-- Procesos de Mantenimiento --> 
 

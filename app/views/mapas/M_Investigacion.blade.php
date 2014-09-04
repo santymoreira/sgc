@@ -32,10 +32,34 @@
 	 
 	 <div class="content-layout" >
 			
-      @if($var = 1)  
+      @if($var == 1)  
 			<div id="apDiv32">
-			  		<img src="{{ asset('images/marketing/investigacion.png'); }}">
+			  		<img src="{{ asset('images/contabilidad/investigacion.png'); }}">
 			</div>	
+      @elseif($var ==2)
+      <div id="apDiv32">
+            <img src="{{ asset('images/distancia/investigacion.png'); }}">
+      </div> 
+       @elseif($var ==3)
+      <div id="apDiv32">
+            <img src="{{ asset('images/empresas/investigacion.png'); }}">
+      </div>  
+       @elseif($var ==4)
+      <div id="apDiv32">
+            <img src="{{ asset('images/exterior/investigacion.png'); }}">
+      </div>  
+        @elseif($var ==5)
+      <div id="apDiv32">
+            <img src="{{ asset('images/finanzas/investigacion.png'); }}">
+      </div> 
+       @elseif($var ==6)
+      <div id="apDiv32">
+            <img src="{{ asset('images/marketing/investigacion.png'); }}">
+      </div> 
+       @elseif($var ==7)
+      <div id="apDiv32">
+            <img src="{{ asset('images/transporte/investigacion.png'); }}">
+      </div>  
       @endif
 
 			<!-- Procesos de la Gestión de Investigacion -->

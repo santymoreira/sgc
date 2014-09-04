@@ -36,6 +36,30 @@
             <div id="apDiv32">
                 <img src="{{ asset('images/contabilidad/academica.png'); }}">
             </div>
+            @elseif($var == 2)
+            <div id="apDiv32">
+                <img src="{{ asset('images/distancia/academica.png'); }}">
+            </div>
+             @elseif($var == 3)
+            <div id="apDiv32">
+                <img src="{{ asset('images/empresas/academica.png'); }}">
+            </div>
+              @elseif($var == 4)
+            <div id="apDiv32">
+                <img src="{{ asset('images/exterior/academica.png'); }}">
+            </div>
+              @elseif($var == 5)
+            <div id="apDiv32">
+                <img src="{{ asset('images/finanzas/academica.png'); }}">
+            </div>
+              @elseif($var == 6)
+            <div id="apDiv32">
+                <img src="{{ asset('images/marketing/academica.png'); }}">
+            </div>
+              @elseif($var == 7)
+            <div id="apDiv32">
+                <img src="{{ asset('images/transporte/academica.png'); }}">
+            </div>
             @endif
 
            <!-- Procesos de la Gestión Academica -->

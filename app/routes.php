@@ -161,29 +161,65 @@ Route::get('E_distancia/M_Asistencia', 'MapasController@asistencia');
 Route::get('E_distancia/M_Mantenimiento', 'MapasController@mantenimiento');
 
 //Escuela de Administración de Empresas
-/*Route::get('home/welcome', 'EmpresasController@home');  
-Route::get('empresas/empresas_sgc', 'EmpresasController@empresasgc');
-Route::get('empresas/macroprocesos', 'EmpresasController@macroprocesos');
+Route::get('home/welcome', 'MapasController@home');  
+Route::get('empresas/empresas_sgc', 'MapasController@empresasgc');
+Route::get('empresas/macroprocesos', 'MapasController@macroprocesos');
+Route::get('empresas/M_Administrativa', 'MapasController@administrativa');
+Route::get('empresas/M_Academica', 'MapasController@academica');
+Route::get('empresas/M_Docencia', 'MapasController@docencia');
+Route::get('empresas/M_Investigacion', 'MapasController@investigacion');
+Route::get('empresas/M_Vinculacion', 'MapasController@vinculacion');
+Route::get('empresas/M_Asistencia', 'MapasController@asistencia');
+Route::get('empresas/M_Mantenimiento', 'MapasController@mantenimiento');
 
 //Escuela de Comercio Exterior
-Route::get('home/welcome', 'ExteriorController@home');
+Route::get('home/welcome', 'MapasController@home');
 Route::get('C_exterior/exterior_sgc', 'MapasController@exteriorsgc');
 Route::get('C_exterior/macroprocesos', 'MapasController@macroprocesos');
+Route::get('C_exterior/M_Administrativa', 'MapasController@administrativa');
+Route::get('C_exterior/M_Academica', 'MapasController@academica');
+Route::get('C_exterior/M_Docencia', 'MapasController@docencia');
+Route::get('C_exterior/M_Investigacion', 'MapasController@investigacion');
+Route::get('C_exterior/M_Vinculacion', 'MapasController@vinculacion');
+Route::get('C_exterior/M_Asistencia', 'MapasController@asistencia');
+Route::get('C_exterior/M_Mantenimiento', 'MapasController@mantenimiento');
+
 
 //Escuela de Finanzas
-Route::get('home/welcome', 'FinanzasController@home');
-Route::get('finanzas/finanzas_sgc', 'FinanzasController@finanzassgc');
-Route::get('finanzas/macroprocesos', 'FinanzasController@macroprocesos');
+Route::get('home/welcome', 'MapasController@home');
+Route::get('finanzas/finanzas_sgc', 'MapasController@finanzasgc');
+Route::get('finanzas/macroprocesos', 'MapasController@macroprocesos');
+Route::get('finanzas/M_Administrativa', 'MapasController@administrativa');
+Route::get('finanzas/M_Academica', 'MapasController@academica');
+Route::get('finanzas/M_Docencia', 'MapasController@docencia');
+Route::get('finanzas/M_Investigacion', 'MapasController@investigacion');
+Route::get('finanzas/M_Vinculacion', 'MapasController@vinculacion');
+Route::get('finanzas/M_Asistencia', 'MapasController@asistencia');
+Route::get('finanzas/M_Mantenimiento', 'MapasController@mantenimiento');
 
 //Escuela de Marketing
-Route::get('home/welcome', 'MarketingController@home');
-Route::get('marketing/marketing_sgc', 'MarketingController@marketingsgc');
-Route::get('marketing/macroprocesos', 'MarketingController@macroprocesos');
+Route::get('home/welcome', 'MapasController@home');
+Route::get('marketing/marketing_sgc', 'MapasController@marketingsgc');
+Route::get('marketing/macroprocesos', 'MapasController@macroprocesos');
+Route::get('marketing/M_Administrativa', 'MapasController@administrativa');
+Route::get('marketing/M_Academica', 'MapasController@academica');
+Route::get('marketing/M_Docencia', 'MapasController@docencia');
+Route::get('marketing/M_Investigacion', 'MapasController@investigacion');
+Route::get('marketing/M_Vinculacion', 'MapasController@vinculacion');
+Route::get('marketing/M_Asistencia', 'MapasController@asistencia');
+Route::get('marketing/M_Mantenimiento', 'MapasController@mantenimiento');
 
 //Escuela de Gestión de Transporte
-Route::get('home/welcome', 'TransporteController@home');
-Route::get('transporte/transporte_sgc', 'TransporteController@transportesgc');
-Route::get('transporte/macroprocesos', 'TransporteController@macroprocesos'); */
+Route::get('home/welcome', 'MapasController@home');
+Route::get('transporte/transporte_sgc', 'MapasController@transportesgc');
+Route::get('transporte/macroprocesos', 'MapasController@macroprocesos'); 
+Route::get('transporte/M_Administrativa', 'MapasController@administrativa');
+Route::get('transporte/M_Academica', 'MapasController@academica');
+Route::get('transporte/M_Docencia', 'MapasController@docencia');
+Route::get('transporte/M_Investigacion', 'MapasController@investigacion');
+Route::get('transporte/M_Vinculacion', 'MapasController@vinculacion');
+Route::get('transporte/M_Asistencia', 'MapasController@asistencia');
+Route::get('transporte/M_Mantenimiento', 'MapasController@mantenimiento');
 
 
 

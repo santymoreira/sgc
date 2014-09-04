@@ -40,8 +40,34 @@
   
 	 <div class="content-layout" >
            @if($var ==1)
-            <div id="apDiv32"><img src="{{ asset('images/contabilidad/administrativa.png') }}"></div>   
-           @endif 
+            <div id="apDiv32">
+              <img src="{{ asset('images/contabilidad/administrativa.png') }}">
+            </div>   
+           @elseif($var ==2)
+            <div id="apDiv32">
+              <img src="{{ asset('images/distancia/administrativa.png') }}">
+            </div>
+           @elseif($var ==3)
+            <div id="apDiv32">
+              <img src="{{ asset('images/empresas/administrativa.png') }}">
+            </div> 
+          @elseif($var ==4)
+            <div id="apDiv32">
+              <img src="{{ asset('images/exterior/administrativa.png') }}">
+            </div> 
+           @elseif($var ==5)
+            <div id="apDiv32">
+              <img src="{{ asset('images/finanzas/administrativa.png') }}">
+            </div>
+           @elseif($var ==6)
+            <div id="apDiv32">
+              <img src="{{ asset('images/marketing/administrativa.png') }}">
+            </div>
+           @elseif($var ==7)
+            <div id="apDiv32">
+              <img src="{{ asset('images/transporte/administrativa.png') }}">
+            </div> 
+           @endif
 
          <!-- Procesos de la Gestión Administrativa -->   	
              <div id="apDiv33">
