@@ -2,7 +2,7 @@
 
 @section('Different_Styles')
 	@parent
-	{{ HTML::style('css/StylesMacroprocesos.css'); }}
+	{{ HTML::style('css/StylesMacroprocesos.css'); $var=Session::get('escuela'); }}
 @stop
 
 @section('options')
@@ -24,7 +24,14 @@
 @stop
 @section('body')
         <div class="content-layout" >
-          <div id="apDiv21"><center><img src="{{ asset('images/contabilidad/contenedor.png') }}"></center></div>
+         @if($var ==1)
+            <div id="apDiv21"><center><img src="{{ asset('images/contabilidad/contenedor.png') }}"></center></div>
+          @elseif($var ==2)
+         
+              <div id="apDiv21"><center><img src="{{ asset('images/Distancia/contenedor.png') }}"></center></div>
+        @endif         
+        
+
             <div class="cleared"> 
 			   <div id="apDiv22">
                     <img onclick="GestionAdmin();" id="gestionadmin" src="{{ asset('images/MacroprocesosEscuelas/GestionAdmin.png') }}" style="cursor:pointer;" width="670" height="51">

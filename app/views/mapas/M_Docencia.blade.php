@@ -5,7 +5,7 @@
 	{{ HTML::style('css/StylesDocencia.css'); }}
 	{{ HTML::style('css/Evaluacionfloatbox.css'); }}
 	{{ HTML::script('js/Evaluacionfloatbox.js'); }}
-	{{ HTML::script('js/FocusDocencia.js'); }} 
+	{{ HTML::script('js/FocusDocencia.js'); $var=Session::get('escuela'); }} 
 
 @stop
 
@@ -32,10 +32,11 @@
 
 	<div class="content-layout" >
 
+        @if($var == 1)
 			  <div id="apDiv32">
 			  		<img src=" {{ asset('images/marketing/docencia.png'); }}">
 			  </div>	
-         
+        @endif 
 		  <!-- Procesos de la Gestión de Docencia -->
 		    <div id="apDiv88">
                 <a  href="{{ asset('images/FichasProcesos/Fichas(afeg01-01)/proceso.png'); }}" rel="slideshow1">

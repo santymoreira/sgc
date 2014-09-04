@@ -5,7 +5,7 @@
 	{{ HTML::style('css/StylesAsistencia.css'); }}
 	{{ HTML::style('css/Evaluacionfloatbox.css'); }}
 	{{ HTML::script('js/Evaluacionfloatbox.js'); }}
-    {{ HTML::script('js/FocusAsistencia.js'); }}
+    {{ HTML::script('js/FocusAsistencia.js'); $var=Session::get('escuela'); }}
 
 @stop
 
@@ -32,7 +32,9 @@
 
 	<div class="content-layout" >
     
-			<div id="apDiv32"><img src="{{ asset('images/marketing/asistencia.png') }}"></div>
+      @if($var == 1)
+		  	<div id="apDiv32"><img src="{{ asset('images/marketing/asistencia.png') }}"></div>
+      @endif
 		
 			<!-- Procesos de la Asistencia --> 
 

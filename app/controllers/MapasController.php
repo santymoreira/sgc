@@ -1,6 +1,6 @@
 <?php
 
-class ExteriorController extends BaseController {
+class MapasController extends BaseController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -14,43 +14,47 @@ class ExteriorController extends BaseController {
 	|	
 	*/
 	public function home()
-	{
+		{
 			return View::make('home.welcome');
-	}
-	public function exteriorsgc()
-	{
-			return View::make('C_exterior.exterior_sgc');
-	}
+		}
+	public function distanciasgc()
+		{
+			return View::make('mapas.distancia_sgc');
+		}
+	public function contabilidadsgc()
+		{
+			return View::make('mapas.cont_audi_sgc');
+		}	
 	public function macroprocesos()
 	{
-		return View::make('C_exterior.macroprocesos');
-	}
+		return View::make('mapas.macroprocesos');
+	}	
 	public function administrativa()
 	{
-		return View::make('C_exterior.M_Administrativa');
+		return View::make('mapas.M_Administrativa');
 	}
 	public function academica()
 	{
-		return View::make('C_exterior.M_Academica');
+		return View::make('mapas.M_Academica');
 	}
 	public function docencia()
 	{
-		return View::make('C_exterior.M_Docencia');
+		return View::make('mapas.M_Docencia');
 	}
 	public function investigacion()
 	{
-		return View::make('C_exterior.M_Investigacion');
+		return View::make('mapas.M_Investigacion');
 	}
 	public function vinculacion()
 	{
-		return View::make('C_exterior.M_Vinculacion');
+		return View::make('mapas.M_Vinculacion');
 	}
 	public function asistencia()
 	{
-		return View::make('C_exterior.M_Asistencia');
+		return View::make('mapas.M_Asistencia');
 	}
 	public function mantenimiento()
 	{
-		return View::make('empresas.M_Mantenimiento');
-	}		
+		return View::make('mapas.M_Mantenimiento');
+	}
 }

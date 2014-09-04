@@ -5,7 +5,7 @@
 	{{ HTML::style('css/StylesMantenimiento.css'); }}
 	{{ HTML::style('css/Evaluacionfloatbox.css'); }}
 	{{ HTML::script('js/Evaluacionfloatbox.js'); }}
-    {{ HTML::script('js/FocusMantenimiento.js'); }}
+    {{ HTML::script('js/FocusMantenimiento.js'); $var=Session::get('escuela'); }}
 
 @stop
 
@@ -32,10 +32,11 @@
 
 		<div class="content-layout" >
      	
+            @if($var =1)
      		 <div id="apDiv32">
      		 	<img src="{{ asset('images/marketing/mantenimiento.png') }}">
      		 </div>
-
+            @endif    
 
 			<!-- Procesos de Mantenimiento --> 
 

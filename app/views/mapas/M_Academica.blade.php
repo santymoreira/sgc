@@ -5,7 +5,7 @@
 	{{ HTML::style('css/StylesAcademica.css'); }}
 	{{ HTML::style('css/Evaluacionfloatbox.css'); }}
 	{{ HTML::script('js/Evaluacionfloatbox.js'); }}
-	{{ HTML::script('js/FocusAcademica.js'); }} 
+	{{ HTML::script('js/FocusAcademica.js'); $var=Session::get('escuela'); }} 
 
 @stop
 
@@ -32,9 +32,11 @@
 	 
 	 <div class="content-layout" >
 
+            @if($var == 1)
             <div id="apDiv32">
-                <img src="{{ asset('images/marketing/academica.png'); }}">
+                <img src="{{ asset('images/contabilidad/academica.png'); }}">
             </div>
+            @endif
 
            <!-- Procesos de la Gestión Academica -->
 

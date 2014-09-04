@@ -5,7 +5,7 @@
 {{ HTML::style('css/StylesAdministrativa.css'); }}
   {{ HTML::style('css/Evaluacionfloatbox.css'); }}
   {{ HTML::script('js/Evaluacionfloatbox.js'); }}
-  {{ HTML::script('js/FocusAdministrativa.js'); }}
+  {{ HTML::script('js/FocusAdministrativa.js');  $var= Session::get('escuela'); }}
 
 @stop
 
@@ -37,8 +37,11 @@
 
 @section('body')
 	 
+  
 	 <div class="content-layout" >
+           @if($var ==1)
             <div id="apDiv32"><img src="{{ asset('images/contabilidad/administrativa.png') }}"></div>   
+           @endif 
 
          <!-- Procesos de la Gestión Administrativa -->   	
              <div id="apDiv33">
