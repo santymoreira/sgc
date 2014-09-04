@@ -13,8 +13,8 @@
 
 Route::get('/', function()
 {
-	//return View::make('hello');
-	return Redirect::to('home');
+    //return View::make('hello');
+    return Redirect::to('home');
 });
 
 // esta sera la ruta principal de nuestra aplicación
@@ -61,6 +61,7 @@ Route::post('layout', function(){
 
         return Redirect::to('home')->with('mensaje_login', 'Ingreso invalido');
     }
+
  
 });
 
@@ -103,6 +104,9 @@ Route::post('/categories', array('uses' => 'EmpleadosController@insertar'));
 
 Route::get('/pruebav01', array('uses' => 'EmpleadosController@mostrarEmp'));
 Route::get('/datos', array('uses' => 'HomeController@envios_ajax'));
+
+Route::get('/tipos', array('uses' => 'ReportesController@mostrarTipo'));
+Route::post('/proceso', array('uses' => 'ReportesController@proceso'));
 
 //Controllers Escuela programmer.
 
@@ -185,3 +189,7 @@ Route::get('users/destroy/{cod}','UserController@destroy');
 //Mostrar un empleado
   Route::get('users/show/{cod}', 'UserController@show');
 
+
+
+//Reporte Individual
+  Route::get('reportes/individual/{cod}', 'ReportesController@individual');
