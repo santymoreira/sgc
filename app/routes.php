@@ -59,6 +59,7 @@ Route::post('layout', function(){
         //return Redirect::to('home')->with('mensaje_login', json_encode($tipo));
     }else{
 
+
         return Redirect::to('home')->with('mensaje_login', 'Ingreso invalido');
     }
 
@@ -106,7 +107,8 @@ Route::get('/pruebav01', array('uses' => 'EmpleadosController@mostrarEmp'));
 Route::get('/datos', array('uses' => 'HomeController@envios_ajax'));
 
 Route::get('/tipos', array('uses' => 'ReportesController@mostrarTipo'));
-Route::post('/proceso', array('uses' => 'ReportesController@proceso'));
+Route::post('/combo1', array('uses' => 'ReportesController@combo1'));
+Route::post('/combo2', array('uses' => 'ReportesController@combo2'));
 
 //Controllers Escuela programmer.
 

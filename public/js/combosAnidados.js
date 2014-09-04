@@ -3,9 +3,12 @@
       e.preventDefault();
        var opcion=$(this).val();
 
-           $("#contenido").load("../../proceso",
+           $("#contenido").load("../../combo1",
             {op: opcion}
             );
+
 });
 
   });
+
+

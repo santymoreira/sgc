@@ -31,12 +31,21 @@ class ReportesController extends BaseController {
     	echo $response;
     }
 
-    public function proceso()
+    public function combo2()
     {
     	$opcion=Input::get('op');
-    	$usuarios = DB::table('proceso')->where('TIPO_EMPLEADO', '=', $opcion)->get();
+        $tip=Input::get('tip');
+    	$usuarios = DB::table('proceso')->where('TIPO_EMPLEADO', '=', $tip)->where('COD_MACROPROCESO','=',$opcion)->get();
     	 return View::make('reportes.procesos', array('empleados' => $usuarios));
     	 //return View::make('reportes.procesos');
+    }
+
+    public function combo1()
+    {
+        $opcion=Input::get('op');
+
+        $macroprocesos=DB::select('SELECT distinct(m.COD_MACROPROCESO) as OBJETIVO,m.NOMBRE as DESCRIPCION from macroproceso as m inner join proceso as p on m.COD_MACROPROCESO=p.COD_MACROPROCESO where p.TIPO_EMPLEADO='.$opcion.';');
+        return View::make('reportes.macroprocesos', array('empleados' => $macroprocesos,'tipo_e' => $opcion));
     }
 
 }
