@@ -50,7 +50,7 @@
   			<h4>Actualización de Empleados</h4>
   		</div>
   		<div class="panel-body" >
-		  	@foreach($user as $user)
+		  	@if(!empty($user))
   				<form method="post" action="../update/{{ $user->COD_EMPLEADO }}">
 				<p>
 						<input value="{{ $user->CI }}" type="text" name="ci" placeholder="Cédula de Identidad" class="form-control" required>
@@ -80,122 +80,55 @@
 				<p>
 					<input value="{{ $user->CONVENCIONAL }}" type="text" name="convencional" placeholder="Teléfono convencional" class="form-control" >
 				</p>
-				<p>
-				@if( $user->COD_TIPO == 1)
-					<select name="tipos"  class="form-control">
-						<option value="1">Director de Escuela</option>
-						<option value="4">Docente</option>
-						<option value="2">Administrativo</option>
-						<option value="3">Trabajador</option>
-						<option value="5">Decano</option>
-						<option value="6">Vicedecano</option>
-						<option value="7">Bibliotecario</option>
-						<option value="8">Responsable de UPREX</option>
-						<option value="9">Secretaria del CIADES</option>
-					</select>
-				@elseif($user->COD_TIPO == 2)
-				<select name="tipos"  class="form-control">
-						<option value="2">Administrativo</option>
-						<option value="1">Director de Escuela</option>
-						<option value="4">Docente</option>
-						<option value="3">Trabajador</option>
-						<option value="5">Decano</option>
-						<option value="6">Vicedecano</option>
-						<option value="7">Bibliotecario</option>
-						<option value="8">Responsable de UPREX</option>
-						<option value="9">Secretaria del CIADES</option>
-				</select>
-				@elseif($user->COD_TIPO == 3)	
-				<select name="tipos"  class="form-control">		
-						<option value="3">Trabajador</option>
-						<option value="2">Administrativo</option>
-						<option value="1">Director de Escuela</option>
-						<option value="4">Docente</option>
-						<option value="5">Decano</option>
-						<option value="6">Vicedecano</option>
-						<option value="7">Bibliotecario</option>
-						<option value="8">Responsable de UPREX</option>
-						<option value="9">Secretaria del CIADES</option>
-				</select>
-				@elseif($user->COD_TIPO == 4)	
-				<select name="tipos"  class="form-control">	
-						<option value="4">Docente</option>
-						<option value="5">Decano</option>
-						<option value="3">Trabajador</option>
-						<option value="2">Administrativo</option>
-						<option value="1">Director de Escuela</option>
-						<option value="6">Vicedecano</option>
-						<option value="7">Bibliotecario</option>
-						<option value="8">Responsable de UPREX</option>
-						<option value="9">Secretaria del CIADES</option>
-				</select>
-				@elseif($user->COD_TIPO == 5)	
-				<select name="tipos"  class="form-control">
-						<option value="5">Decano</option>
-						<option value="4">Docente</option>
-						<option value="3">Trabajador</option>
-						<option value="2">Administrativo</option>
-						<option value="1">Director de Escuela</option>
-						<option value="6">Vicedecano</option>
-						<option value="7">Bibliotecario</option>
-						<option value="8">Responsable de UPREX</option>
-						<option value="9">Secretaria del CIADES</option>
-				</select>
-				@elseif($user->COD_TIPO == 6)	
-				<select name="tipos"  class="form-control">
-						<option value="5">Decano</option>
-						<option value="4">Docente</option>
-						<option value="3">Trabajador</option>
-						<option value="2">Administrativo</option>
-						<option value="1">Director de Escuela</option>
-						<option value="6">Vicedecano</option>
-						<option value="7">Bibliotecario</option>
-						<option value="8">Responsable de UPREX</option>
-						<option value="9">Secretaria del CIADES</option>
-				</select>
-				@elseif($user->COD_TIPO == 7)	
-				<select name="tipos"  class="form-control">
-						<option value="7">Bibliotecario</option>
-						<option value="5">Decano</option>
-						<option value="4">Docente</option>
-						<option value="3">Trabajador</option>
-						<option value="2">Administrativo</option>
-						<option value="1">Director de Escuela</option>
-						<option value="6">Vicedecano</option>
-						<option value="8">Responsable de UPREX</option>
-						<option value="9">Secretaria del CIADES</option>
-				</select>
-				@elseif($user->COD_TIPO == 8)	
-				<select name="tipos" class="form-control">
-						<option value="8">Responsable de UPREX</option>
-						<option value="7">Bibliotecario</option>
-						<option value="5">Decano</option>
-						<option value="4">Docente</option>
-						<option value="3">Trabajador</option>
-						<option value="2">Administrativo</option>
-						<option value="1">Director de Escuela</option>
-						<option value="6">Vicedecano</option>
-						<option value="9">Secretaria del CIADES</option>
-				</select>
-				@else	
-				<select name="tipos"  class="form-control">
-						<option value="9">Secretaria del CIADES</option>
-						<option value="8">Responsable de UPREX</option>
-						<option value="7">Bibliotecario</option>
-						<option value="5">Decano</option>
-						<option value="4">Docente</option>
-						<option value="3">Trabajador</option>
-						<option value="2">Administrativo</option>
-						<option value="1">Director de Escuela</option>
-						<option value="6">Vicedecano</option>
-				</select>
-				@endif
-				</p>
-					<input type="hidden" value="{{ $user->COD_TIPO }}" name="lastype">
+			   @endif
+			   <p>
+			   			<div>
+					  		<input type="checkbox" id="dire" name="director" value="1">Director de Escuela<br>
+					  	</div>
+						<div>
+					  		<input type="checkbox" id="admin" name="director" value="2">Administrativo<br>
+					  	</div>
+						<div>
+					  		<input type="checkbox" id="trab" name="director" value="3">Trabajador<br>
+					  	</div>
+						<div>
+					  		<input type="checkbox" id="doc" name="director" value="4">Docente<br>
+					  	</div>
+			   		@foreach($funcion as $funcion)
+			   			
+					  	<div>
+					  		<input type="hidden" id="{{$funcion->COD_TIPO}}" value="{{$funcion->COD_TIPO}}">
+					  		
+					  	</div>
+					  
+					@endforeach
+					<script type="text/javascript">
+						$( document ).ready(function() {
+  							if ($("#4").val()==4)
+  							 {
+  							 	$('#doc').attr('checked', "true");
+  							 };
+  							 if ($("#1").val()==1)
+  							 {
+  							 	$('#dire').attr('checked', "true");
+  							 };
+  							 if ($("#2").val()==2)
+  							 {
+  							 	$('#dmin').attr('checked', "true");
+  							 };
+  							 if ($("#3").val()==3)
+  							 {
+  							 	$('#trab').attr('checked', "true");
+  							 };
+						});
+											
+					</script>
+			   </p>
+				   
 					 <input type="submit" value="Guardar" class="btn btn-success">
 					  <a href="/users" class="btn btn-default">Regresar</a>
 				</form>
-		    @endforeach
+		 
 		</div>
 
 @stop

@@ -31,10 +31,10 @@
   <li class="nivel1"><a href="#" class="nivel1">SGC</a>
 	<ul class="uno">
                 <li><a href="Vista/MacroFADE.php">FADE</a></li>
-            	<li><a href="#">Gestion de Transporte</a></li>
+            	  <li><a href="#">Gestion de Transporte</a></li>
                 <li><a href="#">Administracion de Empresas</a></li>
                 <li><a href="#">Marketing</a></li>
-                  <li>{{ HTML::link('contabilidad/cont_audi_sgc', 'Contabilidad y Auditoria'); }}</li>
+                <li>{{ HTML::link('mapas/cont_audi_sgc', 'Contabilidad y Auditoria'); }}</li>
                 <li><a href="#">Educacion a Distancia</a></li>
                 <li><a href="#">Comercio Exterior</a></li>
                 <li><a href="#">Finanzas</a></li>

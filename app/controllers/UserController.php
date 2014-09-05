@@ -42,9 +42,7 @@ class UserController extends \BaseController {
 			
 			//Id del usuario.
 			 $empleado=Empleado::find($aux);
-
-
-		    
+    
 		   //Save in the table pivot (empleado_tipo) and (empleado_escuela)	
 
 			 	$escuelas=Escuela::find(2); 
@@ -84,7 +82,7 @@ class UserController extends \BaseController {
 
 	public function show($id)
 	{
-		$user= empleado::find($id);
+		$user= DB::select('CALL ShowEmpleado('.$id.')');
 		return View::make('users.show')->with('user',$user);
 	}
 
@@ -97,8 +95,11 @@ class UserController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$user= DB::select('CALL ShowEmpleado('.$id.')');
-		return View::make('users.edit')->with('user',$user);
+		//$user= DB::select('CALL ShowEmpleado('.$id.')');
+		$user =  Empleado::find($id);
+		$funcion= DB::select('CALL FuncionEmp('.$id.')');
+
+		return View::make('users.edit',array('user'=>$user,'funcion'=>$funcion));
 	}
 	/**
 	 * Update the specified resource in storage.
@@ -119,19 +120,154 @@ class UserController extends \BaseController {
 		$empleado->password= Hash::make(Input::get('ci'));
 		
 		//Variable de tipos
-		$tipo=Input::get('tipos');
-		$lastype=Input::get('lastype');
-		
+		$temp1=Input::get('director');
+		$temp2=Input::get('administrativo');
+		$temp3=Input::get('trabajador');
+		$temp4=Input::get('docente');
+
 		if($empleado->save()){
 
-			//$tipos=TipoEmpleado::find($tipo); 
-			//$empleado->tipos()->save($tipos);
-			DB::update('update empleado_tipo set COD_TIPO = ?, COD_EMPLEADO = ? where COD_TIPO = ? and COD_EMPLEADO= ?', array($tipo, $id, $lastype, $id)); 
-
+			//Variables auxiliares del tipoEmpleado para que funcionen por el else
+			$auxdi=1;
+			$auxa=2;
+			$auxt=3;
+			$auxd=4;
 		
-			Session::flash('message','Actualizado correctamente!');
-			Session::flash('class','success');			
-		}else{
+			//Tipo = Director
+
+			if(!empty($temp1))
+			{
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp1.';');
+
+					foreach ($query as $cont) 
+					{	
+						$ban = $cont->valor; 
+					}
+				
+				if($ban != 1)
+				{
+					 $tipos1=TipoEmpleado::find($temp1); 
+			    	 $empleado->tipos()->save($tipos1);	
+				}
+			}
+			else{
+					
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxdi.';');
+
+					foreach ($query as $cont) 
+					{	
+						$ban = $cont->valor; 
+					}
+				
+				if($ban !=0 ) 
+				{
+					DB::delete('delete from empleado_tipo where COD_EMPLEADO = ? and COD_TIPO = ? ', array($id,$auxdi));
+				} 	
+			} 
+
+			//Tipo = Administrativo
+
+			if(!empty($temp2))
+			{
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp2.';');
+
+					foreach ($query as $cont) 
+					{	
+						$ban = $cont->valor; 
+					}
+				
+				if($ban != 1)
+				{
+					 $tipos2=TipoEmpleado::find($temp2); 
+			    	 $empleado->tipos()->save($tipos2);	
+				}
+			}
+			else{
+					
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxa.';');
+
+					foreach ($query as $cont) 
+					{	
+						$ban = $cont->valor; 
+					}
+				
+				if($ban !=0 ) 
+				{
+					DB::delete('delete from empleado_tipo where COD_EMPLEADO = ? and COD_TIPO = ? ', array($id,$auxa));
+				} 	
+			} 
+
+			//Tipo = Trabajador
+
+			if(!empty($temp3))
+			{
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp3.';');
+
+					foreach ($query as $cont) 
+					{	
+						$ban = $cont->valor; 
+					}
+				
+				if($ban != 1)
+				{
+					 $tipos3=TipoEmpleado::find($temp3); 
+			    	 $empleado->tipos()->save($tipos3);	
+				}
+			}
+			else{
+					
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxt.';');
+
+					foreach ($query as $cont) 
+					{	
+						$ban = $cont->valor; 
+					}
+				
+				if($ban !=0 ) 
+				{
+					DB::delete('delete from empleado_tipo where COD_EMPLEADO = ? and COD_TIPO = ? ', array($id,$auxt));
+				} 	
+			} 
+
+			// Tipo = Docente
+
+			if(!empty($temp4))
+			{
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp4.';');
+
+					foreach ($query as $cont) 
+					{	
+						$ban = $cont->valor; 
+					}
+				
+				if($ban != 1)
+				{
+					 $tipos4=TipoEmpleado::find($temp4); 
+			    	 $empleado->tipos()->save($tipos4);	
+				}
+			}
+			else{
+					
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxd.';');
+
+					foreach ($query as $cont) 
+					{	
+						$ban = $cont->valor; 
+					}
+				
+				if($ban !=0 ) 
+				{
+					DB::delete('delete from empleado_tipo where COD_EMPLEADO = ? and COD_TIPO = ? ', array($id,$auxd));
+						Session::flash('message','Actualizado correctamente!');
+						Session::flash('class','success');	
+				} 	
+			} 
+
+				Session::flash('message','Actualizado correctamente!');
+				Session::flash('class','success');			
+		}
+		else
+		{
 			Session::flash('message','A ocurrido un error!');
 			Session::flash('class','danger');	
 		}
@@ -146,13 +282,12 @@ class UserController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-			
 		
-		
+		$escuelas=2;
 		$empleado= empleado::find($id);
 
-		
-		if($empleado->delete()){
+		//DB::delete('delete from empleado_escuela where COD_EMPLEADO = ? and COD_ESCUELA = ? ', array($id,$escuelas));
+		if($empleado->escuelas()->detach($escuelas)){
 			Session::flash('message','Eliminado correctamente!');
 			Session::flash('class','success');			
 		}else{

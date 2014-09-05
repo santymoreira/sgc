@@ -59,18 +59,20 @@
 						<th class="fuentes">Correo Electrónico</th>
 						<th class="fuentes">Celular</th>
 						<th class="fuentes">Convencional</th>
+						<th class="fuentes">Tipo Empleado</th>
 					</tr>
 				</thead>
 				<tbody>
-					@if (!empty($user))  	
+					@foreach ($user as $user)  	
 						<tr >
 							<td class="fuentes">{{ $user->CI }}</td>
 							<td class="fuentes">{{ $user->NOMBRES }}</td>
 							<td class="fuentes">{{ $user->EMAIL }}</td>
 							<td class="fuentes">{{ $user->CELULAR }}</td>
 							<td class="fuentes">{{ $user->CONVENCIONAL }}</td>
+							<td class="fuentes">{{ $user->DESCRIPCION }}</td>
 						</tr>
-					@endif
+					@endforeach
 				</tbody>
 			</table>
   		</div>
