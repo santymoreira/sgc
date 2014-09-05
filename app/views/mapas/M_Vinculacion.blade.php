@@ -9,6 +9,12 @@
 
 @stop
 
+@section('not_general_styles')
+  {{ HTML::style('css/floatbox_1.css'); }}
+  {{ HTML::script('js/framebox_1.js'); }}
+
+@stop
+
 @section('options')
    	
    			 <div id="menu">
@@ -88,17 +94,17 @@
       		  <!-- Códigos de procesos Gestión de Vinculación  -->   
 
       		<div id="apDiv105">
-                    <a style="cursor:default;" href="../Modales_Macroprocesos/Modales_Vinculacion/Realizar_tutoria_practicas_DOC.php"  rel="floatbox">
+                    <a style="cursor:default;" href="../evaluacion/Realizar tutorías de prácticas/Docente/3/2/1/4/1"  rel="floatbox">
                         <img id="afeg03_1" src="{{ asset('images/ProcesosEscuelas/cod_afeg03-01.png'); }}" width="50" height="15">
                     </a>           
             </div> 
             <div id="apDiv106">
-                    <a style="cursor:default;" href="../Modales_Macroprocesos/Modales_Vinculacion/Realizar_informe_practicas_DOC.php"  rel="floatbox">
+                    <a style="cursor:default;" href="../evaluacion/Realizar informes de prácticas/Docente/3/2/2/4/1"  rel="floatbox">
                     	<img id="afeg03_2" src="{{ asset('images/ProcesosEscuelas/cod_afeg03-02.png'); }}" width="50" height="15">
                     </a>    
             </div>  
             <div id="apDiv107">
-                    <a style="cursor:default;" href="../Modales_Macroprocesos/Modales_Vinculacion/Hacer_convenios_DOC.php"  rel="floatbox">
+                    <a style="cursor:default;" href="../evaluacion/Hacer convenios/Docente/3/2/3/4/1"  rel="floatbox">
                         <img id="afeg03_3" src="{{ asset('images/ProcesosEscuelas/cod_afeg03-03.png'); }}" width="50" height="15">
                     </a>         
             </div>

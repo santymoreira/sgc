@@ -9,6 +9,12 @@
 
 @stop
 
+@section('not_general_styles')
+  {{ HTML::style('css/floatbox_1.css'); }}
+  {{ HTML::script('js/framebox_1.js'); }}
+
+@stop
+
 @section('options')
    	
    			 <div id="menu">
@@ -144,57 +150,57 @@
     	<!-- Códigos de procesos de Mantenimiento -->   
 
     	<div id="apDiv123">
-            <a style="cursor:default;" href="../Modales_Macroprocesos/Modales_mantenimiento/Abrir_modulares_CONS.php"  rel="floatbox">
+            <a style="cursor:default;" href="../evaluacion/Abrir modulares/Conserje/7/2/1/3/1"  rel="floatbox">
                 <img id="afeg07_1" src="{{ asset('images/ProcesosEscuelas/cod_afeg07-01.png') }}" width="51" height="12">
             </a>            
      	</div>
      	<div id="apDiv124">
-        	<a style="cursor:default;" href="../Modales_Macroprocesos/Modales_mantenimiento/Hacer_firmar_asistencia_CONS.php"  rel="floatbox">
+        	<a style="cursor:default;" href="../evaluacion/Hacer firmar la asistencia docente/Conserje/7/2/2/3/1"  rel="floatbox">
             	<img id="afeg07_2"  width="51" height="12" src="{{ asset('images/ProcesosEscuelas/cod_afeg07-02.png') }}">
       		</a>           
      	</div>
      	<div id="apDiv125">
-        	<a style="cursor:default;" href="../Modales_Macroprocesos/Modales_mantenimiento/Hacer_firmar_convocatorias_CONS.php"  rel="floatbox">
+        	<a style="cursor:default;" href="../evaluacion/Hacer firmar convocatorias/Conserje/7/2/3/3/1"  rel="floatbox">
                 <img id="afeg07_3"  width="51" height="12" src="{{ asset('images/ProcesosEscuelas/cod_afeg07-03.png') }}">
          	</a>              
      	</div>
      	<div id="apDiv126">
-        	<a style="cursor:default;" href="../Modales_Macroprocesos/Modales_mantenimiento/Limpiar_mod_escuela_CONS.php"  rel="floatbox">
+        	<a style="cursor:default;" href="../evaluacion/Limpiar modulares de la escuela/Conserje/7/2/4/3/1"  rel="floatbox">
                 <img id="afeg07_4"  width="51" height="12" src="{{ asset('images/ProcesosEscuelas/cod_afeg07-04.png') }}">
          	</a>          
      	</div>
      	<div id="apDiv127">
-        	<a style="cursor:default;" href="../Modales_Macroprocesos/Modales_mantenimiento/Limpiar_oficinas_dirEscuela_CONS.php"  rel="floatbox">
+        	<a style="cursor:default;" href="../evaluacion/Limpiar oficinas de la Dirección de Escuela/Conserje/7/2/5/3/1"  rel="floatbox">
                 <img id="afeg07_5"  width="51" height="12" src="{{ asset('images/ProcesosEscuelas/cod_afeg07-05.png') }}">
         	</a>              
      	</div> 
      	<div id="apDiv128">
-        	<a style="cursor:default;" href="../Modales_Macroprocesos/Modales_mantenimiento/Limpiar_areas_verdes_CONS.php"  rel="floatbox">
+        	<a style="cursor:default;" href="../evaluacion/Limpiar areas verdes/Conserje/7/2/6/3/1"  rel="floatbox">
                 <img id="afeg07_6"  width="51" height="12" src="{{ asset('images/ProcesosEscuelas/cod_afeg07-06.png') }}">
          	</a>          
      	</div>
      	<div id="apDiv129">
-        	<a style="cursor:default;" href="../Modales_Macroprocesos/Modales_mantenimiento/Botar_basura_CONS.php"  rel="floatbox">
+        	<a style="cursor:default;" href="../evaluacion/Botar basura/Conserje/7/2/7/3/1"  rel="floatbox">
                 <img id="afeg07_7"  width="51" height="12" src="{{ asset('images/ProcesosEscuelas/cod_afeg07-07.png') }}">
          	</a>           
      	</div>
      	<div id="apDiv130">
-        	<a style="cursor:default;" href="../Modales_Macroprocesos/Modales_mantenimiento/Marcar_hora_entrada_CONS.php"  rel="floatbox">
+        	<a style="cursor:default;" href="../evaluacion/Marcar la hora de entrada/Conserje/7/2/8/3/1"  rel="floatbox">
                 <img id="afeg07_8"  width="51" height="12" src="{{ asset('images/ProcesosEscuelas/cod_afeg07-08.png') }}">
         	</a>             
      	</div>
      	<div id="apDiv131">
-        	<a style="cursor:default;" href="../Modales_Macroprocesos/Modales_mantenimiento/Marcar_hora_salida_CONS.php"  rel="floatbox">
+        	<a style="cursor:default;" href="../evaluacion/Marcar la hora de salida/Conserje/7/2/9/3/1"  rel="floatbox">
                 <img id="afeg07_9"  width="51" height="12" src="{{ asset('images/ProcesosEscuelas/cod_afeg07-09.png') }}">
         	</a>             
      	</div>
      	<div id="apDiv132">
-        	<a style="cursor:default;" href="../Modales_Macroprocesos/Modales_mantenimiento/Realizar_actividades_adic_CONS.php"  rel="floatbox">
+        	<a style="cursor:default;" href="../evaluacion/Realizar actividades adicionales/Conserje/7/2/10/3/1"  rel="floatbox">
                 <img  id="afeg07_10"  width="51" height="12" src="{{ asset('images/ProcesosEscuelas/cod_afeg07-10.png') }}">
             </a>              
      	</div>
      	<div id="apDiv133">
-        	<a style="cursor:default;" href="../Modales_Macroprocesos/Modales_mantenimiento/Limpiar_sanitarios_CONS.php"  rel="floatbox">
+        	<a style="cursor:default;" href="../evaluacion/Limpiar sanitario de la dirección de la ICA/Conserje/7/2/11/3/1"  rel="floatbox">
                 <img id="afeg07_11"  width="51" height="12" src="{{ asset('images/ProcesosEscuelas/cod_afeg07-11.png') }}">
          	</a>                
      	</div>

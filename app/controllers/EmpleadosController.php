@@ -67,9 +67,9 @@ class EmpleadosController extends BaseController {
         return $valor;
     }
  
-     public function mostrarEmp($a,$b,$c,$d,$e,$f)
+     public function mostrarEmp($a,$b,$c,$d,$e,$f,$g)
     {
-        return View::make('empleados.evaluacion', array('procesos' => $a,'docentes' => $b,'macroproceso' => $c,'escuela' => $d,'proceso' => $e,'tipo' =>$f));
+        return View::make('empleados.evaluacion', array('procesos' => $a,'docentes' => $b,'macroproceso' => $c,'escuela' => $d,'proceso' => $e,'tipo' =>$f,'objeto' =>$g));
     }
 
      public function mostrarEmp3()
@@ -80,11 +80,12 @@ class EmpleadosController extends BaseController {
         $fecha2=Input::get('fecha2');
         $proceso=Input::get('proceso');
         $tipoEmpleado=Input::get('tipo');
+        $objeto=Input::get('objeto');
 
         //ejecutar usando redis
         //---------------------
-        $empleados=$this->redisEmpleados($tipoEmpleado);
-        $valor=$this->redisValor($escuela,$macroproceso);
+        //$empleados=$this->redisEmpleados($tipoEmpleado);
+        //$valor=$this->redisValor($escuela,$macroproceso);
 
         //ejecutar usando memcached
         //-------------------------
@@ -93,8 +94,8 @@ class EmpleadosController extends BaseController {
 
         //ejecutar accediendo a base de datos
         //------
-        //$empleados = DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE COD_TIPO ='.$tipoEmpleado.';');
-       // $valor=Empleado::storedProcedureCall('call calcularValor( '.$escuela.','.$macroproceso.')');
+        $empleados = DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE COD_TIPO ='.$tipoEmpleado.';');
+        $valor=Empleado::storedProcedureCall('call calcularValor( '.$escuela.','.$macroproceso.')');
 
         return View::make('empleados.contenido', array('empleados' => $empleados,'valor' => $valor,'fecha1'=>$fecha1,'fecha2'=>$fecha2,'macro'=>$macroproceso,'escuela'=>$escuela,'proceso'=>$proceso));
     }

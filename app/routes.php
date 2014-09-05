@@ -97,7 +97,7 @@ Route::post('empleados/crear', array('uses' => 'EmpleadosController@crearEmplead
 
 
 //rutas para la evaluacion de empleados
-Route::get('evaluacion/{a}/{b}/{c}/{d}/{e}/{f}', array('uses' => 'EmpleadosController@mostrarEmp'));
+Route::get('evaluacion/{a}/{b}/{c}/{d}/{e}/{f}/{g}', array('uses' => 'EmpleadosController@mostrarEmp'));
 Route::post('/categories2', array('uses' => 'EmpleadosController@mostrarEmp3'));
 Route::post('/categories', array('uses' => 'EmpleadosController@insertar'));
 //

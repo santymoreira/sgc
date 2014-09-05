@@ -144,42 +144,41 @@
 
 
              <div id="apDiv42">
-             	     <a style="cursor:default;" href="../evaluacion/Colaborar en la elaboración del POA de la Escuela/Director de Escuela/4/2/1/1" 
+             	     <a style="cursor:default;" href="../evaluacion/Colaborar en la elaboración del POA de la Escuela/Director de Escuela/4/2/1/1/1" 
                    rel="floatbox" >
                          <img src="{{ asset('images/ProcesosEscuelas/cod_afeg04-01.png'); }}" width="51" height="12" id="afeg04_1"></img>
                      </a>    
              </div>
 
-
              <div id="apDiv45">
 
-                     <a id="afeg02" style="cursor:default;" rel="floatbox" href="../evaluacion/Controlar la asistencia a los docentes/Director de Escuela/4/2/2/1" >
+                     <a id="afeg02" style="cursor:default;" rel="floatbox" href="../evaluacion/Controlar la asistencia a los docentes/Director de Escuela/4/2/2/1/1" >
                          <img src="{{ asset('images/ProcesosEscuelas/cod_afeg04-02.png'); }}" width="51" height="12" id="afeg04_2">
                      </a>         
              </div>            
              <div id="apDiv47">
               <!-- pasan los parametros (nombre de proceso),(responsable),(macroproceso),(escuela),(proceso)-->
-                     <a style="cursor:default;" href="../evaluacion/Asistir a reuniones/Docentes/4/2/6/4"  rel="floatbox">
+                     <a style="cursor:default;" href="../evaluacion/Asistir a reuniones/Docentes/4/2/6/4/1"  rel="floatbox">
                          <img src="{{ asset('images/ProcesosEscuelas/cod_afeg04-06.png'); }}" width="51" height="12" id="afeg04_6">
                      </a>      
              </div>
              <div id="apDiv49">
-                     <a style="cursor:default;" href="../evaluacion/Supervisar las pruebas de Admisión/Secretaria/4/2/7/2"  rel="floatbox">
+                     <a style="cursor:default;" href="../evaluacion/Supervisar las pruebas de Admisión/Secretaria/4/2/7/2/1"  rel="floatbox">
                          <img src="{{ asset('images/ProcesosEscuelas/cod_afeg04-07.png'); }}" width="51" height="12" id="afeg04_7">
                      </a>        
              </div>
              <div id="apDiv51">
-                     <a id="paul" style="cursor:default;" href="../evaluacion/Entregar a Decanato la asistencia docente/Director de Escuela/4/2/3/1"  rel="floatbox">
+                     <a id="paul" style="cursor:default;" href="../evaluacion/Entregar a Decanato la asistencia docente/Director de Escuela/4/2/3/1/1"  rel="floatbox">
                          <img src="{{ asset('images/ProcesosEscuelas/cod_afeg04-03.png'); }}" width="51" height="12" id="afeg04_3">
                      </a>         
              </div>
              <div id="apDiv53">
-                     <a style="cursor:default;" href="../evaluacion/Asistir a Comisión Académica y Desarrollo Administrativo/Director de Escuela/4/2/4/1"  rel="floatbox">
+                     <a style="cursor:default;" href="../evaluacion/Asistir a Comisión Académica y Desarrollo Administrativo/Director de Escuela/4/2/4/1/1"  rel="floatbox">
                          <img src="{{ asset('images/ProcesosEscuelas/cod_afeg04-04.png'); }}" width="51" height="12" id="afeg04_4">
                      </a>            
              </div>
              <div id="apDiv55">
-                     <a style="cursor:default;" href="../evaluacion/Comunicar a los docentes/Director de Escuela/4/2/5/1" rel="floatbox">
+                     <a style="cursor:default;" href="../evaluacion/Comunicar a los docentes/Director de Escuela/4/2/5/1/1" rel="floatbox">
                          <img src="{{ asset('images/ProcesosEscuelas/cod_afeg04-05.png'); }}" width="51" height="12" id="afeg04_5">
                      </a>    
              </div> 

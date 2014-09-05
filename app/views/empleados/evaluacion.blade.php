@@ -45,6 +45,7 @@
              <input type="hidden" id="esc" value="{{{ $escuela }}}">
              <input type="hidden" id="proc" value="{{{ $proceso }}}">
              <input type="hidden" id="tipo" value="{{{ $tipo }}}">
+             <input type="hidden" id="objeto" value="{{{ $objeto }}}">
              <!-- div en donde se carga la lista de empleados a ser evaluados-->
              <div  id="contenido"></div>
    </div>
@@ -78,13 +79,14 @@
         var esc=$('#esc').val();
         var proc=$('#proc').val();
         var tipo=$('#tipo').val();
+         var objeto=$('#objeto').val();
 
         if (f2>=f1)
         {     
           //alert(macro);
             //$('select').prop('disabled', false);
-            $("#contenido").load("../../../../../../categories2",
-            {fecha1: f1, fecha2: f2,macro: macro,escuela: esc,proceso: proc,tipo: tipo}
+            $("#contenido").load("../../../../../../../categories2",
+            {fecha1: f1, fecha2: f2,macro: macro,escuela: esc,proceso: proc,tipo: tipo,objeto: objeto}
             );
         }
             else

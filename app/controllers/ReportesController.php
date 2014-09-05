@@ -54,5 +54,10 @@ class ReportesController extends BaseController {
         return View::make('reportes.tabla', array('empleados' => $indicadores));
     }
 
+    public function imagenPDF()
+    {
+        $nombreEscuela = DB::select('SELECT NOMBRE FROM escuela where COD_ESCUELA=2');
+    }
+
 }
 ?>

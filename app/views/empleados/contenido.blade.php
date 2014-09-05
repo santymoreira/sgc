@@ -10,7 +10,7 @@
     						</select>
   						</td>
               <td scope='row'> 
-                  <img id="{{ $empleado->COD_EMPLEADO }}p" src="../../../../../../images/question1.gif" />
+                  <img id="{{ $empleado->COD_EMPLEADO }}p" src="../../../../../../../images/question1.gif" />
               </td>
 
 					</tr>
@@ -43,20 +43,20 @@
       if(opcion==1)
         {
           op=-1;
-           $('#'+empleado+'p').attr('src', "../../../../../../images/question1.gif");
+           $('#'+empleado+'p').attr('src', "../../../../../../../images/question1.gif");
         }
       if(opcion==2)
         {
           op=1;
-          $('#'+empleado+'p').attr('src', "../../../../../../images/correcto.gif");
+          $('#'+empleado+'p').attr('src', "../../../../../../../images/correcto.gif");
         }
       if(opcion==3)
         {
           op=0;
-          $('#'+empleado+'p').attr('src', "../../../../../../images/incorrecto.gif");
+          $('#'+empleado+'p').attr('src', "../../../../../../../images/incorrecto.gif");
         }
 
-      $.post('../../../../../../categories',{opcion:op,empleado:empleado,escuela:escuela,proceso:proceso,porcentaje:porcentaje,macro:macroproceso,fechaInicio:fechaInicio,fechaFin:fechaFin,texto1:'null',texto2:'null'},function(data){
+      $.post('../../../../../../../categories',{opcion:op,empleado:empleado,escuela:escuela,proceso:proceso,porcentaje:porcentaje,macro:macroproceso,fechaInicio:fechaInicio,fechaFin:fechaFin,texto1:'null',texto2:'null'},function(data){
         console.log(data);
       });
                
