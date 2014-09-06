@@ -10,9 +10,10 @@
         {{ HTML::style('css/estilotab.css'); }}
         {{ HTML::script('js/framebox_reporte.js'); }}
         {{ HTML::style('css/floatbox_reporte.css'); }}
-        
+
     </head>
     <body>
+ 
         <table summary="Submitted table designs">
         <caption>
         Sistema de Gestion de Calidad
@@ -56,6 +57,7 @@
                 </a>
               </td></center>
               </tr>
+           
 
             @endforeach
 
