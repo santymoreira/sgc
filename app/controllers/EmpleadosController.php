@@ -97,7 +97,13 @@ class EmpleadosController extends BaseController {
         $empleados = DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE COD_TIPO ='.$tipoEmpleado.';');
         $valor=Empleado::storedProcedureCall('call calcularValor( '.$escuela.','.$macroproceso.')');
 
-        return View::make('empleados.contenido', array('empleados' => $empleados,'valor' => $valor,'fecha1'=>$fecha1,'fecha2'=>$fecha2,'macro'=>$macroproceso,'escuela'=>$escuela,'proceso'=>$proceso));
+        if ($objeto==1) {
+            return View::make('empleados.contenido', array('empleados' => $empleados,'valor' => $valor,'fecha1'=>$fecha1,'fecha2'=>$fecha2,'macro'=>$macroproceso,'escuela'=>$escuela,'proceso'=>$proceso));
+        }
+         if ($objeto==2) {
+            return View::make('empleados.contenido2', array('empleados' => $empleados,'valor' => $valor,'fecha1'=>$fecha1,'fecha2'=>$fecha2,'macro'=>$macroproceso,'escuela'=>$escuela,'proceso'=>$proceso));
+        }
+
     }
 
     public function insertar()
@@ -113,6 +119,7 @@ class EmpleadosController extends BaseController {
             $fechaFin=Input::get('fechaFin');
             $texto1=Input::get('texto1');
             $texto2=Input::get('texto2');
+
             $d=DB::statement('call asignarValor('.$opcion.','.$macro.','.$empleado.','.$proceso.',\''.$fechaInicio.'\',\''.$fechaFin.'\','.$texto1.','.$texto2.','.$escuela.','.$porcentaje.')');
             $dd='fuck';
         return Response::json($fechaFin);
