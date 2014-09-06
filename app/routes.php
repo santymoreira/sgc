@@ -111,11 +111,9 @@ Route::get('/tipos', array('uses' => 'ReportesController@mostrarTipo'));
 Route::post('/combo1', array('uses' => 'ReportesController@combo1'));
 Route::post('/combo2', array('uses' => 'ReportesController@combo2'));
 Route::post('/tabla',array('uses' => 'ReportesController@tabla'));
+Route::get('/imagenReporte',array('uses' => 'ReportesController@imagenReporte'));
 
 //Controllers Escuela programmer.
-
-
-
 
 //Controllers Escuela programmer.
 

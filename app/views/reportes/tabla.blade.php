@@ -39,7 +39,7 @@
 
             <center>
               <td> 
-                <a href="pChart2.1.4/examples/ImagenReporte.php" rel="floatbox" >
+                <a  rel="floatbox" {{ HTML::link('imagenReporte', 'd');}}  
                   <button type="submit" class='buttons'  type='submit'  name='submit' onclick="render('{{$indicador->COD_INDICADOR}}inicio','{{$indicador->COD_INDICADOR}}fin')" id='brender'>
                     <img src="{{ asset('images/chart_bar.png'); }}" alt=""/> Render
                   </button> 
@@ -72,10 +72,9 @@
 
       };
       $('[id^="brender"]').click(function(){
-            $.post('llega.php', {ini:inic,fin:fina})
+            //$.post('llega.php', {ini:inic,fin:fina})
             });
             
-
 
   </script>
   <script type="text/javascript">

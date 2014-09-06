@@ -54,10 +54,20 @@ class ReportesController extends BaseController {
         return View::make('reportes.tabla', array('empleados' => $indicadores));
     }
 
-    public function imagenPDF()
+    public function imagenReporte()
     {
-        $nombreEscuela = DB::select('SELECT NOMBRE FROM escuela where COD_ESCUELA=2');
+        //$nombreEscuela = DB::select('SELECT NOMBRE FROM escuela where COD_ESCUELA=2');
+        //$nombreProceso = DB::select('SELECT DESCRIPCION from proceso where COD_PROCESO =1 AND COD_MACROPROCESO=1');
+        //$porcentajeProceso = DB::select('SELECT I.PORCENTAJE FROM indicador AS I INNER JOIN proceso AS PR ON I.COD_PROCESO=PR.COD_PROCESO WHERE I.COD_EMPLEADO=73 AND PR.COD_PROCESO=1 AND PR.COD_MACROPROCESO=1 AND I.FECHA_INICIO=1 AND I.FECHA_FIN=1');
+        //$valorMaximoIndicador=Empleado::storedProcedureCall('call calcularValor( '.$escuela.','.$macroproceso.')');
+        //$valorCumplido=Empleado::storedProcedureCall('CALL porcentajeIndicadoresxEscuela(proceso,macroproceso,escuela,porcentaje)');
+
+         return View::make("pChart/examples/imagenReporte");
+
     }
+
+
 
 }
 ?>
+

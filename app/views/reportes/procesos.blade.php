@@ -36,8 +36,8 @@ var proceso=0;
     var tipo=$('#tipo_e').val();
     var macro=$('#macro').val();
     $('#tablares').load("../../tabla",{esc:escuela,tip:tipo,mac:macro,ind:proceso});
-    alert(proceso);
 });
+
 
   </script>
 
