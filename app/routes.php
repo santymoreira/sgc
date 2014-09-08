@@ -106,12 +106,14 @@ Route::post('/categories', array('uses' => 'EmpleadosController@insertar'));
 Route::get('/pruebav01', array('uses' => 'EmpleadosController@mostrarEmp'));
 Route::get('/datos', array('uses' => 'HomeController@envios_ajax'));
 
-
-Route::get('/tipos', array('uses' => 'ReportesController@mostrarTipo'));
+  
+  Route::get('reportes/individual/{cod}', 'ReportesController@individual');
+//Route::get('/tipos', array('uses' => 'ReportesController@mostrarTipo'));
 Route::post('/combo1', array('uses' => 'ReportesController@combo1'));
 Route::post('/combo2', array('uses' => 'ReportesController@combo2'));
 Route::post('/tabla',array('uses' => 'ReportesController@tabla'));
-Route::get('/imagenReporte',array('uses' => 'ReportesController@imagenReporte'));
+Route::get('/imagenReporte/{escuela}/{macroproceso}/{proceso}/{f1}/{f2}',array('uses' => 'ReportesController@imagenReporte'));
+Route::get('/pdfReporte/{escuela}/{macroproceso}/{proceso}/{f1}/{f2}',array('uses' => 'ReportesController@pdfReporte'));
 
 //Controllers Escuela programmer.
 
@@ -244,4 +246,4 @@ Route::get('users/destroy/{cod}','UserController@destroy');
 //Reportes 
 Route::get('/reportes','ReportesController@Show_reportes');
 //Reporte Individual
-  Route::get('reportes/individual/{cod}', 'ReportesController@individual');
+

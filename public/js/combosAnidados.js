@@ -1,10 +1,11 @@
 	 $(document).ready(function(){
   	$('#combo1').change(function(e){
       e.preventDefault();
-       var opcion=$(this).val();
+       var tipoEmpleado=$(this).val();
+       var escuela=$('#esc').val();
 
            $("#contenido").load("../../combo1",
-            {op: opcion}
+            {tipoEmpleado: tipoEmpleado,escuela: escuela}
             );
 
 });
