@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+          {{ HTML::script('js/jquery-ui-1.8.20.custom.min.js'); }} 
+          {{ HTML::script('js/jquery-1.8.2.min.js'); }}
+
+        {{ HTML::style('css/estilos.css'); }}
+        {{ HTML::style('css/estilotab.css'); }}
+        {{ HTML::script('js/framebox_reporte.js'); }}
+        {{ HTML::style('css/floatbox_reporte.css'); }}
+
+      
+
+
+         <style>
+            #imagen
+            {
+                left: 10px;
+                top:5px;
+            }
+           
+        </style>
+
+    </head>
+    <body>
+
+      @if($suma!=-1)
+
+    <div id="imagen"><img src="{{ asset('images/SGCheader.png'); }}" width="490" height="70"/></div>
+             <center>
+           
+        <a  rel="floatbox"  href="../../imagenReporteMensual/{{$escuela}}/{{$macroproceso}}/{{$proceso}}/{{$mes}}/{{$cedula}}/{{$codigo}}/{{$suma}}/1"
+                  <button rel="floatbox" type="submit" class='buttons'  type='submit'  name='submit' id='brender'>
+                    <img src="{{ asset('images/chart_bar.png'); }}" alt=""/> Render
+                  </button> 
+
+                </a>
+       
+            </center>
+
+             <center> 
+         
+                <a href="../../pdfReporte/{{$escuela}}/{{$macroproceso}}/{{$proceso}}" target="_blank" >
+                  <button type="submit" class='buttons'  type='submit'  name='submit' id='bpdf'>
+                    <img src="{{ asset('images/pdfd.png'); }}" alt=""/> PDF 
+                  </button> 
+                </a>
+              </center>
+
+      @else
+      <label>No se encontraron resultados</label>
+    @endif
+    </body>
+</html>
