@@ -51,9 +51,9 @@
   @endforeach
 @endif
 
-
  
    @section('cabeza')
+
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <title>Sistema de Gestión de Calidad</title>

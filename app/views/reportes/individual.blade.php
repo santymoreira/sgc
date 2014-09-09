@@ -38,12 +38,11 @@
 <label><b>TIPO: </b></label>
 	<select id="combo1" class="select" style="width: 200px;">
 	<option value="1" selected>Seleccione opción</option>
-	@foreach ($empleados as $tipo)
+	@foreach ($tipoEmpleados as $tipo)
 	<option value="{{ $tipo->COD_TIPO }}">{{ $tipo->DESCRIPCION }}</option>
  	@endforeach
 	</select></br></br>
 <center><h1> Indicadores </h1></center>
-
 
 
 <div  id="contenido">
@@ -52,5 +51,6 @@
 	<option value="1" selected>Seleccione opción</option>
 </div>
 
+<input type="hidden" id="esc" value="{{ $escuela }}">
 
 @stop     

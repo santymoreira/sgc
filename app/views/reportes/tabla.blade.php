@@ -10,9 +10,10 @@
         {{ HTML::style('css/estilotab.css'); }}
         {{ HTML::script('js/framebox_reporte.js'); }}
         {{ HTML::style('css/floatbox_reporte.css'); }}
-        
+
     </head>
     <body>
+ 
         <table summary="Submitted table designs">
         <caption>
         Sistema de Gestion de Calidad
@@ -28,70 +29,54 @@
         <tfoot>
           <tr>
             <th scope="row">Total</th>
-            <td colspan="4"> {{count($empleados)}} Indicadores</td>
+            <td colspan="4"> {{count($indicadores)}} Indicadores</td>
           </tr>
         </tfoot>
          <tbody>
          <tr>
-          @foreach ($empleados as $indicador)
+          @foreach ($indicadores as $indicador)
             <td id='{{$indicador->COD_INDICADOR}}inicio'> {{$indicador->FECHA_INICIO}} </td>
             <td id='{{$indicador->COD_INDICADOR}}fin'> {{$indicador->FECHA_FIN}} </td>
 
             <center>
               <td> 
-                <a href="pChart2.1.4/examples/ImagenReporte.php" rel="floatbox" >
-                  <button type="submit" class='buttons'  type='submit'  name='submit' onclick="render('{{$indicador->COD_INDICADOR}}inicio','{{$indicador->COD_INDICADOR}}fin')" id='brender'>
+
+                <a  rel="floatbox"  href="../../imagenReporte/{{$escuela}}/{{$macroproceso}}/{{$proceso}}/{{$indicador->FECHA_INICIO}}/{{$indicador->FECHA_FIN}}"
+                  <button rel="floatbox" type="submit" class='buttons'  type='submit'  name='submit' id='brender'>
                     <img src="{{ asset('images/chart_bar.png'); }}" alt=""/> Render
                   </button> 
+
                 </a>
               </td>
             </center>
 
              <center> 
               <td>
-                <a href="pChart2.1.4/examples/ImagenPDF.php" target="_blank" >
-                  <button type="submit" class='buttons'  type='submit'  name='submit' onclick="generarpdf('{{$indicador->COD_INDICADOR}}inicio','{{$indicador->COD_INDICADOR}}fin')" id='bpdf'>
+                <a href="../../pdfReporte/{{$escuela}}/{{$macroproceso}}/{{$proceso}}/{{$indicador->FECHA_INICIO}}/{{$indicador->FECHA_FIN}}" target="_blank" >
+                  <button type="submit" class='buttons'  type='submit'  name='submit' id='bpdf'>
                     <img src="{{ asset('images/pdfd.png'); }}" alt=""/> PDF 
                   </button> 
                 </a>
               </td></center>
               </tr>
+           
 
             @endforeach
 
         </tbody>
 </table>
-  <script type="text/javascript">
-       var inic;
-       var fina;
-      function render(i,f)
-      {
-          
-          inic=document.getElementById(i).innerHTML;
-          fina=document.getElementById(f).innerHTML;
-
-      };
-      $('[id^="brender"]').click(function(){
-            $.post('llega.php', {ini:inic,fin:fina})
-            });
-            
-
-
-  </script>
-  <script type="text/javascript">
-       var inic;
-       var fina;
-      function generarpdf(i,f)
-      {  
-          inic=document.getElementById(i).innerHTML;
-          fina=document.getElementById(f).innerHTML;
-      };
-      $('[id^="bpdf"]').click(function(){
-
-            $.post('llegapdf.php', {ini:inic,fin:fina})
-            });
-  </script>
-        
 
     </body>
 </html>
+
+<script>
+  $(document).ready(function(e){
+      e.preventDefault();
+
+     // $.post('../../../../../../../categories',{opcion:op,empleado:empleado,escuela:escuela,proceso:proceso,porcentaje:porcentaje,macro:macroproceso,fechaInicio:fechaInicio,fechaFin:fechaFin,texto1:'null',texto2:'null'},function(data){
+       // console.log(data);
+      //});
+               
+    });
+
+</script>

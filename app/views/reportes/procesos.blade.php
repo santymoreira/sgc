@@ -1,9 +1,8 @@
 
-
 <label><b>PROCESO: </b></label>
 <select id="combo3" class="select" style="width: 200px;">
 <option value="1" selected>Seleccione opción</option>
-@foreach ($empleados as $tipo)
+@foreach ($procesos as $tipo)
 <option value="{{ $tipo->COD_PROCESO }}">{{ $tipo->DESCRIPCION }}</option>
 @endforeach
 </select>
@@ -14,13 +13,13 @@
   @endforeach
 @endif
 
-
-
-<input type="hidden" id="macro" value="{{ $macro }}">
-<input type="hidden" id="tipo_e" value="{{ $tipo_e }}">
+<input type="hidden" id="macroproceso" value="{{ $macroproceso }}">
+<input type="hidden" id="tipo_e" value="{{ $tipoEmpleado }}">
+<input type="hidden" id="escuu" value="{{ $escuela }}">
 <button disabled="true" type="submit" id="b"> <img src="{{ asset('images/buscar.png'); }}"/> Buscar </button>
 </br></br>
 <div style="float: left;" id="tablares"> </div></div>
+
 
 <script type="text/javascript">
 var proceso=0;
@@ -32,12 +31,12 @@ var proceso=0;
 
       $('#b').click(function()
     {
-    var escuela=$('#escuela').val();
-    var tipo=$('#tipo_e').val();
-    var macro=$('#macro').val();
-    $('#tablares').load("../../tabla",{esc:escuela,tip:tipo,mac:macro,ind:proceso});
-    alert(proceso);
+    var escuela=$('#escuu').val();
+    var tipo=$('#tipoEmpleado').val();
+    var macro=$('#macroproceso').val();
+    $('#tablares').load("../../tabla",{escuela:escuela,tipoEmpleado:tipo,macroproceso:macro,proceso:proceso});
 });
+
 
   </script>
 
