@@ -25,6 +25,8 @@ class EmpleadosController extends BaseController {
         //return View::make('empleados.lista', array('empleados' => $empleados));
     }
 
+
+
     //metodos Memcached
     public function memcachedEmpleados($tipoEmpleado)
     {

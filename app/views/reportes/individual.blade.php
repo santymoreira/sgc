@@ -52,5 +52,8 @@
 </div>
 
 <input type="hidden" id="esc" value="{{ $escuela }}">
+<input type="hidden" id="cedula" value="{{ $cedula }}">
+<input type="hidden" id="codigo" value="{{ $codigo }}">
+
 
 @stop     

@@ -13,7 +13,7 @@
 							  	<ul class="cuatro">
             						<li><a {{ HTML::link('reportes/individual/2', 'Individual');}} </a></li>
 									<li><a {{ HTML::link('reportes/mensual/2', 'Mensual');}} </a></li>
-                					<li><a {{ HTML::link('reportes/mensual_e/2', 'Mensual Empleados');}} </a></li>
+                					<li><a {{ HTML::link('reportes/mensualE/2', 'Mensual Empleados');}} </a></li>
                 					<li><a {{ HTML::link('reportes/individual_e/2', 'Individual Empleados');}} </a></li>
                  					<li><a {{ HTML::link('descargas', 'Descargas');}} </a></li>
         						</ul>

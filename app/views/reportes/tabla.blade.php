@@ -41,7 +41,7 @@
             <center>
               <td> 
 
-                <a  rel="floatbox"  href="../../imagenReporte/{{$escuela}}/{{$macroproceso}}/{{$proceso}}/{{$indicador->FECHA_INICIO}}/{{$indicador->FECHA_FIN}}"
+                <a  rel="floatbox"  href="../../imagenReporte/{{$escuela}}/{{$macroproceso}}/{{$proceso}}/{{$indicador->FECHA_INICIO}}/{{$indicador->FECHA_FIN}}/{{$cedula}}/{{$codigo}}/1"
                   <button rel="floatbox" type="submit" class='buttons'  type='submit'  name='submit' id='brender'>
                     <img src="{{ asset('images/chart_bar.png'); }}" alt=""/> Render
                   </button> 
@@ -68,15 +68,3 @@
 
     </body>
 </html>
-
-<script>
-  $(document).ready(function(e){
-      e.preventDefault();
-
-     // $.post('../../../../../../../categories',{opcion:op,empleado:empleado,escuela:escuela,proceso:proceso,porcentaje:porcentaje,macro:macroproceso,fechaInicio:fechaInicio,fechaFin:fechaFin,texto1:'null',texto2:'null'},function(data){
-       // console.log(data);
-      //});
-               
-    });
-
-</script>

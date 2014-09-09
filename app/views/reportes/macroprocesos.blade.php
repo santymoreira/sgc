@@ -17,6 +17,10 @@
 </div>
 
 <input type="hidden" id="escu" value="{{ $escuela }}">
+<input type="hidden" id="cedula" value="{{ $cedula }}">
+<input type="hidden" id="codigo" value="{{ $codigo }}">
+<input type="hidden" id="tipoReporte" value="{{ $tipoReporte }}">
+
 
 <script type="text/javascript">
 	
@@ -26,9 +30,12 @@
        var macroproceso=$(this).val();
        var tipoEmpleado=$('#tipo_e').val();
        var escuela=$('#escu').val();
+       var cedula=$('#cedula').val();
+       var codigo=$('#codigo').val();
+       var tipoReporte=$('#tipoReporte').val();
 
            $("#contenido2").load("../../combo2",
-            {macroproceso: macroproceso,tipoEmpleado: tipoEmpleado,escuela:escuela}
+            {macroproceso: macroproceso,tipoEmpleado: tipoEmpleado,escuela:escuela,cedula:cedula,codigo:codigo,tipoReporte:tipoReporte}
             );
            
 });
