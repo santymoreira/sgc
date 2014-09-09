@@ -121,7 +121,7 @@ class UserController extends \BaseController {
 		
 		//Variable de tipos
 		$temp1=Input::get('director');
-		$temp2=Input::get('administrativo');
+		$temp2=Input::get('admin');
 		$temp3=Input::get('trabajador');
 		$temp4=Input::get('docente');
 

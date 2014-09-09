@@ -223,6 +223,16 @@ Route::get('transporte/M_Asistencia', 'MapasController@asistencia');
 Route::get('transporte/M_Mantenimiento', 'MapasController@mantenimiento');
 
 
+//Balanced Score Card
+Route::get('home/welcome', 'MapasController@home');
+Route::get('contabilidad/cont_audi_bsc', 'MapasBalancedController@cont_audi_bsc');
+Route::get('contabilidad/macroprocesosbsc', 'MapasBalancedController@macroprocesosbsc'); 
+
+
+
+
+
+
 
 //Administración de Empleados
 

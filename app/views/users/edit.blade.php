@@ -86,13 +86,13 @@
 					  		<input type="checkbox" id="dire" name="director" value="1">Director de Escuela<br>
 					  	</div>
 						<div>
-					  		<input type="checkbox" id="admin" name="director" value="2">Administrativo<br>
+					  		<input type="checkbox" id="admin" name="admin" value="2">Administrativo<br>
 					  	</div>
 						<div>
-					  		<input type="checkbox" id="trab" name="director" value="3">Trabajador<br>
+					  		<input type="checkbox" id="trab" name="trabajador" value="3">Trabajador<br>
 					  	</div>
 						<div>
-					  		<input type="checkbox" id="doc" name="director" value="4">Docente<br>
+					  		<input type="checkbox" id="doc" name="docente" value="4">Docente<br>
 					  	</div>
 			   		@foreach($funcion as $funcion)
 			   			
