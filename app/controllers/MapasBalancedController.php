@@ -17,9 +17,25 @@ class MapasBalancedController extends BaseController {
 		{
 			return View::make('home.welcome');
 		}
+	public function empresas_bsc()
+		{
+			return View::make('mapasbalanced.empresas_bsc');
+		}
 	public function cont_audi_bsc()
 		{
 			return View::make('mapasbalanced.cont_audi_bsc');
+		}
+	public function finanzas_bsc()
+		{
+			return View::make('mapasbalanced.finanzas_bsc');
+		}
+	public function marketing_bsc()
+		{
+			return View::make('mapasbalanced.marketing_bsc');
+		}
+	public function transporte_bsc()
+		{
+			return View::make('mapasbalanced.transporte_bsc');
 		}
 	public function macroprocesosbsc()
 		{

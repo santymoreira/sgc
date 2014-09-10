@@ -1,7 +1,15 @@
+#apDiv0 {
+position: absolute;
+	left: 125px;
+	top: 178px;
+	width: 951px;
+	height: 644px;
+	z-index: 1;
+}
 #apDiv1 {
 	position: absolute;
-	left: 222px;
-	top: 440px;
+	left: 214px;
+	top: 420px;
 	width: 672px;
 	height: 54px;
 	z-index: 1;
@@ -9,7 +17,7 @@
 #apDiv2 {
 	position: absolute;
 	left: -25px;
-	top: 43px;
+	top: 40px;
 	width: 672px;
 	height: 54px;
 	z-index: 1;
@@ -17,15 +25,15 @@
 #apDiv3 {
 	position: absolute;
 	left: 720px;
-	top: 440px;
+	top: 420px;
 	width: 672px;
 	height: 54px;
 	z-index: 1;
 }
 #apDiv5 {
 	position: absolute;
-	left: 472px;
-	top: 548px;
+	left: 463px;
+	top: 525px;
 	width: 672px;
 	height: 54px;
 	z-index: 1;
@@ -40,8 +48,8 @@
 }
 #apDiv7 {
 	position: absolute;
-	left: 220px;
-	top: 679px;
+	left: 213px;
+	top: 653px;
 	width: 672px;
 	height: 54px;
 	z-index: 1;
@@ -56,8 +64,8 @@
 }
 #apDiv9 {
 	position: absolute;
-	left: 220px;
-	top: 731px;
+	left: 213px;
+	top: 707px;
 	width: 672px;
 	height: 54px;
 	z-index: 1;
@@ -73,8 +81,8 @@
 
 #apDiv11 {
 	position: absolute;
-	left: 220px;
-	top: 783px;
+	left: 214px;
+	top: 762px;
 	width: 672px;
 	height: 54px;
 	z-index: 1;
@@ -90,8 +98,8 @@
 
 #apDiv13 {
 	position: absolute;
-	left: 533px;
-	top: 679px;
+	left: 526px;
+	top: 653px;
 	width: 672px;
 	height: 54px;
 	z-index: 1;
@@ -107,7 +115,7 @@
 #apDiv15 {
 	position: absolute;
 	left: 533px;
-	top: 744px;
+	top: 724px;
 	width: 672px;
 	height: 54px;
 	z-index: 1;
@@ -122,8 +130,8 @@
 }
 #apDiv17 {
 	position: absolute;
-	left: 850px;
-	top: 679px;
+	left: 830px;
+	top: 653px;
 	width: 672px;
 	height: 54px;
 	z-index: 1;
@@ -138,16 +146,16 @@
 }
 #apDiv19 {
 	position: absolute;
-	left: 850px;
-	top: 756px;
+	left: 833px;
+	top: 736px;
 	width: 672px;
 	height: 54px;
 	z-index: 1;
 }
 #apDiv20 {
 	position: absolute;
-	left: 220px;
-	top: 905px;
+	left: 214px;
+	top: 882px;
 	width: 672px;
 	height: 54px;
 	z-index: 1;
@@ -162,16 +170,16 @@
 }
 #apDiv22 {
 	position: absolute;
-	left: 540px;
-	top: 905px;
+	left: 535px;
+	top: 882px;
 	width: 672px;
 	height: 54px;
 	z-index: 1;
 }
 #apDiv23 {
 	position: absolute;
-	left: 741px;
-	top: 897px;
+	left: 731px;
+	top: 871px;
 	width: 672px;
 	height: 54px;
 	z-index: 1;
@@ -179,14 +187,14 @@
 #apDiv24 {
 	position: absolute;
 	left: 220px;
-	top: 1035px;
+	top: 1015px;
 	width: 672px;
 	height: 54px;
 	z-index: 1;
 }
 #apDiv25 {
 	position: absolute;
-	left: -22px;
+	left: -30px;
 	top: 52px;
 	width: 672px;
 	height: 54px;
@@ -196,7 +204,7 @@
 #apDiv26 {
 	position: absolute;
 	left: 720px;
-	top: 1035px;
+	top: 1015px;
 	width: 672px;
 	height: 54px;
 	z-index: 1;

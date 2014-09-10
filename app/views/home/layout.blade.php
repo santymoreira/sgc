@@ -85,7 +85,7 @@
 								<center><ul>
   									<li class="nivel1"><a href="#" class="nivel1">SGC</a>
 										<ul class="uno">
-                							 <li>{{ HTML::link('fade/fade_sgc', 'Facultad de Empresas'); }}</li>
+                							<li>{{ HTML::link('fade/fade_sgc', 'Facultad de Empresas'); }}</li>
                               <li>{{ HTML::link('transporte/transporte_sgc', 'Gestión de Trasporte'); }}</li>
                               <li>{{ HTML::link('empresas/empresas_sgc', 'Administración de Empresas'); }}</li>
                               <li>{{ HTML::link('marketing/marketing_sgc', 'Marketing'); }}</li>
@@ -98,13 +98,14 @@
   									<li class="nivel1"><a href="#" class="nivel1">BSC</a>
 										<ul class="dos">
 											<li><a href="#">FADE</a></li>
-											<li><a href="#">Gestion de Transporte</a></li>
-                							<li><a href="#">Administracion de Empresas</a></li>
-                							<li><a href="#">Marketing</a></li>
-                							<li>{{ HTML::link('contabilidad/cont_audi_bsc', 'Contabilidad y Auditoria'); }}</li>
-                							<li><a href="#">Educacion a Distancia</a></li>
-                							<li><a href="#">Comercio Exterior</a></li>
-                							<li><a href="#">Finanzas</a></li>
+											  <li>{{ HTML::link('transporte/transporte_bsc', 'Gestión de Transporte'); }}</li>
+                			  <li>{{ HTML::link('empresas/empresas_bsc', 'Administración de Empresas'); }}</li>
+                			  <li>{{ HTML::link('marketing/marketing_bsc', 'Marketing'); }}</li>
+                        <li>{{ HTML::link('contabilidad/cont_audi_bsc', 'Contabilidad y Auditoria'); }}</li>
+                	      <li>{{ HTML::link('finanzas/finanzas_bsc', 'Finanzas'); }}</li>
+                      <li><a href="#">Comercio Exterior</a></li>
+                      <li><a href="#">Educación a Distancia</a></li>
+                  
 										</ul>
 									</li>
   								</ul></center>
