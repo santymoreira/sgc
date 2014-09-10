@@ -81,7 +81,9 @@ Route::group(array('before' => 'auth'), function()
         // Esta función esta disponible en cualquier parte del código
         // siempre y cuando haya un usuario con sesión iniciada
         echo 'Bienvenido '. Auth::user()->nombres . ', su Id es: '.Auth::user()->CI ;
+
     });
+    Route::get('evaluacion/{a}/{b}/{c}/{d}/{e}/{f}/{g}', array('uses' => 'EmpleadosController@mostrarEmp'));
 
     
 });
@@ -97,7 +99,7 @@ Route::post('empleados/crear', array('uses' => 'EmpleadosController@crearEmplead
 
 
 //rutas para la evaluacion de empleados
-Route::get('evaluacion/{a}/{b}/{c}/{d}/{e}/{f}/{g}', array('uses' => 'EmpleadosController@mostrarEmp'));
+//Route::get('evaluacion/{a}/{b}/{c}/{d}/{e}/{f}/{g}', array('uses' => 'EmpleadosController@mostrarEmp'));
 Route::post('/categories2', array('uses' => 'EmpleadosController@mostrarEmp3'));
 Route::post('/categories', array('uses' => 'EmpleadosController@insertar'));
 //

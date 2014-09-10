@@ -608,7 +608,6 @@ class ReportesController extends BaseController {
 
             $pdf->Output('images/'.$codigoEmpleado.'.pdf','I');
 
-
             }
 
 }
