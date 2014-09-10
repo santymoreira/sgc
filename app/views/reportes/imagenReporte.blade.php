@@ -1,5 +1,5 @@
 
-<img src="{{ asset('example.drawIndicator.png'); }}"/>
+<img src="{{ asset('images/example.drawIndicator.png'); }}"/>
 
 
 

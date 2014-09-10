@@ -279,7 +279,7 @@ class ReportesController extends BaseController {
          /* Render the picture (choose the best way) */
          //$myPicture->autoOutput("pictures/example.drawIndicator.jpg");
          if ($op==1) {
-             $myPicture->render("example.drawIndicator.png");
+             $myPicture->render("images/example.drawIndicator.png");
             return View::make("reportes/imagenReporte");
          }
          if($op==2){
@@ -400,11 +400,11 @@ class ReportesController extends BaseController {
          //$myPicture->stroke("pictures/example.drawIndicator.jpg");
 
            if ($op==1) {
-             $myPicture->render("example.drawIndicator.png");
+             $myPicture->render("images/example.drawIndicator.png");
             return View::make("reportes/imagenReporte");
          }
          if($op==2){
-            $myPicture->render($codigoEmpleado.".PNG");
+            $myPicture->render("images/".$codigoEmpleado.".PNG");
          }
          
     }
@@ -503,7 +503,7 @@ class ReportesController extends BaseController {
         $pdf->Image($codigoEmpleado.".PNG",20,120,180,45.5);
         //$pdf->Image("../pChart2.1.4/examples/pictures/".$_SESSION['user'].".png",20,120,180,45.5);
 
-        $pdf->Output('MisIndicadores_'.$codigoEmpleado.'.pdf','I');
+        $pdf->Output('images/'.$codigoEmpleado.'.pdf','I');
 
                  //return View::make("reportes/imagenReporte");
             }
@@ -606,7 +606,7 @@ class ReportesController extends BaseController {
             $pdf->Image($codigoEmpleado.".PNG",20,140,180,45.5);
         //$pdf->Image("../pChart2.1.4/examples/pictures/".$_SESSION['user'].".png",20,120,180,45.5);
 
-            $pdf->Output('MisIndicadores_'.$codigoEmpleado.'.pdf','I');
+            $pdf->Output('images/'.$codigoEmpleado.'.pdf','I');
 
 
             }
