@@ -48,6 +48,7 @@
 </div>
 
 <input type="hidden" id="esc" value="{{ $escuela }}">
+<input type="hidden" id="tipoReporte" value="{{ $tipoReporte }}">
 
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -56,10 +57,11 @@
 		$("#busqueda").focus();
   		$("#busqueda").keyup(function(e){
   			var consult = $("#busqueda").val();
+        var tipoReporte=$("#tipoReporte").val();
 	      	e.preventDefault();
 
-           $("#resultado").load("../../buscarEmpleado",
-            {consult: consult,escuela:escuela}
+           $("#resultado").load("../../../buscarEmpleado",
+            {consult: consult,escuela:escuela,tipoReporte:tipoReporte}
             );
 
 });

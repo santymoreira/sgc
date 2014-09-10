@@ -19,6 +19,8 @@
 <input type="hidden" id="cedula" value="{{ $cedula }}">
 <input type="hidden" id="codigo" value="{{ $codigo }}">
 <input type="hidden" id="tipoReporte" value="{{ $tipoReporte }}">
+<input type="hidden" id="nombres" value="{{ $nombres }}">
+<input type="hidden" id="mail" value="{{ $mail }}">
 <button disabled="true" type="submit" id="b"> <img src="{{ asset('images/buscar.png'); }}"/> Buscar </button>
 </br></br>
 <div style="float: left;" id="tablares"> </div></div>
@@ -40,8 +42,10 @@ var proceso=0;
     var cedula=$('#cedula').val();
     var codigo=$('#codigo').val();
     var tipoReporte=$('#tipoReporte').val();
+    var nombres=$('#nombres').val();
+    var mail=$('#mail').val();
     //alert(codigo);
-    $('#tablares').load("../../tabla",{escuela:escuela,tipoEmpleado:tipo,macroproceso:macro,proceso:proceso,cedula:cedula,codigo:codigo,tipoReporte:tipoReporte});
+    $('#tablares').load("../../../tabla",{escuela:escuela,tipoEmpleado:tipo,macroproceso:macro,proceso:proceso,cedula:cedula,codigo:codigo,nombres:nombres,mail:mail,tipoReporte:tipoReporte});
 });
 
 

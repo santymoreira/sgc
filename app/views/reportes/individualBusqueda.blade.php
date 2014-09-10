@@ -23,6 +23,9 @@
 <input type="hidden" id="esc" value="{{ $escuela }}">
 <input type="hidden" id="codigo" value="{{ $empleado }}">
 <input type="hidden" id="ci" value="{{ $ci }}">
+<input type="hidden" id="tipoReporte" value="{{ $tipoReporte }}">
+<input type="hidden" id="nombres" value="{{ $nombres }}">
+<input type="hidden" id="mail" value="{{ $mail }}">
 
 <script type="text/javascript">
 		 $(document).ready(function(){
@@ -32,9 +35,12 @@
        var escuela=$('#esc').val();
        var codigo=$('#codigo').val();
        var ci=$('#ci').val();
+       var tipoReporte=$('#tipoReporte').val();
+       var nombres=$('#nombres').val();
+       var mail=$('#mail').val();
 
-           $("#contenido").load("../../combo1",
-            {tipoEmpleado: tipoEmpleado,escuela: escuela,tipoReporte:2,codigo:codigo,cedula:ci}
+           $("#contenido").load("../../../combo1",
+            {tipoEmpleado: tipoEmpleado,escuela: escuela,tipoReporte:tipoReporte,codigo:codigo,cedula:ci,nombres:nombres,mail:mail}
             );
 
 });

@@ -20,6 +20,8 @@
 <input type="hidden" id="cedula" value="{{ $cedula }}">
 <input type="hidden" id="codigo" value="{{ $codigo }}">
 <input type="hidden" id="tipoReporte" value="{{ $tipoReporte }}">
+<input type="hidden" id="nombres" value="{{ $nombres }}">
+<input type="hidden" id="mail" value="{{ $mail }}">
 
 
 <script type="text/javascript">
@@ -32,10 +34,12 @@
        var escuela=$('#escu').val();
        var cedula=$('#cedula').val();
        var codigo=$('#codigo').val();
+       var nombres=$('#nombres').val();
+       var mail=$('#mail').val();
        var tipoReporte=$('#tipoReporte').val();
 
-           $("#contenido2").load("../../combo2",
-            {macroproceso: macroproceso,tipoEmpleado: tipoEmpleado,escuela:escuela,cedula:cedula,codigo:codigo,tipoReporte:tipoReporte}
+           $("#contenido2").load("../../../combo2",
+            {macroproceso: macroproceso,tipoEmpleado: tipoEmpleado,escuela:escuela,cedula:cedula,codigo:codigo,nombres:nombres,mail:mail,tipoReporte:tipoReporte}
             );
            
 });

@@ -107,15 +107,14 @@ Route::get('/pruebav01', array('uses' => 'EmpleadosController@mostrarEmp'));
 Route::get('/datos', array('uses' => 'HomeController@envios_ajax'));
 
   //reporte individual
-  Route::get('reportes/individual/{cod}', 'ReportesController@individual');
+  Route::get('reportes/individual/{cod}/{tipo}', 'ReportesController@individual');
 
   Route::post('/individualBusqueda', 'ReportesController@individualBusqueda');
 
-
   //reporte mensual
-  Route::get('reportes/mensual/{cod}', 'ReportesController@mensual');
+  //Route::get('reportes/mensual/{cod}/{tipo}', 'ReportesController@mensual');
   //reporte con busqueda
-  Route::get('reportes/mensualE/{cod}', 'ReportesController@mensualE');
+  Route::get('reportes/mensualE/{cod}/{tipo}', 'ReportesController@mensualE');
 
   Route::post('/buscarEmpleado', 'ReportesController@buscarEmpleado');
 //Route::get('/tipos', array('uses' => 'ReportesController@mostrarTipo'));
@@ -125,7 +124,8 @@ Route::post('/tabla',array('uses' => 'ReportesController@tabla'));
 Route::get('/imagenReporteMensual/{escuela}/{macroproceso}/{proceso}/{mes}/{cedula}/{codigo}/{suma}/{op}',array('uses' => 'ReportesController@imagenReporteMensual'));
 Route::get('/imagenReporte/{escuela}/{macroproceso}/{proceso}/{f1}/{f2}/{cedula}/{codigo}/{op}',array('uses' => 'ReportesController@imagenReporte'));
 
-Route::get('/pdfReporte/{escuela}/{macroproceso}/{proceso}/{f1}/{f2}',array('uses' => 'ReportesController@pdfReporte'));
+Route::get('/pdfReporte/{a}/{b}/{c}/{d}/{e}/{f}/{g}/{h}/{i}',array('uses' => 'ReportesController@pdfReporte'));
+Route::get('/pdfReporteMensual/{a}/{b}/{c}/{d}/{e}/{f}/{g}/{h}/{i}',array('uses' => 'ReportesController@pdfReporteMensual'));
 
 //Controllers Escuela programmer.
 

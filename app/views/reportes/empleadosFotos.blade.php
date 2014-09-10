@@ -23,6 +23,7 @@ color: #FFF;
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <input type="hidden" id="esc" value="{{ $escuela }}">
+<input type="hidden" id="tipoReporte" value="{{ $tipoReporte }}">
   @foreach ($empleados as $empleado)
 <a id="{{$empleado->COD_EMPLEADO}}" style="text-decoration:none;"> 
   <div id="displayBox" align="left" >
@@ -32,6 +33,7 @@ color: #FFF;
         <br/><br/>
         <input type="hidden" id="{{$empleado->COD_EMPLEADO}}ci" value="{{$empleado->CI}}">
         <input type="hidden" id="{{$empleado->COD_EMPLEADO}}nombres" value="{{$empleado->NOMBRES}}">
+        <input type="hidden" id="{{$empleado->COD_EMPLEADO}}mail" value="{{$empleado->EMAIL}}">
         
       @endforeach
   </div>
@@ -41,14 +43,16 @@ color: #FFF;
  <script type="text/javascript">
   $(document).ready(function(){
      var escuela=$('#esc').val();
+     var tipoReporte=$('#tipoReporte').val();
       $("a").click(function(e){
           e.preventDefault();
           var empleado = $(this).attr('id');
           var ci=$('#'+empleado+'ci').val();
           var nombres=$('#'+empleado+'nombres').val();
+          var mail=$('#'+empleado+'mail').val();
         //var consult = $("#busqueda").val();
-           $("#displayBox").load("../../individualBusqueda",
-            {escuela: escuela,empleado:empleado,ci:ci,nombres:nombres}
+           $("#displayBox").load("../../../individualBusqueda",
+            {escuela: escuela,empleado:empleado,ci:ci,nombres:nombres,mail:mail,tipoReporte:tipoReporte}
            );
 });
 
