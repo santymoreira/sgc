@@ -13,7 +13,7 @@ table {
 	width: 680px;
 	color: #188bc2;
 	font-size: .75em;
-	background: #fff url(http://localhost:90/ReportesIndicadores/Tabla/logo_fade.png) 50px 6px no-repeat;
+	background: #fff url(../images/logo_fade_tabla.png) 50px 6px no-repeat;
 	border: 2px solid #9b8fc5;
 	padding-top: 121px
 }
@@ -88,7 +88,7 @@ tfoot td {
 	font-size: 1.5em;
 	color: #fff;
 	height: 72px;
-	background: url(http://localhost:90/ReportesIndicadores/Tabla/logo_csg1.png) 100% 2% no-repeat
+	background: url(../images/logo_csg1.png) 100% 2% no-repeat
 }
 tfoot td:after {
 	content: "  Encontrados!";

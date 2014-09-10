@@ -6,21 +6,16 @@ class ReportesController extends BaseController {
     public function getMes($mes)
     {
         switch ($mes) {
-            case 1: return 'Enero';break;
-            case 2: return 'Febrero';break;
-            case 3: return 'Marzo';break;
-            case 4: return 'Abril';break;
-            case 5: return 'Mayo';break;
-            case 6: return 'Junio';break;
-            case 7: return 'Julio';break;
-            case 8: return 'Agosto';break;
-            case 9: return 'Septiembre';break;
-            case 10: return 'Octubre';break;
-            case 11: return 'Noviembre';break;
-            case 12: return 'Diciembre';break;
+            case 1: return 'Enero';break;case 2: return 'Febrero';break;
+            case 3: return 'Marzo';break;case 4: return 'Abril';break;
+            case 5: return 'Mayo';break;case 6: return 'Junio';break;
+            case 7: return 'Julio';break;case 8: return 'Agosto';break;
+            case 9: return 'Septiembre';break;case 10: return 'Octubre';break;
+            case 11: return 'Noviembre';break;case 12: return 'Diciembre';break;
         }
     }
 
+    # obtiene los tipos de empleado para listarlos en el combo 
     public function getTipos($codigo,$escuela)
     {
         $tipos=DB::select('SELECT TE.COD_TIPO,TE.DESCRIPCION FROM empleado_tipo AS ET INNER JOIN empleado AS E 
@@ -30,7 +25,8 @@ class ReportesController extends BaseController {
             ON ES.COD_ESCUELA=EMES.COD_ESCUELA WHERE E.COD_EMPLEADO=? AND ES.COD_ESCUELA=?',array($codigo,$escuela));
         return $tipos;
     }
-    # obtiene los tipos de empleado para listarlos en el combo 
+    
+
       public function individual($escuela,$tipo)
     {
         $codigoEmpleado=Auth::user()->COD_EMPLEADO;
@@ -92,9 +88,9 @@ class ReportesController extends BaseController {
         return $nombreProceso;
     }
 
-    public function getPorcentaje($empleado,$proceso,$macroproceso,$fechaInicio,$fechaFin)
+    public function getPorcentaje($empleado,$proceso,$macroproceso,$fechaInicio,$fechaFin,$escuela)
     {
-        $Porcentaje = DB::select('SELECT DISTINCT(I.PORCENTAJE) FROM indicador AS I INNER JOIN proceso AS PR ON I.COD_PROCESO=PR.COD_PROCESO WHERE I.COD_EMPLEADO=? AND PR.COD_PROCESO=? AND PR.COD_MACROPROCESO=? AND I.FECHA_INICIO=? AND I.FECHA_FIN=?',array($empleado,$proceso,$macroproceso,$fechaInicio,$fechaFin));
+        $Porcentaje = DB::select('SELECT DISTINCT(I.PORCENTAJE) FROM indicador AS I INNER JOIN proceso AS PR ON I.COD_PROCESO=PR.COD_PROCESO WHERE I.COD_EMPLEADO=? AND PR.COD_PROCESO=? AND PR.COD_MACROPROCESO=? AND I.FECHA_INICIO=? AND I.FECHA_FIN=? AND I.COD_ESCUELA=?',array($empleado,$proceso,$macroproceso,$fechaInicio,$fechaFin,$escuela));
         if ($Porcentaje) {
             foreach ($Porcentaje as $porc) { $porcentaje=$porc->PORCENTAJE; }
         }
@@ -111,23 +107,12 @@ class ReportesController extends BaseController {
     public function getValorCumplido($proceso,$macroproceso,$escuela,$fechaInicio,$fechaFin,$empleado)
     {
         $maxi=$this->getValorTotal($escuela,$macroproceso);
-        $porcen=$this->getPorcentaje($empleado,$proceso,$macroproceso,$fechaInicio,$fechaFin);
+        $porcen=$this->getPorcentaje($empleado,$proceso,$macroproceso,$fechaInicio,$fechaFin,$escuela);
         $valorCumplido=Empleado::storedProcedureCall('CALL porcentajeIndicadoresxEscuela('.$proceso.','.$macroproceso.','.$escuela.','.$porcen.','.$maxi.')');
         foreach ($valorCumplido as $valor) { $valorMaximo=$valor->cumple; }
         return $valorMaximo;
     }
 
-    public function mostrarTipo()
-    {
-    	$tipos=DB::select('SELECT TE.COD_TIPO,TE.DESCRIPCION FROM empleado_tipo AS ET INNER JOIN empleado AS E 
-        	ON E.COD_EMPLEADO=ET.COD_EMPLEADO INNER JOIN tipo_empleado AS TE 
-        	ON TE.COD_TIPO=ET.COD_TIPO INNER JOIN empleado_escuela AS EMES 
-        	ON EMES.COD_EMPLEADO= E.COD_EMPLEADO INNER JOIN escuela AS ES 
-        	ON ES.COD_ESCUELA=EMES.COD_ESCUELA WHERE E.COD_EMPLEADO=73 AND ES.COD_ESCUELA=2');
-    	$tipo=json_encode($tipos);
-    	$response = isset($_GET['callback'])?$_GET['callback']."(".$tipo.")":$tipo; 
-    	echo $response;
-    }
 
     public function combo2()
     {
@@ -183,15 +168,14 @@ class ReportesController extends BaseController {
         {
             //echo("<script>console.log('PHP: ".$escuela."');</script>");
             //$codigoEmpleado=Auth::user()->COD_EMPLEADO;
-            $indicadores=DB::select('SELECT DISTINCT I.COD_INDICADOR,I.COD_PROCESO,I.FECHA_INICIO,I.FECHA_FIN,I.COD_MACROPROCESO,I.COD_EMPLEADO FROM indicador AS I INNER JOIN proceso AS P ON P.COD_PROCESO=I.COD_PROCESO WHERE I.COD_EMPLEADO=? AND I.COD_PROCESO=? AND I.COD_MACROPROCESO=? ORDER BY I.FECHA_FIN DESC LIMIT 31',array($codigo,$proceso,$macroproceso));
+            $indicadores=DB::select('SELECT DISTINCT I.COD_INDICADOR,I.COD_PROCESO,I.FECHA_INICIO,I.FECHA_FIN,I.COD_MACROPROCESO,I.COD_EMPLEADO FROM indicador AS I INNER JOIN proceso AS P ON P.COD_PROCESO=I.COD_PROCESO WHERE I.COD_EMPLEADO=? AND I.COD_PROCESO=? AND I.COD_MACROPROCESO=? AND I.COD_ESCUELA=? ORDER BY I.FECHA_FIN DESC LIMIT 31',array($codigo,$proceso,$macroproceso,$escuela));
             return View::make('reportes.tabla', array('indicadores' => $indicadores,'escuela' =>$escuela,'macroproceso'=>$macroproceso,'proceso'=>$proceso,'codigoEmpleado'=>$codigo,'cedula'=>$cedula,'codigo'=>$codigo,'nombres'=>$nombres,'mail'=>$mail));
         }
         if ($tipoReporte==2 || $tipoReporte==3) 
         {
             $mes=Input::get('mes');
             //echo("<script>console.log('PHP: ".$mes."');</script>");
-            $indicadores=Empleado::storedProcedureCall('CALL ProcesosMensual('.$macroproceso.','.$proceso.','.$codigo.','.$mes.')');
-
+            $indicadores=Empleado::storedProcedureCall('CALL ProcesosMensual('.$macroproceso.','.$proceso.','.$codigo.','.$mes.','.$escuela.')');
             foreach ($indicadores as $indicador) {
                 $suma+=$indicador->PORCENTAJE;
                 //echo("<script>console.log('PHP: ".$suma."');</script>");
@@ -237,41 +221,52 @@ class ReportesController extends BaseController {
          $MyData->setSerieDescription("Labels","Months");
          $MyData->setAbscissa("Labels");
          /* Create the pChart object*/ 
+
          $myPicture = new pImage(900,330,$MyData);
          /* Draw the background */
-         $Settings = array("R"=>0, "G"=>0, "B"=>255, "Dash"=>1, "DashR"=>0, "DashG"=>0, "DashB"=>255);
+         $Settings = array("R"=>255, "G"=>255, "B"=>255, "Dash"=>255, "DashR"=>255, "DashG"=>255, "DashB"=>255);
+         //$Settings = array("R"=>0, "G"=>0, "B"=>255, "Dash"=>1, "DashR"=>0, "DashG"=>0, "DashB"=>255);
          $myPicture->drawFilledRectangle(0,0,900,330,$Settings);
          /* Overlay with a gradient */
-         $Settings = array("StartR"=>219, "StartG"=>231, "StartB"=>139, "EndR"=>1, "EndG"=>138, "EndB"=>68, "Alpha"=>50);
+          $Settings = array("StartR"=>255, "StartG"=>255, "StartB"=>255, "EndR"=>255, "EndG"=>255, "EndB"=>255, "Alpha"=>50);
+         //$Settings = array("StartR"=>219, "StartG"=>231, "StartB"=>139, "EndR"=>1, "EndG"=>138, "EndB"=>68, "Alpha"=>50);
          $myPicture->drawGradientArea(0,0,900,330,DIRECTION_VERTICAL,$Settings);
-         $myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>0,"StartG"=>0,"StartB"=>0,"EndR"=>50,"EndG"=>50,"EndB"=>50,"Alpha"=>80));
+         //$myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>0,"StartG"=>0,"StartB"=>0,"EndR"=>50,"EndG"=>50,"EndB"=>50,"Alpha"=>80));
+         $myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>255,"StartG"=>255,"StartB"=>255,"EndR"=>255,"EndG"=>255,"EndB"=>255,"Alpha"=>80));
          /* Add a border to the picture */
-         $myPicture->drawRectangle(0,0,899,329,array("R"=>0,"G"=>0,"B"=>0));
+         //$myPicture->drawRectangle(0,0,899,329,array("R"=>0,"G"=>0,"B"=>0));
+         $myPicture->drawRectangle(0,0,699,229,array("R"=>255,"G"=>255,"B"=>255));
          /* Write the picture title  */
          $myPicture->setFontProperties(array("FontName"=>"pChart2.1.4/fonts/Forgotte.ttf","FontSize"=>15));
          //$myPicture->drawText(20,25,$nompro['DESCRIPCION'],array("R"=>255,"G"=>255,"B"=>255));
-         $myPicture->drawText(20,25,$process,array("R"=>255,"G"=>255,"B"=>255));
+         $myPicture->drawText(10,13,'',array("R"=>0,"G"=>0,"B"=>215));
+         //$myPicture->drawText(20,25,$process,array("R"=>255,"G"=>255,"B"=>255));
          /* Enable shadow computing */  
          $myPicture->setShadow(TRUE,array("X"=>1,"Y"=>1,"R"=>0,"G"=>0,"B"=>0,"Alpha"=>20)); 
           /* Write some text */  
-         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+          $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
+         //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
          //$myPicture->drawText(110,200,"CI: ".$_SESSION['user'],$TextSettings); 
          $myPicture->drawText(110,200,"CEDULA: ".$cedulaEmpleado,$TextSettings); 
-          /* Write some text  */ 
-         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+          /* Write some text  */
+          $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9);  
+         //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
          //$myPicture->drawText(110,222,$escuelare[0],$TextSettings); 
          $myPicture->drawText(110,222,$school,$TextSettings); 
            /* Write some text   */
-         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+           $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
+         //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
          //$myPicture->drawText(110,244,"Fecha Inicio: ".$_SESSION['iini'],$TextSettings); 
          $myPicture->drawText(110,244,"Fecha Inicio: ".$f1,$TextSettings); 
            /* Write some text  */ 
-         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+           $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
+         //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
          //$myPicture->drawText(110,266,"Fecha Fin: ".$_SESSION['ffin'],$TextSettings); 
          $myPicture->drawText(110,266,"Fecha Fin: ".$f2,$TextSettings); 
          /* Create the pIndicator object */ 
          $Indicator = new pIndicator($myPicture);
          $myPicture->setFontProperties(array("FontName"=>"pChart2.1.4/fonts/Forgotte.ttf","FontSize"=>9));
+
          /* Define the indicator sections */
          $IndicatorSections   = "";
          $IndicatorSections[] = array("Start"=>0,"End"=>70,"Caption"=>"Bajo","R"=>200,"G"=>0,"B"=>0);
@@ -323,49 +318,68 @@ class ReportesController extends BaseController {
          $MyData->setSerieDescription("Labels","Months");
          $MyData->setAbscissa("Labels");
 
-         /* Create the pChart object */
+
+         
+         # Create the pChart object
          $myPicture = new pImage(900,330,$MyData);
 
-         /* Draw the background */
-         $Settings = array("R"=>0, "G"=>0, "B"=>255, "Dash"=>1, "DashR"=>0, "DashG"=>0, "DashB"=>255);
+         # Draw the background
+         //$Settings = array("R"=>0, "G"=>0, "B"=>255, "Dash"=>1, "DashR"=>0, "DashG"=>0, "DashB"=>255);
+         $Settings = array("R"=>255, "G"=>255, "B"=>255, "Dash"=>255, "DashR"=>255, "DashG"=>255, "DashB"=>255);
          $myPicture->drawFilledRectangle(0,0,900,330,$Settings);
 
-         /* Overlay with a gradient */
-         $Settings = array("StartR"=>219, "StartG"=>231, "StartB"=>139, "EndR"=>1, "EndG"=>138, "EndB"=>68, "Alpha"=>50);
+
+
+         # Overlay with a gradient
+         //$Settings = array("StartR"=>219, "StartG"=>231, "StartB"=>139, "EndR"=>1, "EndG"=>138, "EndB"=>68, "Alpha"=>50);
+         $Settings = array("StartR"=>255, "StartG"=>255, "StartB"=>255, "EndR"=>255, "EndG"=>255, "EndB"=>255, "Alpha"=>50);
          $myPicture->drawGradientArea(0,0,900,330,DIRECTION_VERTICAL,$Settings);
-         $myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>0,"StartG"=>0,"StartB"=>0,"EndR"=>50,"EndG"=>50,"EndB"=>50,"Alpha"=>80));
+         //$myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>0,"StartG"=>0,"StartB"=>0,"EndR"=>50,"EndG"=>50,"EndB"=>50,"Alpha"=>80));
+         $myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>255,"StartG"=>255,"StartB"=>255,"EndR"=>255,"EndG"=>255,"EndB"=>255,"Alpha"=>80));
 
-         /* Add a border to the picture */
-         $myPicture->drawRectangle(0,0,899,329,array("R"=>0,"G"=>0,"B"=>0));
+         # Add a border to the picture
+         //$myPicture->drawRectangle(0,0,899,329,array("R"=>0,"G"=>0,"B"=>0));
+         $myPicture->drawRectangle(0,0,699,229,array("R"=>255,"G"=>255,"B"=>255));
+
          
-         /* Write the picture title */ 
+         #Write the picture title 
          $myPicture->setFontProperties(array("FontName"=>"pChart2.1.4/fonts/Forgotte.ttf","FontSize"=>15));
-         $myPicture->drawText(20,25,$process,array("R"=>255,"G"=>255,"B"=>255));
+         $myPicture->drawText(10,13,'',array("R"=>0,"G"=>0,"B"=>215));
+         //$myPicture->drawText(20,25,$process,array("R"=>255,"G"=>255,"B"=>255));
 
          
-         /* Enable shadow computing */  
+         # Enable shadow computing
          $myPicture->setShadow(TRUE,array("X"=>1,"Y"=>1,"R"=>0,"G"=>0,"B"=>0,"Alpha"=>20)); 
          
-          /* Write some text */  
-         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+          # Write some text
+          $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
+         //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
          $myPicture->drawText(110,200,"CI: ". $cedulaEmpleado,$TextSettings); 
          
-          /* Write some text */  
-         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+         # Write some text  
+         $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
+         //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
          $myPicture->drawText(110,222,$school,$TextSettings); 
          
-           /* Write some text */  
-         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+         # Write some text  
+         //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+         $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
          $myPicture->drawText(110,244,"Porcentaje Mensual: ".round($suma*100/$maximo,2)." %",$TextSettings); 
-        // 
-        //   /* Write some text */  
-         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+        
+         # Write some text
+         $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
+         //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
          $myPicture->drawText(110,266,"Mes: ".$mes,$TextSettings); 
          
-         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+         //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+         $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
          $myPicture->drawText(110,288,"Año: ".date("Y"),$TextSettings); 
          
          
+        
+
+
+
          /* Create the pIndicator object */ 
          $Indicator = new pIndicator($myPicture);
 
@@ -589,7 +603,7 @@ class ReportesController extends BaseController {
             //
             //
             //
-            $pdf->Image($codigoEmpleado.".PNG",20,120,180,45.5);
+            $pdf->Image($codigoEmpleado.".PNG",20,140,180,45.5);
         //$pdf->Image("../pChart2.1.4/examples/pictures/".$_SESSION['user'].".png",20,120,180,45.5);
 
             $pdf->Output('MisIndicadores_'.$codigoEmpleado.'.pdf','I');

@@ -6,10 +6,18 @@
    	
    			 <div id="menu">
 						<ul>
-				              <li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio');}}
-							  <li class="nivel1"><a class="nivel1" {{ HTML::link('C_exterior/macroprocesos', 'Macroprocesos');}}
-							  <li class="nivel1"><a onclick="Alert()" class="nivel1">Administración</a></li>
-							  <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a></li>
+				               <li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio');}}
+							  <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/macroprocesos', 'Macroprocesos');}}
+							  <li class="nivel1"><a onclick="Alert()" class="nivel1" {{ HTML::link('users/empleados/2', 'Administración');}} 
+							  <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a>
+							  	<ul class="cuatro">
+            						<li><a {{ HTML::link('reportes/individual/3/1', 'Individual');}} </a></li>
+									<li><a {{ HTML::link('reportes/individual/3/2', 'Mensual');}} </a></li>
+                					<li><a {{ HTML::link('reportes/mensualE/3/3', 'Mensual Empleados');}} </a></li>
+                					<li><a {{ HTML::link('reportes/mensualE/3/4', 'Individual Empleados');}} </a></li>
+                 					<li><a {{ HTML::link('descargas', 'Descargas');}} </a></li>
+        						</ul>
+							  </li>
 						</ul>
 				  </div> 
 @stop
