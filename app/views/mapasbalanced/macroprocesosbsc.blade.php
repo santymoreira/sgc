@@ -10,7 +10,17 @@
    			 <div id="menu">
 						<ul>
 				               <li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio'); }} 
-                       <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/cont_audi_bsc','BSC'); }}  
+                      @if($var == 1)   
+                         <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/cont_audi_bsc','BSC'); }}  
+                      @elseif($var ==3)
+                         <li class="nivel1"><a class="nivel1" {{ HTML::link('empresas/empresas_bsc','BSC'); }}  
+                      @elseif($var ==5)
+                          <li class="nivel1"><a class="nivel1" {{ HTML::link('finanzas/finanzas_bsc','BSC'); }}
+                      @elseif($var ==6)
+                          <li class="nivel1"><a class="nivel1" {{ HTML::link('marketing/marketing_bsc','BSC'); }}
+                      @elseif($var ==7)
+                          <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/transporte_bsc','BSC'); }}
+                      @endif                  
           </div> 
 @stop
 
@@ -24,11 +34,19 @@
 @section('body')
         <div class="content-layout" >
          @if($var == 1)
-            <div ><center><img src="{{ asset('images/contabilidadbsc/contenedor.png') }}"></center></div>
+            <div id="apDiv0"><center><img src="{{ asset('images/contabilidadbsc/contenedor.png') }}"></center></div>
+         @elseif($var == 3)
+            <div id="apDiv0"><center><img src="{{ asset('images/empresasbsc/contenedor.png') }}"></center></div>
+         @elseif($var ==5)
+             <div id="apDiv0"><center><img src="{{ asset('images/finanzasbsc/contenedor.png') }}"></center></div>
+         @elseif($var ==6)
+             <div id="apDiv0"><center><img src="{{ asset('images/marketingbsc/contenedor.png') }}"></center></div>
+         @elseif($var ==7)
+             <div id="apDiv0"><center><img src="{{ asset('images/transportebsc/contenedor.png') }}"></center></div>
          @endif
 
       <!-- Perspectivas del Balanced -->
-
+     <div class="cleared"> 
         <div id="apDiv1">
               <img onclick="PotInvestigacion();" id="PotInvestigacion" src="{{ asset('images/perspectivasbsc/potenciar_investigacion.png') }}" style="cursor:pointer;">
               <a rel="floatbox" class="fbPopup" href="ReportesIndicadores/pChart2.1.4/examples/Contabilidad_Macro_GestionAdministrativa.php">
@@ -99,8 +117,9 @@
           <div id="apDiv26">
               <img onclick="ObtenerFinanc();" id="ObtenerFinanc" src="{{ asset('images/perspectivasbsc/obtenerfinanc.png') }}" style="cursor:pointer;">
         </div>
-
-
-
-
+      </div>
+        <center>
+           <p style="font-size:10px;color:#03F; position:relative; bottom:0;" >Copyright © 2014. All Rights Reserved.</p>
+        </center>
+</div>
  @stop
