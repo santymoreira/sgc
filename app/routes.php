@@ -236,13 +236,31 @@ Route::get('transporte/M_Mantenimiento', 'MapasController@mantenimiento');
 
 
 //Balanced Score Card
+
+//Balanced Contabilidad y Auditoría 
 Route::get('home/welcome', 'MapasController@home');
 Route::get('contabilidad/cont_audi_bsc', 'MapasBalancedController@cont_audi_bsc');
 Route::get('contabilidad/macroprocesosbsc', 'MapasBalancedController@macroprocesosbsc'); 
 
+//Balanced Empresas
+Route::get('home/welcome', 'MapasController@home');
+Route::get('empresas/empresas_bsc', 'MapasBalancedController@empresas_bsc');
+Route::get('empresas/macroprocesosbsc', 'MapasBalancedController@macroprocesosbsc'); 
 
+//Balanced finanzas
+Route::get('home/welcome', 'MapasController@home');
+Route::get('finanzas/finanzas_bsc', 'MapasBalancedController@finanzas_bsc');
+Route::get('finanzas/macroprocesosbsc', 'MapasBalancedController@macroprocesosbsc'); 
 
+//Balanced marketing
+Route::get('home/welcome', 'MapasController@home');
+Route::get('marketing/marketing_bsc', 'MapasBalancedController@marketing_bsc');
+Route::get('marketing/macroprocesosbsc', 'MapasBalancedController@macroprocesosbsc'); 
 
+//Balanced transporte
+Route::get('home/welcome', 'MapasController@home');
+Route::get('transporte/transporte_bsc', 'MapasBalancedController@transporte_bsc');
+Route::get('transporte/macroprocesosbsc', 'MapasBalancedController@macroprocesosbsc'); 
 
 
 
@@ -263,7 +281,6 @@ Route::get('users/destroy/{cod}','UserController@destroy');
 
 //Mostrar un empleado
   Route::get('users/show/{cod}', 'UserController@show');
-
 
 //Reportes 
 Route::get('/reportes','ReportesController@Show_reportes');
