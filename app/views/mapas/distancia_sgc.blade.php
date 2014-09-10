@@ -7,7 +7,7 @@
    			 <div id="menu">
 						<ul>
 				               <li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio');}}
-							  <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/macroprocesos', 'Macroprocesos');}}
+							  <li class="nivel1"><a class="nivel1" {{ HTML::link('E_distancia/macroprocesos', 'Macroprocesos');}}
 							  <li class="nivel1"><a onclick="Alert()" class="nivel1" {{ HTML::link('users/empleados/2', 'Administración');}} 
 							  <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a>
 							  	<ul class="cuatro">

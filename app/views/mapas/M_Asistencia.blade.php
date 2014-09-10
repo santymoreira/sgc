@@ -38,31 +38,31 @@
 
 	<div class="content-layout" >
     
-      @if($var == 1)
+      @if($var == 2)
 		  	<div id="apDiv32">
           <img src="{{ asset('images/contabilidad/asistencia.png') }}">
         </div>
-      @elseif($var ==2)
+      @elseif($var ==7)
         <div id="apDiv32">
           <img src="{{ asset('images/distancia/asistencia.png') }}">
         </div>
-       @elseif($var ==3)
+       @elseif($var ==1)
         <div id="apDiv32">
           <img src="{{ asset('images/empresas/asistencia.png') }}">
         </div>
-      @elseif($var ==4)
+      @elseif($var ==3)
         <div id="apDiv32">
           <img src="{{ asset('images/exterior/asistencia.png') }}">
         </div>
-       @elseif($var ==5)
+       @elseif($var ==4)
         <div id="apDiv32">
           <img src="{{ asset('images/finanzas/asistencia.png') }}">
         </div>
-       @elseif($var ==6)
+       @elseif($var ==5)
         <div id="apDiv32">
           <img src="{{ asset('images/marketing/asistencia.png') }}">
         </div>
-        @elseif($var ==7)
+        @elseif($var ==6)
         <div id="apDiv32">
           <img src="{{ asset('images/transporte/asistencia.png') }}">
         </div>
