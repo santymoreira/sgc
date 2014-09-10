@@ -42,11 +42,6 @@
 	<div id="resultado"></div>
   </div>
 
-
-
-<div id="resultado">
-</div>
-
 <input type="hidden" id="esc" value="{{ $escuela }}">
 <input type="hidden" id="tipoReporte" value="{{ $tipoReporte }}">
 

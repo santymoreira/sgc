@@ -2,18 +2,42 @@
 class ReportesController extends BaseController {
 
 
+    #obtiene el nombre del mes
+    public function getMes($mes)
+    {
+        switch ($mes) {
+            case 1: return 'Enero';break;
+            case 2: return 'Febrero';break;
+            case 3: return 'Marzo';break;
+            case 4: return 'Abril';break;
+            case 5: return 'Mayo';break;
+            case 6: return 'Junio';break;
+            case 7: return 'Julio';break;
+            case 8: return 'Agosto';break;
+            case 9: return 'Septiembre';break;
+            case 10: return 'Octubre';break;
+            case 11: return 'Noviembre';break;
+            case 12: return 'Diciembre';break;
+        }
+    }
+
+    public function getTipos($codigo,$escuela)
+    {
+        $tipos=DB::select('SELECT TE.COD_TIPO,TE.DESCRIPCION FROM empleado_tipo AS ET INNER JOIN empleado AS E 
+            ON E.COD_EMPLEADO=ET.COD_EMPLEADO INNER JOIN tipo_empleado AS TE 
+            ON TE.COD_TIPO=ET.COD_TIPO INNER JOIN empleado_escuela AS EMES 
+            ON EMES.COD_EMPLEADO= E.COD_EMPLEADO INNER JOIN escuela AS ES 
+            ON ES.COD_ESCUELA=EMES.COD_ESCUELA WHERE E.COD_EMPLEADO=? AND ES.COD_ESCUELA=?',array($codigo,$escuela));
+        return $tipos;
+    }
+    # obtiene los tipos de empleado para listarlos en el combo 
       public function individual($escuela,$tipo)
     {
         $codigoEmpleado=Auth::user()->COD_EMPLEADO;
         $cedulaEmpleado=Auth::user()->CI;
         $nombres=Auth::user()->NOMBRES;
         $mail=Auth::user()->EMAIL;
-        $tipos=DB::select('SELECT TE.COD_TIPO,TE.DESCRIPCION FROM empleado_tipo AS ET INNER JOIN empleado AS E 
-        	ON E.COD_EMPLEADO=ET.COD_EMPLEADO INNER JOIN tipo_empleado AS TE 
-        	ON TE.COD_TIPO=ET.COD_TIPO INNER JOIN empleado_escuela AS EMES 
-        	ON EMES.COD_EMPLEADO= E.COD_EMPLEADO INNER JOIN escuela AS ES 
-        	ON ES.COD_ESCUELA=EMES.COD_ESCUELA WHERE E.COD_EMPLEADO=? AND ES.COD_ESCUELA=?',array($codigoEmpleado,$escuela));
-
+        $tipos=$this->getTipos($codigoEmpleado,$escuela);
          return View::make('reportes.individual', array('tipoEmpleados' => $tipos,'escuela' =>$escuela,'cedula'=>$cedulaEmpleado,'codigo'=>$codigoEmpleado,'nombres'=>$nombres,'mail'=>$mail,'tipoReporte'=>$tipo));
     }
 
@@ -25,16 +49,9 @@ class ReportesController extends BaseController {
         $ci=Input::get('ci');
         $nombres=Input::get('nombres');
         $tipoReporte=Input::get('tipoReporte');
-         $mail=Input::get('mail');
-        //$codigo=Input::get('codigo');
+        $mail=Input::get('mail');
+        $tipos=$this->getTipos($empleado,$escuela);
        // echo("<script>console.log('PHP: ".$ci."');</script>");
-        //$ci=Auth::user()->COD_EMPLEADO;
-        $tipos=DB::select('SELECT TE.COD_TIPO,TE.DESCRIPCION FROM empleado_tipo AS ET INNER JOIN empleado AS E 
-            ON E.COD_EMPLEADO=ET.COD_EMPLEADO INNER JOIN tipo_empleado AS TE 
-            ON TE.COD_TIPO=ET.COD_TIPO INNER JOIN empleado_escuela AS EMES 
-            ON EMES.COD_EMPLEADO= E.COD_EMPLEADO INNER JOIN escuela AS ES 
-            ON ES.COD_ESCUELA=EMES.COD_ESCUELA WHERE E.COD_EMPLEADO=? AND ES.COD_ESCUELA=?',array($empleado,$escuela));
-
          return View::make('reportes.individualBusqueda', array('tipoEmpleados' => $tipos,'escuela' =>$escuela,'empleado'=>$empleado,'ci'=>$ci,'nombres'=>$nombres,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
     }
 
@@ -56,34 +73,10 @@ class ReportesController extends BaseController {
 
           public function mensualE($escuela,$tipo)
     {
-        //$opcion=2;
         $ci=Auth::user()->COD_EMPLEADO;
-        $tipos=DB::select('SELECT TE.COD_TIPO,TE.DESCRIPCION FROM empleado_tipo AS ET INNER JOIN empleado AS E 
-            ON E.COD_EMPLEADO=ET.COD_EMPLEADO INNER JOIN tipo_empleado AS TE 
-            ON TE.COD_TIPO=ET.COD_TIPO INNER JOIN empleado_escuela AS EMES 
-            ON EMES.COD_EMPLEADO= E.COD_EMPLEADO INNER JOIN escuela AS ES 
-            ON ES.COD_ESCUELA=EMES.COD_ESCUELA WHERE E.COD_EMPLEADO=? AND ES.COD_ESCUELA=?',array($ci,$escuela));
-
-         return View::make('reportes.mensual_empleado', array('tipoEmpleados' => $tipos,'escuela' =>$escuela,'tipoReporte'=>$tipo));
+         return View::make('reportes.mensual_empleado', array('escuela' =>$escuela,'tipoReporte'=>$tipo));
     }
 
-    public function getMes($mes)
-    {
-        switch ($mes) {
-            case 1: return 'Enero';break;
-            case 2: return 'Febrero';break;
-            case 3: return 'Marzo';break;
-            case 4: return 'Abril';break;
-            case 5: return 'Mayo';break;
-            case 6: return 'Junio';break;
-            case 7: return 'Julio';break;
-            case 8: return 'Agosto';break;
-            case 9: return 'Septiembre';break;
-            case 10: return 'Octubre';break;
-            case 11: return 'Noviembre';break;
-            case 12: return 'Diciembre';break;
-        }
-    }
 
     public function getEscuela($escuela)
     {
