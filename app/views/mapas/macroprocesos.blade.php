@@ -10,7 +10,21 @@
    			 <div id="menu">
 						<ul>
 				               <li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio'); }} 
-                       <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/cont_audi_sgc','SGC'); }}  
+                        @if($var == 2)  
+                          <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/cont_audi_sgc','SGC'); }}  
+                        @elseif($var ==7)
+                          <li class="nivel1"><a class="nivel1" {{ HTML::link('E_distancia/distancia_sgc','SGC'); }}  
+                        @elseif($var ==1)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('empresas/empresas_sgc','SGC'); }}  
+                        @elseif($var ==3)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('C_exterior/exterior_sgc','SGC'); }}  
+                        @elseif($var ==4)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('finanzas/finanzas_sgc','SGC'); }}  
+                        @elseif($var ==5)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('marketing/marketing_sgc','SGC'); }}  
+                        @elseif($var ==6)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/transporte_sgc','SGC'); }}  
+                      @endif
           </div> 
 @stop
 
@@ -24,19 +38,19 @@
 @stop
 @section('body')
         <div class="content-layout" >
-         @if($var == 1)
+         @if($var == 2)
             <div id="apDiv21"><center><img src="{{ asset('images/contabilidad/contenedor.png') }}"></center></div>
-          @elseif($var ==2)
+          @elseif($var ==7)
             <div id="apDiv21"><center><img src="{{ asset('images/distancia/contenedor.png') }}"></center></div>
-          @elseif($var ==3)
+          @elseif($var ==1)
             <div id="apDiv21"><center><img src="{{ asset('images/empresas/contenedor.png') }}"></center></div>
-           @elseif($var ==4)
+           @elseif($var ==3)
             <div id="apDiv21"><center><img src="{{ asset('images/exterior/contenedor.png') }}"></center></div>  
-          @elseif($var == 5)
+          @elseif($var == 4)
             <div id="apDiv21"><center><img src="{{ asset('images/finanzas/contenedor.png') }}"></center></div> 
-           @elseif($var == 6)
+           @elseif($var ==5)
             <div id="apDiv21"><center><img src="{{ asset('images/marketing/contenedor.png') }}"></center></div> 
-           @elseif($var == 7)
+           @elseif($var ==6)
             <div id="apDiv21"><center><img src="{{ asset('images/transporte/contenedor.png') }}"></center></div>  
         @endif         
         

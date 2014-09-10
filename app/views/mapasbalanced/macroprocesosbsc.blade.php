@@ -10,15 +10,15 @@
    			 <div id="menu">
 						<ul>
 				               <li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio'); }} 
-                      @if($var == 1)   
+                      @if($var == 2)   
                          <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/cont_audi_bsc','BSC'); }}  
-                      @elseif($var ==3)
+                      @elseif($var ==1)
                          <li class="nivel1"><a class="nivel1" {{ HTML::link('empresas/empresas_bsc','BSC'); }}  
-                      @elseif($var ==5)
+                      @elseif($var ==4)
                           <li class="nivel1"><a class="nivel1" {{ HTML::link('finanzas/finanzas_bsc','BSC'); }}
-                      @elseif($var ==6)
+                      @elseif($var ==5)
                           <li class="nivel1"><a class="nivel1" {{ HTML::link('marketing/marketing_bsc','BSC'); }}
-                      @elseif($var ==7)
+                      @elseif($var ==6)
                           <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/transporte_bsc','BSC'); }}
                       @endif                  
           </div> 
@@ -33,15 +33,15 @@
 @stop
 @section('body')
         <div class="content-layout" >
-         @if($var == 1)
+         @if($var == 2)
             <div id="apDiv0"><center><img src="{{ asset('images/contabilidadbsc/contenedor.png') }}"></center></div>
-         @elseif($var == 3)
+         @elseif($var == 1)
             <div id="apDiv0"><center><img src="{{ asset('images/empresasbsc/contenedor.png') }}"></center></div>
-         @elseif($var ==5)
+         @elseif($var ==4)
              <div id="apDiv0"><center><img src="{{ asset('images/finanzasbsc/contenedor.png') }}"></center></div>
-         @elseif($var ==6)
+         @elseif($var ==5)
              <div id="apDiv0"><center><img src="{{ asset('images/marketingbsc/contenedor.png') }}"></center></div>
-         @elseif($var ==7)
+         @elseif($var ==6)
              <div id="apDiv0"><center><img src="{{ asset('images/transportebsc/contenedor.png') }}"></center></div>
          @endif
 
