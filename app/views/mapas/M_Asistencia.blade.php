@@ -208,7 +208,7 @@
                 </a>              
        		</div>
        		<div id="apDiv142">
-           		<a style="cursor:default;" href="../evaluacion/Realizar certificados/6/{{Session::get('escuela')}}/9/2/1"  rel="floatbox">
+           		<a style="cursor:default;" href="../evaluacion/Realizar certificados/Secretaria/6/{{Session::get('escuela')}}/9/2/1"  rel="floatbox">
             		<img id="afeg06_9" src="{{ asset('images/ProcesosEscuelas/cod_afeg06-09.png') }}" width="56" height="13">
               	</a>                  
         	</div> 
