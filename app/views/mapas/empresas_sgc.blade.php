@@ -32,7 +32,7 @@
 @stop
 
 @section('body')
-		{{Session::put('escuela','3')}}
+		{{Session::put('escuela','1')}}
         <div class="layout-cell content">    
             <div id="central"> 
                <div id="central-content"> </br></br>

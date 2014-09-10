@@ -168,67 +168,67 @@
      	    <!-- Códigos de procesos Gestión Administrativa -->   
 
      	    <div id="apDiv134">
-           		<a style="cursor:default;" href="../evaluacion/Marcar hora de entrada/Secretaria/6/2/1/2/1"  rel="floatbox">
+           		<a style="cursor:default;" href="../evaluacion/Marcar hora de entrada/Secretaria/6/{{Session::get('escuela')}}/1/2/1"  rel="floatbox">
                     <img src="{{ asset('images/ProcesosEscuelas/cod_afeg06-01.png') }}" width="56" height="13" id="afeg06_1">
            		</a>             
        		</div>
        		<div id="apDiv135">
-           		<a style="cursor:default;" href="../evaluacion/Iniciar jornada académica/Secretaria/6/2/2/2/1"  rel="floatbox">
+           		<a style="cursor:default;" href="../evaluacion/Iniciar jornada académica/Secretaria/6/{{Session::get('escuela')}}/2/2/1"  rel="floatbox">
                 	<img id="afeg06_2" src="{{ asset('images/ProcesosEscuelas/cod_afeg06-02.png') }}" width="56" height="13">
            		</a>         
        		</div>
        		<div id="apDiv136">
-           		<a style="cursor:default;" href="../evaluacion/Marcar hora de salida/Secretaria/6/2/3/2/1"  rel="floatbox">
+           		<a style="cursor:default;" href="../evaluacion/Marcar hora de salida/Secretaria/6/{{Session::get('escuela')}}/3/2/1"  rel="floatbox">
            			<img id="afeg06_3" src="{{ asset('images/ProcesosEscuelas/cod_afeg06-03.png') }}" width="56" height="13">
                 </a>              
        		</div>
     		<div id="apDiv137">
-           		<a style="cursor:default;" href="../evaluacion/Realizar un nuevo ingreso/Secretaria/6/2/4/2/2"  rel="floatbox">
+           		<a style="cursor:default;" href="../evaluacion/Realizar un nuevo ingreso/Secretaria/6/{{Session::get('escuela')}}/4/2/2"  rel="floatbox">
                     <img id="afeg06_4" width="51" height="12" src="{{ asset('images/ProcesosEscuelas/cod_afeg06-04.png') }}">
            		</a>              
        		</div>
        		<div id="apDiv138">
-           		<a style="cursor:default;" href="../evaluacion/Realizar auditorías académicas/Secretaria/6/2/5/2/1"  rel="floatbox">
+           		<a style="cursor:default;" href="../evaluacion/Realizar auditorías académicas/Secretaria/6/{{Session::get('escuela')}}/5/2/1"  rel="floatbox">
                 	<img id="afeg06_5" src="{{ asset('images/ProcesosEscuelas/cod_afeg06-05.png') }}" width="56" height="13">
            		</a>                   
        		</div> 
        		<div id="apDiv139">
-           		<a style="cursor:default;" href="../evaluacion/Instalar defensa de tesis/Secretaria/6/2/6/2/2"  rel="floatbox">
+           		<a style="cursor:default;" href="../evaluacion/Instalar defensa de tesis/Secretaria/6/{{Session::get('escuela')}}/6/2/2"  rel="floatbox">
                 	 <img id="afeg06_6" src="{{ asset('images/ProcesosEscuelas/cod_afeg06-06.png') }}" width="56" height="13">
           		</a>            
        		</div>
        		<div id="apDiv140">
-           		<a style="cursor:default;" href="../evaluacion/Realizar los trámites para la graduación/Secretaria/6/2/7/2/2"  rel="floatbox">
+           		<a style="cursor:default;" href="../evaluacion/Realizar los trámites para la graduación/Secretaria/6/{{Session::get('escuela')}}/7/2/2"  rel="floatbox">
             		<img id="afeg06_7" src="{{ asset('images/ProcesosEscuelas/cod_afeg06-07.png') }}" width="56" height="13">
                 </a>               
        		</div>
        		<div id="apDiv141">
-         		<a style="cursor:default;" href="../evaluacion/Realizar oficios/Secretaria/6/2/8/2/1"  rel="floatbox">
+         		<a style="cursor:default;" href="../evaluacion/Realizar oficios/Secretaria/6/{{Session::get('escuela')}}/8/2/1"  rel="floatbox">
            			<img id="afeg06_8" src="{{ asset('images/ProcesosEscuelas/cod_afeg06-08.png') }}" width="56" height="13">
                 </a>              
        		</div>
        		<div id="apDiv142">
-           		<a style="cursor:default;" href="../evaluacion/Realizar certificados/6/2/9/2/1"  rel="floatbox">
+           		<a style="cursor:default;" href="../evaluacion/Realizar certificados/6/{{Session::get('escuela')}}/9/2/1"  rel="floatbox">
             		<img id="afeg06_9" src="{{ asset('images/ProcesosEscuelas/cod_afeg06-09.png') }}" width="56" height="13">
               	</a>                  
         	</div> 
         	<div id="apDiv143">
-           		<a style="cursor:default;" href="../evaluacion/Realizar informes mensuales de horas dictadas/Secretaria/6/2/10/2/1"  rel="floatbox">
+           		<a style="cursor:default;" href="../evaluacion/Realizar informes mensuales de horas dictadas/Secretaria/6/{{Session::get('escuela')}}/10/2/1"  rel="floatbox">
            			<img id="afeg06_10" src="{{ asset('images/ProcesosEscuelas/cod_afeg06-10.png') }}" width="56" height="13">
               	</a>                
        		</div>
        		<div id="apDiv145">
-           		<a style="cursor:default;" href="../evaluacion/Participar en la elaboración de horarios/Secretaria/6/2/11/2/1"  rel="floatbox">
+           		<a style="cursor:default;" href="../evaluacion/Participar en la elaboración de horarios/Secretaria/6/{{Session::get('escuela')}}/11/2/1"  rel="floatbox">
          			<img id="afeg06_11" src="{{ asset('images/ProcesosEscuelas/cod_afeg06-11.png') }}" width="56" height="13">
           		</a>         
        		</div> 
        		<div id="apDiv146">
-        		<a style="cursor:default;" href="../evaluacion/Recibir documentos/Secretaria/6/2/12/2/1"  rel="floatbox">
+        		<a style="cursor:default;" href="../evaluacion/Recibir documentos/Secretaria/6/{{Session::get('escuela')}}/12/2/1"  rel="floatbox">
           			<img id="afeg06_12" src="{{ asset('images/ProcesosEscuelas/cod_afeg06-12.png') }}" width="56" height="13">
               	</a>                
       		</div>
       		<div id="apDiv148">
-           		<a style="cursor:default;" href="../evaluacion/Recibir actas de defensa de tesis/Secretaria/6/2/13/2/1"  rel="floatbox">
+           		<a style="cursor:default;" href="../evaluacion/Recibir actas de defensa de tesis/Secretaria/6/{{Session::get('escuela')}}/13/2/1"  rel="floatbox">
          			<img id="afeg06_13" src="{{ asset('images/ProcesosEscuelas/cod_afeg06-13.png') }}" width="56" height="13">
                	</a>               
        		</div>

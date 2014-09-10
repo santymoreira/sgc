@@ -96,17 +96,17 @@
       		     <!-- Códigos de procesos Gestión de Investigacion -->   
 
       		 <div id="apDiv105">
-                 <a style="cursor:default;" href="../evaluacion/Realizar tutorías de tesis/Docente/2/2/1/4/1"  rel="floatbox">
+                 <a style="cursor:default;" href="../evaluacion/Realizar tutorías de tesis/Docente/2/{{Session::get('escuela')}}/1/4/1"  rel="floatbox">
              		<img id="afeg02_1" src="{{ asset('images/ProcesosEscuelas/cod_afeg02-01.png'); }}" width="50" height="15">
                  </a>        
             </div>
             <div id="apDiv106">
-                 <a style="cursor:default;" href="../evaluacion/Asistir a la defensa/Docente/2/2/2/4/1"  rel="floatbox">
+                 <a style="cursor:default;" href="../evaluacion/Asistir a la defensa/Docente/2/{{Session::get('escuela')}}/2/4/1"  rel="floatbox">
              		<img id="afeg02_2" src="{{ asset('images/ProcesosEscuelas/cod_afeg02-02.png'); }}" width="50" height="15">
                  </a>           
             </div> 
             <div id="apDiv107">
-                 <a style="cursor:default;" href="../evaluacion/Hacer investigación/Docente/2/2/3/4/1"  rel="floatbox">
+                 <a style="cursor:default;" href="../evaluacion/Hacer investigación/Docente/2/{{Session::get('escuela')}}/3/4/1"  rel="floatbox">
              		<img id="afeg02_3" src="{{ asset('images/ProcesosEscuelas/cod_afeg02-03.png'); }}" width="50" height="15">
                  </a>             
             </div>

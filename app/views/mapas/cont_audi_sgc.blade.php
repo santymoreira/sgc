@@ -19,6 +19,7 @@
         						</ul>
 							  </li>
 						</ul>
+						
 				  </div> 
 @stop
 
@@ -32,7 +33,7 @@
 @stop
 
 @section('body')
-		{{Session::put('escuela','1'); }}
+		{{Session::put('escuela','2'); }}
         <div class="layout-cell content">    
             <div id="central"> 
                <div id="central-content"> </br></br>

@@ -142,47 +142,47 @@
 
         <!-- pasan los parametros (nombre de proceso),(responsable),(macroproceso),(escuela),(proceso)-->
             <div id="apDiv100">
-                 <a style="cursor:default;" href="../evaluacion/Elaborar la distribución de carga docente/Director de Escuela/5/2/1/1/1"  rel="floatbox">
+                 <a style="cursor:default;" href="../evaluacion/Elaborar la distribución de carga docente/Director de Escuela/5/{{Session::get('escuela')}}/1/1/1"  rel="floatbox">
                    <img src="{{ asset('images/ProcesosEscuelas/cod_afeg05-01.png'); }}"  width="51" height="12" id="afeg05_1" >
                  </a>   
             </div> 
             <div id="apDiv101">
-                 <a style="cursor:default;" href="../evaluacion/Aprobar tema de tesis/Director de Escuela/5/2/2/1/2"  rel="floatbox">
+                 <a style="cursor:default;" href="../evaluacion/Aprobar tema de tesis/Director de Escuela/5/{{Session::get('escuela')}}/2/1/2"  rel="floatbox">
                    <img id="afeg05_2" src="{{ asset('images/ProcesosEscuelas/cod_afeg05-02.png'); }}" width="51" height="12">
                  </a>        
             </div> 	
             <div id="apDiv102">
-                 <a style="cursor:default;" href="../evaluacion/Elaborar horarios de clase/Director de Escuela/5/2/3/1/1"  rel="floatbox">
+                 <a style="cursor:default;" href="../evaluacion/Elaborar horarios de clase/Director de Escuela/5/{{Session::get('escuela')}}/3/1/1"  rel="floatbox">
                    <img id="afeg05_3" src="{{ asset('images/ProcesosEscuelas/cod_afeg05-03.png'); }}"  width="51" height="12">
                  </a>         
             </div> 	
              <div id="apDiv103">
-                 <a style="cursor:default;" href="../evaluacion/Rectificar calificaciones en el Sistema OASIS/Director de Escuela/5/2/4/1/2"  rel="floatbox">
+                 <a style="cursor:default;" href="../evaluacion/Rectificar calificaciones en el Sistema OASIS/Director de Escuela/5/{{Session::get('escuela')}}/4/1/2"  rel="floatbox">
                    <img id="afeg05_4" src="{{ asset('images/ProcesosEscuelas/cod_afeg05-04.png'); }}" width="51" height="12">
                  </a>        
             </div> 
             <div id="apDiv104">
-                 <a style="cursor:default;" href="../evaluacion/Elaborar sílabos/Docente/5/2/7/4/1"  rel="floatbox">
+                 <a style="cursor:default;" href="../evaluacion/Elaborar sílabos/Docente/5/{{Session::get('escuela')}}/7/4/1"  rel="floatbox">
                    <img id="afeg05_7" src="{{ asset('images/ProcesosEscuelas/cod_afeg05-07.png'); }}" width="51" height="12">
                  </a>
             </div>
             <div id="apDiv105">
-                 <a style="cursor:default;" href="../evaluacion/Realizar estafeta/Docente/5/2/8/4/1"  rel="floatbox">
+                 <a style="cursor:default;" href="../evaluacion/Realizar estafeta/Docente/5/{{Session::get('escuela')}}/8/4/1"  rel="floatbox">
                    <img id="afeg05_8" src="{{ asset('images/ProcesosEscuelas/cod_afeg05-08.png'); }}" width="51" height="12">
                  </a>         
             </div> 
             <div id="apDiv107">
-                 <a style="cursor:default;" href="../evaluacion/Rectificar notas/Docente/5/2/9/4/2"  rel="floatbox">
+                 <a style="cursor:default;" href="../evaluacion/Rectificar notas/Docente/5/{{Session::get('escuela')}}/9/4/2"  rel="floatbox">
                    <img id="afeg05_9" src="{{ asset('images/ProcesosEscuelas/cod_afeg05-09.png'); }}" width="51" height="12">
                  </a>          
             </div> 	
             <div id="apDiv108">
-                 <a style="cursor:default;" href="../evaluacion/Realizar prematriculación/Secretaria/5/2/5/2/2"  rel="floatbox">
+                 <a style="cursor:default;" href="../evaluacion/Realizar prematriculación/Secretaria/5/{{Session::get('escuela')}}/5/2/2"  rel="floatbox">
                    <img id="afeg05_5" src="{{ asset('images/ProcesosEscuelas/cod_afeg05-05.png'); }}" width="51" height="12">
                  </a>         
             </div>
             <div id="apDiv109">
-                 <a style="cursor:default;" href="../evaluacion/Legalizar matrícula/Docente/5/2/6/2/2"  rel="floatbox">
+                 <a style="cursor:default;" href="../evaluacion/Legalizar matrícula/Docente/5/{{Session::get('escuela')}}/6/2/2"  rel="floatbox">
                    <img id="afeg05_6" src="{{ asset('images/ProcesosEscuelas/cod_afeg05-06.png'); }}" width="51" height="12">
                  </a>
             </div>

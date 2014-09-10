@@ -116,32 +116,32 @@
             <!-- Códigos de procesos Gestión de Docencia -->   
 
             <div id="apDiv101">
-                <a style="cursor:default;" href="../evaluacion/Preparar clases/Docente/1/2/1/4/1"  rel="floatbox">
+                <a style="cursor:default;" href="../evaluacion/Preparar clases/Docente/1/{{Session::get('escuela')}}/1/4/1"  rel="floatbox">
           	        <img id="afeg01_1" src="{{ asset('images/ProcesosEscuelas/cod_afeg01-01.png'); }}" width="50" height="15">
                 </a>       
             </div> 
             <div id="apDiv102">
-                <a style="cursor:default;" href="../evaluacion/Dictar clases/Docente/1/2/2/4/2"  rel="floatbox">
+                <a style="cursor:default;" href="../evaluacion/Dictar clases/Docente/1/{{Session::get('escuela')}}/2/4/2"  rel="floatbox">
                 	<img  id="afeg01_2" src="{{ asset('images/ProcesosEscuelas/cod_afeg01-02.png'); }}" width="50" height="15">	
                 </a>           
             </div>	
             <div id="apDiv103">
-                <a style="cursor:default;" href="../evaluacion/Evaluar a los estudiantes/Docente/1/2/3/4/2"  rel="floatbox">
+                <a style="cursor:default;" href="../evaluacion/Evaluar a los estudiantes/Docente/1/{{Session::get('escuela')}}/3/4/2"  rel="floatbox">
            		    <img id="afeg01_3" src="{{ asset('images/ProcesosEscuelas/cod_afeg01-03.png'); }}" width="50" height="15">
                 </a>                   
             </div> 
             <div id="apDiv104">
-                <a style="cursor:default;" href="../evaluacion/Realizar promedios/Docente/1/2/4/4/1"  rel="floatbox">
+                <a style="cursor:default;" href="../evaluacion/Realizar promedios/Docente/1/{{Session::get('escuela')}}/4/4/1"  rel="floatbox">
                  	<img id="afeg01_4" src="{{ asset('images/ProcesosEscuelas/cod_afeg01-04.png'); }}" width="50" height="15">
                 </a>                   
             </div>
             <div id="apDiv105">
-                <a style="cursor:default;" href="../evaluacion/Ingresar notas al Sistema OASIS/Docente/1/2/5/4/1"  rel="floatbox">
+                <a style="cursor:default;" href="../evaluacion/Ingresar notas al Sistema OASIS/Docente/1/{{Session::get('escuela')}}/5/4/1"  rel="floatbox">
                 	<img id="afeg01_5" src="{{ asset('images/ProcesosEscuelas/cod_afeg01-05.png'); }}" width="50" height="15">
                </a>                  
             </div>
             <div id="apDiv106">
-                <a style="cursor:default;" href="../evaluacion/Entregar actas/Docente/1/2/6/4/1"  rel="floatbox">
+                <a style="cursor:default;" href="../evaluacion/Entregar actas/Docente/1/{{Session::get('escuela')}}/6/4/1"  rel="floatbox">
                     <img id="afeg01_6" src="{{ asset('images/ProcesosEscuelas/cod_afeg01-06.png'); }}" width="50" height="15">
                 </a>                  
             </div>
