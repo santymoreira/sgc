@@ -18,11 +18,9 @@ class ReportesController extends BaseController {
     # obtiene los tipos de empleado para listarlos en el combo 
     public function getTipos($codigo,$escuela)
     {
-        $tipos=DB::select('SELECT TE.COD_TIPO,TE.DESCRIPCION FROM empleado_tipo AS ET INNER JOIN empleado AS E 
-            ON E.COD_EMPLEADO=ET.COD_EMPLEADO INNER JOIN tipo_empleado AS TE 
-            ON TE.COD_TIPO=ET.COD_TIPO INNER JOIN empleado_escuela AS EMES 
-            ON EMES.COD_EMPLEADO= E.COD_EMPLEADO INNER JOIN escuela AS ES 
-            ON ES.COD_ESCUELA=EMES.COD_ESCUELA WHERE E.COD_EMPLEADO=? AND ES.COD_ESCUELA=?',array($codigo,$escuela));
+        $tipos=DB::select('SELECT te.COD_TIPO,te.DESCRIPCION
+        from tipo_empleado as te inner join empleado_tipo as et on te.COD_TIPO=et.COD_TIPO
+        where et.COD_EMPLEADO=? and et.COD_ESCUELA=?',array($codigo,$escuela));
         return $tipos;
     }
     
@@ -434,6 +432,7 @@ class ReportesController extends BaseController {
         $macro=$this->getMacroproceso($macroproceso);
         $school=$this->getEscuela($escuela);
         $maximo=$this->getValorTotal($escuela,$macroproceso);
+        $mes=$this->getMes($f1);
         //$yes=$cumplimiento/$maximo;
                // echo("<script>console.log('PHP: ".$yes."');</script>");
 
@@ -442,14 +441,6 @@ class ReportesController extends BaseController {
         include("pChart2.1.4/class/pImage.class.php");
         include("pChart2.1.4/class/pIndicator.class.php");
         
-        //$process=$this->getProceso($proceso,$macroproceso);
-        //$cedulaEmpleado=$cedula;
-
-        //$cedulaEmpleado=Auth::user()->CI;
-        //$codigoEmpleado=Auth::user()->COD_EMPLEADO;
-        //$codigoEmpleado=$codigo;
-        //$cumplimiento=$this->getValorCumplido($proceso,$macroproceso,$escuela,$f1,$f2,$codigoEmpleado);
-        //echo("<script>console.log('PHP: ".$nombreProceso."');</script>");
         //Create and populate the pData object 
          $MyData = new pData();  
          $MyData->addPoints(array(4,12,15,8,5,-5),"Probe 1");
@@ -461,63 +452,51 @@ class ReportesController extends BaseController {
          $MyData->setAbscissa("Labels");
          /* Create the pChart object*/ 
 
-         $myPicture = new pImage(900,330,$MyData);
+         $myPicture = new pImage(590,200,$MyData);
          /* Draw the background */
-         //$Settings = array("R"=>255, "G"=>255, "B"=>255, "Dash"=>255, "DashR"=>255, "DashG"=>255, "DashB"=>255);
-         $Settings = array("R"=>0, "G"=>0, "B"=>255, "Dash"=>1, "DashR"=>0, "DashG"=>0, "DashB"=>255);
-         
-         $myPicture->drawFilledRectangle(0,0,900,330,$Settings);
-         /* Overlay with a gradient */
-          //$Settings = array("StartR"=>255, "StartG"=>255, "StartB"=>255, "EndR"=>255, "EndG"=>255, "EndB"=>255, "Alpha"=>50);
-         $Settings = array("StartR"=>219, "StartG"=>231, "StartB"=>139, "EndR"=>1, "EndG"=>138, "EndB"=>68, "Alpha"=>50);
-         $myPicture->drawGradientArea(0,0,900,330,DIRECTION_VERTICAL,$Settings);
-         $myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>0,"StartG"=>0,"StartB"=>0,"EndR"=>50,"EndG"=>50,"EndB"=>50,"Alpha"=>80));
-         //$myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>255,"StartG"=>255,"StartB"=>255,"EndR"=>255,"EndG"=>255,"EndB"=>255,"Alpha"=>80));
-         /* Add a border to the picture */
-         //$myPicture->drawRectangle(0,0,899,329,array("R"=>0,"G"=>0,"B"=>0));
-         //$myPicture->drawRectangle(0,0,699,229,array("R"=>255,"G"=>255,"B"=>255));
-         /* Write the picture title  */
-         $myPicture->setFontProperties(array("FontName"=>"pChart2.1.4/fonts/Forgotte.ttf","FontSize"=>15));
-         $myPicture->drawText(20,25,$macro,array("R"=>255,"G"=>255,"B"=>255));
-         //$myPicture->drawText(10,13,$process,array("R"=>0,"G"=>0,"B"=>0));
-         //$myPicture->drawText(20,25,$process,array("R"=>255,"G"=>255,"B"=>255));
-         /* Enable shadow computing */  
-         $myPicture->setShadow(TRUE,array("X"=>1,"Y"=>1,"R"=>0,"G"=>0,"B"=>0,"Alpha"=>20)); 
-          /* Write some text */  
-          //$TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
-         //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
-         //$myPicture->drawText(110,200,"CI: ".$cedulaEmpleado,$TextSettings); 
-         //$myPicture->drawText(110,200,"CEDULA: ".$cedulaEmpleado,$TextSettings); 
-          /* Write some text  */
-          //$TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9);  
-         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
-         //$myPicture->drawText(110,222,$escuelare[0],$TextSettings); 
-         $myPicture->drawText(110,222,$school,$TextSettings); 
-           /* Write some text   */
-         //  $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
-         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
-         //$myPicture->drawText(110,244,"Fecha Inicio: ".$_SESSION['iini'],$TextSettings); 
-         $myPicture->drawText(110,244,"Mes: ".$f1,$TextSettings); 
-           /* Write some text  */ 
-          // $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
-         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
-         //$myPicture->drawText(110,266,"Fecha Fin: ".$_SESSION['ffin'],$TextSettings); 
-         $myPicture->drawText(110,266,"Ano: ".$f2,$TextSettings); 
-         /* Create the pIndicator object */ 
-         $Indicator = new pIndicator($myPicture);
-         $myPicture->setFontProperties(array("FontName"=>"pChart2.1.4/fonts/Forgotte.ttf","FontSize"=>9));
+ $Settings = array("R"=>0, "G"=>0, "B"=>255, "Dash"=>1, "DashR"=>0, "DashG"=>0, "DashB"=>255);
+ $myPicture->drawFilledRectangle(0,0,900,330,$Settings);
 
-         /* Define the indicator sections */
-         $IndicatorSections   = "";
-         $IndicatorSections[] = array("Start"=>0,"End"=>70,"Caption"=>"Bajo","R"=>200,"G"=>0,"B"=>0);
-         $IndicatorSections[] = array("Start"=>71,"End"=>90,"Caption"=>"Moderado","R"=>226,"G"=>74,"B"=>14);
-         $IndicatorSections[] = array("Start"=>91,"End"=>100,"Caption"=>"Alto","R"=>0,"G"=>140,"B"=>0);
-         /* Draw the 1st indicator */
-         //$IndicatorSettings = array("Values"=>array(round($cumplimiento['cumple'],2)),"ValueFontName"=>"../fonts/Forgotte.ttf","ValueFontSize"=>12,"IndicatorSections"=>$IndicatorSections,"SubCaptionColorFactor"=>300);
-         $IndicatorSettings = array("Values"=>array(round($cumplimiento,2)),"ValueFontName"=>"pChart2.1.4/fonts/Forgotte.ttf","ValueFontSize"=>12,"IndicatorSections"=>$IndicatorSections,"SubCaptionColorFactor"=>300);
-         $Indicator->draw(80,100,750,70,$IndicatorSettings);
-         /* Render the picture (choose the best way) */
-         //$myPicture->autoOutput("pictures/example.drawIndicator.jpg");
+ /* Overlay with a gradient */
+ $Settings = array("StartR"=>219, "StartG"=>231, "StartB"=>139, "EndR"=>1, "EndG"=>138, "EndB"=>68, "Alpha"=>50);
+ $myPicture->drawGradientArea(0,0,900,330,DIRECTION_VERTICAL,$Settings);
+ $myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>0,"StartG"=>0,"StartB"=>0,"EndR"=>50,"EndG"=>50,"EndB"=>50,"Alpha"=>80));
+
+ /* Add a border to the picture */
+ $myPicture->drawRectangle(0,0,899,329,array("R"=>0,"G"=>0,"B"=>0));
+ 
+ /* Write the picture title */ 
+ $myPicture->setFontProperties(array("FontName"=>"pChart2.1.4/fonts/Forgotte.ttf","FontSize"=>10));//tamaño letra
+ $myPicture->drawText(20,25,$macro,array("R"=>255,"G"=>255,"B"=>255));
+
+ 
+ /* Enable shadow computing */  
+ $myPicture->setShadow(TRUE,array("X"=>1,"Y"=>1,"R"=>0,"G"=>0,"B"=>0,"Alpha"=>20)); 
+
+// /* Write some text */  
+ $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+ $myPicture->drawText(30,172,'Porcentaje: '.$cumplimiento,$TextSettings); 
+ 
+ // /* Write some text */  
+ $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+   $myPicture->drawText(380,172,"Mes: ".$mes."     Año: ".$f2,$TextSettings); 
+ 
+ /* Create the pIndicator object */ 
+ $Indicator = new pIndicator($myPicture);
+
+
+
+ $myPicture->setFontProperties(array("FontName"=>"pChart2.1.4/fonts/pf_arma_five.ttf","FontSize"=>8));//letra aki
+
+ /* Define the indicator sections */
+ $IndicatorSections   = "";
+ $IndicatorSections[] = array("Start"=>0,"End"=>70,"Caption"=>"Bajo","R"=>200,"G"=>0,"B"=>0);
+ $IndicatorSections[] = array("Start"=>71,"End"=>90,"Caption"=>"Moderado","R"=>226,"G"=>74,"B"=>14);
+ $IndicatorSections[] = array("Start"=>91,"End"=>100,"Caption"=>"Alto","R"=>0,"G"=>140,"B"=>0);
+
+ /* Draw the 1st indicator */
+ $IndicatorSettings = array("Values"=>round($cumplimiento,2),"ValueFontName"=>"pChart2.1.4/fonts/Forgotte.ttf","ValueFontSize"=>12,"IndicatorSections"=>$IndicatorSections,"SubCaptionColorFactor"=>300);
+ $Indicator->draw(25,70,550,50,$IndicatorSettings);//cambiar tamaño aki
          
              $myPicture->render("images/example.drawIndicator.png");
             return View::make("reportes/imagenReporte");

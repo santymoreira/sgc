@@ -28,11 +28,11 @@ class EmpleadosController extends BaseController {
 
 
     //metodos Memcached
-    public function memcachedEmpleados($tipoEmpleado)
+    public function memcachedEmpleados($tipoEmpleado,$escuela)
     {
-        $empleados = Cache::remember(''.$tipoEmpleado.'empleados', 60, function() use ($tipoEmpleado)
+        $empleados = Cache::remember(''.$tipoEmpleado.'empleados', 60, function() use ($tipoEmpleado,$escuela)
         { 
-            return DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE COD_TIPO ='.$tipoEmpleado.';');
+            return DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE et.COD_TIPO =? AND et.COD_ESCUELA=?',array($tipoEmpleado,$escuela));
         }); 
         return $empleados;
        
@@ -48,7 +48,7 @@ class EmpleadosController extends BaseController {
     }
 
     //metodos Redis
-    public function redisEmpleados($tipoEmpleado)
+    public function redisEmpleados($tipoEmpleado,$escuela)
     {
         if($empleados = Redis::get(''.$tipoEmpleado.'empleados'))
         {
@@ -56,7 +56,7 @@ class EmpleadosController extends BaseController {
         }
         /*else
         {
-            $empleados=DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE COD_TIPO ='.$tipoEmpleado.';');
+            $empleados=DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE et.COD_TIPO =? AND et.COD_ESCUELA=?',array($tipoEmpleado,$escuela));
             Redis::set(''.$tipoEmpleado.'empleados',json_encode($empleados));
         }*/
         return $empleados;
@@ -96,7 +96,8 @@ class EmpleadosController extends BaseController {
 
         //ejecutar accediendo a base de datos
         //------
-        $empleados = DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE COD_TIPO ='.$tipoEmpleado.';');
+       // echo("<script>console.log('PHP: ".$escuela."');</script>");
+        $empleados = DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE et.COD_TIPO =? AND et.COD_ESCUELA=?',array($tipoEmpleado,$escuela));
         $valor=Empleado::storedProcedureCall('call calcularValor( '.$escuela.','.$macroproceso.')');
 
         if ($objeto==1) {
