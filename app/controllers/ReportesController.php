@@ -226,40 +226,45 @@ class ReportesController extends BaseController {
          /* Draw the background */
          $Settings = array("R"=>255, "G"=>255, "B"=>255, "Dash"=>255, "DashR"=>255, "DashG"=>255, "DashB"=>255);
          //$Settings = array("R"=>0, "G"=>0, "B"=>255, "Dash"=>1, "DashR"=>0, "DashG"=>0, "DashB"=>255);
+         
          $myPicture->drawFilledRectangle(0,0,900,330,$Settings);
          /* Overlay with a gradient */
-          $Settings = array("StartR"=>255, "StartG"=>255, "StartB"=>255, "EndR"=>255, "EndG"=>255, "EndB"=>255, "Alpha"=>50);
-         //$Settings = array("StartR"=>219, "StartG"=>231, "StartB"=>139, "EndR"=>1, "EndG"=>138, "EndB"=>68, "Alpha"=>50);
+          //$Settings = array("StartR"=>255, "StartG"=>255, "StartB"=>255, "EndR"=>255, "EndG"=>255, "EndB"=>255, "Alpha"=>50);
+         $Settings = array("StartR"=>219, "StartG"=>231, "StartB"=>139, "EndR"=>1, "EndG"=>138, "EndB"=>68, "Alpha"=>50);
          $myPicture->drawGradientArea(0,0,900,330,DIRECTION_VERTICAL,$Settings);
-         //$myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>0,"StartG"=>0,"StartB"=>0,"EndR"=>50,"EndG"=>50,"EndB"=>50,"Alpha"=>80));
-         $myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>255,"StartG"=>255,"StartB"=>255,"EndR"=>255,"EndG"=>255,"EndB"=>255,"Alpha"=>80));
+         $myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>0,"StartG"=>0,"StartB"=>0,"EndR"=>50,"EndG"=>50,"EndB"=>50,"Alpha"=>80));
+         //$myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>255,"StartG"=>255,"StartB"=>255,"EndR"=>255,"EndG"=>255,"EndB"=>255,"Alpha"=>80));
          /* Add a border to the picture */
          //$myPicture->drawRectangle(0,0,899,329,array("R"=>0,"G"=>0,"B"=>0));
-         $myPicture->drawRectangle(0,0,699,229,array("R"=>255,"G"=>255,"B"=>255));
+         //$myPicture->drawRectangle(0,0,699,229,array("R"=>255,"G"=>255,"B"=>255));
          /* Write the picture title  */
          $myPicture->setFontProperties(array("FontName"=>"pChart2.1.4/fonts/Forgotte.ttf","FontSize"=>15));
-         //$myPicture->drawText(20,25,$nompro['DESCRIPCION'],array("R"=>255,"G"=>255,"B"=>255));
-         $myPicture->drawText(10,13,'',array("R"=>0,"G"=>0,"B"=>215));
+         $myPicture->drawText(20,25,$process,array("R"=>255,"G"=>255,"B"=>255));
+         //$myPicture->drawText(10,13,$process,array("R"=>0,"G"=>0,"B"=>0));
          //$myPicture->drawText(20,25,$process,array("R"=>255,"G"=>255,"B"=>255));
          /* Enable shadow computing */  
          $myPicture->setShadow(TRUE,array("X"=>1,"Y"=>1,"R"=>0,"G"=>0,"B"=>0,"Alpha"=>20)); 
           /* Write some text */  
-          $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
+          $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>11); 
          //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
-         //$myPicture->drawText(110,200,"CI: ".$_SESSION['user'],$TextSettings); 
-         $myPicture->drawText(110,200,"CEDULA: ".$cedulaEmpleado,$TextSettings); 
+
+         $myPicture->drawText(110,200,"CI: ".$cedulaEmpleado,$TextSettings); 
+         //$myPicture->drawText(110,200,"CEDULA: ".$cedulaEmpleado,$TextSettings); 
+         //
           /* Write some text  */
-          $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9);  
+          $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>11);  
          //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
          //$myPicture->drawText(110,222,$escuelare[0],$TextSettings); 
          $myPicture->drawText(110,222,$school,$TextSettings); 
+
            /* Write some text   */
-           $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
+          $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>11); 
          //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
          //$myPicture->drawText(110,244,"Fecha Inicio: ".$_SESSION['iini'],$TextSettings); 
          $myPicture->drawText(110,244,"Fecha Inicio: ".$f1,$TextSettings); 
+
            /* Write some text  */ 
-           $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
+           $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>11); 
          //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
          //$myPicture->drawText(110,266,"Fecha Fin: ".$_SESSION['ffin'],$TextSettings); 
          $myPicture->drawText(110,266,"Fecha Fin: ".$f2,$TextSettings); 
@@ -321,7 +326,8 @@ class ReportesController extends BaseController {
 
          
          # Create the pChart object
-         $myPicture = new pImage(900,330,$MyData);
+         //$myPicture = new pImage(900,330,$MyData);
+         $myPicture = new pImage(700,230,$MyData);
 
          # Draw the background
          //$Settings = array("R"=>0, "G"=>0, "B"=>255, "Dash"=>1, "DashR"=>0, "DashG"=>0, "DashB"=>255);
@@ -331,48 +337,48 @@ class ReportesController extends BaseController {
 
 
          # Overlay with a gradient
-         //$Settings = array("StartR"=>219, "StartG"=>231, "StartB"=>139, "EndR"=>1, "EndG"=>138, "EndB"=>68, "Alpha"=>50);
-         $Settings = array("StartR"=>255, "StartG"=>255, "StartB"=>255, "EndR"=>255, "EndG"=>255, "EndB"=>255, "Alpha"=>50);
+         $Settings = array("StartR"=>219, "StartG"=>231, "StartB"=>139, "EndR"=>1, "EndG"=>138, "EndB"=>68, "Alpha"=>50);
+         //$Settings = array("StartR"=>255, "StartG"=>255, "StartB"=>255, "EndR"=>255, "EndG"=>255, "EndB"=>255, "Alpha"=>50);
          $myPicture->drawGradientArea(0,0,900,330,DIRECTION_VERTICAL,$Settings);
-         //$myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>0,"StartG"=>0,"StartB"=>0,"EndR"=>50,"EndG"=>50,"EndB"=>50,"Alpha"=>80));
-         $myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>255,"StartG"=>255,"StartB"=>255,"EndR"=>255,"EndG"=>255,"EndB"=>255,"Alpha"=>80));
+         $myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>0,"StartG"=>0,"StartB"=>0,"EndR"=>50,"EndG"=>50,"EndB"=>50,"Alpha"=>80));
+         //$myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>255,"StartG"=>255,"StartB"=>255,"EndR"=>255,"EndG"=>255,"EndB"=>255,"Alpha"=>80));
 
          # Add a border to the picture
-         //$myPicture->drawRectangle(0,0,899,329,array("R"=>0,"G"=>0,"B"=>0));
-         $myPicture->drawRectangle(0,0,699,229,array("R"=>255,"G"=>255,"B"=>255));
+         $myPicture->drawRectangle(0,0,899,329,array("R"=>0,"G"=>0,"B"=>0));
+         //$myPicture->drawRectangle(0,0,699,229,array("R"=>255,"G"=>255,"B"=>255));
 
          
          #Write the picture title 
          $myPicture->setFontProperties(array("FontName"=>"pChart2.1.4/fonts/Forgotte.ttf","FontSize"=>15));
-         $myPicture->drawText(10,13,'',array("R"=>0,"G"=>0,"B"=>215));
-         //$myPicture->drawText(20,25,$process,array("R"=>255,"G"=>255,"B"=>255));
+         //$myPicture->drawText(10,13,'',array("R"=>0,"G"=>0,"B"=>215));
+         $myPicture->drawText(20,25,$process,array("R"=>255,"G"=>255,"B"=>255));
 
          
          # Enable shadow computing
          $myPicture->setShadow(TRUE,array("X"=>1,"Y"=>1,"R"=>0,"G"=>0,"B"=>0,"Alpha"=>20)); 
          
           # Write some text
-          $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
-         //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+          //$TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
+         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
          $myPicture->drawText(110,200,"CI: ". $cedulaEmpleado,$TextSettings); 
          
          # Write some text  
-         $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
-         //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+         //$TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
+         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
          $myPicture->drawText(110,222,$school,$TextSettings); 
          
          # Write some text  
-         //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
-         $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
+         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+         //$TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
          $myPicture->drawText(110,244,"Porcentaje Mensual: ".round($suma*100/$maximo,2)." %",$TextSettings); 
         
          # Write some text
-         $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
-         //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+         //$TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
+         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
          $myPicture->drawText(110,266,"Mes: ".$mes,$TextSettings); 
          
-         //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
-         $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
+         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+         //$TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
          $myPicture->drawText(110,288,"Año: ".date("Y"),$TextSettings); 
          
          
@@ -409,6 +415,115 @@ class ReportesController extends BaseController {
          
     }
 
+    public function getMacroproceso($macro)
+    {
+        $Macroproceso = DB::select('SELECT NOMBRE from macroproceso where COD_MACROPROCESO =?',array($macro));
+        foreach ($Macroproceso as $proc) { $nombreMacroproceso=$proc->NOMBRE; }
+        return $nombreMacroproceso;
+    }
+
+    public function imagenReporteConsolidado($escuela,$macroproceso)
+    {    
+        $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$macroproceso.','.$escuela.')');
+        foreach ($Indicadores as $indicador) 
+        {
+                $cumplimiento=$indicador->resultado;
+                $f1=$indicador->fecha1;
+                $f2=$indicador->fecha2;
+        }
+        $macro=$this->getMacroproceso($macroproceso);
+        $school=$this->getEscuela($escuela);
+        $maximo=$this->getValorTotal($escuela,$macroproceso);
+        //$yes=$cumplimiento/$maximo;
+               // echo("<script>console.log('PHP: ".$yes."');</script>");
+
+        include("pChart2.1.4/class/pData.class.php");
+        include("pChart2.1.4/class/pDraw.class.php");
+        include("pChart2.1.4/class/pImage.class.php");
+        include("pChart2.1.4/class/pIndicator.class.php");
+        
+        //$process=$this->getProceso($proceso,$macroproceso);
+        //$cedulaEmpleado=$cedula;
+
+        //$cedulaEmpleado=Auth::user()->CI;
+        //$codigoEmpleado=Auth::user()->COD_EMPLEADO;
+        //$codigoEmpleado=$codigo;
+        //$cumplimiento=$this->getValorCumplido($proceso,$macroproceso,$escuela,$f1,$f2,$codigoEmpleado);
+        //echo("<script>console.log('PHP: ".$nombreProceso."');</script>");
+        //Create and populate the pData object 
+         $MyData = new pData();  
+         $MyData->addPoints(array(4,12,15,8,5,-5),"Probe 1");
+         $MyData->addPoints(array(7,2,4,14,8,3),"Probe 2");
+         $MyData->setAxisName(0,"Temperatures");
+         $MyData->setAxisUnit(0,"°C");
+         $MyData->addPoints(array("Jan","Feb","Mar","Apr","May","Jun"),"Labels");
+         $MyData->setSerieDescription("Labels","Months");
+         $MyData->setAbscissa("Labels");
+         /* Create the pChart object*/ 
+
+         $myPicture = new pImage(900,330,$MyData);
+         /* Draw the background */
+         //$Settings = array("R"=>255, "G"=>255, "B"=>255, "Dash"=>255, "DashR"=>255, "DashG"=>255, "DashB"=>255);
+         $Settings = array("R"=>0, "G"=>0, "B"=>255, "Dash"=>1, "DashR"=>0, "DashG"=>0, "DashB"=>255);
+         
+         $myPicture->drawFilledRectangle(0,0,900,330,$Settings);
+         /* Overlay with a gradient */
+          //$Settings = array("StartR"=>255, "StartG"=>255, "StartB"=>255, "EndR"=>255, "EndG"=>255, "EndB"=>255, "Alpha"=>50);
+         $Settings = array("StartR"=>219, "StartG"=>231, "StartB"=>139, "EndR"=>1, "EndG"=>138, "EndB"=>68, "Alpha"=>50);
+         $myPicture->drawGradientArea(0,0,900,330,DIRECTION_VERTICAL,$Settings);
+         $myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>0,"StartG"=>0,"StartB"=>0,"EndR"=>50,"EndG"=>50,"EndB"=>50,"Alpha"=>80));
+         //$myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>255,"StartG"=>255,"StartB"=>255,"EndR"=>255,"EndG"=>255,"EndB"=>255,"Alpha"=>80));
+         /* Add a border to the picture */
+         //$myPicture->drawRectangle(0,0,899,329,array("R"=>0,"G"=>0,"B"=>0));
+         //$myPicture->drawRectangle(0,0,699,229,array("R"=>255,"G"=>255,"B"=>255));
+         /* Write the picture title  */
+         $myPicture->setFontProperties(array("FontName"=>"pChart2.1.4/fonts/Forgotte.ttf","FontSize"=>15));
+         $myPicture->drawText(20,25,$macro,array("R"=>255,"G"=>255,"B"=>255));
+         //$myPicture->drawText(10,13,$process,array("R"=>0,"G"=>0,"B"=>0));
+         //$myPicture->drawText(20,25,$process,array("R"=>255,"G"=>255,"B"=>255));
+         /* Enable shadow computing */  
+         $myPicture->setShadow(TRUE,array("X"=>1,"Y"=>1,"R"=>0,"G"=>0,"B"=>0,"Alpha"=>20)); 
+          /* Write some text */  
+          //$TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
+         //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+         //$myPicture->drawText(110,200,"CI: ".$cedulaEmpleado,$TextSettings); 
+         //$myPicture->drawText(110,200,"CEDULA: ".$cedulaEmpleado,$TextSettings); 
+          /* Write some text  */
+          //$TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9);  
+         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+         //$myPicture->drawText(110,222,$escuelare[0],$TextSettings); 
+         $myPicture->drawText(110,222,$school,$TextSettings); 
+           /* Write some text   */
+         //  $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
+         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+         //$myPicture->drawText(110,244,"Fecha Inicio: ".$_SESSION['iini'],$TextSettings); 
+         $myPicture->drawText(110,244,"Mes: ".$f1,$TextSettings); 
+           /* Write some text  */ 
+          // $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
+         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+         //$myPicture->drawText(110,266,"Fecha Fin: ".$_SESSION['ffin'],$TextSettings); 
+         $myPicture->drawText(110,266,"Ano: ".$f2,$TextSettings); 
+         /* Create the pIndicator object */ 
+         $Indicator = new pIndicator($myPicture);
+         $myPicture->setFontProperties(array("FontName"=>"pChart2.1.4/fonts/Forgotte.ttf","FontSize"=>9));
+
+         /* Define the indicator sections */
+         $IndicatorSections   = "";
+         $IndicatorSections[] = array("Start"=>0,"End"=>70,"Caption"=>"Bajo","R"=>200,"G"=>0,"B"=>0);
+         $IndicatorSections[] = array("Start"=>71,"End"=>90,"Caption"=>"Moderado","R"=>226,"G"=>74,"B"=>14);
+         $IndicatorSections[] = array("Start"=>91,"End"=>100,"Caption"=>"Alto","R"=>0,"G"=>140,"B"=>0);
+         /* Draw the 1st indicator */
+         //$IndicatorSettings = array("Values"=>array(round($cumplimiento['cumple'],2)),"ValueFontName"=>"../fonts/Forgotte.ttf","ValueFontSize"=>12,"IndicatorSections"=>$IndicatorSections,"SubCaptionColorFactor"=>300);
+         $IndicatorSettings = array("Values"=>array(round($cumplimiento,2)),"ValueFontName"=>"pChart2.1.4/fonts/Forgotte.ttf","ValueFontSize"=>12,"IndicatorSections"=>$IndicatorSections,"SubCaptionColorFactor"=>300);
+         $Indicator->draw(80,100,750,70,$IndicatorSettings);
+         /* Render the picture (choose the best way) */
+         //$myPicture->autoOutput("pictures/example.drawIndicator.jpg");
+         
+             $myPicture->render("images/example.drawIndicator.png");
+            return View::make("reportes/imagenReporte");
+         
+         
+    }
     public function pdfReporte($escuela,$macroproceso,$proceso,$f1,$f2,$cedula,$codigo,$nombres,$mail)
     {
         $school=$this->getEscuela($escuela);

@@ -54,35 +54,34 @@
             <div id="apDiv21"><center><img src="{{ asset('images/transporte/contenedor.png') }}"></center></div>  
         @endif         
         
-
             <div class="cleared"> 
 			   <div id="apDiv22">
                     <img onclick="GestionAdmin();" id="gestionadmin" src="{{ asset('images/MacroprocesosEscuelas/GestionAdmin.png') }}" style="cursor:pointer;" width="670" height="51">
-                    <a rel="floatbox" class="fbPopup" href="ReportesIndicadores/pChart2.1.4/examples/Contabilidad_Macro_GestionAdministrativa.php"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
+                    <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/4"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
                </div>
                <div id="apDiv23">
                     <img onclick="GestionAcademica();" id="gestionacad" src="{{ asset('images/MacroprocesosEscuelas/GestionAcade.png'); }}" style="cursor:pointer;" width="670" height="51">
-                    <a rel="floatbox" class="fbPopup" href="ReportesIndicadores/pChart2.1.4/examples/Contabilidad_Macro_GestionAcademica.php"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
+                    <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/5"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
                 </div>
                            <div id="apDiv26">
                                 <img src="{{ asset('images/MacroprocesosEscuelas/docencia.png'); }}" width="207" height="66" id="docencia" style="cursor:pointer;"  onclick="Docencia();">
-                                    <a rel="floatbox" class="fbPopup" href="ReportesIndicadores/pChart2.1.4/examples/Contabilidad_Macro_Docencia.php"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>  
+                                    <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/1"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>  
                            </div>
                            <div id="apDiv27">
                                <img src="{{ asset('images/MacroprocesosEscuelas/investigacion.png'); }}" width="207" height="66"  id="investigacion" style="cursor:pointer;"  onclick="Investigacion();">
-                                   <a rel="floatbox" class="fbPopup" href="ReportesIndicadores/pChart2.1.4/examples/Contabilidad_Macro_Investigacion.php"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
+                                   <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/2"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
                            </div>
                            <div id="apDiv28">
                            	 <img src="{{ asset('images/MacroprocesosEscuelas/vinculacion.png'); }}" width="207" height="66"  id="vinculacion" style="cursor:pointer;"  onclick="Vinculacion();">
-                                     <a rel="floatbox" class="fbPopup" href="ReportesIndicadores/pChart2.1.4/examples/Contabilidad_Macro_Vinculacion.php"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
+                                     <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/3"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
                            </div>
           <div id="apDiv29"> 
                            		<img onclick="Asistencia();" id="asistencia" style="cursor:pointer;" src="{{ asset('images/MacroprocesosEscuelas/asistencia.png'); }}" width="670" height="51" /> 
-                                        <a rel="floatbox" class="fbPopup" href="ReportesIndicadores/pChart2.1.4/examples/Contabilidad_Macro_Asistencia.php"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
+                                        <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/6"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
           </div>
                             <div id="apDiv30">
                            		<img onclick="Mantenimiento();" id="mantenimiento" style="cursor:pointer;" src="{{ asset('images/MacroprocesosEscuelas/mantenimiento.png'); }}" width="670" height="51" /> 
-                                        <a rel="floatbox" class="fbPopup" href="ReportesIndicadores/pChart2.1.4/examples/Contabilidad_Macro_Mantenimiento.php"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
+                                        <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/7"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
                            </div>
 				<center>
 				   <p style="font-size:10px;color:#03F; position:relative; bottom:0;" >Copyright © 2014. All Rights Reserved.</p>

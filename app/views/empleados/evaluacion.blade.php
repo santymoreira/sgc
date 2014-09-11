@@ -66,7 +66,6 @@
         else{
           alert('La fecha no puede ser mayor a la fecha actual');
           $("#date1").val(" ");
-          //$("#date2").prop('disabled', false);
         }       
       }
       );
@@ -84,7 +83,6 @@
         if (f2>=f1)
         {     
           //alert(macro);
-            //$('select').prop('disabled', false);
             $("#contenido").load("../../../../../../../categories2",
             {fecha1: f1, fecha2: f2,macro: macro,escuela: esc,proceso: proc,tipo: tipo,objeto: objeto}
             );
