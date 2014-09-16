@@ -19,71 +19,114 @@ class MapasController extends BaseController {
 		}
 	public function distanciasgc()
 		{
-			return View::make('mapas.distancia_sgc');
+			$tiempo=Login::tiempoSesion();
+        	$tipo=Login::tipoEmpleado();
+        	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.distancia_sgc');}
+        	else{Login::logout();}			
 		}
 	public function contabilidadsgc()
 		{
-			return View::make('mapas.cont_audi_sgc');
+			$tiempo=Login::tiempoSesion();
+        	$tipo=Login::tipoEmpleado();
+        	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.cont_audi_sgc');}
+        	else{Login::logout();}	
 		}	
 	public function empresasgc()
 		{
-			return View::make('mapas.empresas_sgc');
+			$tiempo=Login::tiempoSesion();
+        	$tipo=Login::tipoEmpleado();
+        	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.empresas_sgc');}
+        	else{Login::logout();}	
+			
 		}	
 	public function exteriorsgc()
 		{
-			return View::make('mapas.exterior_sgc');
+			$tiempo=Login::tiempoSesion();
+        	$tipo=Login::tipoEmpleado();
+        	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.exterior_sgc');}
+        	else{Login::logout();}	
 		}
 	public function finanzasgc()
 		{
-			return View::make('mapas.finanzas_sgc');
+			$tiempo=Login::tiempoSesion();
+        	$tipo=Login::tipoEmpleado();
+        	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.finanzas_sgc');}
+        	else{Login::logout();}	
 		}	
 	public function marketingsgc()
 		{
-			return View::make('mapas.marketing_sgc');
+			$tiempo=Login::tiempoSesion();
+        	$tipo=Login::tipoEmpleado();
+        	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.marketing_sgc');}
+        	else{Login::logout();}	
+			
 		}	
 	public function transportesgc()
 		{
-			return View::make('mapas.transporte_sgc');
+			$tiempo=Login::tiempoSesion();
+        	$tipo=Login::tipoEmpleado();
+        	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.transporte_sgc');}
+        	else{Login::logout();}	
+			
 		}	
 	public function macroprocesos()
 	{
 		$tiempo=Login::tiempoSesion();
         $tipo=Login::tipoEmpleado();
-        if ($tiempo==1 || $tiempo==0) 
-        {
-            return View::make('mapas.macroprocesos');   
-        }else{
-            Login::logout();
-            //return View::make('home.welcome');
-        }
-		
+        if ($tiempo==1 || $tiempo==0) {return View::make('mapas.macroprocesos');}
+        else{Login::logout();}
 	}	
 	public function administrativa()
 	{
-		return View::make('mapas.M_Administrativa');
+			$tiempo=Login::tiempoSesion();
+        	$tipo=Login::tipoEmpleado();
+        	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.M_Administrativa');}
+        	else{Login::logout();}	
+		
 	}
 	public function academica()
 	{
-		return View::make('mapas.M_Academica');
+			$tiempo=Login::tiempoSesion();
+        	$tipo=Login::tipoEmpleado();
+        	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.M_Academica');}
+        	else{Login::logout();}
 	}
 	public function docencia()
 	{
-		return View::make('mapas.M_Docencia');
+		$tiempo=Login::tiempoSesion();
+        	$tipo=Login::tipoEmpleado();
+        	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.M_Docencia');}
+        	else{Login::logout();}
 	}
 	public function investigacion()
 	{
-		return View::make('mapas.M_Investigacion');
+			$tiempo=Login::tiempoSesion();
+        	$tipo=Login::tipoEmpleado();
+        	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.M_Investigacion');}
+        	else{Login::logout();}
 	}
 	public function vinculacion()
 	{
-		return View::make('mapas.M_Vinculacion');
+			$tiempo=Login::tiempoSesion();
+        	$tipo=Login::tipoEmpleado();
+        	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.M_Vinculacion');}
+        	else{Login::logout();}
+	
 	}
 	public function asistencia()
 	{
-		return View::make('mapas.M_Asistencia');
+			$tiempo=Login::tiempoSesion();
+        	$tipo=Login::tipoEmpleado();
+        	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.M_Asistencia');}
+        	else{Login::logout();}
+		
 	}
 	public function mantenimiento()
 	{
-		return View::make('mapas.M_Mantenimiento');
+			$tiempo=Login::tiempoSesion();
+        	$tipo=Login::tipoEmpleado();
+        	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.M_Mantenimiento');}
+        	else{Login::logout();}
+		
 	}
 }
