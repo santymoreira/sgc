@@ -52,14 +52,34 @@ Route::post('layout', function(){
     // la función attempt se encarga automáticamente se hacer la encriptación de la clave para ser comparada con la que esta en la base de datos. 
     if (Auth::attempt( array('CI' => Input::get('username'), 'password' => Input::get('password') ), true )){
 
-        $tipo=DB::select('SELECT et.COD_TIPO FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE e.CI ='.Input::get('username').';');
+        $tipos=DB::select('SELECT et.COD_TIPO FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE e.CI ='.Input::get('username').';');
             # code...
-        Session::put('tipo', $tipo);
+        $pA=0; $pF=0; $pT=0; $pE=0;$pFinal=0;
+            foreach ($tipos as $tipo) {
+              $tipoE=$tipo->COD_TIPO;
+              if ($tipoE==1 || $tipoE==2) { $pE=1; }
+              if ($tipoE==3 || $tipoE==4) { $pT=1; }
+              if ($tipoE==5 || $tipoE==6) { $pF=1; }
+              if ($tipoE==10) { $pA=1; }
+            }
+        if ($pA==1) {
+          $pFinal=1;
+        }elseif ($pF==1) {
+          $pFinal=2;
+        }elseif ($pE==1) {
+          $pFinal=3;
+        }else{
+          $pFinal=4;
+        }
+//        Session::put('tipo', $tipo);
+        Session::put('tipo', $pFinal);
+        Session::put('intervalo', 1);
+        Session::put('inicio', time());
+        //echo("<script>console.log('PHP: ".Session::get('inicio')."');</script>");
+
         return Redirect::to('home')->with('mensaje_login', Auth::user()->CI);
         //return Redirect::to('home')->with('mensaje_login', json_encode($tipo));
     }else{
-
-
         return Redirect::to('home')->with('mensaje_login', 'Ingreso invalido');
     }
 
@@ -83,9 +103,26 @@ Route::group(array('before' => 'auth'), function()
         echo 'Bienvenido '. Auth::user()->nombres . ', su Id es: '.Auth::user()->CI ;
 
     });
-    Route::get('evaluacion/{a}/{b}/{c}/{d}/{e}/{f}/{g}', array('uses' => 'EmpleadosController@mostrarEmp'));
+    
 
     
+});
+
+Route::get('evaluacion/{a}/{b}/{c}/{d}/{e}/{f}/{g}', array('uses' => 'EmpleadosController@mostrarEmp'));
+
+/*$segundos = time();
+$tiempo_transcurrido = $segundos;
+$tiempo_maximo = $_SESSION['inicio'] + ( $_SESSION['intervalo'] * 600 ) ; // se multiplica por 60 segundos ya que se configura en minutos
+if($tiempo_transcurrido > $tiempo_maximo){
+header('location: logout.php');
+}else{
+            // se resetea el inicio
+$_SESSION['inicio'] = time();
+}
+*/
+
+Route::get('login', function(){
+    return View::make('home.welcome'); 
 });
 
 //Route::get('home', array('uses' => 'HomeController@showWelcome'));
@@ -94,7 +131,16 @@ Route::get('home', 'HomeController@showWelcome');
 //Route::get('empleados', array('uses' => 'EmpleadosController@mostrarEmp'));
 
 Route::get('empleados', array('uses' => 'EmpleadosController@mostrarEmpleados'));
- 
+//
+//Route::get('empleados',function(){
+  //return Redirect::to_route('home');
+
+  //array('uses' => 'EmpleadosController@mostrarEmpleados'
+//});
+
+
+//
+
 Route::post('empleados/crear', array('uses' => 'EmpleadosController@crearEmpleado'));
 
 

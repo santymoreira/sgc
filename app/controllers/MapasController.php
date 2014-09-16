@@ -47,7 +47,16 @@ class MapasController extends BaseController {
 		}	
 	public function macroprocesos()
 	{
-		return View::make('mapas.macroprocesos');
+		$tiempo=Login::tiempoSesion();
+        $tipo=Login::tipoEmpleado();
+        if ($tiempo==1 || $tiempo==0) 
+        {
+            return View::make('mapas.macroprocesos');   
+        }else{
+            Login::logout();
+            //return View::make('home.welcome');
+        }
+		
 	}	
 	public function administrativa()
 	{

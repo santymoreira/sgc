@@ -44,14 +44,6 @@
  
 <!-- Modal Fichas procesos -->
 
-@if (Session::has('tipo'))
-  @foreach(Session::get('tipo') as $empleado)
-          <tr>
-              <td> {{ $empleado->COD_TIPO }} </td>
-  @endforeach
-@endif
-
- 
    @section('cabeza')
 
 

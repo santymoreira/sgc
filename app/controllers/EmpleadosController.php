@@ -1,11 +1,8 @@
 <?php 
 class EmpleadosController extends BaseController {
-    //public $empl;
-
 
       public function mostrarEmpleados()
     {
-
         $redis = Redis::connection();
         //$empleados=DB::table('proceso')->get();
         //$redis->set('proceso',json_encode($emplead));
@@ -24,7 +21,6 @@ class EmpleadosController extends BaseController {
         //$empleados=DB::table('proceso')->get(); 
         //return View::make('empleados.lista', array('empleados' => $empleados));
     }
-
 
 
     //metodos Memcached
@@ -71,7 +67,22 @@ class EmpleadosController extends BaseController {
  
      public function mostrarEmp($a,$b,$c,$d,$e,$f,$g)
     {
-        return View::make('empleados.evaluacion', array('procesos' => $a,'docentes' => $b,'macroproceso' => $c,'escuela' => $d,'proceso' => $e,'tipo' =>$f,'objeto' =>$g));
+        $tiempo=Login::tiempoSesion();
+        $tipo=Login::tipoEmpleado();
+        //echo("<script>console.log('PHP: ".$tiempo."');</script>");
+        if ($tiempo==1) 
+        {
+            if ($tipo==1) 
+            {
+                return View::make('empleados.evaluacion', array('procesos' => $a,'docentes' => $b,'macroproceso' => $c,'escuela' => $d,'proceso' => $e,'tipo' =>$f,'objeto' =>$g));
+            }   
+        }else{
+            Login::logout();
+            //return View::make('home.welcome');
+        }
+        //echo("<script>console.log('PHP: ".$tipo."');</script>");
+        
+        
     }
 
      public function mostrarEmp3()
@@ -83,6 +94,11 @@ class EmpleadosController extends BaseController {
         $proceso=Input::get('proceso');
         $tipoEmpleado=Input::get('tipo');
         $objeto=Input::get('objeto');
+
+         // $tiempo=new Login();
+        $tiempod=Login::tiempoSesion();
+        //$tiempo=$this->tiempoLogin();
+        //echo("<script>console.log('PHP: ".$tiempod."');</script>");
 
         //ejecutar usando redis
         //---------------------
@@ -133,6 +149,8 @@ class EmpleadosController extends BaseController {
     {
         Auth::logout();
         Session::forget('tipo');
+        Session::forget('intervalo');
+        Session::forget('inicio');
         return View::make('home.welcome');
     }
 }
