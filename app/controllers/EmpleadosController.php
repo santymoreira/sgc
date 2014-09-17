@@ -78,11 +78,10 @@ class EmpleadosController extends BaseController {
             }   
         }else{
             Login::logout();
+           // Redirect::back();
             //return View::make('home.welcome');
         }
         //echo("<script>console.log('PHP: ".$tipo."');</script>");
-        
-        
     }
 
      public function mostrarEmp3()

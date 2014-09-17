@@ -37,7 +37,6 @@ class MapasController extends BaseController {
         	$tipo=Login::tipoEmpleado();
         	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.empresas_sgc');}
         	else{Login::logout();}	
-			
 		}	
 	public function exteriorsgc()
 		{
@@ -59,7 +58,6 @@ class MapasController extends BaseController {
         	$tipo=Login::tipoEmpleado();
         	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.marketing_sgc');}
         	else{Login::logout();}	
-			
 		}	
 	public function transportesgc()
 		{
@@ -67,7 +65,6 @@ class MapasController extends BaseController {
         	$tipo=Login::tipoEmpleado();
         	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.transporte_sgc');}
         	else{Login::logout();}	
-			
 		}	
 	public function macroprocesos()
 	{
@@ -82,7 +79,6 @@ class MapasController extends BaseController {
         	$tipo=Login::tipoEmpleado();
         	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.M_Administrativa');}
         	else{Login::logout();}	
-		
 	}
 	public function academica()
 	{
@@ -111,7 +107,6 @@ class MapasController extends BaseController {
         	$tipo=Login::tipoEmpleado();
         	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.M_Vinculacion');}
         	else{Login::logout();}
-	
 	}
 	public function asistencia()
 	{
@@ -119,7 +114,6 @@ class MapasController extends BaseController {
         	$tipo=Login::tipoEmpleado();
         	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.M_Asistencia');}
         	else{Login::logout();}
-		
 	}
 	public function mantenimiento()
 	{
@@ -127,6 +121,5 @@ class MapasController extends BaseController {
         	$tipo=Login::tipoEmpleado();
         	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.M_Mantenimiento');}
         	else{Login::logout();}
-		
 	}
 }

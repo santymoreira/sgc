@@ -1,7 +1,6 @@
 <?php 
 class ReportesController extends BaseController {
 
-
     #obtiene el nombre del mes
     public function getMes($mes)
     {
@@ -24,17 +23,41 @@ class ReportesController extends BaseController {
         return $tipos;
     }
     
+     # obtiene los tipos de empleado para listarlos en el combo (Memcached)
+    public function getTiposMemcached($codigo,$escuela)
+    {
+        $tipos=DB::select('SELECT te.COD_TIPO,te.DESCRIPCION
+        from tipo_empleado as te inner join empleado_tipo as et on te.COD_TIPO=et.COD_TIPO
+        where et.COD_EMPLEADO=? and et.COD_ESCUELA=?',array($codigo,$escuela));
+        return $tipos;
+
+
+         $empleados = Cache::remember(''.$tipoEmpleado.'empleados', 60, function() use ($tipoEmpleado,$escuela)
+        { 
+            return DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE et.COD_TIPO =? AND et.COD_ESCUELA=?',array($tipoEmpleado,$escuela));
+        }); 
+        return $empleados;
+
+    }
 
       public function individual($escuela,$tipo)
     {
-        $codigoEmpleado=Auth::user()->COD_EMPLEADO;
-        $cedulaEmpleado=Auth::user()->CI;
-        $nombres=Auth::user()->NOMBRES;
-        $mail=Auth::user()->EMAIL;
-        $tipos=$this->getTipos($codigoEmpleado,$escuela);
-         return View::make('reportes.individual', array('tipoEmpleados' => $tipos,'escuela' =>$escuela,'cedula'=>$cedulaEmpleado,'codigo'=>$codigoEmpleado,'nombres'=>$nombres,'mail'=>$mail,'tipoReporte'=>$tipo));
+            $tiempo=Login::tiempoSesion();
+            $tipo=Login::tipoEmpleado();
+            if ($tiempo != 0) 
+            {
+                $codigoEmpleado=Auth::user()->COD_EMPLEADO;
+                $cedulaEmpleado=Auth::user()->CI;
+                $nombres=Auth::user()->NOMBRES;
+                $mail=Auth::user()->EMAIL;
+                $tipos=$this->getTipos($codigoEmpleado,$escuela);
+                return View::make('reportes.individual', array('tipoEmpleados' => $tipos,'escuela' =>$escuela,'cedula'=>$cedulaEmpleado,'codigo'=>$codigoEmpleado,'nombres'=>$nombres,'mail'=>$mail,'tipoReporte'=>$tipo));
+            }
+            else
+            {
+                return Redirect::back();
+            }
     }
-
 
     public function individualBusqueda()
     {
@@ -65,10 +88,22 @@ class ReportesController extends BaseController {
     }
 
 
-          public function mensualE($escuela,$tipo)
+    public function mensualE($escuela,$tipo)
     {
-        $ci=Auth::user()->COD_EMPLEADO;
-         return View::make('reportes.mensual_empleado', array('escuela' =>$escuela,'tipoReporte'=>$tipo));
+        $tiempo=Login::tiempoSesion();
+            $tipo=Login::tipoEmpleado();
+            if ($tiempo == 1) 
+            {
+                 $ci=Auth::user()->COD_EMPLEADO;
+                return View::make('reportes.mensual_empleado', array('escuela' =>$escuela,'tipoReporte'=>$tipo));
+            }elseif ($tiempo == -1) {
+                Login::logout();
+                return View::make('home.welcome');
+            }
+            else
+            {
+                return Redirect::back();
+            }
     }
 
 
@@ -196,6 +231,12 @@ class ReportesController extends BaseController {
 
     public function imagenReporte($escuela,$macroproceso,$proceso,$f1,$f2,$cedula,$codigo,$op)
     {    
+       
+                # code...
+            
+            # code...
+        
+
         include("pChart2.1.4/class/pData.class.php");
         include("pChart2.1.4/class/pDraw.class.php");
         include("pChart2.1.4/class/pImage.class.php");
@@ -203,7 +244,6 @@ class ReportesController extends BaseController {
         $school=$this->getEscuela($escuela);
         $process=$this->getProceso($proceso,$macroproceso);
         $cedulaEmpleado=$cedula;
-
         //$cedulaEmpleado=Auth::user()->CI;
         //$codigoEmpleado=Auth::user()->COD_EMPLEADO;
         $codigoEmpleado=$codigo;
@@ -288,6 +328,8 @@ class ReportesController extends BaseController {
          if($op==2){
             $myPicture->render($codigoEmpleado.".PNG");
          }
+
+
          
     }
 
@@ -422,6 +464,12 @@ class ReportesController extends BaseController {
 
     public function imagenReporteConsolidado($escuela,$macroproceso)
     {    
+         $tiempo=Login::tiempoSesion();
+        $tipo=Login::tipoEmpleado();
+
+        if ($tiempo==1) {
+            if ($tipo==1 || $tipo==2 || $tipo==3) {
+
         $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$macroproceso.','.$escuela.')');
         foreach ($Indicadores as $indicador) 
         {
@@ -502,6 +550,10 @@ class ReportesController extends BaseController {
             return View::make("reportes/imagenReporte");
          
          
+             }
+     }else{
+        Login::logout();
+     }
     }
     public function pdfReporte($escuela,$macroproceso,$proceso,$f1,$f2,$cedula,$codigo,$nombres,$mail)
     {
