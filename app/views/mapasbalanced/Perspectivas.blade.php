@@ -36,44 +36,68 @@
 
    <div class="content-layout" >
          @if($var == 2)
-            <div id="apDiv1"><center><img src="{{ asset('images/contabilidadbsc/contenedor.png') }}"></center></div>
+            <div id="apDiv36"><center><img src="{{ asset('images/contabilidadbsc/contenedor.png') }}"></center></div>
          @elseif($var ==1)
-            <div id="apDiv1"><center><img src="{{ asset('images/empresasbsc/contenedor.png') }}"></center></div>
+            <div id="apDiv36"><center><img src="{{ asset('images/empresasbsc/contenedor.png') }}"></center></div>
           @elseif($var == 4)
-            <div id="apDiv1"><center><img src="{{ asset('images/finanzasbsc/contenedor.png') }}"></center></div> 
+            <div id="apDiv36"><center><img src="{{ asset('images/finanzasbsc/contenedor.png') }}"></center></div> 
            @elseif($var ==5)
-            <div id="apDiv1"><center><img src="{{ asset('images/marketingbsc/contenedor.png') }}"></center></div> 
+            <div id="apDiv36"><center><img src="{{ asset('images/marketingbsc/contenedor.png') }}"></center></div> 
            @elseif($var ==6)
-            <div id="apDiv1"><center><img src="{{ asset('images/transportebsc/contenedor.png') }}"></center></div>  
+            <div id="apDiv36"><center><img src="{{ asset('images/transportebsc/contenedor.png') }}"></center></div>  
         @endif         
         
    
          <!-- Cargamos los objetivos en cada una de las perspectivas -->     
 
-     <div id="apDiv2">
-                <img onclick="PotenInvest();" id="PotenInvest" src="{{ asset('images/objetivosO/PotenInvest_red.png') }}" style="cursor:pointer;">
-          </div>
-           <div id="apDiv3">
-                <img onclick="AcredCarr();" id="AcredCarr" src="{{ asset('images/objetivosO/AcredCarr_red.png') }}" style="cursor:pointer;">
-      <!--     </div>
-          <div id="apDiv4">
-                <img onclick="AumenSatis();" id="AumenSatis" src="{{ asset('images/objetivosO/AumenSatis_red.png') }}" style="cursor:pointer;">
-          </div>
-           <div id="apDiv5">
-                <img onclick="FortInterA();" id="FortInterA" src="{{ asset('images/objetivosO/FortInterA_red.png') }}" style="cursor:pointer;">
-          </div>
-          <div id="apDiv6">
-                <img onclick="ImpleSgc();" id="ImpleSgc" src="{{ asset('images/objetivosO/ImpleSgc_red.png') }}" style="cursor:pointer;">
-          </div>
-          <div id="apDiv7">
-                <img onclick="ImpleGproce();" id="ImpleGproce" src="{{ asset('images/objetivosO/ImpleGproce_red.png') }}" style="cursor:pointer;">
-          </div>
-          <div id="apDiv8">
-                <img onclick="PoteInnov();" id="PoteInnov" src="{{ asset('images/objetivosO/PoteInnov_red.png') }}" style="cursor:pointer;">
-          </div>
-           <div id="apDiv9">
-                <img onclick="ImpleMcontemp();" id="ImpleMcontemp" src="{{ asset('images/objetivosO/ImpleMcontemp_red.png') }}" style="cursor:pointer;">
-          </div> -->
-      </div>         
+            <div id="apDiv37">
+                <img onclick="PotenInvest();" id="PotenInvest" style="cursor:pointer;" src="{{ asset('images/objetivosO/PotenInvest_red.png') }}">
+            </div>
+            <div id="apDiv38">
+                <img onclick="AcredCarr();" id="AcredCarr" style="cursor:pointer;" src="{{ asset('images/objetivosO/AcredCarr_red.png') }}">
+            </div>
+            <div id="apDiv39">
+                <img onclick="AumenSatis();" id="AumenSatis" style="cursor:pointer;" src="{{ asset('images/objetivosO/AumenSatis_red.png') }}">
+            </div>
+            <div id="apDiv40">
+                <img onclick="FortInterA();" id="FortInterA" style="cursor:pointer;" src="{{ asset('images/objetivosO/FortInterA_red.png') }}">
+            </div>
+            <div id="apDiv41">
+                <img onclick="ImpleSgc();" id="ImpleSgc" style="cursor:pointer;" src="{{ asset('images/objetivosO/ImpleSgc_red.png') }}">
+            </div>
+            <div id="apDiv42">
+                <img onclick="ImpleGproce();" id="ImpleGproce" style="cursor:pointer;" src="{{ asset('images/objetivosO/ImpleGproce_red.png') }}">  
+            </div>
+            <div id="apDiv43">
+                <img onclick="PoteInnov();" id="PoteInnov" style="cursor:pointer;" src="{{ asset('images/objetivosO/PoteInnov_red.png') }}">
+            </div>
+            <div id="apDiv44">
+                <img onclick="ImpleMcontemp();" id="ImpleMcontemp" style="cursor:pointer;" src="{{ asset('images/objetivosO/ImpleMcontemp_red.png') }}">
+            </div>
+            <div id="apDiv45">
+                <img onclick="DesaCent();" id="DesaCent" style="cursor:pointer;" src="{{ asset('images/objetivosO/DesaCent_red.png') }}">
+            </div>
+            <div id="apDiv46">
+                <img onclick="PromProyec();" id="PromProyec" style="cursor:pointer;" src="{{ asset('images/objetivosO/PromProyec_red.png') }}">
+            </div>
+            <div id="apDiv47">
+                <img onclick="FortaRRHH();" id="FortaRRHH" style="cursor:pointer;" src="{{ asset('images/objetivosO/FortaRRHH_red.png') }}">
+            </div>
+            <div id="apDiv48">
+                <img onclick="MejorarClima();" id="MejorarClima" style="cursor:pointer;" src="{{ asset('images/objetivosO/MejorarClima_red.png') }}">
+            </div>
+            <div id="apDiv49">
+              <img onclick="PromoCoope();" id="PromoCoope" style="cursor:pointer;" src="{{ asset('images/objetivosO/PromoCoope_red.png') }}"> 
+            </div>
+            <div id="apDiv50">
+              <img onclick="OptiRecursos();" id="OptiRecursos" style="cursor:pointer;" src="{{ asset('images/objetivosO/OptiRecursos_red.png') }}">
+            </div>
+            <div id="apDiv51">
+              <img onclick="obtener_finan();" id="obtener_finan" style="cursor:pointer;" src="{{ asset('images/objetivosO/obtener_finan_red.png') }}">  
+            </div>
+       
+       
+     
+    </div>         
 
 @stop
