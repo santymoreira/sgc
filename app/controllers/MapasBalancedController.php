@@ -37,8 +37,8 @@ class MapasBalancedController extends BaseController {
 		{
 			return View::make('mapasbalanced.transporte_bsc');
 		}
-	public function macroprocesosbsc()
+	public function perspectivas()
 		{
-			return View::make('mapasbalanced.macroprocesosbsc');
+			return View::make('mapasbalanced.Perspectivas');
 		}
 }

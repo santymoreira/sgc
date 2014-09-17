@@ -40,15 +40,17 @@ class UserController extends \BaseController {
 			$query=DB::select('SELECT COD_EMPLEADO FROM empleado WHERE NOMBRES =?', array($var));
 			foreach ($query as $cont) {	$aux = $cont->COD_EMPLEADO; }
 			
+			
 			//Id del usuario.
-			 $empleado=Empleado::find($aux);
+			 $emp=Empleado::find($aux);
+			 echo $emp;
     
 		   //Save in the table pivot (empleado_tipo) and (empleado_escuela)	
 
-			 	$escuelas=Escuela::find(2); 
-			    $empleado->escuelas()->save($escuelas);
+			 	//$escuelas=Escuela::find(2); 
+			    //$empleado->escuelas()->save($escuelas);
 			  
-			    if (!empty($temp1))
+		/*	    if (!empty($temp1))
 			    {
 			    	 $tipos1=TipoEmpleado::find($temp1); 
 			    	 $empleado->tipos()->save($tipos1);
@@ -68,16 +70,16 @@ class UserController extends \BaseController {
 			    	 $tipos4=TipoEmpleado::find($temp4); 
 			    	 $empleado->tipos()->save($tipos4);
 			    }
-
-			Session::flash('message','Guardado correctamente!');
-			Session::flash('class','success');
+ 		*/
+			//Session::flash('message','Guardado correctamente!');
+			//Session::flash('class','success');
 		   
 		}
 		else{
 				Session::flash('message','A ocurrido un error!');
 				Session::flash('class','danger');	
 			}
-		return Redirect::to('users/create');
+	//	return Redirect::to('users/create');
 }
 
 	public function show($id)
