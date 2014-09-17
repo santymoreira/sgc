@@ -7,7 +7,7 @@
    			 <div id="menu">
 						<ul>
 				               <li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio');}}
-							  <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/macroprocesosbsc', 'Macroprocesos');}}
+							  <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/perspectivas', 'Perspectivas');}}
 							  <li class="nivel1"><a onclick="Alert()" class="nivel1" {{ HTML::link('users/empleados/2', 'Administración');}} 
 							  <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a>
 							  	<ul class="cuatro">
@@ -32,7 +32,7 @@
 @stop
 
 @section('body')
-		{{Session::put('escuela','1'); }}
+		{{Session::put('escuela','2'); }}
         <div class="layout-cell content">    
             <div id="central"> 
                <div id="central-content"> </br></br>

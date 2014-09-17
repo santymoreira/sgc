@@ -11,7 +11,7 @@ class TipoEmpleado extends Eloquent
 
         public function empleados(){
 
-            return $this->belongsToMany('Empleado','empleado_tipo','COD_EMPLEADO','COD_TIPO');
+            return $this->belongsToMany('Empleado_escuela','empleado_tipo','COD_EMPLEADO','COD_TIPO','COD_ESCUELA');
         }  
 }
 
