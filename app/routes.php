@@ -290,7 +290,8 @@ Route::get('transporte/M_Mantenimiento', 'MapasController@mantenimiento');
 //Balanced Contabilidad y Auditoría 
 Route::get('home/welcome', 'MapasController@home');
 Route::get('contabilidad/cont_audi_bsc', 'MapasBalancedController@cont_audi_bsc');
-Route::get('contabilidad/perspectivas', 'MapasBalancedController@perspectivas'); 
+Route::get('contabilidad/perspectivas', 'MapasBalancedController@perspectivas');
+Route::get('contabilidad/PotenInves', 'MapasBalancedController@PotenInves');  
 
 //Balanced Empresas
 Route::get('home/welcome', 'MapasController@home');

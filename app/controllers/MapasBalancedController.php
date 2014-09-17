@@ -41,4 +41,12 @@ class MapasBalancedController extends BaseController {
 		{
 			return View::make('mapasbalanced.Perspectivas');
 		}
+
+	//Acciones
+
+	public function PotenInves()
+		{
+			return View::make('mapasbalanced.PotenInves');
+		}
+
 }

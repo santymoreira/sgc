@@ -3,6 +3,7 @@
 @section('Different_Styles')
 	@parent
 	{{ HTML::style('css/StylesPerspectivas.css'); $var=Session::get('escuela'); }}
+  
 @stop
 
 @section('options')
@@ -28,7 +29,12 @@
  @parent
    
 @stop
-
+<script type="text/javascript">
+      function PotenInvest()
+                { 
+                    location.href = "../PotenInves";
+                }
+</script>
 
 @section('content')
 @stop
