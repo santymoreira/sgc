@@ -71,6 +71,11 @@ Route::post('layout', function(){
         }else{
           $pFinal=4;
         }
+        #1:administrador
+        #2:facultad
+        #3:escuela
+        #4:empleado
+        
 //        Session::put('tipo', $tipo);
         Session::put('tipo', $pFinal);
         Session::put('intervalo', 1);

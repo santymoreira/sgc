@@ -7,11 +7,6 @@
 @endforeach
 
 
-@if (Session::has('tipo'))
-  @foreach(Session::get('tipo') as $empleado)
-          <input type="hidden" id="escuela" value="{{ $empleado->COD_TIPO }}">
-  @endforeach
-@endif
 
 <input type="hidden" id="macroproceso" value="{{ $macroproceso }}">
 <input type="hidden" id="tipo_e" value="{{ $tipoEmpleado }}">

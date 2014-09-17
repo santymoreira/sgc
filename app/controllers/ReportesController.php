@@ -1,6 +1,8 @@
 <?php 
 class ReportesController extends BaseController {
 
+    //echo("<script>console.log('PHP: ".$cedula."');</script>");
+
     #obtiene el nombre del mes
     public function getMes($mes)
     {
@@ -31,13 +33,11 @@ class ReportesController extends BaseController {
         where et.COD_EMPLEADO=? and et.COD_ESCUELA=?',array($codigo,$escuela));
         return $tipos;
 
-
          $empleados = Cache::remember(''.$tipoEmpleado.'empleados', 60, function() use ($tipoEmpleado,$escuela)
         { 
             return DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE et.COD_TIPO =? AND et.COD_ESCUELA=?',array($tipoEmpleado,$escuela));
         }); 
         return $empleados;
-
     }
 
       public function individual($escuela,$tipo)
@@ -78,12 +78,10 @@ class ReportesController extends BaseController {
         $escuela=Input::get('escuela');
         $tipoReporte=Input::get('tipoReporte');
         $cedulaEmpleado=Auth::user()->CI;
-        //$buscar=Input::get('consulta');
-        //if(!empty($buscar)) 
-        //{
+ 
             $empleados=DB::select("SELECT CI,COD_EMPLEADO,NOMBRES,EMAIL FROM empleado WHERE CI !=".$cedulaEmpleado." AND  NOMBRES LIKE '%".$consulta."%'");
             foreach ($empleados as $e) { $em=$e->NOMBRES; }
-        //}
+
         return View::make('reportes.empleadosFotos',array('empleados' => $empleados,'escuela'=>$escuela,'tipoReporte'=>$tipoReporte));
     }
 
@@ -146,7 +144,6 @@ class ReportesController extends BaseController {
         return $valorMaximo;
     }
 
-
     public function combo2()
     {
     	$macroproceso=Input::get('macroproceso');
@@ -200,30 +197,21 @@ class ReportesController extends BaseController {
         if ($tipoReporte==1 || $tipoReporte==4) 
         {
             //echo("<script>console.log('PHP: ".$escuela."');</script>");
-            //$codigoEmpleado=Auth::user()->COD_EMPLEADO;
             $indicadores=DB::select('SELECT DISTINCT I.COD_INDICADOR,I.COD_PROCESO,I.FECHA_INICIO,I.FECHA_FIN,I.COD_MACROPROCESO,I.COD_EMPLEADO FROM indicador AS I INNER JOIN proceso AS P ON P.COD_PROCESO=I.COD_PROCESO WHERE I.COD_EMPLEADO=? AND I.COD_PROCESO=? AND I.COD_MACROPROCESO=? AND I.COD_ESCUELA=? ORDER BY I.FECHA_FIN DESC LIMIT 31',array($codigo,$proceso,$macroproceso,$escuela));
             return View::make('reportes.tabla', array('indicadores' => $indicadores,'escuela' =>$escuela,'macroproceso'=>$macroproceso,'proceso'=>$proceso,'codigoEmpleado'=>$codigo,'cedula'=>$cedula,'codigo'=>$codigo,'nombres'=>$nombres,'mail'=>$mail));
         }
         if ($tipoReporte==2 || $tipoReporte==3) 
         {
             $mes=Input::get('mes');
-            //echo("<script>console.log('PHP: ".$mes."');</script>");
             $indicadores=Empleado::storedProcedureCall('CALL ProcesosMensual('.$macroproceso.','.$proceso.','.$codigo.','.$mes.','.$escuela.')');
             foreach ($indicadores as $indicador) {
                 $suma+=$indicador->PORCENTAJE;
-                //echo("<script>console.log('PHP: ".$suma."');</script>");
             }
-            
-           // echo("<script>console.log('PHP: ".$maximo."');</script>");
             $totalIndicadores=count($indicadores);
             if ($suma!=0) {
                 # code...
                  $suma=$suma/$totalIndicadores;
             }
-            
-            //echo("<script>console.log('PHP: ".$totalIndicadores."');</script>");
-            //$codigoEmpleado=Auth::user()->COD_EMPLEADO;
-            //$indicadores=DB::select('SELECT DISTINCT I.COD_INDICADOR,I.COD_PROCESO,I.FECHA_INICIO,I.FECHA_FIN,I.COD_MACROPROCESO,I.COD_EMPLEADO FROM indicador AS I INNER JOIN proceso AS P ON P.COD_PROCESO=I.COD_PROCESO WHERE I.COD_EMPLEADO=? AND I.COD_PROCESO=? AND I.COD_MACROPROCESO=? ORDER BY I.FECHA_FIN DESC LIMIT 31',array($codigo,$proceso,$macroproceso));
             return View::make('reportes.tablaMensual', array('escuela' =>$escuela,'macroproceso'=>$macroproceso,'proceso'=>$proceso,'codigoEmpleado'=>$codigo,'cedula'=>$cedula,'codigo'=>$codigo,'suma'=>$suma,'mes'=>$mes,'nombres'=>$nombres,'mail'=>$mail));
         }
         
@@ -232,10 +220,6 @@ class ReportesController extends BaseController {
     public function imagenReporte($escuela,$macroproceso,$proceso,$f1,$f2,$cedula,$codigo,$op)
     {    
        
-                # code...
-            
-            # code...
-        
 
         include("pChart2.1.4/class/pData.class.php");
         include("pChart2.1.4/class/pDraw.class.php");
@@ -244,8 +228,6 @@ class ReportesController extends BaseController {
         $school=$this->getEscuela($escuela);
         $process=$this->getProceso($proceso,$macroproceso);
         $cedulaEmpleado=$cedula;
-        //$cedulaEmpleado=Auth::user()->CI;
-        //$codigoEmpleado=Auth::user()->COD_EMPLEADO;
         $codigoEmpleado=$codigo;
         $cumplimiento=$this->getValorCumplido($proceso,$macroproceso,$escuela,$f1,$f2,$codigoEmpleado);
         //echo("<script>console.log('PHP: ".$nombreProceso."');</script>");
@@ -328,8 +310,6 @@ class ReportesController extends BaseController {
          if($op==2){
             $myPicture->render($codigoEmpleado.".PNG");
          }
-
-
          
     }
 
@@ -343,14 +323,9 @@ class ReportesController extends BaseController {
         $process=$this->getProceso($proceso,$macroproceso);
         $cedulaEmpleado=$cedula;
         $mes=$this->getMes($mes);
-        //$maximo=$this->getValorTotal($escuela,$macroprocesos);
-        //$anio=echo date("Y");
-        //$cedulaEmpleado=Auth::user()->CI;
-        //$codigoEmpleado=Auth::user()->COD_EMPLEADO;
         $codigoEmpleado=$codigo;
 
         $maximo=$this->getValorTotal($escuela,$macroproceso);
-        //$cumplimiento=$this->getValorCumplido($proceso,$macroproceso,$escuela,$f1,$f2,$codigoEmpleado);
         //echo("<script>console.log('PHP: ".$nombreProceso."');</script>");
 
          /* Create and populate the pData object */
@@ -362,8 +337,6 @@ class ReportesController extends BaseController {
          $MyData->addPoints(array("Jan","Feb","Mar","Apr","May","Jun"),"Labels");
          $MyData->setSerieDescription("Labels","Months");
          $MyData->setAbscissa("Labels");
-
-
          
          # Create the pChart object
          //$myPicture = new pImage(900,330,$MyData);
@@ -373,8 +346,6 @@ class ReportesController extends BaseController {
          //$Settings = array("R"=>0, "G"=>0, "B"=>255, "Dash"=>1, "DashR"=>0, "DashG"=>0, "DashB"=>255);
          $Settings = array("R"=>255, "G"=>255, "B"=>255, "Dash"=>255, "DashR"=>255, "DashG"=>255, "DashB"=>255);
          $myPicture->drawFilledRectangle(0,0,900,330,$Settings);
-
-
 
          # Overlay with a gradient
          $Settings = array("StartR"=>219, "StartG"=>231, "StartB"=>139, "EndR"=>1, "EndG"=>138, "EndB"=>68, "Alpha"=>50);
@@ -386,7 +357,6 @@ class ReportesController extends BaseController {
          # Add a border to the picture
          $myPicture->drawRectangle(0,0,899,329,array("R"=>0,"G"=>0,"B"=>0));
          //$myPicture->drawRectangle(0,0,699,229,array("R"=>255,"G"=>255,"B"=>255));
-
          
          #Write the picture title 
          $myPicture->setFontProperties(array("FontName"=>"pChart2.1.4/fonts/Forgotte.ttf","FontSize"=>15));
@@ -421,11 +391,6 @@ class ReportesController extends BaseController {
          //$TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>9); 
          $myPicture->drawText(110,288,"Año: ".date("Y"),$TextSettings); 
          
-         
-        
-
-
-
          /* Create the pIndicator object */ 
          $Indicator = new pIndicator($myPicture);
 
@@ -481,8 +446,6 @@ class ReportesController extends BaseController {
         $school=$this->getEscuela($escuela);
         $maximo=$this->getValorTotal($escuela,$macroproceso);
         $mes=$this->getMes($f1);
-        //$yes=$cumplimiento/$maximo;
-               // echo("<script>console.log('PHP: ".$yes."');</script>");
 
         include("pChart2.1.4/class/pData.class.php");
         include("pChart2.1.4/class/pDraw.class.php");
@@ -531,8 +494,6 @@ class ReportesController extends BaseController {
  
  /* Create the pIndicator object */ 
  $Indicator = new pIndicator($myPicture);
-
-
 
  $myPicture->setFontProperties(array("FontName"=>"pChart2.1.4/fonts/pf_arma_five.ttf","FontSize"=>8));//letra aki
 
@@ -746,9 +707,6 @@ class ReportesController extends BaseController {
             $pdf->SetFillColor(255,255,255);
             $pdf->Cell(150, 0, utf8_decode("Gráfico"), 0,"C", FALSE);
             //$pdf->Ln(8);
-            //
-            //
-            //
             $pdf->Image($codigoEmpleado.".PNG",20,140,180,45.5);
         //$pdf->Image("../pChart2.1.4/examples/pictures/".$_SESSION['user'].".png",20,120,180,45.5);
 
