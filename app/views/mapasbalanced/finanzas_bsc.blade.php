@@ -7,7 +7,7 @@
    			 <div id="menu">
 						<ul>
 				               <li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio');}}
-							  <li class="nivel1"><a class="nivel1" {{ HTML::link('finanzas/macroprocesosbsc', 'Macroprocesos');}}
+							  <li class="nivel1"><a class="nivel1" {{ HTML::link('finanzas/perspectivas', 'Perspectivas');}}
 							  <li class="nivel1"><a onclick="Alert()" class="nivel1" {{ HTML::link('users/empleados/2', 'Administración');}} 
 							  <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a>
 							  	<ul class="cuatro">
@@ -36,7 +36,7 @@
         <div class="layout-cell content">    
             <div id="central"> 
                <div id="central-content"> </br></br>
-                   <center><img src="{{ asset('images/finanzas/finanzas.png') }}" width="850" height="295"></center>    
+                   <center><img src="{{ asset('images/finanzasbsc/finanzas.png') }}" width="850" height="295"></center>    
                </div>
             </div>
              
