@@ -8,6 +8,7 @@
 	{{ HTML::script('js/opciones_presentacion.js'); }} 
   {{ HTML::script('js/ScriptEfectos.js'); }}
   {{ HTML::script('js/LinksMacroprocesosEsc.js'); }}
+   {{ HTML::script('js/LinksAcciones.js'); }}
  
 
   <!--        estilo Facebook-->
@@ -43,7 +44,7 @@
   {{ HTML::style('css/feature_table.css'); }}
   {{ HTML::style('css/jquery-ui-1.8.20.custom.css'); }}
 
-    {{ HTML::script('js/LinksAcciones.js'); }}
+   
  
 <!-- Modal Fichas procesos -->
 

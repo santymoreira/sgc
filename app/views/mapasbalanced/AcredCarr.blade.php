@@ -49,20 +49,26 @@
 @section('body')
        <div class="content-layout" >
                <div id="apDiv111">
-                        <img src="{{ asset('images/marketingbsc/Poten_Inves.png') }}" >
+                        <img src="{{ asset('images/marketingbsc/AcredCarr.png') }}" >
               </div>
-
-                    <div id="apDiv112">
+                  <div id="apDiv112">
                         <img src="{{ asset('images/ObjetivosO/PotenInvest_red.png') }}">
                     </div>
                     <div id="apDiv113">
                         <img src="{{ asset('images/ObjetivosO/AcredCarr_red.png') }}">
                     </div>
-                    <div id="apDiv114">
-                        <img src="{{ asset('images/Acciones/cant_inves.png') }}">
+               <div id="apDiv116">
+                        <img src="{{ asset('images/Acciones/Evaluar_imp.png') }}">
                     </div>
-                    <div id="apDiv115">
-                        <img src="{{ asset('images/Acciones/cant_publi.png') }}">
+                    <div id="apDiv117">
+                        <img src="{{ asset('images/Acciones/InserLab.png') }}">  
                     </div>
-      </div>
-  @stop
+                    <div id="apDiv118">
+                        <img src="{{ asset('images/Acciones/SatisEmpre.png') }}">
+                    </div>
+                    <div id="apDiv119">
+                        <img src="{{ asset('images/Acciones/AvanceAcred.png') }}">
+                    </div>
+
+       </div>
+@stop       

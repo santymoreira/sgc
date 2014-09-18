@@ -292,6 +292,10 @@ Route::get('home/welcome', 'MapasController@home');
 Route::get('contabilidad/cont_audi_bsc', 'MapasBalancedController@cont_audi_bsc');
 Route::get('contabilidad/perspectivas', 'MapasBalancedController@perspectivas');
 Route::get('contabilidad/PotenInves', 'MapasBalancedController@PotenInves');  
+Route::get('contabilidad/AcredCarr', 'MapasBalancedController@AcredCarr'); 
+Route::get('contabilidad/AumentarSatis', 'MapasBalancedController@AumentarSatis');  
+Route::get('contabilidad/FortaInterApre', 'MapasBalancedController@FortaInterApre');  
+Route::get('contabilidad/ImpleSgc', 'MapasBalancedController@ImpleSgc');  
 
 //Balanced Empresas
 Route::get('home/welcome', 'MapasController@home');

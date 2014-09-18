@@ -29,12 +29,7 @@
  @parent
    
 @stop
-<script type="text/javascript">
-      function PotenInvest()
-                { 
-                    location.href = "../PotenInves";
-                }
-</script>
+
 
 @section('content')
 @stop
@@ -57,19 +52,19 @@
          <!-- Cargamos los objetivos en cada una de las perspectivas -->     
 
             <div id="apDiv37">
-                <img onclick="PotenInvest();" id="PotenInvest" style="cursor:pointer;" src="{{ asset('images/objetivosO/PotenInvest_red.png') }}">
+                <img onclick="PotenInvest();" id="PotenInvest1" style="cursor:pointer;" src="{{ asset('images/objetivosO/PotenInvest_red.png') }}">
             </div>
             <div id="apDiv38">
-                <img onclick="AcredCarr();" id="AcredCarr" style="cursor:pointer;" src="{{ asset('images/objetivosO/AcredCarr_red.png') }}">
+                <img onclick="AcredCarr();" id="AcredCarr1" style="cursor:pointer;" src="{{ asset('images/objetivosO/AcredCarr_red.png') }}">
             </div>
             <div id="apDiv39">
-                <img onclick="AumenSatis();" id="AumenSatis" style="cursor:pointer;" src="{{ asset('images/objetivosO/AumenSatis_red.png') }}">
+                <img onclick="AumenSatis();" id="AumenSatis1" style="cursor:pointer;" src="{{ asset('images/objetivosO/AumenSatis_red.png') }}">
             </div>
             <div id="apDiv40">
-                <img onclick="FortInterA();" id="FortInterA" style="cursor:pointer;" src="{{ asset('images/objetivosO/FortInterA_red.png') }}">
+                <img onclick="FortInterA();" id="FortInterA1" style="cursor:pointer;" src="{{ asset('images/objetivosO/FortInterA_red.png') }}">
             </div>
             <div id="apDiv41">
-                <img onclick="ImpleSgc();" id="ImpleSgc" style="cursor:pointer;" src="{{ asset('images/objetivosO/ImpleSgc_red.png') }}">
+                <img onclick="ImpleSgc();" id="ImpleSgc1" style="cursor:pointer;" src="{{ asset('images/objetivosO/ImpleSgc_red.png') }}">
             </div>
             <div id="apDiv42">
                 <img onclick="ImpleGproce();" id="ImpleGproce" style="cursor:pointer;" src="{{ asset('images/objetivosO/ImpleGproce_red.png') }}">  

@@ -49,20 +49,32 @@
 @section('body')
        <div class="content-layout" >
                <div id="apDiv111">
-                        <img src="{{ asset('images/marketingbsc/Poten_Inves.png') }}" >
+                        <img src="{{ asset('images/marketingbsc/ImpleSgc.png') }}" >
               </div>
 
-                    <div id="apDiv112">
-                        <img src="{{ asset('images/ObjetivosO/PotenInvest_red.png') }}">
-                    </div>
-                    <div id="apDiv113">
-                        <img src="{{ asset('images/ObjetivosO/AcredCarr_red.png') }}">
-                    </div>
-                    <div id="apDiv114">
-                        <img src="{{ asset('images/Acciones/cant_inves.png') }}">
-                    </div>
-                    <div id="apDiv115">
-                        <img src="{{ asset('images/Acciones/cant_publi.png') }}">
-                    </div>
-      </div>
+              <div id="apDiv123">
+                      <img src="{{ asset('images/objetivosO/FortInterA_red.png') }}">
+                   </div>
+                   <div id="apDiv124">
+                      <img src="{{ asset('images/objetivosO/ImpleSgc_red.png') }}">
+                   </div>
+                   <div id="apDiv125">
+                      <img src="{{ asset('images/objetivosO/ImpleGproce_red.png') }}">
+                   </div>
+                   <div id="apDiv126">
+                      <img src="{{ asset('images/objetivosO/PoteInnov_red.png') }}">
+                   </div>
+                   <div id="apDiv127">
+                      <img src="{{ asset('images/objetivosO/ImpleMcontemp_red.png') }}">
+                   </div>
+                   <div id="apDiv128">
+                      <img src="{{ asset('images/objetivosO/DesaCent_red.png') }}">
+                   </div>
+                   <div id="apDiv129">
+                      <img src="{{ asset('images/objetivosO/PromProyec_red.png') }}">  
+                   </div>
+                   <div id="apDiv139">
+                      <img src="{{ asset('images/Acciones/AvanceSgc.png') }}">
+                   </div>
+            </div>
   @stop

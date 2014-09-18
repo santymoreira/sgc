@@ -5,4 +5,20 @@
                 { 
                     location.href = "PotenInves";
                 }
+                  function AcredCarr()
+                { 
+                    location.href = "AcredCarr";
+                }
+                function AumenSatis()
+                { 
+                    location.href = "AumentarSatis";
+                }
+               function FortInterA()
+                { 
+                    location.href = "FortaInterApre";
+                }
+                function ImpleSgc()
+                { 
+                    location.href = "ImpleSgc";
+                }
             
