@@ -64,5 +64,17 @@ class MapasBalancedController extends BaseController {
 		{
 			return View::make('mapasbalanced.ImpleSgc');
 		}	
+	public function PotenInnov()
+		{
+			return View::make('mapasbalanced.PotenInnov');
+		}	
+	public function ImpleModContem()
+		{
+			return View::make('mapasbalanced.ImpleModContem');
+		}	
+	public function DesarrCentrosApoyo()
+		{
+			return View::make('mapasbalanced.DesarrCentrosApoyo');
+		}	
 
 }

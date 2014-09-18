@@ -296,6 +296,9 @@ Route::get('contabilidad/AcredCarr', 'MapasBalancedController@AcredCarr');
 Route::get('contabilidad/AumentarSatis', 'MapasBalancedController@AumentarSatis');  
 Route::get('contabilidad/FortaInterApre', 'MapasBalancedController@FortaInterApre');  
 Route::get('contabilidad/ImpleSgc', 'MapasBalancedController@ImpleSgc');  
+Route::get('contabilidad/PotenInnov', 'MapasBalancedController@PotenInnov');  
+Route::get('contabilidad/ImpleModContem', 'MapasBalancedController@ImpleModContem');  
+Route::get('contabilidad/DesarrCentrosApoyo', 'MapasBalancedController@DesarrCentrosApoyo'); 
 
 //Balanced Empresas
 Route::get('home/welcome', 'MapasController@home');

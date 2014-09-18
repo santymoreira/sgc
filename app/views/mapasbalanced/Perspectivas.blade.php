@@ -70,13 +70,13 @@
                 <img onclick="ImpleGproce();" id="ImpleGproce" style="cursor:pointer;" src="{{ asset('images/objetivosO/ImpleGproce_red.png') }}">  
             </div>
             <div id="apDiv43">
-                <img onclick="PoteInnov();" id="PoteInnov" style="cursor:pointer;" src="{{ asset('images/objetivosO/PoteInnov_red.png') }}">
+                <img onclick="PoteInnov();" id="PoteInnov1" style="cursor:pointer;" src="{{ asset('images/objetivosO/PoteInnov_red.png') }}">
             </div>
             <div id="apDiv44">
-                <img onclick="ImpleMcontemp();" id="ImpleMcontemp" style="cursor:pointer;" src="{{ asset('images/objetivosO/ImpleMcontemp_red.png') }}">
+                <img onclick="ImpleMcontemp();" id="ImpleMcontemp1" style="cursor:pointer;" src="{{ asset('images/objetivosO/ImpleMcontemp_red.png') }}">
             </div>
             <div id="apDiv45">
-                <img onclick="DesaCent();" id="DesaCent" style="cursor:pointer;" src="{{ asset('images/objetivosO/DesaCent_red.png') }}">
+                <img onclick="DesaCent();" id="DesaCent1" style="cursor:pointer;" src="{{ asset('images/objetivosO/DesaCent_red.png') }}">
             </div>
             <div id="apDiv46">
                 <img onclick="PromProyec();" id="PromProyec" style="cursor:pointer;" src="{{ asset('images/objetivosO/PromProyec_red.png') }}">

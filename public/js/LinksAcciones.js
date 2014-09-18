@@ -21,4 +21,16 @@
                 { 
                     location.href = "ImpleSgc";
                 }
+             function PoteInnov()
+                { 
+                    location.href = "PotenInnov";
+                }
+            function ImpleMcontemp()
+                { 
+                    location.href = "ImpleModContem";
+                }
+                  function DesaCent()
+                { 
+                    location.href = "DesarrCentrosApoyo";
+                }
             
