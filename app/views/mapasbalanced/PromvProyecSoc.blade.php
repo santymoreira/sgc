@@ -49,7 +49,7 @@
 @section('body')
        <div class="content-layout" >
                <div id="apDiv111">
-                        <img src="{{ asset('images/marketingbsc/DesarrCentrosApoyo.png') }}" >
+                        <img src="{{ asset('images/marketingbsc/PromvProySoc.png') }}" >
               </div>
 
               <div id="apDiv123">
@@ -73,23 +73,8 @@
                    <div id="apDiv129">
                       <img src="{{ asset('images/objetivosO/PromProyec_red.png') }}">  
                    </div>
-                   <div id="apDiv143">
-                      <img src="{{ asset('images/Acciones/PromoProyS.png') }}">s
+                   <div id="apDiv149">
+                      <img src="{{ asset('images/Acciones/nCentrosApoyo.png') }}">
                    </div>
-                   <div id="apDiv144">
-                      <img src="{{ asset('images/Acciones/nProyecSocie.png') }}">
-                   </div>
-                   <div id="apDiv145">
-                      <img src="{{ asset('images/Acciones/nCasasAbiertas.png') }}">
-                   </div>
-                   <div id="apDiv146">
-                      <img src="{{ asset('images/Acciones/nPrograLabSocial.png') }}">
-                   </div>
-                   <div id="apDiv147">
-                      <img src="{{ asset('images/Acciones/nGradEmple.png') }}">
-                   </div>
-                   <div id="apDiv148">
-                      <img src="{{ asset('images/Acciones/TazaGraduacion.png') }}">
-                   </div>
-            </div>
+          </div>
 @stop

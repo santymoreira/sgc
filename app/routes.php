@@ -299,6 +299,14 @@ Route::get('contabilidad/ImpleSgc', 'MapasBalancedController@ImpleSgc');
 Route::get('contabilidad/PotenInnov', 'MapasBalancedController@PotenInnov');  
 Route::get('contabilidad/ImpleModContem', 'MapasBalancedController@ImpleModContem');  
 Route::get('contabilidad/DesarrCentrosApoyo', 'MapasBalancedController@DesarrCentrosApoyo'); 
+Route::get('contabilidad/PromvProyecSoc', 'MapasBalancedController@PromvProyecSoc');
+Route::get('contabilidad/FortaCapRRHH', 'MapasBalancedController@FortaCapRRHH'); 
+Route::get('contabilidad/MejorarClimaLab', 'MapasBalancedController@MejorarClimaLab'); 
+Route::get('contabilidad/PromoCoop', 'MapasBalancedController@PromoCoop');
+Route::get('contabilidad/OptimiRecu', 'MapasBalancedController@OptimiRecu');
+Route::get('contabilidad/ObtenerFinan', 'MapasBalancedController@ObtenerFinan');
+
+
 
 //Balanced Empresas
 Route::get('home/welcome', 'MapasController@home');

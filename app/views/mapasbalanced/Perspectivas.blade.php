@@ -79,22 +79,22 @@
                 <img onclick="DesaCent();" id="DesaCent1" style="cursor:pointer;" src="{{ asset('images/objetivosO/DesaCent_red.png') }}">
             </div>
             <div id="apDiv46">
-                <img onclick="PromProyec();" id="PromProyec" style="cursor:pointer;" src="{{ asset('images/objetivosO/PromProyec_red.png') }}">
+                <img onclick="PromProyec();" id="PromProyec1" style="cursor:pointer;" src="{{ asset('images/objetivosO/PromProyec_red.png') }}">
             </div>
             <div id="apDiv47">
-                <img onclick="FortaRRHH();" id="FortaRRHH" style="cursor:pointer;" src="{{ asset('images/objetivosO/FortaRRHH_red.png') }}">
+                <img onclick="FortaRRHH();" id="FortaRRHH1" style="cursor:pointer;" src="{{ asset('images/objetivosO/FortaRRHH_red.png') }}">
             </div>
             <div id="apDiv48">
-                <img onclick="MejorarClima();" id="MejorarClima" style="cursor:pointer;" src="{{ asset('images/objetivosO/MejorarClima_red.png') }}">
+                <img onclick="MejorarClima();" id="MejorarClima1" style="cursor:pointer;" src="{{ asset('images/objetivosO/MejorarClima_red.png') }}">
             </div>
             <div id="apDiv49">
-              <img onclick="PromoCoope();" id="PromoCoope" style="cursor:pointer;" src="{{ asset('images/objetivosO/PromoCoope_red.png') }}"> 
+              <img onclick="PromoCoope();" id="PromoCoope1" style="cursor:pointer;" src="{{ asset('images/objetivosO/PromoCoope_red.png') }}"> 
             </div>
             <div id="apDiv50">
-              <img onclick="OptiRecursos();" id="OptiRecursos" style="cursor:pointer;" src="{{ asset('images/objetivosO/OptiRecursos_red.png') }}">
+              <img onclick="OptiRecursos();" id="OptiRecursos1" style="cursor:pointer;" src="{{ asset('images/objetivosO/OptiRecursos_red.png') }}">
             </div>
             <div id="apDiv51">
-              <img onclick="obtener_finan();" id="obtener_finan" style="cursor:pointer;" src="{{ asset('images/objetivosO/obtener_finan_red.png') }}">  
+              <img onclick="obtener_finan();" id="obtener_finan1" style="cursor:pointer;" src="{{ asset('images/objetivosO/obtener_finan_red.png') }}">  
             </div>
        
        

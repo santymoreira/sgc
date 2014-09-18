@@ -29,8 +29,31 @@
                 { 
                     location.href = "ImpleModContem";
                 }
-                  function DesaCent()
+             function DesaCent()
                 { 
                     location.href = "DesarrCentrosApoyo";
                 }
-            
+            function PromProyec()
+            {
+                  location.href = "PromvProyecSoc";   
+            }
+            function FortaRRHH()
+            {
+                  location.href = "FortaCapRRHH";   
+            }
+            function MejorarClima()
+            {
+                  location.href = "MejorarClimaLab";   
+            } 
+            function PromoCoope()
+            {
+                  location.href = "PromoCoop";   
+            }
+            function OptiRecursos()
+            {
+                  location.href = "OptimiRecu";   
+            }
+            function obtener_finan()
+            {
+                  location.href = "ObtenerFinan";   
+            }
