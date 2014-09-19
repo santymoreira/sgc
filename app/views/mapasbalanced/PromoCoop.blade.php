@@ -52,10 +52,10 @@
                         <img src="{{ asset('images/marketingbsc/PromoCoop.png') }}" >
               </div>
                <div id="apDiv157">
-                        <img src="{{ asset('images/ObjetivosO/MejorarClima_red.png') }}">
+                        <img src="{{ asset('images/objetivosO/MejorarClima_red.png') }}">
                     </div>
                     <div id="apDiv158">
-                        <img src="{{ asset('images/ObjetivosO/PromoCoope_red.png') }}">
+                        <img src="{{ asset('images/objetivosO/PromoCoope_red.png') }}">
                     </div>
                     <div id="apDiv150">
                         <img src="{{ asset('images/ObjetivosO/FortaRRHH_red.png') }}">

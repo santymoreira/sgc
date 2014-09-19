@@ -52,7 +52,7 @@ class UserController extends \BaseController {
 			  
 			    if (!empty($temp1))
 			    {
-			  		DB::delete('delete from empleado_tipo where COD_EMPLEADO = ? and COD_TIPO = ? ', array($id,$auxdi));
+			  		DB::insert('INSERT INTO from empleado_tipo ', array($id,$auxdi));
 		
 			   }
 			    if (!empty($temp2))
