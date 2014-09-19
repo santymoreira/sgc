@@ -64,5 +64,40 @@ class MapasBalancedController extends BaseController {
 		{
 			return View::make('mapasbalanced.ImpleSgc');
 		}	
-
+	public function PotenInnov()
+		{
+			return View::make('mapasbalanced.PotenInnov');
+		}	
+	public function ImpleModContem()
+		{
+			return View::make('mapasbalanced.ImpleModContem');
+		}	
+	public function DesarrCentrosApoyo()
+		{
+			return View::make('mapasbalanced.DesarrCentrosApoyo');
+		}	
+		public function PromvProyecSoc()
+		{
+			return View::make('mapasbalanced.PromvProyecSoc');
+		}	
+			public function FortaCapRRHH()
+		{
+			return View::make('mapasbalanced.FortaCapRRHH');
+		}	
+			public function MejorarClimaLab()
+		{
+			return View::make('mapasbalanced.MejorarClimaLab');
+		}
+			public function PromoCoop()
+		{
+			return View::make('mapasbalanced.PromoCoop');
+		}
+		public function OptimiRecu()
+		{
+			return View::make('mapasbalanced.OptimiRecu');
+		}
+		public function ObtenerFinan()
+		{
+			return View::make('mapasbalanced.ObtenerFinan');
+		}
 }
