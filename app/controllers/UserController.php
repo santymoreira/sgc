@@ -52,7 +52,8 @@ class UserController extends \BaseController {
 			  
 			    if (!empty($temp1))
 			    {
-			    	
+			  		DB::insert('INSERT INTO from empleado_tipo ', array($id,$auxdi));
+		
 			   }
 			    if (!empty($temp2))
 			    {
