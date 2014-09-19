@@ -56,9 +56,9 @@ class MapasBalancedController extends BaseController {
 		{
 			return View::make('mapasbalanced.AumentarSatis');
 		}	
-	public function FortaInterapre()
+	public function FortaInterApre()
 		{
-			return View::make('mapasbalanced.FortaInterapre');
+			return View::make('mapasbalanced.FortaInterApre');
 		}	
 	public function ImpleSgc()
 		{
