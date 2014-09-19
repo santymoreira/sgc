@@ -53,10 +53,10 @@
               </div>
 
                     <div id="apDiv112">
-                        <img src="{{ asset('images/ObjetivosO/PotenInvest_red.png') }}">
+                        <img src="{{ asset('images/objetivosO/PotenInvest_red.png') }}">
                     </div>
                     <div id="apDiv113">
-                        <img src="{{ asset('images/ObjetivosO/AcredCarr_red.png') }}">
+                        <img src="{{ asset('images/objetivosO/AcredCarr_red.png') }}">
                     </div>
                     <div id="apDiv114">
                         <img src="{{ asset('images/Acciones/cant_inves.png') }}">
