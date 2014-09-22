@@ -52,15 +52,14 @@ class UserController extends \BaseController {
 			  
 			    if (!empty($temp1))
 			    {
-			  		DB::insert('INSERT INTO from empleado_tipo ', array($id,$auxdi));
+			  		 DB::insert('insert into users (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp1,$aux,2));
 		
 			   }
 			    if (!empty($temp2))
 			    {
-			    	 $tipos2=TipoEmpleado::find($temp2); 
-			    	 $empleado->tipos()->save($tipos2);
+			    	 DB::insert('insert into users (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp2,$aux,2));
 			    }
-		/*	    if (!empty($temp3))
+			/*    if (!empty($temp3))
 			    {
 			    	 $tipos3=TipoEmpleado::find($temp3); 
 			    	 $empleado->tipos()->save($tipos3);

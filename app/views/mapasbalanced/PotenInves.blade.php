@@ -26,7 +26,7 @@
                         @elseif($var ==1)
                            <li class="nivel1"><a class="nivel1" {{ HTML::link('empresas/empresas_bsc','BSC'); }}  
                         @elseif($var ==4)
-                           <li class="nivel1"><a class="nivel1" {{ HTML::link('finanzas/finanzas_bscc','BSC'); }}  
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('finanzas/finanzas_bsc','BSC'); }}  
                         @elseif($var ==5)
                            <li class="nivel1"><a class="nivel1" {{ HTML::link('marketing/marketing_bsc','BSC'); }}  
                         @elseif($var ==6)
@@ -48,9 +48,29 @@
 
 @section('body')
        <div class="content-layout" >
-               <div id="apDiv111">
+             
+               @if($var == 2)  
+                       <div id="apDiv111">
+                        <img src="{{ asset('images/contabilidadbsc/Poten_Inves.png') }}" >
+              </div>
+                @elseif($var ==1)
+                        <div id="apDiv111">
+                        <img src="{{ asset('images/empresasbsc/Poten_Inves.png') }}" >
+              </div>
+                 @elseif($var ==4)
+                        <div id="apDiv111">
+                        <img src="{{ asset('images/finanzasbsc/Poten_Inves.png') }}" >
+              </div>
+                 @elseif($var ==5)
+                         <div id="apDiv111">
                         <img src="{{ asset('images/marketingbsc/Poten_Inves.png') }}" >
               </div>
+                 @elseif($var ==6)
+                         <div id="apDiv111">
+                        <img src="{{ asset('images/transportebsc/Poten_Inves.png') }}" >
+              </div>
+                 @endif  
+
 
                     <div id="apDiv112">
                         <img src="{{ asset('images/objetivosO/PotenInvest_red.png') }}">

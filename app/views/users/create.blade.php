@@ -2,9 +2,9 @@
 
 @section('Different_Styles')
 	@parent
-		{{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'); }}
+	<!--	{{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'); }}
 	    {{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css'); }}
-	      {{ HTML::style('css/Table.css'); }}
+	      {{ HTML::style('css/Table.css'); }} -->
 
 	
 @stop

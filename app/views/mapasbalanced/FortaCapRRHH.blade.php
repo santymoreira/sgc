@@ -26,13 +26,23 @@
                         @elseif($var ==1)
                            <li class="nivel1"><a class="nivel1" {{ HTML::link('empresas/empresas_bsc','BSC'); }}  
                         @elseif($var ==4)
-                           <li class="nivel1"><a class="nivel1" {{ HTML::link('finanzas/finanzas_bscc','BSC'); }}  
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('finanzas/finanzas_bsc','BSC'); }}  
                         @elseif($var ==5)
                            <li class="nivel1"><a class="nivel1" {{ HTML::link('marketing/marketing_bsc','BSC'); }}  
                         @elseif($var ==6)
                            <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/transporte_bsc','BSC  '); }}  
                       @endif
-               		<li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/perspectivas','Volver'); }}  
+               		  @if($var == 2)  
+                     <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/perspectivas','Volver'); }}  
+                      @elseif($var ==1)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('empresas/perspectivas','Volver'); }}  
+                        @elseif($var ==4)
+                        <li class="nivel1"><a class="nivel1" {{ HTML::link('finanzas/perspectivas','Volver'); }}  
+                        @elseif($var ==5)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('marketing/perspectivas','Volver'); }}  
+                        @elseif($var ==6)
+                       <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/perspectivas','Volver'); }}  
+                      @endif 
             </ul>			
           </div> 
 @stop
@@ -48,9 +58,30 @@
 
 @section('body')
        <div class="content-layout" >
-               <div id="apDiv111">
+              
+                @if($var == 2)  
+                     <div id="apDiv111">
+                        <img src="{{ asset('images/contabilidadbsc/FortaCapRRHH.png') }}" >
+                    </div>
+                @elseif($var ==1)
+                  <div id="apDiv111">
+                        <img src="{{ asset('images/empresasbsc/FortaCapRRHH.png') }}" >
+                    </div>
+                 @elseif($var ==4)
+                     <div id="apDiv111">
+                        <img src="{{ asset('images/finanzasbsc/FortaCapRRHH.png') }}" >
+                    </div>
+                 @elseif($var ==5)
+                      <div id="apDiv111">
                         <img src="{{ asset('images/marketingbsc/FortaCapRRHH.png') }}" >
-              </div>
+                    </div>
+                 @elseif($var ==6)
+                     <div id="apDiv111">
+                        <img src="{{ asset('images/transportebsc/FortaCapRRHH.png') }}" >
+                    </div>
+                 @endif
+              
+                   
                <div id="apDiv157">
                         <img src="{{ asset('images/objetivosO/MejorarClima_red.png') }}">
                     </div>
