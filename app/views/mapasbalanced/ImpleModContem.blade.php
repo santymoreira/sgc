@@ -104,8 +104,14 @@
                       <img src="{{ asset('images/objetivosO/PromProyec_red.png') }}">  
                    </div>
                   <div id="apDiv142">
-                      <img src="{{ asset('images/Acciones/AvanceNuevosMod.png') }}">
+                      <img src="{{ asset('images/Acciones/AvanceNuevosMod.png') }}" style="cursor:pointer;">
                   </div>
+
+                  <!-- Evaluación Acciones -->
+
+                     <div id="apDiv203">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                     </div>
       </div>
 
 @stop

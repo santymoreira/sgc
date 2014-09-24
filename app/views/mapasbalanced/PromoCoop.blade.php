@@ -91,16 +91,32 @@
                         <img src="{{ asset('images/ObjetivosO/FortaRRHH_red.png') }}">
                     </div>
                       <div id="apDiv161">
-                      <img src="{{ asset('images/Acciones/Compromiso.png') }}">
+                      <img src="{{ asset('images/Acciones/Compromiso.png') }}" style="cursor:pointer;">
                    </div>
                   <div id="apDiv162">
-                      <img src="{{ asset('images/Acciones/Liderazgo.png') }}">
+                      <img src="{{ asset('images/Acciones/Liderazgo.png') }}" style="cursor:pointer;">
                   </div>
                   <div id="apDiv163">
-                      <img src="{{ asset('images/Acciones/MotivPersonal.png') }}">
+                      <img src="{{ asset('images/Acciones/MotivPersonal.png') }}" style="cursor:pointer;">
                   </div>
                   <div id="apDiv164">
-                      <img src="{{ asset('images/Acciones/SatisLab.png') }}">
+                      <img src="{{ asset('images/Acciones/SatisLab.png') }}" style="cursor:pointer;">
                   </div>
+
+                  <!-- Evaluacion Acciones -->
+
+                  <div id="apDiv223">
+                        <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                  </div> 
+                  <div id="apDiv224">
+                     <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                  </div>  
+                  <div id="apDiv225">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                  </div> 
+                 <div id="apDiv226">
+                     <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                 </div> 
+
             </div>
   @stop

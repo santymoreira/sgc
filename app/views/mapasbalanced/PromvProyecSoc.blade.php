@@ -60,7 +60,7 @@
        <div class="content-layout" >
 
              @if($var == 2)  
-                        <div id="apDiv111">
+               <div id="apDiv111">
                         <img src="{{ asset('images/contabilidadbsc/PromvProySoc.png') }}" >
               </div>
                 @elseif($var ==1)
@@ -103,7 +103,16 @@
                       <img src="{{ asset('images/objetivosO/PromProyec_red.png') }}">  
                    </div>
                    <div id="apDiv149">
-                      <img src="{{ asset('images/Acciones/nCentrosApoyo.png') }}">
+                      <img src="{{ asset('images/Acciones/nCentrosApoyo.png') }}" style="cursor:pointer;">
                    </div>
+
+                   <!-- Evaluacion Acciones -->
+                  
+                    <div id="apDiv227">
+                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                   </div> 
+                                      
+
+
           </div>
 @stop

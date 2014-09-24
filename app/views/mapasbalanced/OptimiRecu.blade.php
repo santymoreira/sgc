@@ -90,31 +90,61 @@
                         <img src="{{ asset('images/objetivosO/obtener_finan_red.png') }}">
                      </div>
                    <div id="apDiv167">
-                      <img src="{{ asset('images/Acciones/PlanOpAnual.png') }}">
+                      <img src="{{ asset('images/Acciones/PlanOpAnual.png') }}" style="cursor:pointer;">
                    </div>
                    <div id="apDiv168">
-                      <img src="{{ asset('images/Acciones/PlanAnualContra.png') }}">
+                      <img src="{{ asset('images/Acciones/PlanAnualContra.png') }}" style="cursor:pointer;">
                    </div>
           <div id="apDiv169">
-                      <img src="{{ asset('images/Acciones/ActivosFijos.png') }}">
+                      <img src="{{ asset('images/Acciones/ActivosFijos.png') }}" style="cursor:pointer;">
                    </div>
                   <div id="apDiv170">
-                      <img src="{{ asset('images/Acciones/ActivosCirculares.png') }}">
+                      <img src="{{ asset('images/Acciones/ActivosCirculares.png') }}" style="cursor:pointer;">
                   </div>
                  <div id="apDiv171">
-                    <img src="{{ asset('images/Acciones/Energeticos.png') }}">
+                    <img src="{{ asset('images/Acciones/Energeticos.png') }}" style="cursor:pointer;">
                  </div>
                 <div id="apDiv172">
-                    <img src="{{ asset('images/Acciones/Agua.png') }}">
+                    <img src="{{ asset('images/Acciones/Agua.png') }}" style="cursor:pointer;">
                 </div>
                 <div id="apDiv173">
-                    <img src="{{ asset('images/Acciones/Telefono.png') }}">
+                    <img src="{{ asset('images/Acciones/Telefono.png') }}" style="cursor:pointer;">
                 </div>
                 <div id="apDiv174">
-                    <img src="{{ asset('images/Acciones/Internet.png') }}">
+                    <img src="{{ asset('images/Acciones/Internet.png') }}" style="cursor:pointer;">
                 </div>
                 <div id="apDiv175">
-                    <img src="{{ asset('images/Acciones/GastosOperacion.png') }}">
+                    <img src="{{ asset('images/Acciones/GastosOperacion.png') }}" style="cursor:pointer;">
+                </div>
+
+                <!-- Evaluacion Acciones -->
+
+                  <div id="apDiv210">
+                    <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                </div>
+                <div id="apDiv211">
+                   <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                </div>
+                <div id="apDiv212">
+                    <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                </div>
+                <div id="apDiv213">
+                   <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                </div>
+                <div id="apDiv214">
+                   <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                </div>
+                <div id="apDiv215">
+                    <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                </div>
+                <div id="apDiv216">
+                   <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                </div>
+                <div id="apDiv217">
+                   <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                </div>
+                <div id="apDiv218">
+                    <img src="{{ asset('images/semaforo/rojo.png') }}">  
                 </div>
         </div>
 @stop

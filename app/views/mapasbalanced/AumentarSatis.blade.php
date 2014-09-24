@@ -85,12 +85,19 @@
                       <img src="{{ asset('images/objetivosO/AumenSatis_red.png') }}">  
                     </div>
                     <div id="apDiv120">
-                        <img src="{{ asset('images/Acciones/SatisEstu.png') }}">
+                        <img src="{{ asset('images/Acciones/SatisEstu.png') }}" style="cursor:pointer;">
                     </div>
                     <div id="apDiv122">
-                        <img src="{{ asset('images/Acciones/SatisSoci.png') }}">
+                        <img src="{{ asset('images/Acciones/SatisSoci.png') }}" style="cursor:pointer;">
                     </div>
 
+                <!-- evaluacion Acciones -->      
+                <div id="apDiv182">
+                     <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                    </div>
+                    <div id="apDiv183">
+                    <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                    </div>
 
       </div>
 @stop

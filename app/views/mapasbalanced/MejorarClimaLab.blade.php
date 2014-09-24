@@ -91,10 +91,19 @@
                         <img src="{{ asset('images/objetivosO/FortaRRHH_red.png') }}">
                     </div>
                      <div id="apDiv159">
-                        <img src="{{ asset('images/Acciones/nConvEmpre.png') }}">
+                        <img src="{{ asset('images/Acciones/nConvEmpre.png') }}" style="cursor:pointer;">
                     </div>
                     <div id="apDiv160">
-                        <img src="{{ asset('images/Acciones/nConvAcade.png') }}">
+                        <img src="{{ asset('images/Acciones/nConvAcade.png') }}" style="cursor:pointer;">
+                    </div>
+
+                    <!-- Evaluacion Acciones -->
+
+                     <div id="apDiv205">
+                        <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                    </div>
+                    <div id="apDiv206">
+                        <img src="{{ asset('images/semaforo/rojo.png') }}">  
                     </div>
             </div>
 @stop

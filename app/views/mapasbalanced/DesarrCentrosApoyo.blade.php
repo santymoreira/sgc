@@ -103,22 +103,41 @@
                       <img src="{{ asset('images/objetivosO/PromProyec_red.png') }}">  
                    </div>
                    <div id="apDiv143">
-                      <img src="{{ asset('images/Acciones/PromoProyS.png') }}">s
+                      <img src="{{ asset('images/Acciones/PromoProyS.png') }}">
                    </div>
                    <div id="apDiv144">
-                      <img src="{{ asset('images/Acciones/nProyecSocie.png') }}">
+                      <img src="{{ asset('images/Acciones/nProyecSocie.png') }}" style="cursor:pointer;">
                    </div>
                    <div id="apDiv145">
-                      <img src="{{ asset('images/Acciones/nCasasAbiertas.png') }}">
+                      <img src="{{ asset('images/Acciones/nCasasAbiertas.png') }}" style="cursor:pointer;">
                    </div>
                    <div id="apDiv146">
-                      <img src="{{ asset('images/Acciones/nPrograLabSocial.png') }}">
+                      <img src="{{ asset('images/Acciones/nPrograLabSocial.png') }}" style="cursor:pointer;">
                    </div>
                    <div id="apDiv147">
-                      <img src="{{ asset('images/Acciones/nGradEmple.png') }}">
+                      <img src="{{ asset('images/Acciones/nGradEmple.png') }}" style="cursor:pointer;">
                    </div>
                    <div id="apDiv148">
-                      <img src="{{ asset('images/Acciones/TazaGraduacion.png') }}">
+                      <img src="{{ asset('images/Acciones/TazaGraduacion.png') }}" style="cursor:pointer;">
                    </div>
+
+                   <!-- Evaluacion Acciones -->
+                    <div id="apDiv184">
+                        <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                  </div>
+                  <div id="apDiv185">
+                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                  </div>
+                  <div id="apDiv186">
+                     <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                  </div>
+                  <div id="apDiv187">
+                     <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                  </div>
+                  <div id="apDiv188">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                  </div>
+                   
+
             </div>
 @stop
