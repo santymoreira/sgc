@@ -155,8 +155,10 @@ Route::post('empleados/crear', array('uses' => 'EmpleadosController@crearEmplead
 Route::get('consolidado/{a}/{b}', array('uses' => 'ReportesController@imagenReporteConsolidado'));
 Route::post('/categories2', array('uses' => 'EmpleadosController@mostrarEmp3'));
 Route::post('/categories', array('uses' => 'EmpleadosController@insertar'));
-//
 
+Route::get('/evaluacionEmpleado', array('uses' => 'EmpleadosController@evaluacionEmpleado'));
+//
+//
 
 Route::get('/pruebav01', array('uses' => 'EmpleadosController@mostrarEmp'));
 Route::get('/datos', array('uses' => 'HomeController@envios_ajax'));

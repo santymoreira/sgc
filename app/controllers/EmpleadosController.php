@@ -124,6 +124,24 @@ class EmpleadosController extends BaseController {
 
     }
 
+     //$empleados = DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on 
+          //  e.COD_EMPLEADO=et.COD_EMPLEADO WHERE et.COD_TIPO =? AND et.COD_ESCUELA=?',array(4,2));
+         //return View::make('empleados.evaluacionEmpleado', array('empleados' => $empleados));
+
+            //return DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on 
+           // e.COD_EMPLEADO=et.COD_EMPLEADO WHERE et.COD_TIPO =? AND et.COD_ESCUELA=?',array(4,2));
+    public function evaluacionEmpleado()
+    {
+       
+          $empleados = Cache::remember('listaEmpleadossdfgh', 60, function()
+        { 
+
+        }); 
+         return View::make('empleados.evaluacionEmpleado', array('empleados' => $empleados));
+    }
+
+
+
     public function insertar()
     {
         if (Request::ajax()) {
