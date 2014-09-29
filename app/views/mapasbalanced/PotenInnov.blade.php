@@ -104,10 +104,14 @@
                       <img src="{{ asset('images/objetivosO/PromProyec_red.png') }}">  
                    </div>
                     <div id="apDiv140">
-                      <img src="{{ asset('images/Acciones/RelacInves_nDoc.png') }}" style="cursor:pointer;">
+                    <a id="1" href="{{ asset('images/descripcion/RelacInves_nDoc.png'); }}" rel="slideshow1">
+                        <img src="{{ asset('images/Acciones/RelacInves_nDoc.png') }}" style="cursor:pointer;">
+                    </a>
                    </div>
                    <div id="apDiv141">
-                      <img src="{{ asset('images/Acciones/RelaInves_nEstuInvo.png') }}" style="cursor:pointer;">
+                    <a id="2" href="{{ asset('images/descripcion/RelaInves_nEstuInvo.png'); }}" rel="slideshow2">
+                        <img src="{{ asset('images/Acciones/RelaInves_nEstuInvo.png') }}" style="cursor:pointer;">
+                    </a>
                    </div>
 
                    <!-- Evaluacion Acciones -->

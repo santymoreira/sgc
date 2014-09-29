@@ -96,12 +96,14 @@
                        </a>  
                     </div>
                     <div id="apDiv118">
-                      <a id="1" href="{{ asset('images/descripcion/SatisEmpre.png'); }}" rel="slideshow2">
+                      <a id="2" href="{{ asset('images/descripcion/SatisEmpre.png'); }}" rel="slideshow2">
                           <img src="{{ asset('images/Acciones/SatisEmpre.png') }}"  style="cursor:pointer;">
                       </a>
                     </div>
                     <div id="apDiv119">
-                        <img src="{{ asset('images/Acciones/AvanceAcred.png') }}"  style="cursor:pointer;">
+                        <a id="3" href="{{ asset('images/descripcion/AvanceAcred.png'); }}" rel="slideshow3">
+                          <img src="{{ asset('images/Acciones/AvanceAcred.png') }}"  style="cursor:pointer;">
+                        </a>
                     </div>
 
                     <!-- Evaluacion Acciones -->

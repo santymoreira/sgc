@@ -89,13 +89,19 @@
                         <img src="{{ asset('images/objetivosO/obtener_finan_red.png') }}">
                      </div>
                   <div id="apDiv176">
+                    <a id="1" href="{{ asset('images/descripcion/RecursosProyec1.png'); }}" rel="slideshow1">
                         <img src="{{ asset('images/Acciones/RecursosProyec1.png') }}" style="cursor:pointer;">
+                      </a>
                     </div>
                     <div id="apDiv177">
-                        <img src="{{ asset('images/Acciones/RecursosProyec2.png') }}" style="cursor:pointer;">
+                      <a id="2" href="{{ asset('images/descripcion/RecursosProyec2.png'); }}" rel="slideshow2">
+                           <img src="{{ asset('images/Acciones/RecursosProyec2.png') }}" style="cursor:pointer;">
+                      </a>
                     </div>
                     <div id="apDiv178">
-                        <img src="{{ asset('images/Acciones/RecursosProyec3.png') }}" style="cursor:pointer;">
+                      <a id="3" href="{{ asset('images/descripcion/RecursosProyec3.png'); }}" rel="slideshow3">
+                          <img src="{{ asset('images/Acciones/RecursosProyec3.png') }}" style="cursor:pointer;">
+                      </a>
                     </div>
 
                   <!-- Evaluacion Acciones -->  

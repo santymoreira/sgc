@@ -106,20 +106,30 @@
                       <img src="{{ asset('images/Acciones/PromoProyS.png') }}">
                    </div>
                    <div id="apDiv144">
-                      <img src="{{ asset('images/Acciones/nProyecSocie.png') }}" style="cursor:pointer;">
+                     <a id="1" href="{{ asset('images/descripcion/nProyecSocie.png'); }}" rel="slideshow1">
+                         <img src="{{ asset('images/Acciones/nProyecSocie.png') }}" style="cursor:pointer;">
+                      </a>
                    </div>
                    <div id="apDiv145">
-                      <img src="{{ asset('images/Acciones/nCasasAbiertas.png') }}" style="cursor:pointer;">
+                      <a id="2" href="{{ asset('images/descripcion/nCasasAbiertas.png'); }}" rel="slideshow2">
+                          <img src="{{ asset('images/Acciones/nCasasAbiertas.png') }}" style="cursor:pointer;">
+                      </a>
                    </div>
                    <div id="apDiv146">
-                      <img src="{{ asset('images/Acciones/nPrograLabSocial.png') }}" style="cursor:pointer;">
+                    <a id="3" href="{{ asset('images/descripcion/nPrograLabSocial.png'); }}" rel="slideshow3">
+                          <img src="{{ asset('images/Acciones/nPrograLabSocial.png') }}" style="cursor:pointer;">
+                    </a>
                    </div>
                    <div id="apDiv147">
-                      <img src="{{ asset('images/Acciones/nGradEmple.png') }}" style="cursor:pointer;">
+                      <a id="4" href="{{ asset('images/descripcion/nGradEmple.png'); }}" rel="slideshow4">
+                          <img src="{{ asset('images/Acciones/nGradEmple.png') }}" style="cursor:pointer;">
+                      </a>
                    </div>
                    <div id="apDiv148">
-                      <img src="{{ asset('images/Acciones/TazaGraduacion.png') }}" style="cursor:pointer;">
-                   </div>
+                     <a id="5" href="{{ asset('images/descripcion/TazaGraduacion.png'); }}" rel="slideshow5">
+                         <img src="{{ asset('images/Acciones/TazaGraduacion.png') }}" style="cursor:pointer;">
+                      </a>    
+                  </div>
 
                    <!-- Evaluacion Acciones -->
                     <div id="apDiv184">

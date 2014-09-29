@@ -85,10 +85,14 @@
                       <img src="{{ asset('images/objetivosO/AumenSatis_red.png') }}">  
                     </div>
                     <div id="apDiv120">
-                        <img src="{{ asset('images/Acciones/SatisEstu.png') }}" style="cursor:pointer;">
+                        <a id="1" href="{{ asset('images/descripcion/SatisEstu.png'); }}" rel="slideshow1">
+                          <img src="{{ asset('images/Acciones/SatisEstu.png') }}" style="cursor:pointer;">
+                        </a>  
                     </div>
                     <div id="apDiv122">
-                        <img src="{{ asset('images/Acciones/SatisSoci.png') }}" style="cursor:pointer;">
+                        <a id="2" href="{{ asset('images/descripcion/SatisSoci.png'); }}" rel="slideshow2">
+                           <img src="{{ asset('images/Acciones/SatisSoci.png') }}" style="cursor:pointer;">
+                        </a>
                     </div>
 
                 <!-- evaluacion Acciones -->      

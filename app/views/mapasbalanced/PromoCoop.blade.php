@@ -91,16 +91,24 @@
                         <img src="{{ asset('images/ObjetivosO/FortaRRHH_red.png') }}">
                     </div>
                       <div id="apDiv161">
-                      <img src="{{ asset('images/Acciones/Compromiso.png') }}" style="cursor:pointer;">
+                       <a id="1" href="{{ asset('images/descripcion/Compromiso.png'); }}" rel="slideshow1">
+                           <img src="{{ asset('images/Acciones/Compromiso.png') }}" style="cursor:pointer;">
+                      </a>
                    </div>
                   <div id="apDiv162">
-                      <img src="{{ asset('images/Acciones/Liderazgo.png') }}" style="cursor:pointer;">
+                      <a id="2" href="{{ asset('images/descripcion/Liderazgo.png'); }}" rel="slideshow2">
+                          <img src="{{ asset('images/Acciones/Liderazgo.png') }}" style="cursor:pointer;">
+                      </a>
                   </div>
                   <div id="apDiv163">
-                      <img src="{{ asset('images/Acciones/MotivPersonal.png') }}" style="cursor:pointer;">
+                    <a id="3" href="{{ asset('images/descripcion/MotivPersonal.png'); }}" rel="slideshow3">
+                       <img src="{{ asset('images/Acciones/MotivPersonal.png') }}" style="cursor:pointer;">
+                    </a>
                   </div>
                   <div id="apDiv164">
-                      <img src="{{ asset('images/Acciones/SatisLab.png') }}" style="cursor:pointer;">
+                     <a id="4" href="{{ asset('images/descripcion/SatisLab.png'); }}" rel="slideshow4">
+                          <img src="{{ asset('images/Acciones/SatisLab.png') }}" style="cursor:pointer;">
+                      </a>
                   </div>
 
                   <!-- Evaluacion Acciones -->

@@ -2,16 +2,11 @@
 @section('options')
      @parent
 @stop
-
 @section('login')
- @parent
-   
+   @parent
 @stop
-
-
 @section('content')
 @stop
-
 @section('body')
                 <div class="container">
                     <div class="content-layout-row">

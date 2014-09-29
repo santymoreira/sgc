@@ -104,7 +104,9 @@
                       <img src="{{ asset('images/objetivosO/PromProyec_red.png') }}">  
                    </div>
                   <div id="apDiv142">
+                    <a id="1" href="{{ asset('images/descripcion/AvanceNuevosMod.png'); }}" rel="slideshow1">
                       <img src="{{ asset('images/Acciones/AvanceNuevosMod.png') }}" style="cursor:pointer;">
+                    </a>
                   </div>
 
                   <!-- Evaluación Acciones -->

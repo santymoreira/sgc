@@ -79,10 +79,14 @@
                         <img src="{{ asset('images/objetivosO/AcredCarr_red.png') }}">
                     </div>
                     <div id="apDiv114">
-                        <img src="{{ asset('images/Acciones/cant_inves.png') }}" style="cursor:pointer;">
+                      <a id="1" href="{{ asset('images/descripcion/cant_inves.png'); }}" rel="slideshow1">
+                         <img src="{{ asset('images/Acciones/cant_inves.png') }}" style="cursor:pointer;">
+                      </a>
                     </div>
                     <div id="apDiv115">
+                      <a id="2" href="{{ asset('images/descripcion/cant_publi.png'); }}" rel="slideshow2">
                         <img src="{{ asset('images/Acciones/cant_publi.png') }}" style="cursor:pointer;">
+                      </a>
                     </div>
 
                     <!-- Evaluacion Acciones -->
