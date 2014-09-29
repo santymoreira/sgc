@@ -4,8 +4,10 @@
 
 @section('Different_Styles')
 	@parent
-		{{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'); }}
-	    {{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css'); }}
+	<!--	{{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'); }} 
+	    {{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css'); }} -->
+	    {{ HTML::style('css/new.css'); }} 
+		{{ HTML::style('css/new1.css'); }} 
 	    {{ HTML::style('css/Table.css'); }}
 	
 @stop

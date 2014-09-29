@@ -45,7 +45,7 @@
            @elseif($var ==5)
             <div id="apDiv36"><center><img src="{{ asset('images/marketingbsc/contenedor.png') }}"></center></div> 
            @elseif($var ==6)
-            <div id="apDiv36"><center><img src="{{ asset('images/transportebsc/contenedor.png') }}"></center></div>  
+            <div id="apDiv36"><center><img width="949" height="994" src="{{ asset('images/transportebsc/contenedor.png') }}"></center></div>  
         @endif         
         
    

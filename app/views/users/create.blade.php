@@ -2,9 +2,12 @@
 
 @section('Different_Styles')
 	@parent
-		{{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'); }}
+	<!--	{{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'); }}
 	    {{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css'); }}
-	      {{ HTML::style('css/Table.css'); }}
+	      {{ HTML::style('css/Table.css'); }} -->
+	      {{ HTML::style('css/new.css'); }} 
+		{{ HTML::style('css/new1.css'); }} 
+		{{ HTML::style('css/Table.css'); }} 
 
 	
 @stop
@@ -51,11 +54,13 @@
   		<div class="panel-body" >
   			<form method="post" action="store">
 				<p>
-					<input type="text" name="ci" placeholder="Cédula de Identidad" class="form-control" required>
+					<input type="text" name="ci" placeholder="Cédula de Identidad" class="form-control" >
 				</p>
+				{{$errors->first('ci')}}
 				<p>
-					<input type="text" name="nombres" placeholder="Nombres completos" class="form-control" required>
+					<input type="text" name="nombres" placeholder="Nombres completos" class="form-control" >
 				</p>
+					{{$errors->first('nombres')}}
 				<p>
 					<select  class="form-control" name="sexo">
 						<option selected value="H">Hombre</option>
@@ -65,12 +70,15 @@
 				<p>
 					<input type="text" name="email" placeholder="Correo Electrónico" class="form-control" >
 				</p>
+					{{$errors->first('email')}}
 				<p>
 					<input type="text" name="celular" placeholder="Teléfono Móvil" class="form-control" >
 				</p>
+				{{$errors->first('celular')}}
 				<p>
 					<input type="text" name="convencional" placeholder="Teléfono convencional" class="form-control" >
 				</p>
+				{{$errors->first('convencional')}}
 
 				<fieldset>
 					  <legend>Función: </legend>

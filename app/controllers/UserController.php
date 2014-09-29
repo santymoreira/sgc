@@ -34,6 +34,33 @@ class UserController extends \BaseController {
 		$empleado->CONVENCIONAL= Input::get('convencional');
 		$empleado->password= Hash::make(Input::get('ci'));
 
+//Validaciones del Formulario 
+	
+		$inputs	= Input::all();
+		$reglas = array(
+
+				  'ci' => 'required|regex:/^([0-9])+$/i|size:10|unique:empleado,CI',
+				  'nombres' => 'required',
+				  'email' => 'email',
+				 'celular' => 'regex:/^([0-9])+$/i|size:10',
+				  'convencional' => 'regex:/^([0-9])+$/i|size:10',
+				);
+
+			$mensajes = array(
+					'required' => 'Campo Obligatorio',
+					'size' => 'El campo debe tener 10 dígitos',
+					'email' => 'El email no tiene la sintaxis correcta',
+					'unique' => 'El cédula ingresada ya existe',
+					'regex' => 'Solo se acepta caracteres numéricos',
+				);	
+
+			$validar = Validator::make($inputs,$reglas,$mensajes);
+	if($validar->fails())
+	{
+			return Redirect::back()->withErrors($validar);
+	}
+	else{
+
 	
 		if($empleado->save()){
 
@@ -52,25 +79,22 @@ class UserController extends \BaseController {
 			  
 			    if (!empty($temp1))
 			    {
-			  		DB::insert('INSERT INTO from empleado_tipo ', array($id,$auxdi));
+			  		 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp1,$aux,2));
 		
 			   }
 			    if (!empty($temp2))
 			    {
-			    	 $tipos2=TipoEmpleado::find($temp2); 
-			    	 $empleado->tipos()->save($tipos2);
+			    	 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp2,$aux,2));
 			    }
-		/*	    if (!empty($temp3))
+			    if (!empty($temp3))
 			    {
-			    	 $tipos3=TipoEmpleado::find($temp3); 
-			    	 $empleado->tipos()->save($tipos3);
+			    	  DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp3,$aux,2));
 			    }
 			    if (!empty($temp4))
 			    {
-			    	 $tipos4=TipoEmpleado::find($temp4); 
-			    	 $empleado->tipos()->save($tipos4);
+			    	 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp4,$aux,2));
 			    }
- 		*/
+ 		
 			Session::flash('message','Guardado correctamente!');
 			Session::flash('class','success');
 		   
@@ -80,6 +104,7 @@ class UserController extends \BaseController {
 				Session::flash('class','danger');	
 			}
 		return Redirect::to('users/create');
+	}
 }
 
 	public function show($id)
@@ -113,6 +138,7 @@ class UserController extends \BaseController {
 	{
 		$empleado= Empleado::find($id);
 		
+		$var= Input::get('ci');
 		$empleado->CI= Input::get('ci');
 		$empleado->NOMBRES= Input::get('nombres');
 		$empleado->SEXO= Input::get('sexo');
@@ -127,6 +153,54 @@ class UserController extends \BaseController {
 		$temp3=Input::get('trabajador');
 		$temp4=Input::get('docente');
 
+		//Escuela a la que pertenece
+		$esc=2;
+
+	//Validaciones del Formulario 
+	
+		$Ciexist=DB::select('SELECT COUNT(COD_EMPLEADO) as valor FROM empleado WHERE CI =? AND COD_EMPLEADO= ?', array($var,$id));
+			foreach ($Ciexist as $cont) {	$ced = $cont->valor; }
+
+		
+
+		if($ced ==0)
+		{
+			$inputs	= Input::all();
+			$reglas = array(
+				  'ci' => 'required|regex:/^([0-9])+$/i|size:10|unique:empleado,CI',
+				  'nombres' => 'required',
+				  'email' => 'email',
+				  'celular' => 'regex:/^([0-9])+$/i|size:10',
+				  'convencional' => 'regex:/^([0-9])+$/i|size:10',
+			);
+		}
+		else{
+
+			$inputs	= Input::all();
+			$reglas = array(
+				  'ci' => 'required|regex:/^([0-9])+$/i|size:10a',
+				  'nombres' => 'required',
+				  'email' => 'email',
+				  'celular' => 'regex:/^([0-9])+$/i|size:10',
+				  'convencional' => 'regex:/^([0-9])+$/i|size:10',	
+			);
+		}
+
+			$mensajes = array(
+					'required' => 'Campo Obligatorio',
+					'size' => 'El campo debe tener 10 dígitos',
+					'email' => 'El email no tiene la sintaxis correcta',
+					'unique' => 'El cédula ingresada ya existe',
+					'regex' => 'Solo se acepta caracteres numéricos',
+				);	
+
+			$validar = Validator::make($inputs,$reglas,$mensajes);
+	if($validar->fails())
+	{
+			return Redirect::back()->withErrors($validar);
+	}
+	else{
+
 		if($empleado->save()){
 
 			//Variables auxiliares del tipoEmpleado para que funcionen por el else
@@ -139,7 +213,7 @@ class UserController extends \BaseController {
 
 			if(!empty($temp1))
 			{
-				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp1.';');
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp1.' AND COD_ESCUELA='.$esc.';');
 
 					foreach ($query as $cont) 
 					{	
@@ -148,13 +222,11 @@ class UserController extends \BaseController {
 				
 				if($ban != 1)
 				{
-					 $tipos1=TipoEmpleado::find($temp1); 
-			    	 $empleado->tipos()->save($tipos1);	
+					  DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp1,$id,2));
 				}
 			}
 			else{
-					
-				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxdi.';');
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxdi.' AND COD_ESCUELA='.$esc.';');
 
 					foreach ($query as $cont) 
 					{	
@@ -163,7 +235,7 @@ class UserController extends \BaseController {
 				
 				if($ban !=0 ) 
 				{
-					DB::delete('delete from empleado_tipo where COD_EMPLEADO = ? and COD_TIPO = ? ', array($id,$auxdi));
+					DB::delete('DELETE FROM empleado_tipo WHERE  COD_TIPO = ? AND COD_EMPLEADO = ? AND COD_ESCUELA= ?', array($auxdi,$id,$esc));
 				} 	
 			} 
 
@@ -171,7 +243,7 @@ class UserController extends \BaseController {
 
 			if(!empty($temp2))
 			{
-				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp2.';');
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp2.' AND COD_ESCUELA='.$esc.';');
 
 					foreach ($query as $cont) 
 					{	
@@ -180,13 +252,12 @@ class UserController extends \BaseController {
 				
 				if($ban != 1)
 				{
-					 $tipos2=TipoEmpleado::find($temp2); 
-			    	 $empleado->tipos()->save($tipos2);	
+					  DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp2,$id,2));
 				}
 			}
 			else{
 					
-				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxa.';');
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxa.' AND COD_ESCUELA='.$esc.';');
 
 					foreach ($query as $cont) 
 					{	
@@ -195,7 +266,7 @@ class UserController extends \BaseController {
 				
 				if($ban !=0 ) 
 				{
-					DB::delete('delete from empleado_tipo where COD_EMPLEADO = ? and COD_TIPO = ? ', array($id,$auxa));
+					DB::delete('DELETE FROM empleado_tipo WHERE  COD_TIPO = ? AND COD_EMPLEADO = ? AND COD_ESCUELA= ?', array($auxa,$id,$esc));
 				} 	
 			} 
 
@@ -203,7 +274,7 @@ class UserController extends \BaseController {
 
 			if(!empty($temp3))
 			{
-				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp3.';');
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp3.' AND COD_ESCUELA='.$esc.';');
 
 					foreach ($query as $cont) 
 					{	
@@ -212,13 +283,12 @@ class UserController extends \BaseController {
 				
 				if($ban != 1)
 				{
-					 $tipos3=TipoEmpleado::find($temp3); 
-			    	 $empleado->tipos()->save($tipos3);	
+					 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp3,$id,2));
 				}
 			}
 			else{
 					
-				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxt.';');
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxt.' AND COD_ESCUELA='.$esc.';');
 
 					foreach ($query as $cont) 
 					{	
@@ -227,7 +297,7 @@ class UserController extends \BaseController {
 				
 				if($ban !=0 ) 
 				{
-					DB::delete('delete from empleado_tipo where COD_EMPLEADO = ? and COD_TIPO = ? ', array($id,$auxt));
+					DB::delete('DELETE FROM empleado_tipo WHERE  COD_TIPO = ? AND COD_EMPLEADO = ? AND COD_ESCUELA= ?', array($auxt,$id,$esc));
 				} 	
 			} 
 
@@ -235,7 +305,7 @@ class UserController extends \BaseController {
 
 			if(!empty($temp4))
 			{
-				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp4.';');
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp4.' AND COD_ESCUELA='.$esc.';');
 
 					foreach ($query as $cont) 
 					{	
@@ -244,13 +314,12 @@ class UserController extends \BaseController {
 				
 				if($ban != 1)
 				{
-					 $tipos4=TipoEmpleado::find($temp4); 
-			    	 $empleado->tipos()->save($tipos4);	
+					 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp4,$id,2));
 				}
 			}
 			else{
 					
-				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxd.';');
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxd.' AND COD_ESCUELA='.$esc.';');
 
 					foreach ($query as $cont) 
 					{	
@@ -259,9 +328,7 @@ class UserController extends \BaseController {
 				
 				if($ban !=0 ) 
 				{
-					DB::delete('delete from empleado_tipo where COD_EMPLEADO = ? and COD_TIPO = ? ', array($id,$auxd));
-						Session::flash('message','Actualizado correctamente!');
-						Session::flash('class','success');	
+					DB::delete('DELETE FROM empleado_tipo WHERE  COD_TIPO = ? AND COD_EMPLEADO = ? AND COD_ESCUELA= ?', array($auxd,$id,$esc));
 				} 	
 			} 
 
@@ -276,6 +343,7 @@ class UserController extends \BaseController {
 
 			return Redirect::to('users/edit/'.$id);
 	}
+}
 	/**
 	 * Remove the specified resource from storage.
 	 *

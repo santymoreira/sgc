@@ -26,13 +26,23 @@
                         @elseif($var ==1)
                            <li class="nivel1"><a class="nivel1" {{ HTML::link('empresas/empresas_bsc','BSC'); }}  
                         @elseif($var ==4)
-                           <li class="nivel1"><a class="nivel1" {{ HTML::link('finanzas/finanzas_bscc','BSC'); }}  
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('finanzas/finanzas_bsc','BSC'); }}  
                         @elseif($var ==5)
                            <li class="nivel1"><a class="nivel1" {{ HTML::link('marketing/marketing_bsc','BSC'); }}  
                         @elseif($var ==6)
                            <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/transporte_bsc','BSC  '); }}  
                       @endif
-               		<li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/perspectivas','Volver'); }}  
+               		  @if($var == 2)  
+                     <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/perspectivas','Volver'); }}  
+                      @elseif($var ==1)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('empresas/perspectivas','Volver'); }}  
+                        @elseif($var ==4)
+                        <li class="nivel1"><a class="nivel1" {{ HTML::link('finanzas/perspectivas','Volver'); }}  
+                        @elseif($var ==5)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('marketing/perspectivas','Volver'); }}  
+                        @elseif($var ==6)
+                       <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/perspectivas','Volver'); }}  
+                      @endif
             </ul>			
           </div> 
 @stop
@@ -48,10 +58,31 @@
 
 @section('body')
        <div class="content-layout" >
-               <div id="apDiv111">
+            
+                  @if($var == 2)  
+                   <div id="apDiv111">
+                        <img src="{{ asset('images/contabilidadbsc/FortaInterApre.png') }}" >
+              </div>
+                   @elseif($var ==1)
+                    <div id="apDiv111">
+                        <img src="{{ asset('images/empresasbsc/FortaInterApre.png') }}" >
+              </div>
+                 @elseif($var ==4)
+                   <div id="apDiv111">
+                        <img src="{{ asset('images/finanzasbsc/FortaInterApre.png') }}" >
+              </div>
+                 @elseif($var ==5)
+                       <div id="apDiv111">
                         <img src="{{ asset('images/marketingbsc/FortaInterApre.png') }}" >
               </div>
+                 @elseif($var ==6)
+                      <div id="apDiv111">
+                        <img src="{{ asset('images/transportebsc/FortaInterApre.png') }}" >
+              </div>
+                 @endif  
 
+                   
+              
               <div id="apDiv123">
                       <img src="{{ asset('images/objetivosO/FortInterA_red.png') }}">
                    </div>
@@ -77,29 +108,73 @@
                       <img src="{{ asset('images/Acciones/PromoExcele.png') }}">
                    </div>
                    <div id="apDiv131">
-                      <img src="{{ asset('images/Acciones/nEstuApro.png') }}">
+                     <a id="1" href="{{ asset('images/descripcion/nEstuApro.png'); }}" rel="slideshow1">
+                       <img src="{{ asset('images/Acciones/nEstuApro.png') }}" style="cursor:pointer;">
+                     </a>
                    </div>
                    <div id="apDiv132">
-                      <img src="{{ asset('images/Acciones/RnReproAsis.png') }}">
+                      <a id="2" href="{{ asset('images/descripcion/RnReproAsis.png'); }}" rel="slideshow2">
+                          <img src="{{ asset('images/Acciones/RnReproAsis.png') }}" style="cursor:pointer;">
+                      </a>
                    </div>
                    <div id="apDiv133">
-                      <img src="{{ asset('images/Acciones/RnReproNotas.png') }}">
+                    <a id="5" href="{{ asset('images/descripcion/RnReproNotas.png'); }}" rel="slideshow5">
+                        <img src="{{ asset('images/Acciones/RnReproNotas.png') }}" style="cursor:pointer;">
+                    </a>
                    </div>
                    <div id="apDiv134">
-                      <img src="{{ asset('images/Acciones/RelacionDeser.png') }}">
+                      <a id="3" href="{{ asset('images/descripcion/RelacionDeser.png'); }}" rel="slideshow3">
+                         <img src="{{ asset('images/Acciones/RelacionDeser.png') }}" style="cursor:pointer;">
+                      </a>
                    </div>
                    <div id="apDiv135">
-                      <img src="{{ asset('images/Acciones/CumplirHoras.png') }}">
+                     <a id="4" href="{{ asset('images/descripcion/CumplirHoras.png'); }}" rel="slideshow4">
+                        <img src="{{ asset('images/Acciones/CumplirHoras.png') }}" style="cursor:pointer;">
+                     </a>
                    </div>
                    <div id="apDiv136">
-                      <img src="{{ asset('images/Acciones/CumplirSilabos.png') }}">
+                     <a id="6" href="{{ asset('images/descripcion/CumplirSilabos.png'); }}" rel="slideshow6">
+                         <img src="{{ asset('images/Acciones/CumplirSilabos.png') }}" style="cursor:pointer;">
+                      </a>
                    </div>
                    <div id="apDiv137">
-                      <img src="{{ asset('images/Acciones/HorasAtencion.png') }}">
+                     <a id="7" href="{{ asset('images/descripcion/HorasAtencion.png'); }}" rel="slideshow7">
+                        <img src="{{ asset('images/Acciones/HorasAtencion.png') }}" style="cursor:pointer;">
+                      </a>
                    </div>
                    <div id="apDiv138">
-                      <img src="{{ asset('images/Acciones/CantActivi.png') }}">
+                    <a id="8" href="{{ asset('images/descripcion/CantActivi.png'); }}" rel="slideshow8">
+                        <img src="{{ asset('images/Acciones/CantActivi.png') }}" style="cursor:pointer;">
+                    </a>
                    </div>
+
+                   <!-- Evaluacion Acciones -->
+
+
+                  <div id="apDiv195">
+                    <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                    </div>
+                    <div id="apDiv196">
+                     <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                    </div>
+                    <div id="apDiv197">
+                     <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                    </div>
+                    <div id="apDiv198">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                    </div>
+                    <div id="apDiv199">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                    </div>
+                    <div id="apDiv200">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                    </div>
+                    <div id="apDiv201">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                    </div>
+                    <div id="apDiv202">
+                     <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                    </div>
       </div>
 
 @stop

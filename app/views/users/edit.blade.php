@@ -4,8 +4,12 @@
 
 @section('Different_Styles')
 	@parent
-		{{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'); }}
-	    {{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css'); }}
+	<!--	{{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'); }}
+	    {{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css'); }} -->
+	      {{ HTML::style('css/new.css'); }} 
+		{{ HTML::style('css/new1.css'); }} 
+	    {{ HTML::style('css/Table.css'); }}
+	
 	
 @stop
 
@@ -55,9 +59,11 @@
 				<p>
 						<input value="{{ $user->CI }}" type="text" name="ci" placeholder="Cédula de Identidad" class="form-control" required>
 				</p>
+					{{$errors->first('ci')}}
 				<p>
 					<input value="{{ $user->NOMBRES }}" type="text" name="nombres" placeholder="Nombres completos" class="form-control" required>
 				</p>
+					{{$errors->first('nombres')}}
 				<p>
 				@if( $user->SEXO == 'H')
 					<select  class="form-control" name="sexo">
@@ -74,19 +80,22 @@
 				<p>
 					<input value="{{ $user->EMAIL }}" type="text" name="email" placeholder="Correo Electrónico" class="form-control" >
 				</p>
+					{{$errors->first('email')}}
 				<p>
 					<input value="{{ $user->CELULAR }}" type="text" name="celular" placeholder="Teléfono Móvil" class="form-control" >
 				</p>
+					{{$errors->first('celular')}}
 				<p>
 					<input value="{{ $user->CONVENCIONAL }}" type="text" name="convencional" placeholder="Teléfono convencional" class="form-control" >
 				</p>
+					{{$errors->first('convencional')}}
 			   @endif
 			   <p>
 			   			<div>
 					  		<input type="checkbox" id="dire" name="director" value="1">Director de Escuela<br>
 					  	</div>
 						<div>
-					  		<input type="checkbox" id="admin" name="admin" value="2">Administrativo<br>
+					  		<input type="checkbox" id="admini" name="admin" value="2">Administrativo<br>
 					  	</div>
 						<div>
 					  		<input type="checkbox" id="trab" name="trabajador" value="3">Trabajador<br>
@@ -114,7 +123,7 @@
   							 };
   							 if ($("#2").val()==2)
   							 {
-  							 	$('#dmin').attr('checked', "true");
+  							 	$('#admini').attr('checked', "true");
   							 };
   							 if ($("#3").val()==3)
   							 {
@@ -127,6 +136,9 @@
 				   
 					 <input type="submit" value="Guardar" class="btn btn-success">
 					  <a href="/users" class="btn btn-default">Regresar</a>
+					  @if(Session::has('message'))
+					<div class="alert alert-{{ Session::get('class') }}">{{ Session::get('message')}}</div>
+				@endif
 				</form>
 		 
 		</div>
