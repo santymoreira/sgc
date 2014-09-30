@@ -37,7 +37,7 @@
         <div class="layout-cell content">    
             <div id="central"> 
                <div id="central-content"> </br></br>
-                   <center><img src="{{ asset('images/Contabilidad/contabilidad.png') }}"></center>    
+                   <center><img src="{{ asset('images/Contabilidad/contabilidad.png') }}" width="850" height="295"></center>    
                </div>
             </div>
              

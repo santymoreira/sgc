@@ -2,12 +2,10 @@
 
 @section('Different_Styles')
 	@parent
-	<!--	{{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'); }}
-	    {{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css'); }}
-	      {{ HTML::style('css/Table.css'); }} -->
-	      {{ HTML::style('css/new.css'); }} 
+	
+	    {{ HTML::style('css/new.css'); }} 
 		{{ HTML::style('css/new1.css'); }} 
-		{{ HTML::style('css/Table.css'); }} 
+		{{ HTML::style('css/Table.css');  $var=Session::get('escuela'); }} 
 
 	
 @stop
@@ -16,8 +14,22 @@
    	
    			 <div id="menu">
 						<ul>
-				       		<li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/cont_audi_sgc', 'SGC'); }} 
-                       		<li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/macroprocesos','Volver'); }}  
+				       		<li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio'); }} 
+                       		 @if($var == 2)  
+                          <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/cont_audi_sgc','SGC'); }}  
+                        @elseif($var ==7)
+                          <li class="nivel1"><a class="nivel1" {{ HTML::link('E_distancia/distancia_sgc','SGC'); }}  
+                        @elseif($var ==1)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('empresas/empresas_sgc','SGC'); }}  
+                        @elseif($var ==3)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('C_exterior/exterior_sgc','SGC'); }}  
+                        @elseif($var ==4)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('finanzas/finanzas_sgc','SGC'); }}  
+                        @elseif($var ==5)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('marketing/marketing_sgc','SGC'); }}  
+                        @elseif($var ==6)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/transporte_sgc','SGC'); }}  
+                      @endif
                        	</ul>			
           </div> 
 
@@ -36,13 +48,28 @@
 	<nav class="navbar navbar-default" role="navigation">
   		<div class="container-fluid">
   			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Contabilidad y Auditoría</a>
+				@if($var == 1)
+					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Empresas</a>
+				@elseif($var == 2)
+					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Contabilidad y Auditoría</a>
+				@elseif($var == 3)
+					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Comercio Exterior</a>
+				@elseif($var == 4)
+					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería Financiera</a>
+				@elseif($var == 5)
+					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Marketing</a>
+				@elseif($var == 6)
+					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Gestión de Transporte</a>
+				@endif
   			</div>
     		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       			<ul class="nav navbar-nav">
-        			<li><a  {{ HTML::link('users/empleados/2','Todos'); }} 
-        			<li class="active"><a {{ HTML::link('users/create','Nuevo'); }} 
-        		</ul>
+        		
+        			<li>
+    					{{ HTML::link( 'users/empleados/'.$var , 'Todos'.' ') }}
+					</li>
+					<li class="active"><a {{ HTML::link('users/create','Nuevo'); }} 
+				</ul>
         	</div>
         </div>
     </nav>
@@ -52,7 +79,7 @@
   			<h4>Registro de Empleados</h4>
   		</div> 
   		<div class="panel-body" >
-  			<form method="post" action="store">
+  			<form method="post" action="store/{{$var}}">
 				<p>
 					<input type="text" name="ci" placeholder="Cédula de Identidad" class="form-control" >
 				</p>
@@ -82,20 +109,44 @@
 
 				<fieldset>
 					  <legend>Función: </legend>
-					 
-					  <div>
-					  		<input type="checkbox" name="docente" value="4">Docente<br>
-					  </div>
-					   <div>
-					  		<input type="checkbox" name="director" value="1">Director de Escuela<br>
-					  </div> 
-					   <div>
-					  		<input type="checkbox" name="administrativo" value="2"> Administrativo <br>
-					  </div>
-					   <div>
-					  		<input type="checkbox" name="trabajador" value="3"> Trabajador <br>
-					  </div>
-				</fieldset> <br>
+					 <p>
+					 <table style='width: 20%' border="4">
+			   				<tr>
+				   				<td style='width: 10%' align="center">
+				   					<input type="checkbox" id="dire" name="director" value="1"> 
+				   				</td>
+				   				<td style='width: 50%' align="center">
+				   					<b>Director de Escuela</b>
+				   				</td>
+				   			</tr>
+				   			<tr>		
+						  		<td style='width: 10%' align="center">	
+						  			<input type="checkbox" id="admini" name="admin" value="2">
+						  		</td>
+						  		<td style='width: 50%' align="center">
+				   					<b>Administrativo</b>
+				   				</td>
+						  	</tr>
+						  	<tr>
+						  		<td style='width: 10%' align="center">
+						  			<input type="checkbox" id="trab" name="trabajador" value="3">
+						  		</td>
+						  		<td style='width: 50%' align="center">
+				   					<b>Trabajador</b>
+				   				</td>
+						  	</tr>
+						  	<tr>
+						  		<td style='width: 10%' align="center">
+						  			<input type="checkbox" id="doc" name="docente" value="4"> 
+						  		</td>
+						  		<td style='width: 50%' align="center">
+				   					<b>Docente</b>
+				   				</td>
+						  	</tr>
+					</table>
+						
+					</p>
+				</fieldset>
 				<p>
 					<input type="submit" value="Guardar" class="btn btn-success">
 				</p>

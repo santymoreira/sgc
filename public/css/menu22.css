@@ -44,7 +44,7 @@ border-bottom: solid 0px #004080;
 #menu ul li ul {display: none;
 }
 #menu ul li a:hover ul, #menu ul li:hover ul {display: block;
-position: absolute;width: 970px;border: solid 0px rgba(0,64,128,0.6);border-top: none;
+position: absolute;border: solid 0px rgba(0,64,128,0.6);border-top: none;
 background-color:rgba(0,64,128,0.6);
 /*background-color: #004080;*/
 border-radius: 25px;
@@ -71,8 +71,8 @@ border:0px;
 /*float: left;*/
 position: relative;
 }
-ul.uno {left: -360px;}
-ul.dos {left: -510px;}
+ul.uno {left: -360px;width: 970px;}
+ul.dos {left: -310px;width: 730px;}
 ul.tres {left: -328px;}
 ul.cuatro {left: -20px;}
 ul.cinco {left: -656px;}

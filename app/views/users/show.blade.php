@@ -4,11 +4,10 @@
 
 @section('Different_Styles')
 	@parent
-	<!--	{{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'); }} 
-	    {{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css'); }} -->
+	
 	    {{ HTML::style('css/new.css'); }} 
 		{{ HTML::style('css/new1.css'); }} 
-	    {{ HTML::style('css/Table.css'); }}
+	    {{ HTML::style('css/Table.css'); $var=Session::get('escuela'); }}
 	
 @stop
 
@@ -16,8 +15,22 @@
    	
    			 <div id="menu">
 						<ul>
-				       		<li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/cont_audi_sgc', 'SGC'); }} 
-                       		<li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/macroprocesos','Volver'); }}  
+				       		<li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio'); }} 
+                       	 @if($var == 2)  
+                          <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/cont_audi_sgc','SGC'); }}  
+                        @elseif($var ==7)
+                          <li class="nivel1"><a class="nivel1" {{ HTML::link('E_distancia/distancia_sgc','SGC'); }}  
+                        @elseif($var ==1)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('empresas/empresas_sgc','SGC'); }}  
+                        @elseif($var ==3)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('C_exterior/exterior_sgc','SGC'); }}  
+                        @elseif($var ==4)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('finanzas/finanzas_sgc','SGC'); }}  
+                        @elseif($var ==5)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('marketing/marketing_sgc','SGC'); }}  
+                        @elseif($var ==6)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/transporte_sgc','SGC'); }}  
+                      @endif
                        	</ul>			
           </div> 
 @stop
@@ -37,11 +50,25 @@
 		<nav class="navbar navbar-default" role="navigation">
 	  		<div class="container-fluid">
 	  			<div class="navbar-header">
-					<a class="navbar-brand" href="#">Contabilidad y Auditoría</a>
+					@if($var == 1)
+					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Empresas</a>
+					@elseif($var == 2)
+						<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Contabilidad y Auditoría</a>
+					@elseif($var == 3)
+						<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Comercio Exterior</a>
+					@elseif($var == 4)
+						<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería Financiera</a>
+					@elseif($var == 5)
+						<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Marketing</a>
+					@elseif($var == 6)
+						<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Gestión de Transporte</a>
+					@endif
 	  			</div>
 	    		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       			<ul class="nav navbar-nav">
-        			<li><a  {{ HTML::link('users/empleados/2','Todos'); }} 
+        			<li>
+    					{{ HTML::link( 'users/empleados/'.$var , 'Todos'.' ') }}
+					</li>
         			<li class="active"><a {{ HTML::link('users/create','Nuevo'); }} 
         		</ul>
         	</div>
@@ -56,6 +83,7 @@
     		<table class="table">
 				<thead>
 					<tr >
+						<th class="fuentes">Escuela</th>
 						<th class="fuentes">Cédula</th>
 						<th class="fuentes">Nombres completos</th>
 						<th class="fuentes">Correo Electrónico</th>
@@ -67,12 +95,14 @@
 				<tbody>
 					@foreach ($user as $user)  	
 						<tr >
+							<td class="fuentes">{{ $user->NOMBRE }}</td>
 							<td class="fuentes">{{ $user->CI }}</td>
 							<td class="fuentes">{{ $user->NOMBRES }}</td>
 							<td class="fuentes">{{ $user->EMAIL }}</td>
 							<td class="fuentes">{{ $user->CELULAR }}</td>
 							<td class="fuentes">{{ $user->CONVENCIONAL }}</td>
 							<td class="fuentes">{{ $user->DESCRIPCION }}</td>
+
 						</tr>
 					@endforeach
 				</tbody>
