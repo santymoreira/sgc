@@ -410,17 +410,17 @@ Route::get('users/empleados/{cod}', 'UserController@listado');
 
 //Guardar Empleado
 Route::get('users/create', 'UserController@newuser');
-Route::post('users/store','UserController@store');
+Route::post('users/store/{esc}','UserController@store');
 
 //Editar Empleado
-Route::get('users/edit/{cod}', 'UserController@edit');
-Route::post('users/update/{cod}','UserController@update');
+Route::get('users/edit/{cod},{esc}', 'UserController@edit');
+Route::post('users/update/{cod},{esc}','UserController@update');
 
 //Eliminar Empleado
 Route::get('users/destroy/{cod}','UserController@destroy');
 
 //Mostrar un empleado
-  Route::get('users/show/{cod}', 'UserController@show');
+  Route::get('users/show/{cod},{esc}', 'UserController@show');
 
 //Reportes 
 Route::get('/reportes','ReportesController@Show_reportes');

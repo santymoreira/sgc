@@ -12,7 +12,7 @@ class UserController extends \BaseController {
 	public function newuser()	{
 		return View::make('users.create');
 	}
-	public function store()
+	public function store($esc)
 	{
 		$empleado = new Empleado;
 		
@@ -74,25 +74,25 @@ class UserController extends \BaseController {
     
 		   //Save in the table pivot (empleado_tipo) and (empleado_escuela)	
 
-			 	$escuelas=Escuela::find(2); 
+			 	$escuelas=Escuela::find($esc); 
 			    $empleado->escuelas()->save($escuelas);
 			  
 			    if (!empty($temp1))
 			    {
-			  		 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp1,$aux,2));
+			  		 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp1,$aux,$esc));
 		
 			   }
 			    if (!empty($temp2))
 			    {
-			    	 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp2,$aux,2));
+			    	 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp2,$aux,$esc));
 			    }
 			    if (!empty($temp3))
 			    {
-			    	  DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp3,$aux,2));
+			    	  DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp3,$aux,$esc));
 			    }
 			    if (!empty($temp4))
 			    {
-			    	 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp4,$aux,2));
+			    	 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp4,$aux,$esc));
 			    }
  		
 			Session::flash('message','Guardado correctamente!');
@@ -107,9 +107,9 @@ class UserController extends \BaseController {
 	}
 }
 
-	public function show($id)
+	public function show($id,$esc)
 	{
-		$user= DB::select('CALL ShowEmpleado('.$id.')');
+		$user= DB::select('CALL ShowEmpleado('.$id.','.$esc.')');
 		return View::make('users.show')->with('user',$user);
 	}
 
@@ -120,11 +120,11 @@ class UserController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($id,$esc)
 	{
 		//$user= DB::select('CALL ShowEmpleado('.$id.')');
 		$user =  Empleado::find($id);
-		$funcion= DB::select('CALL FuncionEmp('.$id.')');
+		$funcion= DB::select('CALL FuncionEmp('.$id.','.$esc.')');
 
 		return View::make('users.edit',array('user'=>$user,'funcion'=>$funcion));
 	}
@@ -134,7 +134,7 @@ class UserController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id,$escu)
 	{
 		$empleado= Empleado::find($id);
 		
@@ -153,9 +153,7 @@ class UserController extends \BaseController {
 		$temp3=Input::get('trabajador');
 		$temp4=Input::get('docente');
 
-		//Escuela a la que pertenece
-		$esc=2;
-
+	
 	//Validaciones del Formulario 
 	
 		$Ciexist=DB::select('SELECT COUNT(COD_EMPLEADO) as valor FROM empleado WHERE CI =? AND COD_EMPLEADO= ?', array($var,$id));
@@ -213,29 +211,29 @@ class UserController extends \BaseController {
 
 			if(!empty($temp1))
 			{
-				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp1.' AND COD_ESCUELA='.$esc.';');
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp1.' AND COD_ESCUELA='.$escu.';');
 
 					foreach ($query as $cont) 
 					{	
 						$ban = $cont->valor; 
 					}
 				
-				if($ban != 1)
+				if($ban == 0)
 				{
-					  DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp1,$id,2));
+					  DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp1,$id,$escu));
 				}
 			}
 			else{
-				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxdi.' AND COD_ESCUELA='.$esc.';');
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxdi.' AND COD_ESCUELA='.$escu.';');
 
 					foreach ($query as $cont) 
 					{	
 						$ban = $cont->valor; 
 					}
 				
-				if($ban !=0 ) 
+				if($ban ==1 ) 
 				{
-					DB::delete('DELETE FROM empleado_tipo WHERE  COD_TIPO = ? AND COD_EMPLEADO = ? AND COD_ESCUELA= ?', array($auxdi,$id,$esc));
+					DB::delete('DELETE FROM empleado_tipo WHERE  COD_TIPO = ? AND COD_EMPLEADO = ? AND COD_ESCUELA= ?', array($auxdi,$id,$escu));
 				} 	
 			} 
 
@@ -243,30 +241,30 @@ class UserController extends \BaseController {
 
 			if(!empty($temp2))
 			{
-				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp2.' AND COD_ESCUELA='.$esc.';');
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp2.' AND COD_ESCUELA='.$escu.';');
 
 					foreach ($query as $cont) 
 					{	
 						$ban = $cont->valor; 
 					}
 				
-				if($ban != 1)
+				if($ban == 0)
 				{
-					  DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp2,$id,2));
+					  DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp2,$id,$escu));
 				}
 			}
 			else{
 					
-				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxa.' AND COD_ESCUELA='.$esc.';');
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxa.' AND COD_ESCUELA='.$escu.';');
 
 					foreach ($query as $cont) 
 					{	
 						$ban = $cont->valor; 
 					}
 				
-				if($ban !=0 ) 
+				if($ban ==1 ) 
 				{
-					DB::delete('DELETE FROM empleado_tipo WHERE  COD_TIPO = ? AND COD_EMPLEADO = ? AND COD_ESCUELA= ?', array($auxa,$id,$esc));
+					DB::delete('DELETE FROM empleado_tipo WHERE  COD_TIPO = ? AND COD_EMPLEADO = ? AND COD_ESCUELA= ?', array($auxa,$id,$escu));
 				} 	
 			} 
 
@@ -274,30 +272,30 @@ class UserController extends \BaseController {
 
 			if(!empty($temp3))
 			{
-				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp3.' AND COD_ESCUELA='.$esc.';');
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp3.' AND COD_ESCUELA='.$escu.';');
 
 					foreach ($query as $cont) 
 					{	
 						$ban = $cont->valor; 
 					}
 				
-				if($ban != 1)
+				if($ban ==0)
 				{
-					 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp3,$id,2));
+					 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp3,$id,$escu));
 				}
 			}
 			else{
 					
-				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxt.' AND COD_ESCUELA='.$esc.';');
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxt.' AND COD_ESCUELA='.$escu.';');
 
 					foreach ($query as $cont) 
 					{	
 						$ban = $cont->valor; 
 					}
 				
-				if($ban !=0 ) 
+				if($ban ==1 ) 
 				{
-					DB::delete('DELETE FROM empleado_tipo WHERE  COD_TIPO = ? AND COD_EMPLEADO = ? AND COD_ESCUELA= ?', array($auxt,$id,$esc));
+					DB::delete('DELETE FROM empleado_tipo WHERE  COD_TIPO = ? AND COD_EMPLEADO = ? AND COD_ESCUELA= ?', array($auxt,$id,$escu));
 				} 	
 			} 
 
@@ -305,30 +303,30 @@ class UserController extends \BaseController {
 
 			if(!empty($temp4))
 			{
-				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp4.' AND COD_ESCUELA='.$esc.';');
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp4.' AND COD_ESCUELA='.$escu.';');
 
 					foreach ($query as $cont) 
 					{	
 						$ban = $cont->valor; 
 					}
 				
-				if($ban != 1)
+				if($ban ==0)
 				{
-					 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp4,$id,2));
+					 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp4,$id,$escu));
 				}
 			}
 			else{
 					
-				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxd.' AND COD_ESCUELA='.$esc.';');
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxd.' AND COD_ESCUELA='.$escu.';');
 
 					foreach ($query as $cont) 
 					{	
 						$ban = $cont->valor; 
 					}
 				
-				if($ban !=0 ) 
+				if($ban ==1 ) 
 				{
-					DB::delete('DELETE FROM empleado_tipo WHERE  COD_TIPO = ? AND COD_EMPLEADO = ? AND COD_ESCUELA= ?', array($auxd,$id,$esc));
+					DB::delete('DELETE FROM empleado_tipo WHERE  COD_TIPO = ? AND COD_EMPLEADO = ? AND COD_ESCUELA= ?', array($auxd,$id,$escu));
 				} 	
 			} 
 
@@ -341,7 +339,8 @@ class UserController extends \BaseController {
 			Session::flash('class','danger');	
 		}
 
-			return Redirect::to('users/edit/'.$id);
+			return Redirect::to('users/edit/'.$id.','.$escu);
+
 	}
 }
 	/**
