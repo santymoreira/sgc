@@ -54,7 +54,7 @@
      	
         @if($var == 2)
      		 <div id="apDiv32">
-     		  	<img src="{{ asset('images/contabilidad/vinculacion.png'); }}">
+     		  	<img src="{{ asset('images/Contabilidad/vinculacion.png'); }}">
      		 </div>
 			  @elseif($var ==7)
         <div id="apDiv32">
@@ -62,23 +62,23 @@
          </div>
          @elseif($var ==1)
         <div id="apDiv32">
-            <img src="{{ asset('images/empresas/vinculacion.png'); }}">
+            <img src="{{ asset('images/Empresas/vinculacion.png'); }}">
          </div>
         @elseif($var ==3)
         <div id="apDiv32">
-            <img src="{{ asset('images/exterior/vinculacion.png'); }}">
+            <img src="{{ asset('images/Exterior/vinculacion.png'); }}">
          </div>
         @elseif($var ==4)
         <div id="apDiv32">
-            <img src="{{ asset('images/finanzas/vinculacion.png'); }}">
+            <img src="{{ asset('images/Finanzas/vinculacion.png'); }}">
          </div>
           @elseif($var ==5)
         <div id="apDiv32">
-            <img src="{{ asset('images/marketing/vinculacion.png'); }}">
+            <img src="{{ asset('images/Marketing/vinculacion.png'); }}">
          </div>
           @elseif($var ==6)
         <div id="apDiv32">
-            <img src="{{ asset('images/transporte/vinculacion.png'); }}">
+            <img src="{{ asset('images/Transporte/vinculacion.png'); }}">
          </div>
         @endif
 			<!-- Procesos de la Getión de Vinculación -->

@@ -39,19 +39,19 @@
 @section('body')
         <div class="content-layout" >
          @if($var == 2)
-            <div id="apDiv21"><center><img src="{{ asset('images/contabilidad/contenedor.png') }}"></center></div>
+            <div id="apDiv21"><center><img src="{{ asset('images/Contabilidad/contenedor.png') }}"></center></div>
           @elseif($var ==7)
             <div id="apDiv21"><center><img src="{{ asset('images/distancia/contenedor.png') }}"></center></div>
           @elseif($var ==1)
-            <div id="apDiv21"><center><img src="{{ asset('images/empresas/contenedor.png') }}"></center></div>
+            <div id="apDiv21"><center><img src="{{ asset('images/Empresas/contenedor.png') }}"></center></div>
            @elseif($var ==3)
-            <div id="apDiv21"><center><img src="{{ asset('images/exterior/contenedor.png') }}"></center></div>  
+            <div id="apDiv21"><center><img src="{{ asset('images/Exterior/contenedor.png') }}"></center></div>  
           @elseif($var == 4)
-            <div id="apDiv21"><center><img src="{{ asset('images/finanzas/contenedor.png') }}"></center></div> 
+            <div id="apDiv21"><center><img src="{{ asset('images/Finanzas/contenedor.png') }}"></center></div> 
            @elseif($var ==5)
-            <div id="apDiv21"><center><img src="{{ asset('images/marketing/contenedor.png') }}"></center></div> 
+            <div id="apDiv21"><center><img src="{{ asset('images/Marketing/contenedor.png') }}"></center></div> 
            @elseif($var ==6)
-            <div id="apDiv21"><center><img src="{{ asset('images/transporte/contenedor.png') }}"></center></div>  
+            <div id="apDiv21"><center><img src="{{ asset('images/Transporte/contenedor.png') }}"></center></div>  
         @endif         
         
             <div class="cleared"> 

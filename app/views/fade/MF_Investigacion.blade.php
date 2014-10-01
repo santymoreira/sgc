@@ -30,67 +30,67 @@
 		<div class="content-layout" >
 	        
 	        	<div id="apDiv31">
-	        		<img src="{{ asset('images/fade/investigacion/contenedor.png') }}">
+	        		<img src="{{ asset('images/Fade/investigacion/contenedor.png') }}">
 	        	</div>
 
 	        	<!-- procesos de la investigacion en la fade -->
 
 	           <div id="apDiv163">
-	           		<img src="{{ asset('images/fade/investigacion/afec02-01.png') }}" id="afeg021" style="cursor:pointer">
+	           		<img src="{{ asset('images/Fade/investigacion/afec02-01.png') }}" id="afeg021" style="cursor:pointer">
 	           	</div>
 		       <div id="apDiv181">
-		       		<img src="{{ asset('images/fade/investigacion/afec02-02.png') }}" id="afeg022" style="cursor:pointer">
+		       		<img src="{{ asset('images/Fade/investigacion/afec02-02.png') }}" id="afeg022" style="cursor:pointer">
 		       	</div>
 		       <div id="apDiv182">
-		       		<img src="{{ asset('images/fade/investigacion/afec02-03.png') }}" id="afeg023" style="cursor:pointer">
+		       		<img src="{{ asset('images/Fade/investigacion/afec02-03.png') }}" id="afeg023" style="cursor:pointer">
 		       	</div>
 		       
 		       	<!-- códigos de los procesos de investigacion-fade -->
 
 		       <div id="apDiv183">
-		       		<img src="{{ asset('images/fade/investigacion/cod_afec02-01.png') }}" width="61" height="19" id="afeg02_1">
+		       		<img src="{{ asset('images/Fade/investigacion/cod_afec02-01.png') }}" width="61" height="19" id="afeg02_1">
 		       	</div>
 		       <div id="apDiv184">
-		       		<img src="{{ asset('images/fade/investigacion/cod_afec02-02.png') }}" width="61" height="19" id="afeg02_2">
+		       		<img src="{{ asset('images/Fade/investigacion/cod_afec02-02.png') }}" width="61" height="19" id="afeg02_2">
 		       	</div>
 		       <div id="apDiv185">
-		       		<img src="{{ asset('images/fade/investigacion/cod_afec02-03.png') }}" width="61" height="19" id="afeg02_3">
+		       		<img src="{{ asset('images/Fade/investigacion/cod_afec02-03.png') }}" width="61" height="19" id="afeg02_3">
 		       	</div>
 		      
 		       	<!-- macroprocesos de la facultad -->	
 
 		       	<div id="apDiv105">
-		       		<img src="{{ asset('images/fade/administrativa.png') }}" width="604" height="48" id="administrativa" style="cursor:pointer;" onclick="Administrativa()">
+		       		<img src="{{ asset('images/Fade/administrativa.png') }}" width="604" height="48" id="administrativa" style="cursor:pointer;" onclick="Administrativa()">
 		       	</div>
 		        <div id="apDiv106">
-		        	<img src="{{ asset('images/fade/academica.png') }}" width="604" height="48" id="academica" style="cursor:pointer;"  onclick="Academica()">
+		        	<img src="{{ asset('images/Fade/academica.png') }}" width="604" height="48" id="academica" style="cursor:pointer;"  onclick="Academica()">
 		        </div>
 		        <div id="apDiv107">
-		        	<img id="calidad" style="cursor:pointer;" width="604" height="48" onclick="Calidad()" src="{{ asset('images/fade/calidad.png') }}">
+		        	<img id="calidad" style="cursor:pointer;" width="604" height="48" onclick="Calidad()" src="{{ asset('images/Fade/calidad.png') }}">
 		        </div>
 		        <div id="apDiv109">
-		        	<img id="docencia" style="cursor:pointer;" onclick="Docencia()" src="{{ asset('images/fade/docencia.png') }}" width="196" height="63">
+		        	<img id="docencia" style="cursor:pointer;" onclick="Docencia()" src="{{ asset('images/Fade/docencia.png') }}" width="196" height="63">
 		        </div>
 		        <div id="apDiv110">
-		        	<img id="vinculacion" style="cursor:pointer;" onclick="Vinculacion()" src="{{ asset('images/fade/vinculacion.png') }}" width="196" height="63">
+		        	<img id="vinculacion" style="cursor:pointer;" onclick="Vinculacion()" src="{{ asset('images/Fade/vinculacion.png') }}" width="196" height="63">
 		        </div>
 		        <div id="apDiv111">
-		        	<img id="asistencia" style="cursor:pointer;" width="604" height="48" onclick="Asistencia()" src="{{ asset('images/fade/asistencia.png') }}">
+		        	<img id="asistencia" style="cursor:pointer;" width="604" height="48" onclick="Asistencia()" src="{{ asset('images/Fade/asistencia.png') }}">
 		        </div>
 		        <div id="apDiv112">
-		        	<img id="academico" style="cursor:pointer;" onclick="Academico()"  width="604" height="48" src="{{ asset('images/fade/academico.png') }}">
+		        	<img id="academico" style="cursor:pointer;" onclick="Academico()"  width="604" height="48" src="{{ asset('images/Fade/academico.png') }}">
 		        </div>
 		        <div id="apDiv113">
-		        	<img id="financiero" style="cursor:pointer;" onclick="Financiero()" width="604" height="48" src="{{ asset('images/fade/financiero.png') }}">
+		        	<img id="financiero" style="cursor:pointer;" onclick="Financiero()" width="604" height="48" src="{{ asset('images/Fade/financiero.png') }}">
 		        </div>
 		        <div id="apDiv114">
-		        	<img id="mantenimiento" style="cursor:pointer;" onclick="Mantenimiento()" width="604" height="48" src="{{ asset('images/fade/mantenimiento.png') }}">
+		        	<img id="mantenimiento" style="cursor:pointer;" onclick="Mantenimiento()" width="604" height="48" src="{{ asset('images/Fade/mantenimiento.png') }}">
 		        </div>
 		        <div id="apDiv115">
-		        	<img id="transporte" style="cursor:pointer;" onclick="Transporte()" width="604" height="48" src="{{ asset('images/fade/transporte.png') }}">
+		        	<img id="transporte" style="cursor:pointer;" onclick="Transporte()" width="604" height="48" src="{{ asset('images/Fade/transporte.png') }}">
 		        </div>
 		        <div id="apDiv69">
-		        	<img src="{{ asset('images/fade/informatico.png') }}" width="604" height="48" id="informatico" onclick="Informatico()" style="cursor:pointer;">
+		        	<img src="{{ asset('images/Fade/informatico.png') }}" width="604" height="48" id="informatico" onclick="Informatico()" style="cursor:pointer;">
 		        </div>
 
 

@@ -54,7 +54,7 @@
 			
       @if($var == 2)  
 			<div id="apDiv32">
-			  		<img src="{{ asset('images/contabilidad/investigacion.png'); }}">
+			  		<img src="{{ asset('images/Contabilidad/investigacion.png'); }}">
 			</div>	
       @elseif($var ==7)
       <div id="apDiv32">
@@ -62,23 +62,23 @@
       </div> 
        @elseif($var ==1)
       <div id="apDiv32">
-            <img src="{{ asset('images/empresas/investigacion.png'); }}">
+            <img src="{{ asset('images/Empresas/investigacion.png'); }}">
       </div>  
        @elseif($var ==3)
       <div id="apDiv32">
-            <img src="{{ asset('images/exterior/investigacion.png'); }}">
+            <img src="{{ asset('images/Exterior/investigacion.png'); }}">
       </div>  
         @elseif($var ==4)
       <div id="apDiv32">
-            <img src="{{ asset('images/finanzas/investigacion.png'); }}">
+            <img src="{{ asset('images/Finanzas/investigacion.png'); }}">
       </div> 
        @elseif($var ==5)
       <div id="apDiv32">
-            <img src="{{ asset('images/marketing/investigacion.png'); }}">
+            <img src="{{ asset('images/Marketing/investigacion.png'); }}">
       </div> 
        @elseif($var ==6)
       <div id="apDiv32">
-            <img src="{{ asset('images/transporte/investigacion.png'); }}">
+            <img src="{{ asset('images/Transporte/investigacion.png'); }}">
       </div>  
       @endif
 

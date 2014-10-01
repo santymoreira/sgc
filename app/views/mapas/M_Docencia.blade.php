@@ -54,7 +54,7 @@
 
         @if($var == 2)
 			  <div id="apDiv32">
-			  		<img src=" {{ asset('images/contabilidad/docencia.png'); }}">
+			  		<img src=" {{ asset('images/Contabilidad/docencia.png'); }}">
 			  </div>	
         @elseif($var ==7)
         <div id="apDiv32">
@@ -62,23 +62,23 @@
         </div>
         @elseif($var ==1)
         <div id="apDiv32">
-            <img src=" {{ asset('images/empresas/docencia.png'); }}">
+            <img src=" {{ asset('images/Empresas/docencia.png'); }}">
         </div>
         @elseif($var ==3)
         <div id="apDiv32">
-            <img src=" {{ asset('images/exterior/docencia.png'); }}">
+            <img src=" {{ asset('images/Exterior/docencia.png'); }}">
         </div>
          @elseif($var ==4)
         <div id="apDiv32">
-            <img src=" {{ asset('images/finanzas/docencia.png'); }}">
+            <img src=" {{ asset('images/Finanzas/docencia.png'); }}">
         </div>
          @elseif($var ==5)
         <div id="apDiv32">
-            <img src=" {{ asset('images/marketing/docencia.png'); }}">
+            <img src=" {{ asset('images/Marketing/docencia.png'); }}">
         </div>
          @elseif($var ==6)
         <div id="apDiv32">
-            <img src=" {{ asset('images/transporte/docencia.png'); }}">
+            <img src=" {{ asset('images/Transporte/docencia.png'); }}">
         </div>
         @endif 
 		  <!-- Procesos de la Gestión de Docencia -->
