@@ -100,7 +100,7 @@
 							<td class="fuentes">
 								<a href="../show/{{ $user->COD_EMPLEADO }},{{$var}}"><span class="label label-info">Ver</span></a>
 								<a href="../edit/{{ $user->COD_EMPLEADO }},{{$var}}"><span class="label label-success">Editar</span></a>
-								<a href="{{ url('users/destroy',$user->COD_EMPLEADO) }}"><span class="label label-danger">Eliminar</span></a>
+								<a href="{{ url('users/destroy',$user->COD_EMPLEADO) }},{{$var}}"><span class="label label-danger">Eliminar</span></a>
 							</td>
 						</tr>
 					@endforeach

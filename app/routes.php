@@ -413,7 +413,7 @@ Route::get('users/edit/{cod},{esc}', 'UserController@edit');
 Route::post('users/update/{cod},{esc}','UserController@update');
 
 //Eliminar Empleado
-Route::get('users/destroy/{cod}','UserController@destroy');
+Route::get('users/destroy/{cod},{esc}','UserController@destroy');
 
 //Mostrar un empleado
   Route::get('users/show/{cod},{esc}', 'UserController@show');

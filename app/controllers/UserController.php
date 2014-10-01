@@ -18,12 +18,12 @@ class UserController extends \BaseController {
 		
 		//Valiables table empleado
 		$var=Input::get('nombres');
-		
+		$cedu=Input::get('ci');
 		//Tipos empleado
-		$temp1=Input::get('docente');
-		$temp2=Input::get('director');
-		$temp3=Input::get('administrativo');
-		$temp4=Input::get('trabajador');
+		$temp1=Input::get('director');
+		$temp2=Input::get('admin');
+		$temp3=Input::get('trabajador');
+		$temp4=Input::get('docente');
 
 		//Información Peronal
 		$empleado->CI= Input::get('ci');
@@ -34,35 +34,61 @@ class UserController extends \BaseController {
 		$empleado->CONVENCIONAL= Input::get('convencional');
 		$empleado->password= Hash::make(Input::get('ci'));
 
-//Validaciones del Formulario 
-	
-		$inputs	= Input::all();
-		$reglas = array(
 
+		//Empleado en otra escuela
+		$Uexist=DB::select('SELECT COUNT(COD_EMPLEADO) as valor FROM empleado WHERE CI =?', array($cedu));
+					foreach ($Uexist as $cont) {	$ced = $cont->valor; }
+	
+		if($ced ==0)
+		{
+			$inputs	= Input::all();
+			$reglas = array(
 				  'ci' => 'required|regex:/^([0-9])+$/i|size:10|unique:empleado,CI',
 				  'nombres' => 'required',
 				  'email' => 'email',
-				 'celular' => 'regex:/^([0-9])+$/i|size:10',
-				  'convencional' => 'regex:/^([0-9])+$/i|size:10',
-				);
+				  'celular' => 'regex:/^([0-9])+$/i|size:10',
+				  'convencional' => 'regex:/^([0-9])+$/i|size:9',
+			);
+		}
+		else{
+
+			$inputs	= Input::all();
+			$reglas = array(
+				  'ci' => 'required|regex:/^([0-9])+$/i|size:10a',
+				  'nombres' => 'required',
+				  'email' => 'email',
+				  'celular' => 'regex:/^([0-9])+$/i|size:10',
+				  'convencional' => 'regex:/^([0-9])+$/i|size:9',	
+			);
+		}
 
 			$mensajes = array(
 					'required' => 'Campo Obligatorio',
-					'size' => 'El campo debe tener 10 dígitos',
-					'email' => 'El email no tiene la sintaxis correcta',
-					'unique' => 'El cédula ingresada ya existe',
-					'regex' => 'Solo se acepta caracteres numéricos',
+					'size' => 'El campo debe tener la cantidad de dígitos correcta, vuelva a intenralo',
+					'email' => 'El email no tiene la sintaxis correcta, vuelva a intenralo',
+					'unique' => 'El cédula ingresada ya existe, vuelva a intenralo',
+					'regex' => 'Solo se acepta caracteres numéricos, vuelva a intenralo',
 				);	
 
 			$validar = Validator::make($inputs,$reglas,$mensajes);
+	
+
 	if($validar->fails())
 	{
 			return Redirect::back()->withErrors($validar);
 	}
 	else{
 
-	
-		if($empleado->save()){
+		if(!empty($temp1) || !empty($temp2) || !empty($temp3) || !empty($temp4))
+	{
+		$directorEs= DB::select('SELECT COUNT(empe.COD_TIPO) AS valor FROM empleado_tipo AS empe WHERE empe.COD_TIPO=? AND empe.COD_ESCUELA = ?', array($temp1,$esc));
+		foreach ($directorEs as $cont) {	$contador = $cont->valor; }
+
+	if($contador == 0)
+	{	
+		if($ced == 0)
+		{
+		  if($empleado->save()){
 
 			$query=DB::select('SELECT COD_EMPLEADO FROM empleado WHERE NOMBRES =?', array($var));
 			foreach ($query as $cont) {	$aux = $cont->COD_EMPLEADO; }
@@ -99,11 +125,55 @@ class UserController extends \BaseController {
 			Session::flash('class','success');
 		   
 		}
+
 		else{
 				Session::flash('message','A ocurrido un error!');
 				Session::flash('class','danger');	
 			}
+		return Redirect::to('users/create'); 
+	  }
+	  else
+	  {
+	  	$query1=DB::select('SELECT COD_EMPLEADO FROM empleado WHERE CI =?', array($cedu));
+			foreach ($query1 as $cont1) {	$aux1 = $cont1->COD_EMPLEADO; }
+			
+			
+		 DB::insert('insert into empleado_escuela (COD_EMPLEADO, COD_ESCUELA) values (?, ?)', array($aux1,$esc));
+		
+			  
+			    if (!empty($temp1))
+			    {
+			  		 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp1,$aux1,$esc));
+		
+			   }
+			    if (!empty($temp2))
+			    {
+			    	 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp2,$aux1,$esc));
+			    }
+			    if (!empty($temp3))
+			    {
+			    	  DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp3,$aux1,$esc));
+			    }
+			    if (!empty($temp4))
+			    {
+			    	 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp4,$aux1,$esc));
+			    }
+ 		
+			Session::flash('message','Guardado correctamente!');
+			Session::flash('class','success');
+
 		return Redirect::to('users/create');
+	  }
+	}
+	  else{
+	  	return Redirect::back()->with('exist', 'Ya existe un Director de Escuela registrado, Ingrese otra función al Empleado.');
+	  }
+
+	}
+		else
+		{
+			return Redirect::back()->with('msg', 'Tiene que asignarle almenos una función al empleado, vuelve a intentarlo.');
+		}
 	}
 }
 
@@ -155,11 +225,8 @@ class UserController extends \BaseController {
 
 	
 	//Validaciones del Formulario 
-	
-		$Ciexist=DB::select('SELECT COUNT(COD_EMPLEADO) as valor FROM empleado WHERE CI =? AND COD_EMPLEADO= ?', array($var,$id));
-			foreach ($Ciexist as $cont) {	$ced = $cont->valor; }
-
-		
+	$Ciexist=DB::select('SELECT COUNT(COD_EMPLEADO) as valor FROM empleado WHERE CI =? AND COD_EMPLEADO= ?', array($var,$id));
+					foreach ($Ciexist as $cont) {	$ced = $cont->valor; }
 
 		if($ced ==0)
 		{
@@ -169,7 +236,7 @@ class UserController extends \BaseController {
 				  'nombres' => 'required',
 				  'email' => 'email',
 				  'celular' => 'regex:/^([0-9])+$/i|size:10',
-				  'convencional' => 'regex:/^([0-9])+$/i|size:10',
+				  'convencional' => 'regex:/^([0-9])+$/i|size:9',
 			);
 		}
 		else{
@@ -180,16 +247,16 @@ class UserController extends \BaseController {
 				  'nombres' => 'required',
 				  'email' => 'email',
 				  'celular' => 'regex:/^([0-9])+$/i|size:10',
-				  'convencional' => 'regex:/^([0-9])+$/i|size:10',	
+				  'convencional' => 'regex:/^([0-9])+$/i|size:9',	
 			);
 		}
 
 			$mensajes = array(
 					'required' => 'Campo Obligatorio',
-					'size' => 'El campo debe tener 10 dígitos',
-					'email' => 'El email no tiene la sintaxis correcta',
-					'unique' => 'El cédula ingresada ya existe',
-					'regex' => 'Solo se acepta caracteres numéricos',
+					'size' => 'El campo debe tener la dígitos correcta,, vuelva a intenralo',
+					'email' => 'El email no tiene la sintaxis correcta, vuelva a intenralo',
+					'unique' => 'El cédula ingresada ya existe, vuelva a intenralo',
+					'regex' => 'Solo se acepta caracteres numéricos, vuelva a intenralo',
 				);	
 
 			$validar = Validator::make($inputs,$reglas,$mensajes);
@@ -199,6 +266,9 @@ class UserController extends \BaseController {
 	}
 	else{
 
+		if(!empty($temp1) || !empty($temp2) || !empty($temp3) || !empty($temp4))
+	{
+		
 		if($empleado->save()){
 
 			//Variables auxiliares del tipoEmpleado para que funcionen por el else
@@ -211,6 +281,7 @@ class UserController extends \BaseController {
 
 			if(!empty($temp1))
 			{
+
 				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp1.' AND COD_ESCUELA='.$escu.';');
 
 					foreach ($query as $cont) 
@@ -220,7 +291,15 @@ class UserController extends \BaseController {
 				
 				if($ban == 0)
 				{
+					$directorEs= DB::select('SELECT COUNT(empe.COD_TIPO) AS valor FROM empleado_tipo AS empe WHERE empe.COD_TIPO=? AND empe.COD_ESCUELA = ?', array($temp1,$escu));
+							foreach ($directorEs as $cont) {	$contador = $cont->valor; }
+					if($contador ==0){		
 					  DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp1,$id,$escu));
+					}
+					else
+					{
+						return Redirect::back()->with('exist', 'Ya existe un Director de Escuela registrado, Ingrese otra función al Empleado.');
+					}
 				}
 			}
 			else{
@@ -340,7 +419,11 @@ class UserController extends \BaseController {
 		}
 
 			return Redirect::to('users/edit/'.$id.','.$escu);
-
+  }
+		else
+		{
+			return Redirect::back()->with('msg', 'Tiene que asignarle almenos una función al empleado, vuelve a intentarlo.');
+		}
 	}
 }
 	/**
@@ -349,14 +432,20 @@ class UserController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($id,$esc)
 	{
 		
-		$escuelas=2;
-		$empleado= empleado::find($id);
+		$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_ESCUELA='.$esc.';');
+		foreach ($query as $cont) 
+					{	
+						$ban = $cont->valor; 
+					}
+		
+		if($ban != 0){
 
-		//DB::delete('delete from empleado_escuela where COD_EMPLEADO = ? and COD_ESCUELA = ? ', array($id,$escuelas));
-		if($empleado->escuelas()->detach($escuelas)){
+			DB::delete('DELETE FROM empleado_tipo WHERE  COD_EMPLEADO = ? AND COD_ESCUELA= ?', array($id,$esc));
+			DB::delete('DELETE FROM empleado_escuela WHERE  COD_EMPLEADO = ? AND COD_ESCUELA= ?', array($id,$esc));
+			
 			Session::flash('message','Eliminado correctamente!');
 			Session::flash('class','success');			
 		}else{
@@ -364,7 +453,17 @@ class UserController extends \BaseController {
 			Session::flash('class','danger');	
 		}
 
-			return Redirect::to('users/empleados/2');
+		$query1= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.';');
+		foreach ($query1 as $cont1) 
+					{	
+						$ban1 = $cont1->valor; 
+					}
+			if($ban1 ==0)
+			{
+					DB::delete('DELETE FROM empleado WHERE  COD_EMPLEADO = ?', array($id));
+			}
+
+			return Redirect::to('users/empleados/'.$esc);
 	}
 
 
