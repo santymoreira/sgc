@@ -109,19 +109,15 @@ Route::group(array('before' => 'auth'), function()
     });    
 });
 
-Route::get('evaluacion/{a}/{b}/{c}/{d}/{e}/{f}/{g}', array('uses' => 'EmpleadosController@mostrarEmp'));
+#envia los parámetros para la evaluación (primer paso)
+Route::get('evaluacion/{a}/{b}/{c}/{d}/{e}/{f}/{g}', array('uses' => 'EmpleadosController@encabezadoEvaluacion'));
+Route::post('/contenidoEvaluacion', array('uses' => 'EmpleadosController@contenidoEvaluacion'));
+
+
+
+
 Route::get('evaluacionBalance/{a}/{b}/{c}/{d}/{e}/{f}', array('uses' => 'EmpleadosController@mostrarEmpBalance'));
 
-/*$segundos = time();
-$tiempo_transcurrido = $segundos;
-$tiempo_maximo = $_SESSION['inicio'] + ( $_SESSION['intervalo'] * 600 ) ; // se multiplica por 60 segundos ya que se configura en minutos
-if($tiempo_transcurrido > $tiempo_maximo){
-header('location: logout.php');
-}else{
-            // se resetea el inicio
-$_SESSION['inicio'] = time();
-}
-*/
 
 Route::get('login', function(){
     return View::make('home.welcome'); 
@@ -157,7 +153,7 @@ Route::post('empleados/crear', array('uses' => 'EmpleadosController@crearEmplead
 //Route::get('evaluacion/{a}/{b}/{c}/{d}/{e}/{f}/{g}', array('uses' => 'EmpleadosController@mostrarEmp'));
 //
 Route::get('consolidado/{a}/{b}', array('uses' => 'ReportesController@imagenReporteConsolidado'));
-Route::post('/categories2', array('uses' => 'EmpleadosController@mostrarEmp3'));
+
 Route::post('/busquedaBalance', array('uses' => 'EmpleadosController@busquedaBalance'));
 Route::post('/textoBusquedaBalance', array('uses' => 'EmpleadosController@textoBusquedaBalance'));
 Route::post('/listadoBalance', array('uses' => 'EmpleadosController@listadoBalance'));

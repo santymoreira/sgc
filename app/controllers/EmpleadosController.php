@@ -1,27 +1,6 @@
 <?php 
 class EmpleadosController extends BaseController {
-
-      public function Empleados()
-    {
-        $redis = Redis::connection();
-        //$empleados=DB::table('proceso')->get();
-        //$redis->set('proceso',json_encode($emplead));
-        $empleados=$redis->get('proceso');
-        $empleados = json_decode($empleados);
-
-         return View::make('empleados.lista', array('empleados' => $empleados));
-        /*
-        $empleados = Cache::remember('proceso', 60, function()
-        { 
-            return DB::table('proceso')->get(); 
-        });*/
-              
-       //$empleados=Cache::get('proceso');
-    
-        //$empleados=DB::table('proceso')->get(); 
-        //return View::make('empleados.lista', array('empleados' => $empleados));
-    }
-
+        //echo("<script>console.log('PHP: ".$tiempo."');</script>");
 
     //metodos Memcached
     public function memcachedEmpleados($tipoEmpleado,$escuela)
@@ -65,26 +44,64 @@ class EmpleadosController extends BaseController {
         return $valor;
     }
  
-     public function mostrarEmp($a,$b,$c,$d,$e,$f,$g)
+    #primer paso para la evaluación, recibe los parámetros y los envía a la primera vista que es encargada de mostrar
+    #el encabezado y las fechas
+     public function encabezadoEvaluacion($a,$b,$c,$d,$e,$f,$g)
     {
+        #verifica si el tiempo de sesion aún no ha expirado
         $tiempo=Login::tiempoSesion();
+        #recibe el tipo de empleado actual
         $tipo=Login::tipoEmpleado();
-        //echo("<script>console.log('PHP: ".$tiempo."');</script>");
+        #verifica si el tiempo esta vigente
         if ($tiempo==1) 
         {
+            #verifica si es administrador
             if ($tipo==1) 
             {
                 return View::make('empleados.evaluacion', array('procesos' => $a,'docentes' => $b,'macroproceso' => $c,'escuela' => $d,'proceso' => $e,'tipo' =>$f,'objeto' =>$g));
             }   
+            else
+            {
+                return View::make('home.sinAcceso');
+            }
         }else{
             Login::logout();
-            //return  Redirect::refresh();
-            
             return View::make('home.sinAcceso');
-           // Redirect::back();
-            //return View::make('home.welcome');
         }
-        //echo("<script>console.log('PHP: ".$tipo."');</script>");
+    }
+
+        public function contenidoEvaluacion()
+    {
+        $macroproceso=Input::get('macro');
+        $escuela=Input::get('escuela');
+        $fecha1=Input::get('fecha1');
+        $fecha2=Input::get('fecha2');
+        $proceso=Input::get('proceso');
+        $tipoEmpleado=Input::get('tipo');
+        $objeto=Input::get('objeto');
+        $tiempod=Login::tiempoSesion();
+
+        //ejecutar usando redis
+        //---------------------
+        //$empleados=$this->redisEmpleados($tipoEmpleado);
+        //$valor=$this->redisValor($escuela,$macroproceso);
+
+        //ejecutar usando memcached
+        //-------------------------
+        $empleados=$this->memcachedEmpleados($tipoEmpleado);
+        $valor=$this->memcachedValor($escuela,$macroproceso);
+
+        //ejecutar accediendo a base de datos
+        //$empleados = DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE et.COD_TIPO =? AND et.COD_ESCUELA=?',array($tipoEmpleado,$escuela));
+        //$valor=Empleado::storedProcedureCall('call calcularValor( '.$escuela.','.$macroproceso.')');
+
+        if ($objeto==1) {
+            return View::make('empleados.contenido', array('empleados' => $empleados,'valor' => $valor,'fecha1'=>$fecha1,'fecha2'=>$fecha2,'macro'=>$macroproceso,'escuela'=>$escuela,'proceso'=>$proceso));
+        }
+         if ($objeto==2) {
+            return View::make('empleados.contenido2', array('empleados' => $empleados,'valor' => $valor,'fecha1'=>$fecha1,'fecha2'=>$fecha2,'macro'=>$macroproceso,'escuela'=>$escuela,'proceso'=>$proceso));
+        }
+
     }
 
       public function mostrarEmpBalance($a,$b,$c,$d,$e,$f)
@@ -107,45 +124,7 @@ class EmpleadosController extends BaseController {
         //echo("<script>console.log('PHP: ".$tipo."');</script>");
     }
 
-     public function mostrarEmp3()
-    {
-        $macroproceso=Input::get('macro');
-        $escuela=Input::get('escuela');
-        $fecha1=Input::get('fecha1');
-        $fecha2=Input::get('fecha2');
-        $proceso=Input::get('proceso');
-        $tipoEmpleado=Input::get('tipo');
-        $objeto=Input::get('objeto');
-
-         // $tiempo=new Login();
-        $tiempod=Login::tiempoSesion();
-        //$tiempo=$this->tiempoLogin();
-        //echo("<script>console.log('PHP: ".$tiempod."');</script>");
-
-        //ejecutar usando redis
-        //---------------------
-        //$empleados=$this->redisEmpleados($tipoEmpleado);
-        //$valor=$this->redisValor($escuela,$macroproceso);
-
-        //ejecutar usando memcached
-        //-------------------------
-        //$empleados=$this->memcachedEmpleados($tipoEmpleado);
-        //$valor=$this->memcachedValor($escuela,$macroproceso);
-
-        //ejecutar accediendo a base de datos
-        //------
-       // echo("<script>console.log('PHP: ".$escuela."');</script>");
-        $empleados = DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE et.COD_TIPO =? AND et.COD_ESCUELA=?',array($tipoEmpleado,$escuela));
-        $valor=Empleado::storedProcedureCall('call calcularValor( '.$escuela.','.$macroproceso.')');
-
-        if ($objeto==1) {
-            return View::make('empleados.contenido', array('empleados' => $empleados,'valor' => $valor,'fecha1'=>$fecha1,'fecha2'=>$fecha2,'macro'=>$macroproceso,'escuela'=>$escuela,'proceso'=>$proceso));
-        }
-         if ($objeto==2) {
-            return View::make('empleados.contenido2', array('empleados' => $empleados,'valor' => $valor,'fecha1'=>$fecha1,'fecha2'=>$fecha2,'macro'=>$macroproceso,'escuela'=>$escuela,'proceso'=>$proceso));
-        }
-
-    }
+ 
 
  public function textoBusquedaBalance()
     {

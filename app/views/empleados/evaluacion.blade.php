@@ -83,7 +83,7 @@
         if (f2>=f1)
         {     
           //alert(macro);
-            $("#contenido").load("../../../../../../../categories2",
+            $("#contenido").load("../../../../../../../contenidoEvaluacion",
             {fecha1: f1, fecha2: f2,macro: macro,escuela: esc,proceso: proc,tipo: tipo,objeto: objeto}
             );
         }
