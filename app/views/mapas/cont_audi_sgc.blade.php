@@ -56,6 +56,6 @@
 				  <p style="font-size:10px;color:#03F">&nbsp;</p>
 				  <p style="font-size:10px;color:#03F">Copyright © 2014. All Rights Reserved.</p>
 				</center>
-			</div>	
+			</div>	  
 		</div>		
 @stop
