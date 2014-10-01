@@ -92,6 +92,7 @@
                     </div>
                     <div id="apDiv117">
                       <a id="1" href="{{ asset('images/descripcion/InserLab.png'); }}" rel="slideshow1">
+
                          <img src="{{ asset('images/Acciones/InserLab.png') }}"  style="cursor:pointer;">  
                        </a>  
                     </div>
@@ -107,7 +108,9 @@
                     </div>
 
                     <!-- Evaluacion Acciones -->
+                     <!-- nombre del proyecto/macroproceso/escuela/proceso/objeto/peso-->
                     <div id="apDiv179">
+                      <a style="cursor:default;" href="../evaluacionBalance/Producciones Científicas/20/{{Session::get('escuela')}}/2/2/4.5"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                     </div>
                      <div id="apDiv180">

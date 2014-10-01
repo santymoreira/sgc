@@ -75,7 +75,7 @@ $('input[type="text"]').change(function(e){
             }
             
 
-             $.post('../../../../../../../categories',{opcion:2,empleado:empleado,escuela:escuela,proceso:proceso,porcentaje:porcentaje,macro:macroproceso,fechaInicio:fechaInicio,fechaFin:fechaFin,texto1:valu,texto2:valu2},
+             $.post('../../../../../../../insertar',{opcion:2,empleado:empleado,escuela:escuela,proceso:proceso,porcentaje:porcentaje,macro:macroproceso,fechaInicio:fechaInicio,fechaFin:fechaFin,texto1:valu,texto2:valu2},
               function(data){console.log(data);});
         
         }

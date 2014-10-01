@@ -72,36 +72,83 @@ class EmpleadosController extends BaseController {
 
         public function contenidoEvaluacion()
     {
-        $macroproceso=Input::get('macro');
-        $escuela=Input::get('escuela');
-        $fecha1=Input::get('fecha1');
-        $fecha2=Input::get('fecha2');
-        $proceso=Input::get('proceso');
-        $tipoEmpleado=Input::get('tipo');
-        $objeto=Input::get('objeto');
-        $tiempod=Login::tiempoSesion();
+        #verifica si el tiempo de sesion aún no ha expirado
+        $tiempo=Login::tiempoSesion();
+        #recibe el tipo de empleado actual
+        $tipo=Login::tipoEmpleado();
+        #verifica si el tiempo esta vigente
+        if ($tiempo==1) 
+        {
+            #verifica si es administrador
+                $macroproceso=Input::get('macro');
+                $escuela=Input::get('escuela');
+                $fecha1=Input::get('fecha1');
+                $fecha2=Input::get('fecha2');
+                $proceso=Input::get('proceso');
+                $tipoEmpleado=Input::get('tipo');
+                $objeto=Input::get('objeto');
+                $tiempod=Login::tiempoSesion();
 
-        //ejecutar usando redis
-        //---------------------
-        //$empleados=$this->redisEmpleados($tipoEmpleado);
-        //$valor=$this->redisValor($escuela,$macroproceso);
+                //ejecutar usando redis
+                //---------------------
+                //$empleados=$this->redisEmpleados($tipoEmpleado);
+                //$valor=$this->redisValor($escuela,$macroproceso);
 
-        //ejecutar usando memcached
-        //-------------------------
-        $empleados=$this->memcachedEmpleados($tipoEmpleado);
-        $valor=$this->memcachedValor($escuela,$macroproceso);
+                //ejecutar usando memcached
+                //-------------------------
+                $empleados=$this->memcachedEmpleados($tipoEmpleado,$escuela);
+                $valor=$this->memcachedValor($escuela,$macroproceso);
 
-        //ejecutar accediendo a base de datos
-        //$empleados = DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE et.COD_TIPO =? AND et.COD_ESCUELA=?',array($tipoEmpleado,$escuela));
-        //$valor=Empleado::storedProcedureCall('call calcularValor( '.$escuela.','.$macroproceso.')');
+                //ejecutar accediendo a base de datos
+                //$empleados = DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE et.COD_TIPO =? AND et.COD_ESCUELA=?',array($tipoEmpleado,$escuela));
+                //$valor=Empleado::storedProcedureCall('call calcularValor( '.$escuela.','.$macroproceso.')');
 
-        if ($objeto==1) {
-            return View::make('empleados.contenido', array('empleados' => $empleados,'valor' => $valor,'fecha1'=>$fecha1,'fecha2'=>$fecha2,'macro'=>$macroproceso,'escuela'=>$escuela,'proceso'=>$proceso));
+                if ($objeto==1) {
+                    return View::make('empleados.contenido', array('empleados' => $empleados,'valor' => $valor,'fecha1'=>$fecha1,'fecha2'=>$fecha2,'macro'=>$macroproceso,'escuela'=>$escuela,'proceso'=>$proceso));
+                }
+                 if ($objeto==2) {
+                    return View::make('empleados.contenido2', array('empleados' => $empleados,'valor' => $valor,'fecha1'=>$fecha1,'fecha2'=>$fecha2,'macro'=>$macroproceso,'escuela'=>$escuela,'proceso'=>$proceso));
+                }
+        }else{
+            Login::logout();
+            return View::make('home.sinAcceso');
         }
-         if ($objeto==2) {
-            return View::make('empleados.contenido2', array('empleados' => $empleados,'valor' => $valor,'fecha1'=>$fecha1,'fecha2'=>$fecha2,'macro'=>$macroproceso,'escuela'=>$escuela,'proceso'=>$proceso));
-        }
 
+
+        
+    }
+
+        public function insertar()
+    {
+        #verifica si el tiempo de sesion aún no ha expirado
+        $tiempo=Login::tiempoSesion();
+        #recibe el tipo de empleado actual
+        $tipo=Login::tipoEmpleado();
+        #verifica si el tiempo esta vigente
+        #
+            if ($tiempo==1) 
+        {
+            #verifica si es administrador
+                if (Request::ajax()) {
+                    $opcion=Input::get('opcion');
+                    $empleado=Input::get('empleado');
+                    $escuela=Input::get('escuela');
+                    $proceso=Input::get('proceso');
+                    $macro=Input::get('macro');
+                    $porcentaje=Input::get('porcentaje');
+                    $fechaInicio=Input::get('fechaInicio');
+                    $fechaFin=Input::get('fechaFin');
+                    $texto1=Input::get('texto1');
+                    $texto2=Input::get('texto2');
+
+                    $d=DB::statement('call asignarValor('.$opcion.','.$macro.','.$empleado.','.$proceso.',\''.$fechaInicio.'\',\''.$fechaFin.'\','.$texto1.','.$texto2.','.$escuela.','.$porcentaje.')');
+                    $dd='yeah';
+                    return Response::json($fechaFin);
+                }
+        }else{
+            Login::logout();
+            return View::make('home.sinAcceso');
+        }
     }
 
       public function mostrarEmpBalance($a,$b,$c,$d,$e,$f)
@@ -214,25 +261,7 @@ class EmpleadosController extends BaseController {
 
 
 
-    public function insertar()
-    {
-        if (Request::ajax()) {
-            $opcion=Input::get('opcion');
-            $empleado=Input::get('empleado');
-            $escuela=Input::get('escuela');
-            $proceso=Input::get('proceso');
-            $macro=Input::get('macro');
-            $porcentaje=Input::get('porcentaje');
-            $fechaInicio=Input::get('fechaInicio');
-            $fechaFin=Input::get('fechaFin');
-            $texto1=Input::get('texto1');
-            $texto2=Input::get('texto2');
 
-            $d=DB::statement('call asignarValor('.$opcion.','.$macro.','.$empleado.','.$proceso.',\''.$fechaInicio.'\',\''.$fechaFin.'\','.$texto1.','.$texto2.','.$escuela.','.$porcentaje.')');
-            $dd='fuck';
-        return Response::json($fechaFin);
-        }
-    }
 
      public function insertarBalance()
     {

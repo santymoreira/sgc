@@ -112,7 +112,13 @@ Route::group(array('before' => 'auth'), function()
 #envia los parámetros para la evaluación (primer paso)
 Route::get('evaluacion/{a}/{b}/{c}/{d}/{e}/{f}/{g}', array('uses' => 'EmpleadosController@encabezadoEvaluacion'));
 Route::post('/contenidoEvaluacion', array('uses' => 'EmpleadosController@contenidoEvaluacion'));
+Route::post('/insertar', array('uses' => 'EmpleadosController@insertar'));
+#fin evaluación
 
+  //reporte individual
+  Route::get('reportes/individual/{cod}/{tipo}', 'ReportesController@individual');
+    //reporte con busqueda
+  Route::get('reportes/mensualE/{cod}/{tipo}', 'ReportesController@mensualE');
 
 
 
@@ -158,7 +164,6 @@ Route::post('/busquedaBalance', array('uses' => 'EmpleadosController@busquedaBal
 Route::post('/textoBusquedaBalance', array('uses' => 'EmpleadosController@textoBusquedaBalance'));
 Route::post('/listadoBalance', array('uses' => 'EmpleadosController@listadoBalance'));
 Route::post('/listadoBalance2', array('uses' => 'EmpleadosController@listadoBalance2'));
-Route::post('/categories', array('uses' => 'EmpleadosController@insertar'));
 Route::post('/insertarBalance', array('uses' => 'EmpleadosController@insertarBalance'));
 
 Route::get('/evaluacionEmpleado', array('uses' => 'EmpleadosController@evaluacionEmpleado'));
@@ -168,15 +173,13 @@ Route::get('/evaluacionEmpleado', array('uses' => 'EmpleadosController@evaluacio
 Route::get('/pruebav01', array('uses' => 'EmpleadosController@mostrarEmp'));
 Route::get('/datos', array('uses' => 'HomeController@envios_ajax'));
 
-  //reporte individual
-  Route::get('reportes/individual/{cod}/{tipo}', 'ReportesController@individual');
+
 
   Route::post('/individualBusqueda', 'ReportesController@individualBusqueda');
 
   //reporte mensual
   //Route::get('reportes/mensual/{cod}/{tipo}', 'ReportesController@mensual');
-  //reporte con busqueda
-  Route::get('reportes/mensualE/{cod}/{tipo}', 'ReportesController@mensualE');
+
 
   Route::post('/buscarEmpleado', 'ReportesController@buscarEmpleado');
 //Route::get('/tipos', array('uses' => 'ReportesController@mostrarTipo'));

@@ -56,7 +56,7 @@
           $('#'+empleado+'p').attr('src', "../../../../../../../images/incorrecto.gif");
         }
 
-      $.post('../../../../../../../categories',{opcion:op,empleado:empleado,escuela:escuela,proceso:proceso,porcentaje:porcentaje,macro:macroproceso,fechaInicio:fechaInicio,fechaFin:fechaFin,texto1:'null',texto2:'null'},function(data){
+      $.post('../../../../../../../insertar',{opcion:op,empleado:empleado,escuela:escuela,proceso:proceso,porcentaje:porcentaje,macro:macroproceso,fechaInicio:fechaInicio,fechaFin:fechaFin,texto1:'null',texto2:'null'},function(data){
         console.log(data);
       });
                

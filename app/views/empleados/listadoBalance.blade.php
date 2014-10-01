@@ -83,7 +83,7 @@
 <script>
   $('#1').change(function(e){
       e.preventDefault();
-      var empleado = $(this).attr('id');
+     // var empleado = $(this).attr('id');
       var escuela=$('#escuela').val();
       var proceso=$('#proc').val();
       var porcentaje=$('#porcentaje').val();
