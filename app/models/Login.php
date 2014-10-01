@@ -11,7 +11,7 @@ class Login
         	$tiempo_transcurrido = $segundos;  
         	if (Session::get('intervalo') && Session::get('inicio')) 
         	{
-            	$tiempo_maximo = Session::get('inicio') + ( Session::get('intervalo') * 600 ) ; 
+            	$tiempo_maximo = Session::get('inicio') + ( Session::get('intervalo') * 1440 ) ; 
             	if($tiempo_transcurrido > $tiempo_maximo)
             	{
                 	return -1;

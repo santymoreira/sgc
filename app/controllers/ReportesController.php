@@ -514,6 +514,7 @@ class ReportesController extends BaseController {
              }
      }else{
         Login::logout();
+         return View::make('home.sinAcceso');
      }
     }
     public function pdfReporte($escuela,$macroproceso,$proceso,$f1,$f2,$cedula,$codigo,$nombres,$mail)

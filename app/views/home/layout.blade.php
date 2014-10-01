@@ -64,7 +64,7 @@
                         <a href="DatosPersonales/index.php"  rel="floatbox">
 
                          <!--    <div id="fotoperfil"><img src="{{ asset('images/fotoreal.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>-->
-@if (Auth::user() && Session::get('tipo'))
+@if (Auth::user())
 <!--<div id="fotoperfil"><img src="images/{{Session::get('ci') }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>-->
 <div id="fotoperfil"><img src="{{ asset('images/Login/'.Auth::user()->CI); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>
 @else
@@ -114,7 +114,7 @@
 
                     <div id="container">
           				<div id="loginContainer">
-                  @if (Auth::user() && Session::get('tipo'))
+                  @if (Auth::user())
                 			 <a href="{{ url('logout'); }}" id="loginButto">
                         <img id="imgLogin" src="{{ asset('images/Login/cerrar sesion.png'); }}" border=0>
                       </a>

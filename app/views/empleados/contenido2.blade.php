@@ -36,41 +36,6 @@
  </tbody>
  </table>
 
- <!--<script>
-  /*$('select').change(function(e){
-      e.preventDefault();
-      var empleado = $(this).attr('id');
-      var escuela=$('#escuela').val();
-      var proceso=$('#proc').val();
-      var porcentaje=$('#porcentaje').val();
-      var macroproceso=$('#macro').val();
-      var fechaInicio=$('#fecha1').val();
-      var fechaFin=$('#fecha2').val();
-      var opcion=$(this).val();
-      var op;
-      if(opcion==1)
-        {
-          op=-1;
-           $('#'+empleado+'p').attr('src', "../../../../../../../images/question1.gif");
-        }
-      if(opcion==2)
-        {
-          op=1;
-          $('#'+empleado+'p').attr('src', "../../../../../../../images/correcto.gif");
-        }
-      if(opcion==3)
-        {
-          op=0;
-          $('#'+empleado+'p').attr('src', "../../../../../../../images/incorrecto.gif");
-        }
-
-      $.post('../../../../../../../categories',{opcion:op,empleado:empleado,escuela:escuela,proceso:proceso,porcentaje:porcentaje,macro:macroproceso,fechaInicio:fechaInicio,fechaFin:fechaFin,texto1:'null',texto2:'null'},function(data){
-        console.log(data);
-      });
-               
-    });*/
-
-</script>-->
 
 
 <script type='text/javascript'>

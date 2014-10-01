@@ -97,7 +97,6 @@ Route::post('layout', function(){
 // entonces sera redirigido a la ruta login
 Route::group(array('before' => 'auth'), function()
 {
-    
     Route::get('inicio', function(){
         echo 'Bienvenido ';
         
@@ -107,13 +106,11 @@ Route::group(array('before' => 'auth'), function()
         // siempre y cuando haya un usuario con sesión iniciada
         echo 'Bienvenido '. Auth::user()->nombres . ', su Id es: '.Auth::user()->CI ;
 
-    });
-    
-
-    
+    });    
 });
 
 Route::get('evaluacion/{a}/{b}/{c}/{d}/{e}/{f}/{g}', array('uses' => 'EmpleadosController@mostrarEmp'));
+Route::get('evaluacionBalance/{a}/{b}/{c}/{d}/{e}/{f}', array('uses' => 'EmpleadosController@mostrarEmpBalance'));
 
 /*$segundos = time();
 $tiempo_transcurrido = $segundos;
@@ -142,7 +139,14 @@ Route::get('empleados', array('uses' => 'EmpleadosController@mostrarEmpleados'))
 
   //array('uses' => 'EmpleadosController@mostrarEmpleados'
 //});
+Route::post('/upload', function(){
+     if(Input::hasFile('archivo')) {
 
+          Input::file('archivo')
+               ->move('carpetasArchivos', Input::get('id'));
+     }
+     return Redirect::back();
+});
 
 //
 
@@ -154,7 +158,12 @@ Route::post('empleados/crear', array('uses' => 'EmpleadosController@crearEmplead
 //
 Route::get('consolidado/{a}/{b}', array('uses' => 'ReportesController@imagenReporteConsolidado'));
 Route::post('/categories2', array('uses' => 'EmpleadosController@mostrarEmp3'));
+Route::post('/busquedaBalance', array('uses' => 'EmpleadosController@busquedaBalance'));
+Route::post('/textoBusquedaBalance', array('uses' => 'EmpleadosController@textoBusquedaBalance'));
+Route::post('/listadoBalance', array('uses' => 'EmpleadosController@listadoBalance'));
+Route::post('/listadoBalance2', array('uses' => 'EmpleadosController@listadoBalance2'));
 Route::post('/categories', array('uses' => 'EmpleadosController@insertar'));
+Route::post('/insertarBalance', array('uses' => 'EmpleadosController@insertarBalance'));
 
 Route::get('/evaluacionEmpleado', array('uses' => 'EmpleadosController@evaluacionEmpleado'));
 //

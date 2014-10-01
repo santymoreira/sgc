@@ -90,11 +90,15 @@
                     </div>
 
                     <!-- Evaluacion Acciones -->
-
+                      <!-- nombre del proyecto/macroproceso/escuela/proceso/objeto/peso-->
                     <div id="apDiv221">
-                         <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                     <a style="cursor:default;" href="../evaluacionBalance/Plan de investigación/20/{{Session::get('escuela')}}/1/1/1.5"  rel="floatbox">
+                   <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                 </a>   
+                        
                     </div>
                     <div id="apDiv222">
+                    <a style="cursor:default;" href="../evaluacionBalance/Producciones Científicas/20/{{Session::get('escuela')}}/2/2/4.5"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                     </div>
                     
