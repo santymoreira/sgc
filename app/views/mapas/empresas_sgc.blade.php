@@ -36,7 +36,13 @@
         <div class="layout-cell content">    
             <div id="central"> 
                <div id="central-content"> </br></br>
-                   <center><img src="{{ asset('images/Empresas/Empresas.png') }}" width="850" height="295"></center>    
+                   <center>
+                    <label>Avance SGC&nbsp;&nbsp;&nbsp;</label>
+               			<a rel="floatbox" class="fbPopup" href="Vista/ReportesIndicadores/pChart2.1.4/examples/pictures/#" />
+               				<input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/>
+               			</a>  <br/><br/>
+                   	<img src="{{ asset('images/Empresas/Empresas.png') }}" width="850" height="295">
+                   	</center>    
                </div>
             </div>
              
