@@ -82,13 +82,13 @@
   									<li class="nivel1"><a href="#" class="nivel1">SGC</a>
 										<ul class="uno">
                 							<li>{{ HTML::link('fade/fade_sgc', 'Facultad de Administración en Empresas'); }}</li>
-                              <li>{{ HTML::link('empresas/empresas_sgc', 'Escuela de Ingeniería en Empresas - EIE'); }}</li>
-                              <li>{{ HTML::link('contabilidad/cont_audi_sgc', 'Escuela de Ingeniería en Contabilidad y Auditoría - ICA'); }}</li>
+                              <li>{{ HTML::link('empresas/empresas_sgc', 'Escuela de Ingeniería en Empresas'); }}</li>
+                              <li>{{ HTML::link('contabilidad/cont_audi_sgc', 'Escuela de Ingeniería en Contabilidad y Auditoría'); }}</li>
                               <li>{{ HTML::link('C_exterior/exterior_sgc', 'Escuela de Ingeniería en Comercio Exterior'); }}</li>
                               <li>{{ HTML::link('finanzas/finanzas_sgc', 'Escuela de Ingeniería Financiera'); }}</li>
-                              <li>{{ HTML::link('marketing/marketing_sgc', 'Escuela de Ingeniería en Marketing - IMK'); }}</li>
-                              <li>{{ HTML::link('transporte/transporte_sgc', 'Escuela de Ingeniería en Gestión de Transporte - EIGT'); }}</li>
-                              <li><a href="#">Escuela de Ingeniería de Empresas, Modalidad Distancia - IE-MFDP</a></li>
+                              <li>{{ HTML::link('marketing/marketing_sgc', 'Escuela de Ingeniería en Marketing'); }}</li>
+                              <li>{{ HTML::link('transporte/transporte_sgc', 'Escuela de Ingeniería en Gestión de Transporte'); }}</li>
+                              <li><a href="#">Escuela de Ingeniería de Empresas, Modalidad Distancia</a></li>
                           
                              
 										</ul>
@@ -96,11 +96,11 @@
   									<li class="nivel1"><a href="#" class="nivel1">BSC</a>
 										<ul class="dos">
 											<li><a href="#">Facultad de Administración en Empresas</a></li>
-                        <li>{{ HTML::link('empresas/empresas_bsc', 'Escuela de Ingeniería en Empresas - EIE'); }}</li>
-                        <li>{{ HTML::link('contabilidad/cont_audi_bsc', 'Escuela de Ingeniería en Contabilidad y Auditoría - ICA'); }}</li>
+                        <li>{{ HTML::link('empresas/empresas_bsc', 'Escuela de Ingeniería en Empresas'); }}</li>
+                        <li>{{ HTML::link('contabilidad/cont_audi_bsc', 'Escuela de Ingeniería en Contabilidad y Auditoría'); }}</li>
 											  <li>{{ HTML::link('finanzas/finanzas_bsc', 'Escuela de Ingeniería Financiera'); }}</li>
-                     	  <li>{{ HTML::link('marketing/marketing_bsc', 'Escuela de Ingeniería en Marketing - IMK'); }}</li>
-                        <li>{{ HTML::link('transporte/transporte_bsc', 'Escuela de Ingeniería en Gestión de Transporte - EIGT'); }}</li>
+                     	  <li>{{ HTML::link('marketing/marketing_bsc', 'Escuela de Ingeniería en Marketing'); }}</li>
+                        <li>{{ HTML::link('transporte/transporte_bsc', 'Escuela de Ingeniería en Gestión de Transporte'); }}</li>
                    	</ul>
 									</li>
   								</ul></center>

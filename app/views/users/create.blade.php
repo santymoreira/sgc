@@ -147,6 +147,12 @@
 						
 					</p>
 				</fieldset>
+				 @if(Session::get('exist'))
+			        <p>{{ Session::get('exist') }}</p>
+			    @endif
+				 @if(Session::get('msg'))
+			        <p>{{ Session::get('msg') }}</p>
+			    @endif
 				<p>
 					<input type="submit" value="Guardar" class="btn btn-success">
 				</p>

@@ -156,6 +156,12 @@
 					</table>
 				</p>		
 				</fieldset>
+				 @if(Session::get('exist'))
+			        <p>{{ Session::get('exist') }}</p>
+			    @endif
+				 @if(Session::get('msg'))
+			        <p>{{ Session::get('msg') }}</p>
+			    @endif
 				</p>
 					  @foreach($funcion as $funcion)
 			   			
