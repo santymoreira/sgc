@@ -10,8 +10,13 @@ class UserController extends \BaseController {
 		return View::make('users.empleados')->with('users',$query); 
 	}
 	public function newuser()	{
-		return View::make('users.create');
+
+	    $cedula =DB::select('SELECT ci FROM empleado');
+		return View::make('users.create')->with('ci',$cedula);
 	}
+	
+
+
 	public function store($esc)
 	{
 		$empleado = new Empleado;

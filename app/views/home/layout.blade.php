@@ -42,7 +42,7 @@
   {{ HTML::style('css/styles.css'); }}
   {{ HTML::style('css/select.css'); }}
   {{ HTML::style('css/feature_table.css'); }}
-  {{ HTML::style('css/jquery-ui-1.8.20.custom.css'); }}
+  {{ HTML::style('css/jquery-ui-1.8.20.custom.css');  }}  
 
    
  
@@ -61,12 +61,17 @@
             <div class="sheet-body">
                  <div class="header">
                     <div class="header-center">        
-                        <a href="DatosPersonales/index.php"  rel="floatbox">
+                     <!--   <a href="DatosPersonales/index.php"  rel="floatbox"> -->
 
                          <!--    <div id="fotoperfil"><img src="{{ asset('images/fotoreal.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>-->
 @if (Auth::user())
 <!--<div id="fotoperfil"><img src="images/{{Session::get('ci') }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>-->
-<div id="fotoperfil"><img src="{{ asset('images/Login/'.Auth::user()->CI); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>
+
+
+   <div id="fotoperfil"><img src="{{ 'images/Login/'.Auth::user()->CI.'.png'}}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>
+   <div id="nombres" width="20" height="300">
+     <p><b>{{ Auth::user()->NOMBRES }}</b></p>
+   </div> 
 @else
    <div id="fotoperfil"><img src="{{ asset('images/Login/fotoreal.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>
 @endif

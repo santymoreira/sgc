@@ -3,7 +3,7 @@ class EmpleadosController extends BaseController {
         //echo("<script>console.log('PHP: ".$tiempo."');</script>");
 
     //metodos Memcached
-    public function memcachedEmpleados($tipoEmpleado,$escuela)
+ /*   public function memcachedEmpleados($tipoEmpleado,$escuela)
     {
         $empleados = Cache::remember(''.$tipoEmpleado.'empleados', 60, function() use ($tipoEmpleado,$escuela)
         { 
@@ -11,7 +11,9 @@ class EmpleadosController extends BaseController {
         }); 
         return $empleados;
        
-    }
+     } */
+
+
 
     public function memcachedValor($escuela,$macroproceso)
     {
@@ -96,12 +98,32 @@ class EmpleadosController extends BaseController {
 
                 //ejecutar usando memcached
                 //-------------------------
-                $empleados=$this->memcachedEmpleados($tipoEmpleado,$escuela);
-                $valor=$this->memcachedValor($escuela,$macroproceso);
+              /*  $empleados=$this->memcachedEmpleados($tipoEmpleado,$escuela);
+                $valor=$this->memcachedValor($escuela,$macroproceso); */
 
                 //ejecutar accediendo a base de datos
                 //$empleados = DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE et.COD_TIPO =? AND et.COD_ESCUELA=?',array($tipoEmpleado,$escuela));
                 //$valor=Empleado::storedProcedureCall('call calcularValor( '.$escuela.','.$macroproceso.')');
+                try {
+                    $empleados = Cache::remember(''.$tipoEmpleado.'empleados', 60, function() use ($tipoEmpleado,$escuela)
+                        { 
+                        return DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE et.COD_TIPO =? AND et.COD_ESCUELA=?',array($tipoEmpleado,$escuela));
+                         }); 
+                } catch (Exception $e) {
+                    $empleados = DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE et.COD_TIPO =? AND et.COD_ESCUELA=?',array($tipoEmpleado,$escuela));
+                    $valor=Empleado::storedProcedureCall('call calcularValor( '.$escuela.','.$macroproceso.')');
+                }
+
+
+              
+              
+             
+                //if (!$empleados) {
+                 //   $empleados = DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE et.COD_TIPO =? AND et.COD_ESCUELA=?',array($tipoEmpleado,$escuela));
+                //}
+
+
+
 
                 if ($objeto==1) {
                     return View::make('empleados.contenido', array('empleados' => $empleados,'valor' => $valor,'fecha1'=>$fecha1,'fecha2'=>$fecha2,'macro'=>$macroproceso,'escuela'=>$escuela,'proceso'=>$proceso));

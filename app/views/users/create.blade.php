@@ -42,6 +42,26 @@
 @section('content')
 @stop
 
+<!-- Autocompletar Inputs -->
+{{$arreglo_php = array(); }}
+@foreach($ci as $cedula)
+		{{ array_push($arreglo_php, $cedula->ci); }}
+@endforeach
+
+<!-- Scripts -->
+ 		<script>
+              $(function(){
+                var autocompletar = new Array();
+                <?php // obtener lo que necesitamos
+                 for($p = 0;$p < count($arreglo_php); $p++){ //usamos count para saber cuantos elementos hay ?>
+                   autocompletar.push('<?php echo $arreglo_php[$p]; ?>');
+                 <?php } ?>
+                 $("#ciComp").autocomplete({ //Usamos el ID de la caja de texto donde lo queremos
+                   source: autocompletar //Le decimos que nuestra fuente es el arreglo
+                 });
+              });
+        </script>
+
 @section('body')
 
 <center><h3>Administración de empleados</h3></center>
@@ -80,8 +100,9 @@
   		</div> 
   		<div class="panel-body" >
   			<form method="post" action="store/{{$var}}">
+			
 				<p>
-					<input type="text" name="ci" placeholder="Cédula de Identidad" class="form-control" >
+					<input type="text" id="ciComp" name="ci" placeholder="Cédula de Identidad" class="form-control" >
 				</p>
 				{{$errors->first('ci')}}
 				<p>

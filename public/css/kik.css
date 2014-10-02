@@ -91,6 +91,12 @@
 	height: 45px;
 	z-index: 1;
 }
+#nombres {
+	position: absolute;
+	left: 720px;
+	top: 10px;
+	z-index: 1;	
+}
         body,td,th {
 	font-family: GOTHIC;
 }
