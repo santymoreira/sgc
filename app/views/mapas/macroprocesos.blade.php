@@ -4,6 +4,9 @@
 	@parent
 	{{ HTML::style('css/StylesMacroprocesos.css'); $var=Session::get('escuela'); }}
 @stop
+@section('not_general_styles')
+{{ HTML::script('js/framebox_modal.js'); }}
+@stop
 
 @section('options')
    	

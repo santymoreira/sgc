@@ -68,7 +68,7 @@
 <!--<div id="fotoperfil"><img src="images/{{Session::get('ci') }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>-->
 
 
-   <div id="fotoperfil"><img src="{{ 'images/Login/'.Auth::user()->CI.'.png'}}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>
+   <div id="fotoperfil"><img src="{{ asset('images/Login/'.Auth::user()->CI.'.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>
    <div id="nombres" width="20" height="300">
      <p><b>{{ Auth::user()->NOMBRES }}</b></p> 
    </div> 
