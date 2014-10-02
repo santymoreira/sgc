@@ -39,7 +39,7 @@
 <input type="hidden" id="cedula" value="{{ $cedula }}">
 <input type="hidden" id="codigo" value="{{ $codigo }}">
 <input type="hidden" id="tipoReporte" value="{{ $tipoReporte }}">
-<input type="hidden" id="nombres" value="{{ $nombres }}">
+<input type="hidden" id="name" value="{{ $name }}">
 <input type="hidden" id="mail" value="{{ $mail }}">
 
 
@@ -70,10 +70,10 @@ var proceso=0;
     var cedula=$('#cedula').val();
     var codigo=$('#codigo').val();
     var tipoReporte=$('#tipoReporte').val();
-    var nombres=$('#nombres').val();
+    var name=$('#name').val();
     var mail=$('#mail').val();
 
-    $('#tablares').load("../../../tabla",{escuela:escuela,tipoEmpleado:tipo,macroproceso:macro,proceso:proceso,cedula:cedula,codigo:codigo,tipoReporte:tipoReporte,mes:seleccion,nombres:nombres,mail:mail});
+    $('#tablares').load("../../../tabla",{escuela:escuela,tipoEmpleado:tipo,macroproceso:macro,proceso:proceso,cedula:cedula,codigo:codigo,tipoReporte:tipoReporte,mes:seleccion,name:name,mail:mail});
 });
 
 

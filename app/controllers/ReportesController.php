@@ -48,10 +48,11 @@ class ReportesController extends BaseController {
             {
                 $codigoEmpleado=Auth::user()->COD_EMPLEADO;
                 $cedulaEmpleado=Auth::user()->CI;
-                $nombres=Auth::user()->NOMBRES;
+                $name=Auth::user()->NOMBRES;
+                //echo("<script>console.log('PHP: ".$nombres."');</script>");
                 $mail=Auth::user()->EMAIL;
                 $tipos=$this->getTipos($codigoEmpleado,$escuela);
-                return View::make('reportes.individual', array('tipoEmpleados' => $tipos,'escuela' =>$escuela,'cedula'=>$cedulaEmpleado,'codigo'=>$codigoEmpleado,'nombres'=>$nombres,'mail'=>$mail,'tipoReporte'=>$tipo));
+                return View::make('reportes.individual', array('tipoEmpleados' => $tipos,'escuela' =>$escuela,'cedula'=>$cedulaEmpleado,'codigo'=>$codigoEmpleado,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipo));
             }
             else
             {
@@ -69,12 +70,12 @@ class ReportesController extends BaseController {
         $cedula=Input::get('cedula');
         $codigo=Input::get('codigo');
         $tipoReporte=Input::get('tipoReporte');
-        $nombres=Input::get('nombres');
+        $name=Input::get('name');
         $mail=Input::get('mail');
-
+        //echo("<script>console.log('PHP: ".$name."');</script>");
         $macroprocesos=DB::select('SELECT distinct(m.COD_MACROPROCESO) as OBJETIVO,m.NOMBRE as DESCRIPCION from macroproceso as m inner join proceso as p on m.COD_MACROPROCESO=p.COD_MACROPROCESO where p.TIPO_EMPLEADO='.$tipoEmpleado.';');
         //echo("<script>console.log('PHP: ".$escuela."');</script>");
-        return View::make('reportes.macroprocesos', array('macroprocesos' => $macroprocesos,'tipoEmpleado' => $tipoEmpleado,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'nombres'=>$nombres,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
+        return View::make('reportes.macroprocesos', array('macroprocesos' => $macroprocesos,'tipoEmpleado' => $tipoEmpleado,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
     }
 
         public function mensualE($escuela,$tipo)
@@ -180,16 +181,16 @@ class ReportesController extends BaseController {
         $cedula=Input::get('cedula');
         $codigo=Input::get('codigo');
         $tipoReporte=Input::get('tipoReporte');
-        $nombres=Input::get('nombres');
+        $name=Input::get('name');
         $mail=Input::get('mail');
 
-        //echo("<script>console.log('PHP: ".$cedula."');</script>");
+        //echo("<script>console.log('PHP: ".$name."');</script>");
     	$proceso = DB::table('proceso')->where('TIPO_EMPLEADO', '=', $tipoEmpleado)->where('COD_MACROPROCESO','=',$macroproceso)->get();
         if ($tipoReporte==1 || $tipoReporte==4) {
-            return View::make('reportes.procesos', array('procesos' => $proceso,'tipoEmpleado' => $tipoEmpleado,'macroproceso' => $macroproceso,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'nombres'=>$nombres,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
+            return View::make('reportes.procesos', array('procesos' => $proceso,'tipoEmpleado' => $tipoEmpleado,'macroproceso' => $macroproceso,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
         }
          if ($tipoReporte==2 || $tipoReporte==3) {
-            return View::make('reportes.procesosBusqueda', array('procesos' => $proceso,'tipoEmpleado' => $tipoEmpleado,'macroproceso' => $macroproceso,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'nombres'=>$nombres,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
+            return View::make('reportes.procesosBusqueda', array('procesos' => $proceso,'tipoEmpleado' => $tipoEmpleado,'macroproceso' => $macroproceso,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
         }
     	 
     }
@@ -204,14 +205,15 @@ class ReportesController extends BaseController {
             $proceso=Input::get('proceso');
             $cedula=Input::get('cedula');//
             $codigo=Input::get('codigo');
-            $nombres=Input::get('nombres');//
+            $name=Input::get('name');//
             $mail=Input::get('mail');
             $suma=0;
+            echo("<script>console.log('PHP: ".$name."');</script>");
         if ($tipoReporte==1 || $tipoReporte==4) 
         {
             //echo("<script>console.log('PHP: ".$escuela."');</script>");
             $indicadores=DB::select('SELECT DISTINCT I.COD_INDICADOR,I.COD_PROCESO,I.FECHA_INICIO,I.FECHA_FIN,I.COD_MACROPROCESO,I.COD_EMPLEADO FROM indicador AS I INNER JOIN proceso AS P ON P.COD_PROCESO=I.COD_PROCESO WHERE I.COD_EMPLEADO=? AND I.COD_PROCESO=? AND I.COD_MACROPROCESO=? AND I.COD_ESCUELA=? ORDER BY I.FECHA_FIN DESC LIMIT 31',array($codigo,$proceso,$macroproceso,$escuela));
-            return View::make('reportes.tabla', array('indicadores' => $indicadores,'escuela' =>$escuela,'macroproceso'=>$macroproceso,'proceso'=>$proceso,'codigoEmpleado'=>$codigo,'cedula'=>$cedula,'codigo'=>$codigo,'nombres'=>$nombres,'mail'=>$mail));
+            return View::make('reportes.tabla', array('indicadores' => $indicadores,'escuela' =>$escuela,'macroproceso'=>$macroproceso,'proceso'=>$proceso,'codigoEmpleado'=>$codigo,'cedula'=>$cedula,'codigo'=>$codigo,'name'=>$name,'mail'=>$mail));
         }
         if ($tipoReporte==2 || $tipoReporte==3) 
         {
@@ -225,7 +227,7 @@ class ReportesController extends BaseController {
                 # code...
                  $suma=$suma/$totalIndicadores;
             }
-            return View::make('reportes.tablaMensual', array('escuela' =>$escuela,'macroproceso'=>$macroproceso,'proceso'=>$proceso,'codigoEmpleado'=>$codigo,'cedula'=>$cedula,'codigo'=>$codigo,'suma'=>$suma,'mes'=>$mes,'nombres'=>$nombres,'mail'=>$mail));
+            return View::make('reportes.tablaMensual', array('escuela' =>$escuela,'macroproceso'=>$macroproceso,'proceso'=>$proceso,'codigoEmpleado'=>$codigo,'cedula'=>$cedula,'codigo'=>$codigo,'suma'=>$suma,'mes'=>$mes,'name'=>$name,'mail'=>$mail));
         }
         
     }

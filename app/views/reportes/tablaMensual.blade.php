@@ -42,7 +42,7 @@
 
              <center> 
          
-                <a href="../../../pdfReporteMensual/{{$escuela}}/{{$macroproceso}}/{{$proceso}}/{{$mes}}/{{$cedula}}/{{$codigo}}/{{$suma}}/{{$nombres}}/{{$mail}}" target="_blank" >
+                <a href="../../../pdfReporteMensual/{{$escuela}}/{{$macroproceso}}/{{$proceso}}/{{$mes}}/{{$cedula}}/{{$codigo}}/{{$suma}}/{{$name}}/{{$mail}}" target="_blank" >
                   <button type="submit" class='buttons'  type='submit'  name='submit' id='bpdf'>
                     <img src="{{ asset('images/pdfd.png'); }}" alt=""/> PDF 
                   </button> 
