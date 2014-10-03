@@ -526,7 +526,11 @@ class ReportesController extends BaseController {
             return View::make("reportes/imagenReporte");
          
          
-             }
+             }else{
+        Login::logout();
+         return View::make('home.sinAcceso');
+     }
+             
      }else{
         Login::logout();
          return View::make('home.sinAcceso');
