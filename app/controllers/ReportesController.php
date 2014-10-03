@@ -48,10 +48,11 @@ class ReportesController extends BaseController {
             {
                 $codigoEmpleado=Auth::user()->COD_EMPLEADO;
                 $cedulaEmpleado=Auth::user()->CI;
-                $nombres=Auth::user()->NOMBRES;
+                $name=Auth::user()->NOMBRES;
+                //echo("<script>console.log('PHP: ".$nombres."');</script>");
                 $mail=Auth::user()->EMAIL;
                 $tipos=$this->getTipos($codigoEmpleado,$escuela);
-                return View::make('reportes.individual', array('tipoEmpleados' => $tipos,'escuela' =>$escuela,'cedula'=>$cedulaEmpleado,'codigo'=>$codigoEmpleado,'nombres'=>$nombres,'mail'=>$mail,'tipoReporte'=>$tipo));
+                return View::make('reportes.individual', array('tipoEmpleados' => $tipos,'escuela' =>$escuela,'cedula'=>$cedulaEmpleado,'codigo'=>$codigoEmpleado,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipo));
             }
             else
             {
@@ -69,12 +70,12 @@ class ReportesController extends BaseController {
         $cedula=Input::get('cedula');
         $codigo=Input::get('codigo');
         $tipoReporte=Input::get('tipoReporte');
-        $nombres=Input::get('nombres');
+        $name=Input::get('name');
         $mail=Input::get('mail');
-
+        //echo("<script>console.log('PHP: ".$name."');</script>");
         $macroprocesos=DB::select('SELECT distinct(m.COD_MACROPROCESO) as OBJETIVO,m.NOMBRE as DESCRIPCION from macroproceso as m inner join proceso as p on m.COD_MACROPROCESO=p.COD_MACROPROCESO where p.TIPO_EMPLEADO='.$tipoEmpleado.';');
         //echo("<script>console.log('PHP: ".$escuela."');</script>");
-        return View::make('reportes.macroprocesos', array('macroprocesos' => $macroprocesos,'tipoEmpleado' => $tipoEmpleado,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'nombres'=>$nombres,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
+        return View::make('reportes.macroprocesos', array('macroprocesos' => $macroprocesos,'tipoEmpleado' => $tipoEmpleado,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
     }
 
         public function mensualE($escuela,$tipo)
@@ -180,16 +181,16 @@ class ReportesController extends BaseController {
         $cedula=Input::get('cedula');
         $codigo=Input::get('codigo');
         $tipoReporte=Input::get('tipoReporte');
-        $nombres=Input::get('nombres');
+        $name=Input::get('name');
         $mail=Input::get('mail');
 
-        //echo("<script>console.log('PHP: ".$cedula."');</script>");
+        //echo("<script>console.log('PHP: ".$name."');</script>");
     	$proceso = DB::table('proceso')->where('TIPO_EMPLEADO', '=', $tipoEmpleado)->where('COD_MACROPROCESO','=',$macroproceso)->get();
         if ($tipoReporte==1 || $tipoReporte==4) {
-            return View::make('reportes.procesos', array('procesos' => $proceso,'tipoEmpleado' => $tipoEmpleado,'macroproceso' => $macroproceso,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'nombres'=>$nombres,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
+            return View::make('reportes.procesos', array('procesos' => $proceso,'tipoEmpleado' => $tipoEmpleado,'macroproceso' => $macroproceso,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
         }
          if ($tipoReporte==2 || $tipoReporte==3) {
-            return View::make('reportes.procesosBusqueda', array('procesos' => $proceso,'tipoEmpleado' => $tipoEmpleado,'macroproceso' => $macroproceso,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'nombres'=>$nombres,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
+            return View::make('reportes.procesosBusqueda', array('procesos' => $proceso,'tipoEmpleado' => $tipoEmpleado,'macroproceso' => $macroproceso,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
         }
     	 
     }
@@ -204,14 +205,15 @@ class ReportesController extends BaseController {
             $proceso=Input::get('proceso');
             $cedula=Input::get('cedula');//
             $codigo=Input::get('codigo');
-            $nombres=Input::get('nombres');//
+            $name=Input::get('name');//
             $mail=Input::get('mail');
             $suma=0;
+            echo("<script>console.log('PHP: ".$name."');</script>");
         if ($tipoReporte==1 || $tipoReporte==4) 
         {
             //echo("<script>console.log('PHP: ".$escuela."');</script>");
             $indicadores=DB::select('SELECT DISTINCT I.COD_INDICADOR,I.COD_PROCESO,I.FECHA_INICIO,I.FECHA_FIN,I.COD_MACROPROCESO,I.COD_EMPLEADO FROM indicador AS I INNER JOIN proceso AS P ON P.COD_PROCESO=I.COD_PROCESO WHERE I.COD_EMPLEADO=? AND I.COD_PROCESO=? AND I.COD_MACROPROCESO=? AND I.COD_ESCUELA=? ORDER BY I.FECHA_FIN DESC LIMIT 31',array($codigo,$proceso,$macroproceso,$escuela));
-            return View::make('reportes.tabla', array('indicadores' => $indicadores,'escuela' =>$escuela,'macroproceso'=>$macroproceso,'proceso'=>$proceso,'codigoEmpleado'=>$codigo,'cedula'=>$cedula,'codigo'=>$codigo,'nombres'=>$nombres,'mail'=>$mail));
+            return View::make('reportes.tabla', array('indicadores' => $indicadores,'escuela' =>$escuela,'macroproceso'=>$macroproceso,'proceso'=>$proceso,'codigoEmpleado'=>$codigo,'cedula'=>$cedula,'codigo'=>$codigo,'name'=>$name,'mail'=>$mail));
         }
         if ($tipoReporte==2 || $tipoReporte==3) 
         {
@@ -225,7 +227,7 @@ class ReportesController extends BaseController {
                 # code...
                  $suma=$suma/$totalIndicadores;
             }
-            return View::make('reportes.tablaMensual', array('escuela' =>$escuela,'macroproceso'=>$macroproceso,'proceso'=>$proceso,'codigoEmpleado'=>$codigo,'cedula'=>$cedula,'codigo'=>$codigo,'suma'=>$suma,'mes'=>$mes,'nombres'=>$nombres,'mail'=>$mail));
+            return View::make('reportes.tablaMensual', array('escuela' =>$escuela,'macroproceso'=>$macroproceso,'proceso'=>$proceso,'codigoEmpleado'=>$codigo,'cedula'=>$cedula,'codigo'=>$codigo,'suma'=>$suma,'mes'=>$mes,'name'=>$name,'mail'=>$mail));
         }
         
     }
@@ -530,6 +532,206 @@ class ReportesController extends BaseController {
          return View::make('home.sinAcceso');
      }
     }
+
+
+        public function imagenReporteConsolidadoEscuela($escuela)
+    {    
+         $tiempo=Login::tiempoSesion();
+        $tipo=Login::tipoEmpleado();
+        $total=0;
+
+        if ($tiempo==1) {
+            if ($tipo==1 || $tipo==2) {
+
+                for ($i=1; $i <= 7; $i++) 
+                { 
+                    $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.','.$escuela.')');
+                    foreach ($Indicadores as $indicador) 
+                    {
+                        $total+=$indicador->resultado;
+                          $f1=$indicador->fecha1;
+                         $f2=$indicador->fecha2;
+                         echo("<script>console.log('PHP: ".$total."');</script>");
+                    }
+                }
+
+
+        $macro="";
+        $school=$this->getEscuela($escuela);
+       // $maximo=$this->getValorTotal($escuela,$macroproceso);
+        $mes=$this->getMes($f1);
+        //$mes="Enero";
+
+        include("pChart2.1.4/class/pData.class.php");
+        include("pChart2.1.4/class/pDraw.class.php");
+        include("pChart2.1.4/class/pImage.class.php");
+        include("pChart2.1.4/class/pIndicator.class.php");
+        
+        //Create and populate the pData object 
+         $MyData = new pData();  
+         $MyData->addPoints(array(4,12,15,8,5,-5),"Probe 1");
+         $MyData->addPoints(array(7,2,4,14,8,3),"Probe 2");
+         $MyData->setAxisName(0,"Temperatures");
+         $MyData->setAxisUnit(0,"°C");
+         $MyData->addPoints(array("Jan","Feb","Mar","Apr","May","Jun"),"Labels");
+         $MyData->setSerieDescription("Labels","Months");
+         $MyData->setAbscissa("Labels");
+         /* Create the pChart object*/ 
+
+         $myPicture = new pImage(590,200,$MyData);
+         /* Draw the background */
+         $Settings = array("R"=>0, "G"=>0, "B"=>255, "Dash"=>1, "DashR"=>0, "DashG"=>0, "DashB"=>255);
+         $myPicture->drawFilledRectangle(0,0,900,330,$Settings);
+
+         /* Overlay with a gradient */
+         $Settings = array("StartR"=>219, "StartG"=>231, "StartB"=>139, "EndR"=>1, "EndG"=>138, "EndB"=>68, "Alpha"=>50);
+         $myPicture->drawGradientArea(0,0,900,330,DIRECTION_VERTICAL,$Settings);
+         $myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>0,"StartG"=>0,"StartB"=>0,"EndR"=>50,"EndG"=>50,"EndB"=>50,"Alpha"=>80));
+
+         /* Add a border to the picture */
+         $myPicture->drawRectangle(0,0,899,329,array("R"=>0,"G"=>0,"B"=>0));
+         
+         /* Write the picture title */ 
+         $myPicture->setFontProperties(array("FontName"=>"pChart2.1.4/fonts/Forgotte.ttf","FontSize"=>10));//tamaño letra
+         $myPicture->drawText(20,25,$macro,array("R"=>255,"G"=>255,"B"=>255));
+
+         
+         /* Enable shadow computing */  
+         $myPicture->setShadow(TRUE,array("X"=>1,"Y"=>1,"R"=>0,"G"=>0,"B"=>0,"Alpha"=>20)); 
+
+        // /* Write some text */  
+         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+         $myPicture->drawText(30,172,'Porcentaje: '.$total,$TextSettings); 
+         
+         // /* Write some text */  
+         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+           $myPicture->drawText(380,172,"Mes: ".$mes."     Año: ".$f2,$TextSettings); 
+         
+         /* Create the pIndicator object */ 
+         $Indicator = new pIndicator($myPicture);
+
+         $myPicture->setFontProperties(array("FontName"=>"pChart2.1.4/fonts/pf_arma_five.ttf","FontSize"=>8));//letra aki
+
+         /* Define the indicator sections */
+         $IndicatorSections   = "";
+         $IndicatorSections[] = array("Start"=>0,"End"=>70,"Caption"=>"Bajo","R"=>200,"G"=>0,"B"=>0);
+         $IndicatorSections[] = array("Start"=>71,"End"=>90,"Caption"=>"Moderado","R"=>226,"G"=>74,"B"=>14);
+         $IndicatorSections[] = array("Start"=>91,"End"=>100,"Caption"=>"Alto","R"=>0,"G"=>140,"B"=>0);
+
+         /* Draw the 1st indicator */
+         $IndicatorSettings = array("Values"=>round($total,2),"ValueFontName"=>"pChart2.1.4/fonts/Forgotte.ttf","ValueFontSize"=>12,"IndicatorSections"=>$IndicatorSections,"SubCaptionColorFactor"=>300);
+         $Indicator->draw(25,70,550,50,$IndicatorSettings);//cambiar tamaño aki
+         
+             $myPicture->render("images/example.drawIndicator.png");
+            return View::make("reportes/imagenReporte");
+         
+         
+             }
+     }else{
+        Login::logout();
+         return View::make('home.sinAcceso');
+     }
+    }
+
+            public function imagenReporteConsolidadoFade()
+    {    
+         $tiempo=Login::tiempoSesion();
+        $tipo=Login::tipoEmpleado();
+        $total=0;
+
+        if ($tiempo==1) {
+            if ($tipo==1 || $tipo==2) {
+
+                for ($i=1; $i <= 7; $i++) 
+                { 
+                    $Indicadores=Empleado::storedProcedureCall('CALL consolidadoFade('.$i.')');
+                    foreach ($Indicadores as $indicador) 
+                    {
+                        $total+=$indicador->resultado;
+                          $f1=$indicador->fecha1;
+                         $f2=$indicador->fecha2;
+                        // echo("<script>console.log('PHP: ".$total."');</script>");
+                    }
+                }
+
+
+        $macro="";
+        $school=$this->getEscuela($escuela);
+       // $maximo=$this->getValorTotal($escuela,$macroproceso);
+        $mes=$this->getMes($f1);
+        //$mes="Enero";
+
+        include("pChart2.1.4/class/pData.class.php");
+        include("pChart2.1.4/class/pDraw.class.php");
+        include("pChart2.1.4/class/pImage.class.php");
+        include("pChart2.1.4/class/pIndicator.class.php");
+        
+        //Create and populate the pData object 
+         $MyData = new pData();  
+         $MyData->addPoints(array(4,12,15,8,5,-5),"Probe 1");
+         $MyData->addPoints(array(7,2,4,14,8,3),"Probe 2");
+         $MyData->setAxisName(0,"Temperatures");
+         $MyData->setAxisUnit(0,"°C");
+         $MyData->addPoints(array("Jan","Feb","Mar","Apr","May","Jun"),"Labels");
+         $MyData->setSerieDescription("Labels","Months");
+         $MyData->setAbscissa("Labels");
+         /* Create the pChart object*/ 
+
+         $myPicture = new pImage(590,200,$MyData);
+         /* Draw the background */
+         $Settings = array("R"=>0, "G"=>0, "B"=>255, "Dash"=>1, "DashR"=>0, "DashG"=>0, "DashB"=>255);
+         $myPicture->drawFilledRectangle(0,0,900,330,$Settings);
+
+         /* Overlay with a gradient */
+         $Settings = array("StartR"=>219, "StartG"=>231, "StartB"=>139, "EndR"=>1, "EndG"=>138, "EndB"=>68, "Alpha"=>50);
+         $myPicture->drawGradientArea(0,0,900,330,DIRECTION_VERTICAL,$Settings);
+         $myPicture->drawGradientArea(0,0,900,40,DIRECTION_VERTICAL,array("StartR"=>0,"StartG"=>0,"StartB"=>0,"EndR"=>50,"EndG"=>50,"EndB"=>50,"Alpha"=>80));
+
+         /* Add a border to the picture */
+         $myPicture->drawRectangle(0,0,899,329,array("R"=>0,"G"=>0,"B"=>0));
+         
+         /* Write the picture title */ 
+         $myPicture->setFontProperties(array("FontName"=>"pChart2.1.4/fonts/Forgotte.ttf","FontSize"=>10));//tamaño letra
+         $myPicture->drawText(20,25,$macro,array("R"=>255,"G"=>255,"B"=>255));
+
+         
+         /* Enable shadow computing */  
+         $myPicture->setShadow(TRUE,array("X"=>1,"Y"=>1,"R"=>0,"G"=>0,"B"=>0,"Alpha"=>20)); 
+
+        // /* Write some text */  
+         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+         $myPicture->drawText(30,172,'Porcentaje: '.$total,$TextSettings); 
+         
+         // /* Write some text */  
+         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+           $myPicture->drawText(380,172,"Mes: ".$mes."     Año: ".$f2,$TextSettings); 
+         
+         /* Create the pIndicator object */ 
+         $Indicator = new pIndicator($myPicture);
+
+         $myPicture->setFontProperties(array("FontName"=>"pChart2.1.4/fonts/pf_arma_five.ttf","FontSize"=>8));//letra aki
+
+         /* Define the indicator sections */
+         $IndicatorSections   = "";
+         $IndicatorSections[] = array("Start"=>0,"End"=>70,"Caption"=>"Bajo","R"=>200,"G"=>0,"B"=>0);
+         $IndicatorSections[] = array("Start"=>71,"End"=>90,"Caption"=>"Moderado","R"=>226,"G"=>74,"B"=>14);
+         $IndicatorSections[] = array("Start"=>91,"End"=>100,"Caption"=>"Alto","R"=>0,"G"=>140,"B"=>0);
+
+         /* Draw the 1st indicator */
+         $IndicatorSettings = array("Values"=>round($total,2),"ValueFontName"=>"pChart2.1.4/fonts/Forgotte.ttf","ValueFontSize"=>12,"IndicatorSections"=>$IndicatorSections,"SubCaptionColorFactor"=>300);
+         $Indicator->draw(25,70,550,50,$IndicatorSettings);//cambiar tamaño aki
+         
+             $myPicture->render("images/example.drawIndicator.png");
+            return View::make("reportes/imagenReporte");
+         
+         
+             }
+     }else{
+        Login::logout();
+         return View::make('home.sinAcceso');
+     }
+    }
+
     public function pdfReporte($escuela,$macroproceso,$proceso,$f1,$f2,$cedula,$codigo,$nombres,$mail)
     {
         $school=$this->getEscuela($escuela);

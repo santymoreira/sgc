@@ -60,7 +60,7 @@
     $('#date1').change(function(){
         var a=$("#date1").val();
         var b=$("#date3").val();
-        if(a<b){
+        if(a<=b){
          $("#date2").prop('disabled', false);
         }
         else{

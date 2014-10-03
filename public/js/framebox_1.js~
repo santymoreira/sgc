@@ -113,8 +113,8 @@ Floatbox.prototype = {
 	loaderDelay: 200,
 	autoSizeSpace: 4,
 	initialSize: 120,
-	defaultWidth: '85%',
-	defaultHeight: '82%',
+	defaultWidth: '150%',
+	defaultHeight: '150%',
 init: function() {
 	this.setOptions(this.defaultOptions);
 	if (typeof fbPageOptions === 'object') this.setOptions(fbPageOptions);

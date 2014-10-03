@@ -55,7 +55,7 @@
 <input type="hidden" id="cedula" value="{{ $cedula }}">
 <input type="hidden" id="codigo" value="{{ $codigo }}">
 <input type="hidden" id="tipoReporte" value="{{ $tipoReporte }}">
-<input type="hidden" id="nombres" value="{{ $nombres }}">
+<input type="hidden" id="name" value="{{ $name }}">
 <input type="hidden" id="mail" value="{{ $mail }}">
 
 

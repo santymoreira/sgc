@@ -2,6 +2,9 @@
 @section('Different_Styles')
 {{ HTML::style('css/menu24.css'); }} 
 @stop
+@section('not_general_styles')
+{{ HTML::script('js/framebox_modal.js'); }}
+@stop
 @section('options')
    	
    			 <div id="menu">
@@ -38,7 +41,7 @@
                <div id="central-content"> </br></br>
                    <center>
                     <label>Avance SGC&nbsp;&nbsp;&nbsp;</label>
-               			<a rel="floatbox" class="fbPopup" href="Vista/ReportesIndicadores/pChart2.1.4/examples/pictures/#" />
+               			<a rel="floatbox" class="fbPopup" href="../consolidadoEscuela/{{Session::get('escuela')}}" />
                				<input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/>
                			</a>  <br/><br/>
                    	<img src="{{ asset('images/Empresas/Empresas.png') }}" width="850" height="295">

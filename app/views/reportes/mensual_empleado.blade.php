@@ -15,8 +15,8 @@
    	
    	<div id="menu">
 		<ul>
-			<li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/cont_audi_sgc', 'Macroproceso'); }} 
-      <li class="nivel1"><a id="back" class="nivel1" href="">Atras</a>
+			<li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio'); }} 
+      <li class="nivel1"><a id="back" class="nivel1"href="{{ URL::previous() }}">Atras</a>
          </ul>			
     </div> 
 @stop
@@ -62,7 +62,7 @@
 });
       $('#back').click(function(e)
       {
-        alert('sale');
+        //alert('sale');
       });
 
   });
