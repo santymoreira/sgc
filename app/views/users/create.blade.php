@@ -42,25 +42,7 @@
 @section('content')
 @stop
 
-<!-- Autocompletar Inputs -->
-{{$arreglo_php = array(); }}
-@foreach($ci as $cedula)
-		{{ array_push($arreglo_php, $cedula->ci); }}
-@endforeach
 
-<!-- Scripts -->
- 		<script>
-              $(function(){
-                var autocompletar = new Array();
-                <?php // obtener lo que necesitamos
-                 for($p = 0;$p < count($arreglo_php); $p++){ //usamos count para saber cuantos elementos hay ?>
-                   autocompletar.push('<?php echo $arreglo_php[$p]; ?>');
-                 <?php } ?>
-                 $("#ciComp").autocomplete({ //Usamos el ID de la caja de texto donde lo queremos
-                   source: autocompletar //Le decimos que nuestra fuente es el arreglo
-                 });
-              });
-        </script>
 
 @section('body')
 
@@ -174,6 +156,10 @@
 				 @if(Session::get('msg'))
 			        <p>{{ Session::get('msg') }}</p>
 			    @endif
+			     @if(Session::get('mismaEsc'))
+			        <p>{{ Session::get('mismaEsc') }}</p>
+			    @endif
+			    
 				<p>
 					<input type="submit" value="Guardar" class="btn btn-success">
 				</p>

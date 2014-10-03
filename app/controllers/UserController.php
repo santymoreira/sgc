@@ -55,18 +55,28 @@ class UserController extends \BaseController {
 				  'convencional' => 'regex:/^([0-9])+$/i|size:9',
 			);
 		}
-		else{
+		else{ 
+					$query3=DB::select('SELECT COD_EMPLEADO FROM empleado WHERE CI =?', array($cedu));
+						foreach ($query3 as $cont1) {	$aux2 = $cont1->COD_EMPLEADO; }
+			
+				$ExistEsc=DB::select('SELECT COUNT(COD_EMPLEADO) as valor FROM empleado_escuela WHERE COD_EMPLEADO =? AND COD_ESCUELA=?', array($aux2,$esc));
+					foreach ($ExistEsc as $cont) {	$escueMisma = $cont->valor; }
 
-			$inputs	= Input::all();
-			$reglas = array(
-				  'ci' => 'required|regex:/^([0-9])+$/i|size:10a',
-				  'nombres' => 'required',
-				  'email' => 'email',
-				  'celular' => 'regex:/^([0-9])+$/i|size:10',
-				  'convencional' => 'regex:/^([0-9])+$/i|size:9',	
-			);
+					if($escueMisma == 0){ 
+
+						$inputs	= Input::all();
+						$reglas = array(
+							  'ci' => 'required|regex:/^([0-9])+$/i|size:10a',   
+							  'nombres' => 'required',
+							  'email' => 'email',
+							  'celular' => 'regex:/^([0-9])+$/i|size:10',
+							  'convencional' => 'regex:/^([0-9])+$/i|size:9',	
+					);
+				}
+				 else{
+					  	return Redirect::back()->with('mismaEsc', 'Este empleado ya se encuentra registrado en esta Escuela.');
+					 }
 		}
-
 			$mensajes = array(
 					'required' => 'Campo Obligatorio',
 					'size' => 'El campo debe tener la cantidad de dígitos correcta, vuelva a intenralo',
