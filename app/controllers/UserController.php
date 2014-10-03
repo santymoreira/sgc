@@ -62,11 +62,11 @@ class UserController extends \BaseController {
 				$ExistEsc=DB::select('SELECT COUNT(COD_EMPLEADO) as valor FROM empleado_escuela WHERE COD_EMPLEADO =? AND COD_ESCUELA=?', array($aux2,$esc));
 					foreach ($ExistEsc as $cont) {	$escueMisma = $cont->valor; }
 
-					if($escueMisma == 0){
+					if($escueMisma == 0){ 
 
 						$inputs	= Input::all();
 						$reglas = array(
-							  'ci' => 'required|regex:/^([0-9])+$/i|size:10a',
+							  'ci' => 'required|regex:/^([0-9])+$/i|size:10a',   
 							  'nombres' => 'required',
 							  'email' => 'email',
 							  'celular' => 'regex:/^([0-9])+$/i|size:10',
