@@ -71,8 +71,23 @@ border:0px;
 /*float: left;*/
 position: relative;
 }
-ul.uno {left: -370%;width: 710%;}
+
+@-moz-document url-prefix(){
+
+ul.uno {left: -370%;width: 700%;}
 ul.dos {left: -320%;width: 610%;}
 ul.tres {left: -328px;}
 ul.cuatro {left: -20px;}
 ul.cinco {left: -656px;}
+}
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+
+ul.uno {left: -370%;width: 660%;}
+ ul.dos {left: -320%;width: 570%;}
+ul.tres {left: -328px;}
+ul.cuatro {left: -20px;}
+ul.cinco {left: -656px;}
+
+{
