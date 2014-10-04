@@ -16,7 +16,7 @@ class MapasBalancedController extends BaseController {
 	public function home()
 		{
 			return View::make('home.welcome');
-		}
+		}     
 	public function empresas_bsc()
 		{
 			return View::make('mapasbalanced.empresas_bsc');
