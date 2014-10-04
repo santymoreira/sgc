@@ -169,13 +169,14 @@
     		<div id="apDiv104">
     			<img src="{{ asset('images/Responsables/externos.png'); }}">
     		</div>
-      
+      </div>
+       </div>  
   <!-- Footer --> 
             
             </br></br></br></br></br></br></br></br></br></br>
             </br></br></br></br></br></br></br></br></br></br>
             </br></br></br></br></br></br></br></br></br></br>
-            </br></br></br></br></br></br></br></br>
+            </br></br></br></br></br></br></br></br> 
             
         <center>
         <p style="font-size:10px;color:#03F">&nbsp;</p>
@@ -186,6 +187,6 @@
 
             </center> 
 
-     </div>  
+    
 
 @stop     
