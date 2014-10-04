@@ -72,7 +72,7 @@ class ReportesController extends BaseController {
         $tipoReporte=Input::get('tipoReporte');
         $name=Input::get('name');
         $mail=Input::get('mail');
-        //echo("<script>console.log('PHP: ".$name."');</script>");
+
         $macroprocesos=DB::select('SELECT distinct(m.COD_MACROPROCESO) as OBJETIVO,m.NOMBRE as DESCRIPCION from macroproceso as m inner join proceso as p on m.COD_MACROPROCESO=p.COD_MACROPROCESO where p.TIPO_EMPLEADO='.$tipoEmpleado.';');
         //echo("<script>console.log('PHP: ".$escuela."');</script>");
         return View::make('reportes.macroprocesos', array('macroprocesos' => $macroprocesos,'tipoEmpleado' => $tipoEmpleado,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
@@ -113,8 +113,9 @@ class ReportesController extends BaseController {
         $tipoReporte=Input::get('tipoReporte');
         $mail=Input::get('mail');
         $tipos=$this->getTipos($empleado,$escuela);
-       // echo("<script>console.log('PHP: ".$ci."');</script>");
-         return View::make('reportes.individualBusqueda', array('tipoEmpleados' => $tipos,'escuela' =>$escuela,'empleado'=>$empleado,'ci'=>$ci,'nombres'=>$nombres,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
+        //echo("<script>console.log('PHP: ".$ci."');</script>");
+        //echo("<script>console.log('PHP: ".$nombres."');</script>");
+         return View::make('reportes.individualBusqueda', array('tipoEmpleados' => $tipos,'escuela' =>$escuela,'empleado'=>$empleado,'cedula'=>$ci,'nombre'=>$nombres,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
     }
 
     public function buscarEmpleado()
@@ -184,7 +185,6 @@ class ReportesController extends BaseController {
         $name=Input::get('name');
         $mail=Input::get('mail');
 
-        //echo("<script>console.log('PHP: ".$name."');</script>");
     	$proceso = DB::table('proceso')->where('TIPO_EMPLEADO', '=', $tipoEmpleado)->where('COD_MACROPROCESO','=',$macroproceso)->get();
         if ($tipoReporte==1 || $tipoReporte==4) {
             return View::make('reportes.procesos', array('procesos' => $proceso,'tipoEmpleado' => $tipoEmpleado,'macroproceso' => $macroproceso,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
