@@ -56,7 +56,9 @@
 				  <p style="font-size:10px;color:#03F">&nbsp;</p>
 				  <p style="font-size:10px;color:#03F">&nbsp;</p>
 				  <p style="font-size:10px;color:#03F">&nbsp;</p>
-				  <p style="font-size:10px;color:#03F">Copyright © 2014. All Rights Reserved.</p>
+				   <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
+                    <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
+          			  </p>
 				</center>
 			</div>	
 		</div>		

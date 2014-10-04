@@ -273,11 +273,22 @@
      		<img src="{{ asset('images/Responsables/internos_rojo.png') }}">
      	</div>
 
-     	<!-- Footer -->  
-		    
-		<center>
-		     <p style="font-size:10px;color:#03F; position:relative; bottom:0;" >Copyright © 2014. All Rights Reserved.</p>
-  	    </center>	
+     	 <!-- Footer --> 
+            
+            </br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br></br></br></br></br>
+            
+        <center>
+        <p style="font-size:10px;color:#03F">&nbsp;</p>
 
-     </div>
-@stop
+           <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
+                    <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
+            </p>
+
+            </center> 
+
+     </div>  
+
+@stop     

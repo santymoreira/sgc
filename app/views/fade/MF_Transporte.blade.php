@@ -168,7 +168,7 @@
 	        	<img id="vinculacion" style="cursor:pointer;" onclick="Vinculacion()" width="196" height="63" src="{{ asset('images/Fade/vinculacion.png') }}">
 	        </div>
 	        <div id="apDiv111">
-	        	<img id="asistencia" style="cursor:pointer;" width="604" height="48" onclick="Asistencia()" src="{{ asset('images/Fade/asistencia.png') }}">
+	        	<img id="asistencia" style="cursor:pointer;" width="604" height="48" src="{{ asset('images/Fade/asistencia.png') }}">
 	        </div>
 	        <div id="apDiv112">
 	        	<img id="academico" style="cursor:pointer;" onclick="Academico()"  width="604" height="48" src="{{ asset('images/Fade/academico.png') }}">
@@ -177,7 +177,7 @@
 	        	<img id="financiero" style="cursor:pointer;" onclick="Financiero()" width="604" height="48" src="{{ asset('images/Fade/financiero.png') }}">
 	        </div>
 	        <div id="apDiv114">
-	        	<img id="mantenimiento" style="cursor:pointer;" onclick="Mantenimiento()" width="604" height="48" src="{{ asset('images/Fade/mantenimiento.png') }}">
+	        	<img id="mantenimiento" style="cursor:pointer;" width="604" height="48" src="{{ asset('images/Fade/mantenimiento.png') }}">
 	        </div>
 	        <div id="apDiv69">
 	        	<img src="{{ asset('images/Fade/informatico.png') }}" width="604" height="48" id="informatico" onclick="Informatico()" style="cursor:pointer;">
@@ -219,13 +219,24 @@
 	        </div>
 		       
 	    
-	            <!-- Footer -->     	
-		      
-		        <center>
-				   <p style="font-size:10px;color:#03F; position:relative; bottom:0;" >Copyright © 2014. All Rights Reserved.</p>
-				</center>    
+	                                    
+          <!-- Footer --> 
+            
+            </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br></br></br></br></br> </br></br></br></br></br></br></br></br>
+            </br></br></br></br></br></br>
+            
+        <center>
+        <p style="font-size:10px;color:#03F">&nbsp;</p>
 
-    </div>
-	
+           <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
+                    <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
+            </p>
 
-@stop
+            </center> 
+
+     </div>  
+
+@stop     

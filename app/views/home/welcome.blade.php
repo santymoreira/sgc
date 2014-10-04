@@ -16,6 +16,10 @@
                         <div class="layout-cell content">     
                             <div id="central">
                                 <div id="central-content">
+                                 <div style="cursor:pointer;">
+                                        <img src="{{ asset('images/Utilitarios/logo.png'); }}" width="50" height="50"> </img>
+                                 </div>
+                                  <p><b>Volver</b></p>
                                     <div id="avance"></div>
                                         <center><label>Cumplimiento&nbsp;&nbsp;&nbsp;</label><a rel="floatbox" class="fbPopup" href="Vista/ReportesIndicadores/pChart2.1.4/examples/pictures/avancefade.jpg" /><input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/></a> </center>
                                         </br>
@@ -32,7 +36,7 @@
                                                 	<li>Redes Sociales</li>
                                              	</ul>                         
                       							<div class="resp-tabs-container">
-                          							<div id="central-content">
+                                   			<div id="central-content">
                               							<center><img src="{{ asset('images/Utilitarios/logo.png'); }}"> </img></center>
                           							</div>
                          							<div id="central-content">

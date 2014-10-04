@@ -1,7 +1,8 @@
-._css3m {
-         display: none  }.demo {
+ ._css3m {
+         display: none } .demo {
          width: 980px;
          margin: 0px auto;
+
         }
         .demo h1 {
                 margin: 33px 0 25px;
@@ -29,82 +30,97 @@
         
         #apDiv1 {
 	position:absolute;
-	left:602px;
-	top:-19px;
-	width:208px;
-	height:90px;
+	left:593px;
+	top:-20px;
+	width:274px;
+	height:66px;
 	z-index:1;
 }
         #apDiv2 {
-	position: absolute;
-	left: 1032px;
-	top: 51px;
-	width: 69px;
-	height: 52px;
-	z-index: 1;
+	position:absolute;
+	left:908px;
+	top:4px;
+	width:90px;
+	height:96px;
+	z-index:1;
 }
         #apDiv3 {
 	position: absolute;
-	left: 977px;
-	top: 3px;
-	width: 54px;
-	height: 51px;
+	left: 22px;
+	top: 18px;
+	width: 117px;
+	height: 48px;
 	z-index: 1;
 }
         #apDiv4 {
 	position: absolute;
-	left: 852px;
-	top: 233px;
-	width: 64px;
-	height: 31px;
+	left: 978px;
+	top: 18px;
+	width: 51px;
+	height: 40px;
 	z-index: 1;
 }
         #apDiv5 {
 	position: absolute;
-	left: 1100px;
-	top: 223px;
-	width: 62px;
-	height: 28px;
+	left: 323px;
+	top: 331px;
+	width: 112px;
+	height: 38px;
 	z-index: 1;
 }
-        #Logoheader {
+        #apDiv6 {
 	position: absolute;
-	left: 20px;
-	top: 17px;
-	width: 72px;
-	height: 45px;
+	left: 963px;
+	top: 8px;
+	width: 59px;
+	height: 36px;
 	z-index: 1;
 }
         #apDiv7 {
 	position: absolute;
-	left: 1058px;
-	top: 56px;
-	width: 36px;
-	height: 35px;
+	left: 875px;
+	top: 119px;
+	width: 332px;
+	height: 38px;
 	z-index: 1;
 }
-        #fotoperfil {
+        #apDiv8 {
 	position: absolute;
-	left: 90%;
-	top: 12%;
-	width: 44px;
-	height: 45px;
+	left: 123px;
+	top: 243px;
+	width: 299px;
+	height: 159px;
 	z-index: 1;
-}
-#nombres {
-	position: absolute;
-	left: 885px;
-	top: 110px;
-	z-index: 1;	
-}
-        body,td,th {
-	font-family: GOTHIC;
 }
         #apDiv9 {
 	position: absolute;
-	left: 915px;
-	top: 110px;
-	width: 329px;
-	height: 34px;
+	left: 520px;
+	top: 175px;
+	width: 145px;
+	height: 44px;
+	z-index: 1;
+}
+        #apDiv10 {
+	position: absolute;
+	left: 769px;
+	top: 243px;
+	width: 299px;
+	height: 211px;
+	z-index: 1;
+}
+        #apDiv11 {
+	position: absolute;
+	left: 123px;
+	top: 469px;
+	width: 302px;
+	height: 111px;
+	z-index: 1;
+}
+        #apDiv12 {
+	position: absolute;
+	left: 769px;
+	top: 471px;
+	width: 300px;
+	height: 205px;
 	z-index: 1;
 }

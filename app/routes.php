@@ -426,3 +426,5 @@ Route::get('users/destroy/{cod},{esc}','UserController@destroy');
 Route::get('/reportes','ReportesController@Show_reportes');
 //Reporte Individual
 
+//Creditos
+Route::get('Creditos','MapasController@creditos');

@@ -122,4 +122,10 @@ class MapasController extends BaseController {
         	if ($tiempo==1 || $tiempo==0) {return View::make('mapas.M_Mantenimiento');}
         	else{Login::logout();return View::make('home.welcome');}
 	}
+	public function creditos()
+	{
+			return View::make('Creditos');
+    }
+
+
 }

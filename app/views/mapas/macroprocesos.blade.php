@@ -86,9 +86,21 @@
                            		<img onclick="Mantenimiento();" id="mantenimiento" style="cursor:pointer;" src="{{ asset('images/MacroprocesosEscuelas/mantenimiento.png'); }}" width="670" height="51" /> 
                                         <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/7"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
                            </div>
-				<center>
-				   <p style="font-size:10px;color:#03F; position:relative; bottom:0;" >Copyright © 2014. All Rights Reserved.</p>
-				</center>
+				
+
+           
 			</div>	
+        <!-- Footer --> 
+            
+            </br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br></br></br></br></br></br></br>
+        <center>
+        <p style="font-size:10px;color:#03F">&nbsp;</p>
+
+           <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
+                    <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
+            </p>
+      </center>
         </div>
 @stop
