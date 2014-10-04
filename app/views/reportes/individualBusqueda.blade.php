@@ -1,6 +1,6 @@
 </br></br></br>
-	<label><b>CI: </b></label> {{$ci}} </br></br>
-	<label><b>NOMBRES: </b></label> {{ $nombres}} </br></br>
+	<label><b>CI: </b></label> {{$cedula}} </br></br>
+	<label><b>NOMBRES: </b></label> {{ $nombre}} </br></br>
 
 <label><b>TIPO: </b></label>
 	<select id="combo1" class="select" style="width: 200px;">
@@ -22,9 +22,9 @@
 
 <input type="hidden" id="esc" value="{{ $escuela }}">
 <input type="hidden" id="codigo" value="{{ $empleado }}">
-<input type="hidden" id="ci" value="{{ $ci }}">
+<input type="hidden" id="ci" value="{{ $cedula }}">
 <input type="hidden" id="tipoReporte" value="{{ $tipoReporte }}">
-<input type="hidden" id="nombres" value="{{ $nombres }}">
+<input type="hidden" id="nombre" value="{{ $nombre }}">
 <input type="hidden" id="mail" value="{{ $mail }}">
 
 <script type="text/javascript">
@@ -36,11 +36,11 @@
        var codigo=$('#codigo').val();
        var ci=$('#ci').val();
        var tipoReporte=$('#tipoReporte').val();
-       var nombres=$('#nombres').val();
+       var nombres=$('#nombre').val();
        var mail=$('#mail').val();
 
            $("#contenido").load("../../../combo1",
-            {tipoEmpleado: tipoEmpleado,escuela: escuela,tipoReporte:tipoReporte,codigo:codigo,cedula:ci,nombres:nombres,mail:mail}
+            {tipoEmpleado: tipoEmpleado,escuela: escuela,tipoReporte:tipoReporte,codigo:codigo,cedula:ci,name:nombres,mail:mail}
             );
 
 });

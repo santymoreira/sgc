@@ -54,7 +54,6 @@
   			var consult = $("#busqueda").val();
         var tipoReporte=$("#tipoReporte").val();
 	      	e.preventDefault();
-
            $("#resultado").load("../../../buscarEmpleado",
             {consult: consult,escuela:escuela,tipoReporte:tipoReporte}
             );

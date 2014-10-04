@@ -37,7 +37,7 @@
        var name=$('#name').val();
        var mail=$('#mail').val();
        var tipoReporte=$('#tipoReporte').val();
-       //alert(name);
+
 
            $("#contenido2").load("../../../combo2",
             {macroproceso: macroproceso,tipoEmpleado: tipoEmpleado,escuela:escuela,cedula:cedula,codigo:codigo,name:name,mail:mail,tipoReporte:tipoReporte}

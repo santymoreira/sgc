@@ -16,6 +16,26 @@ class ReportesController extends BaseController {
         }
     }
 
+        public function getEscuelaEmpleado()
+    {
+        $escuelaEmpleado=0;
+        $escuelaIngresada=Session::get('escuela');
+         $tipo=Login::tipoEmpleado();
+        $cod=Auth::user()->COD_EMPLEADO;
+        $esc = DB::select('SELECT ee.COD_ESCUELA FROM empleado as e inner join empleado_escuela as ee on e.COD_EMPLEADO=ee.COD_EMPLEADO  where e.COD_EMPLEADO=?',array($cod));
+        if ($tipo==1 || $tipo==2) {
+            $escuelaEmpleado=1;
+        }
+         foreach ($esc as $e) 
+         { 
+            $es=$e->COD_ESCUELA; 
+            if ($es==$escuelaIngresada) {
+                $escuelaEmpleado=1;
+            }
+         }
+         return $escuelaEmpleado;
+    }
+
     # obtiene los tipos de empleado para listarlos en el combo 
     public function getTipos($codigo,$escuela)
     {
@@ -46,6 +66,8 @@ class ReportesController extends BaseController {
             $tipo=Login::tipoEmpleado();
             if ($tiempo == 1) 
             {
+                if ( $this->getEscuelaEmpleado()==1) {
+                    # code...
                 $codigoEmpleado=Auth::user()->COD_EMPLEADO;
                 $cedulaEmpleado=Auth::user()->CI;
                 $name=Auth::user()->NOMBRES;
@@ -53,6 +75,9 @@ class ReportesController extends BaseController {
                 $mail=Auth::user()->EMAIL;
                 $tipos=$this->getTipos($codigoEmpleado,$escuela);
                 return View::make('reportes.individual', array('tipoEmpleados' => $tipos,'escuela' =>$escuela,'cedula'=>$cedulaEmpleado,'codigo'=>$codigoEmpleado,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipo));
+                }else{
+                     return Redirect::back();
+                }
             }
             else
             {
@@ -72,7 +97,7 @@ class ReportesController extends BaseController {
         $tipoReporte=Input::get('tipoReporte');
         $name=Input::get('name');
         $mail=Input::get('mail');
-        //echo("<script>console.log('PHP: ".$name."');</script>");
+
         $macroprocesos=DB::select('SELECT distinct(m.COD_MACROPROCESO) as OBJETIVO,m.NOMBRE as DESCRIPCION from macroproceso as m inner join proceso as p on m.COD_MACROPROCESO=p.COD_MACROPROCESO where p.TIPO_EMPLEADO='.$tipoEmpleado.';');
         //echo("<script>console.log('PHP: ".$escuela."');</script>");
         return View::make('reportes.macroprocesos', array('macroprocesos' => $macroprocesos,'tipoEmpleado' => $tipoEmpleado,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
@@ -84,8 +109,9 @@ class ReportesController extends BaseController {
             $tipo=Login::tipoEmpleado();
             if ($tiempo == 1) 
             {
-                if ($tipo==1 || $tipo==2 || $tipo==3) 
+                if (($tipo==1 || $tipo==2 || $tipo==3) && $this->getEscuelaEmpleado()==1)
                 {
+
                     $ci=Auth::user()->COD_EMPLEADO;
                     return View::make('reportes.mensual_empleado', array('escuela' =>$escuela,'tipoReporte'=>$tipo));
                 }   
@@ -113,8 +139,9 @@ class ReportesController extends BaseController {
         $tipoReporte=Input::get('tipoReporte');
         $mail=Input::get('mail');
         $tipos=$this->getTipos($empleado,$escuela);
-       // echo("<script>console.log('PHP: ".$ci."');</script>");
-         return View::make('reportes.individualBusqueda', array('tipoEmpleados' => $tipos,'escuela' =>$escuela,'empleado'=>$empleado,'ci'=>$ci,'nombres'=>$nombres,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
+        //echo("<script>console.log('PHP: ".$ci."');</script>");
+        //echo("<script>console.log('PHP: ".$nombres."');</script>");
+         return View::make('reportes.individualBusqueda', array('tipoEmpleados' => $tipos,'escuela' =>$escuela,'empleado'=>$empleado,'cedula'=>$ci,'nombre'=>$nombres,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
     }
 
     public function buscarEmpleado()
@@ -184,7 +211,6 @@ class ReportesController extends BaseController {
         $name=Input::get('name');
         $mail=Input::get('mail');
 
-        //echo("<script>console.log('PHP: ".$name."');</script>");
     	$proceso = DB::table('proceso')->where('TIPO_EMPLEADO', '=', $tipoEmpleado)->where('COD_MACROPROCESO','=',$macroproceso)->get();
         if ($tipoReporte==1 || $tipoReporte==4) {
             return View::make('reportes.procesos', array('procesos' => $proceso,'tipoEmpleado' => $tipoEmpleado,'macroproceso' => $macroproceso,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
@@ -192,9 +218,7 @@ class ReportesController extends BaseController {
          if ($tipoReporte==2 || $tipoReporte==3) {
             return View::make('reportes.procesosBusqueda', array('procesos' => $proceso,'tipoEmpleado' => $tipoEmpleado,'macroproceso' => $macroproceso,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
         }
-    	 
     }
-
 
 
     public function tabla()
@@ -526,7 +550,11 @@ class ReportesController extends BaseController {
             return View::make("reportes/imagenReporte");
          
          
-             }
+             }else{
+        Login::logout();
+         return View::make('home.sinAcceso');
+     }
+             
      }else{
         Login::logout();
          return View::make('home.sinAcceso');
