@@ -151,7 +151,7 @@ class ReportesController extends BaseController {
         $tipoReporte=Input::get('tipoReporte');
         $cedulaEmpleado=Auth::user()->CI;
  
-            $empleados=DB::select("SELECT CI,COD_EMPLEADO,NOMBRES,EMAIL FROM empleado WHERE CI !=".$cedulaEmpleado." AND  NOMBRES LIKE '%".$consulta."%'");
+            $empleados=DB::select("SELECT e.CI,e.COD_EMPLEADO,e.NOMBRES,e.EMAIL FROM empleado as e inner join empleado_escuela as ee on e.COD_EMPLEADO=ee.COD_EMPLEADO WHERE ee.COD_ESCUELA=".$escuela." AND e.CI !=".$cedulaEmpleado." AND  e.NOMBRES LIKE '%".$consulta."%'");
             foreach ($empleados as $e) { $em=$e->NOMBRES; }
 
         return View::make('reportes.empleadosFotos',array('empleados' => $empleados,'escuela'=>$escuela,'tipoReporte'=>$tipoReporte));
