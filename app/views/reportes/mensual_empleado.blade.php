@@ -1,24 +1,19 @@
 @extends('home.layout')
 
 @section('Different_Styles')
-	@parent
-	{{ HTML::style('css/StylesAcademica.css'); }}
-	{{ HTML::style('css/Evaluacionfloatbox.css'); }}
-	{{ HTML::script('js/Evaluacionfloatbox.js'); }}
-	{{ HTML::script('js/FocusAcademica.js'); }} 
-	{{ HTML::script('js/jquery.jCombo.min.js'); }} 
-	{{ HTML::script('js/combosAnidados.js'); }} 
+  @parent
+  {{ HTML::style('css/StylesAcademica.css'); }}
+  {{ HTML::style('css/Evaluacionfloatbox.css'); }}
+  {{ HTML::script('js/Evaluacionfloatbox.js'); }}
+  {{ HTML::script('js/FocusAcademica.js'); }} 
+  {{ HTML::script('js/jquery.jCombo.min.js'); }} 
+  {{ HTML::script('js/combosAnidados.js'); }} 
 
 @stop
 
 @section('options')
-   	
-   	<div id="menu">
-		<ul>
-			<li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio'); }} 
-      <li class="nivel1"><a id="back" class="nivel1"href="{{ URL::previous() }}">Atras</a>
-         </ul>			
-    </div> 
+    
+
 @stop
 
 @section('login')

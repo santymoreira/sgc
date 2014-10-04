@@ -66,7 +66,7 @@ class ReportesController extends BaseController {
             $tipo=Login::tipoEmpleado();
             if ($tiempo == 1) 
             {
-                if ( $this->getEscuelaEmpleado()==1) {
+                if ( $this->getEscuelaEmpleado()==1 || $tipo==1) {
                     # code...
                 $codigoEmpleado=Auth::user()->COD_EMPLEADO;
                 $cedulaEmpleado=Auth::user()->CI;
@@ -109,7 +109,7 @@ class ReportesController extends BaseController {
             $tipo=Login::tipoEmpleado();
             if ($tiempo == 1) 
             {
-                if (($tipo==1 || $tipo==2 || $tipo==3) && $this->getEscuelaEmpleado()==1)
+                if (($tipo==1) || (($tipo==2 || $tipo==3) && $this->getEscuelaEmpleado()==1))
                 {
 
                     $ci=Auth::user()->COD_EMPLEADO;

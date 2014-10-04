@@ -15,8 +15,10 @@
    	
    	<div id="menu">
 		<ul>
-			<li class="nivel1"><a class="nivel1" {{ HTML::link('home/cont_audi_sgc', 'Macroproceso'); }} 
-            <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Atras</a>
+					<li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio'); }} 
+			
+			<li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">SGC</a>
+
          </ul>			
     </div> 
 @stop
