@@ -68,7 +68,6 @@ class ReportesController extends BaseController {
             {
                 if ( $this->getEscuelaEmpleado()==1) {
                     # code...
-                
                 $codigoEmpleado=Auth::user()->COD_EMPLEADO;
                 $cedulaEmpleado=Auth::user()->CI;
                 $name=Auth::user()->NOMBRES;
@@ -76,7 +75,9 @@ class ReportesController extends BaseController {
                 $mail=Auth::user()->EMAIL;
                 $tipos=$this->getTipos($codigoEmpleado,$escuela);
                 return View::make('reportes.individual', array('tipoEmpleados' => $tipos,'escuela' =>$escuela,'cedula'=>$cedulaEmpleado,'codigo'=>$codigoEmpleado,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipo));
-            }
+                }else{
+                     return Redirect::back();
+                }
             }
             else
             {
