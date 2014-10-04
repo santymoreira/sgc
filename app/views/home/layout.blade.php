@@ -96,7 +96,7 @@
                               <li>{{ HTML::link('finanzas/finanzas_sgc', 'Escuela de Ingeniería Financiera'); }}</li>
                               <li>{{ HTML::link('marketing/marketing_sgc', 'Escuela de Ingeniería en Marketing'); }}</li>
                               <li>{{ HTML::link('transporte/transporte_sgc', 'Escuela de Ingeniería en Gestión de Transporte'); }}</li>
-                           
+                             
                           
                              
 										</ul>
