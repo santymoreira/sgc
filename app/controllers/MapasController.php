@@ -126,12 +126,13 @@ class MapasController extends BaseController {
         				return View::make('mapas.M_Administrativa');
         			}else{
         				//echo("<script>alert('hola');</script>");
-        				//return View::make('mapas.macroprocesos');
+        				return Redirect::back();
         			}
         	}elseif ($this->permiso()==0) {
+        		return Redirect::back();
         		$nombre = 'logout';
     				  return View::make('mapas.macroprocesos')->with('nombre', $nombre);
-        	}else{Login::logout();}
+        	}else{Login::logout();return Redirect::back();}
         		return View::make('mapas.macroprocesos');
 	}
 	public function academica()

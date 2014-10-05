@@ -37,7 +37,7 @@
                     <p class="empresa">&nbsp;</p>
                     <p class="empresa">&nbsp;</p>
                     <p class="empresa"><b>Dev Team</b></p>
-                    <p class="descripcion"> Desarrollo Web por Gestión de Procesos </p>
+                    <p class="descripcion"> Desarrollo Web, y Automatización de Sistemas de Gestión de Procesos de Calidad </p>
                     <p class="correo"> devteam@outlook.es </p> </center>
              </div>
              <div id="apDiv11">
@@ -45,17 +45,6 @@
                    <center> <p class="empresa"><b>Xperience</b></p>
                     <p class="descripcion"> Diseño de Imagen Corporativa </p>
                     <p class="correo"> xperience_design@outlook.com </p></center>
-             </div>
-             <div id="apDiv12">
-             <br/><br/><br/>
-               		<img src="{{asset('images/Creditos/hellfox2.png')}}" alt="equipo de desarrollo de software Hellfox Team Solutions" width="304" height="100" id="img_hellfox" />
-               		 <p class="empresa">&nbsp;</p>
-               		 <p class="empresa">&nbsp;</p>
-               		 <p class="empresa">&nbsp;</p>
-               	<center>	 <p class="empresa">&nbsp;</p>
-               	  <p class="empresa"><b>HellFox Team Solutions</b></p>
-               		 <p class="descripcion"> Desarrollo Web y Sistemas Informáticos</p>
-               		 <p class="correo"> helfoxteam@outlook.com</p> </center>
              </div>
             	</div>
 

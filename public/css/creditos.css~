@@ -110,7 +110,7 @@
 }
         #apDiv11 {
 	position: absolute;
-	left: 435px;
+	left: 425px;
 	top: 350px;
 	width: 302px;
 	height: 111px;
