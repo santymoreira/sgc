@@ -129,7 +129,8 @@ class MapasController extends BaseController {
         				//return View::make('mapas.macroprocesos');
         			}
         	}elseif ($this->permiso()==0) {
-        		# code...
+        		$nombre = 'logout';
+    				  return View::make('mapas.macroprocesos')->with('nombre', $nombre);
         	}else{Login::logout();}
         		return View::make('mapas.macroprocesos');
 	}
@@ -223,6 +224,10 @@ class MapasController extends BaseController {
         		# code...
         	}else{Login::logout();}
         		return View::make('mapas.macroprocesos');
+	}
+	public function creditos()
+	{;
+		return View::make('Creditos');
 	}
 }
 
