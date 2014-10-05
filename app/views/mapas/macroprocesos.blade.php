@@ -6,10 +6,12 @@
 @stop
 @section('not_general_styles')
 {{ HTML::script('js/framebox_modal.js'); }}
+{{ HTML::script('js/smoke.js'); }}
+{{ HTML::style('css/smoke.css'); $nom=Session::get('nombre'); }}
 @stop
 
 @section('options')
-   	
+
    			 <div id="menu">
 						<ul>
 				               <li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio'); }} 
@@ -62,6 +64,7 @@
                     <img onclick="GestionAdmin();" id="gestionadmin" src="{{ asset('images/MacroprocesosEscuelas/GestionAdmin.png') }}" style="cursor:pointer;" width="670" height="51">
                     <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/4"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
                </div>
+     
                <div id="apDiv23">
                     <img onclick="GestionAcademica();" id="gestionacad" src="{{ asset('images/MacroprocesosEscuelas/GestionAcade.png'); }}" style="cursor:pointer;" width="670" height="51">
                     <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/5"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
@@ -87,8 +90,7 @@
                                         <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/7"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
                            </div>
 				
-
-           
+                  <h1>{{$nom}}</h1>
 			</div>	
         <!-- Footer --> 
             
