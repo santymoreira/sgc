@@ -131,7 +131,7 @@ class MapasController extends BaseController {
         	}elseif ($this->permiso()==0) {
         			  $logout = 'logout';
     				  return View::make('mapas.macroprocesos')->with('logout', $logout);
-        	}
+        	}   
         else{Login::logout();}
         		return View::make('mapas.macroprocesos');
 	}
