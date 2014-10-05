@@ -4,6 +4,8 @@
 @stop
 @section('not_general_styles')
 {{ HTML::script('js/framebox_modal.js'); }}
+{{ HTML::script('js/smoke.js'); }}
+{{ HTML::style('css/smoke.css');  }}
 @stop
 @section('options')
    	
@@ -50,6 +52,19 @@
                </div>
             </div>
              
+              <!-- Mensajes -->
+              @if(!empty($logout))
+                 <script type="text/javascript">
+                    smoke.alert('Ud no tiene acceso, Inicie Sesión')
+                 </script>
+              @endif
+              @if(!empty($denied))
+                 <script type="text/javascript">
+                    smoke.alert('Ud no tiene acceso, Tiene que ser Administrador del Sistema')
+                 </script>
+              @endif
+	
+
       		 <div class="cleared"> 
 				<center> <p style="font-size:10px;color:#03F">&nbsp;</p>
 				  <p style="font-size:10px;color:#03F">&nbsp;</p>

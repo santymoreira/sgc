@@ -3,11 +3,58 @@
 class UserController extends \BaseController {
 
 	
-	//Listar los usuarios del SGC.
-	public function listado($escuela){
+	public function getEscuela()
+	{
+		$tipoAdmin=0;
+		$cod=Auth::user()->COD_EMPLEADO;
+		$query4= DB::select('SELECT empt.COD_TIPO FROM empleado AS e INNER JOIN empleado_tipo AS empt ON e.`COD_EMPLEADO`=empt.`COD_EMPLEADO` WHERE empt.COD_EMPLEADO='.$cod.' ;');
+		foreach ($query4 as $cont) {	
+			$tipo = $cont->COD_TIPO;
+				if($tipo==10)
+				{
+					$tipoAdmin=1;
+				}
+			 }
+		return $tipoAdmin;
+	}
 
-		$query=DB::select('CALL listado('.$escuela.')');
-		return View::make('users.empleados')->with('users',$query); 
+
+		public function permiso()
+		{
+			return Login::tiempoSesion();
+		}	
+
+
+	//Listar los usuarios del SGC.
+	
+	public function listado($escuela){
+	
+		if ($this->permiso()==1) 
+			{		if ($this->getEscuela()==1) {
+					$query=DB::select('CALL listado('.$escuela.')');
+					return View::make('users.empleados')->with('users',$query); 
+				}
+				else{	
+				$denied = 'denied';
+				if($escuela ==1){return View::make('mapas.empresas_sgc')->with('denied',$denied);}
+				if($escuela ==2){return View::make('mapas.cont_audi_sgc')->with('denied',$denied);}		
+				if($escuela ==3){return View::make('mapas.exterior_sgc')->with('denied',$logout);}
+				if($escuela ==4){return View::make('mapas.finanzas_sgc')->with('denied',$denied);}
+				if($escuela ==5){return View::make('mapas.marketing_sgc')->with('denied',$denied);}
+				if($escuela ==6){return View::make('mapas.transporte_sgc')->with('denied',$denied);}
+				}
+			}
+			elseif ($this->permiso()==0) {
+				$logout = 'logout';
+				if($escuela ==1){return View::make('mapas.empresas_sgc')->with('logout',$logout);}
+				if($escuela ==2){return View::make('mapas.cont_audi_sgc')->with('logout',$logout);}		
+				if($escuela ==3){return View::make('mapas.exterior_sgc')->with('logout',$logout);}
+				if($escuela ==4){return View::make('mapas.finanzas_sgc')->with('logout',$logout);}
+				if($escuela ==5){return View::make('mapas.marketing_sgc')->with('logout',$logout);}
+				if($escuela ==6){return View::make('mapas.transporte_sgc')->with('logout',$logout);}
+    		}
+    	else{Login::logout();}
+        		return Redirect::back();
 	}
 	public function newuser()	{
 
