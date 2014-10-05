@@ -159,6 +159,7 @@ Route::post('empleados/crear', array('uses' => 'EmpleadosController@crearEmplead
 //Route::get('evaluacion/{a}/{b}/{c}/{d}/{e}/{f}/{g}', array('uses' => 'EmpleadosController@mostrarEmp'));
 //
 Route::get('consolidado/{a}/{b}', array('uses' => 'ReportesController@imagenReporteConsolidado'));
+Route::get('consolidadoTotal', array('uses' => 'ReportesController@imagenReporteConsolidadoTotal'));
 Route::get('consolidadoEscuela/{a}', array('uses' => 'ReportesController@imagenReporteConsolidadoEscuela'));
 
 Route::post('/busquedaBalance', array('uses' => 'EmpleadosController@busquedaBalance'));

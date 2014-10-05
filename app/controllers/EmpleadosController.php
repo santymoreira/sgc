@@ -15,6 +15,7 @@ class EmpleadosController extends BaseController {
 
 
 
+
     public function memcachedValor($escuela,$macroproceso)
     {
          $valor=Cache::remember(''.$escuela.$macroproceso.'escuelaMacroproceso',60,function() use ($escuela,$macroproceso)
@@ -57,6 +58,7 @@ class EmpleadosController extends BaseController {
         #verifica si el tiempo esta vigente
         if ($tiempo==1) 
         {
+            
             #verifica si es administrador
             if ($tipo==1) 
             {
@@ -125,6 +127,7 @@ class EmpleadosController extends BaseController {
             Login::logout();
             return View::make('home.sinAcceso');
         }
+
 
 
         

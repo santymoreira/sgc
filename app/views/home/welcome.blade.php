@@ -21,7 +21,7 @@
                                  </div>
                                   <p><b>Volver</b></p>
                                     <div id="avance"></div>
-                                        <center><label>Cumplimiento&nbsp;&nbsp;&nbsp;</label><a rel="floatbox" class="fbPopup" href="Vista/ReportesIndicadores/pChart2.1.4/examples/pictures/avancefade.jpg" /><input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/></a> </center>
+                                        <center><label>Cumplimiento&nbsp;&nbsp;&nbsp;</label><a rel="floatbox" class="fbPopup" href="" /><input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/></a> </center>
                                         </br>
                                          </br>
                                          <div class="demo">
