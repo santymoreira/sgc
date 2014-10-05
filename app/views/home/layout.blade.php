@@ -80,7 +80,7 @@
    <div id="fotoperfil"><img src="{{ asset('images/Login/fotoreal.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>
 @endif
 
-
+  
                            
                         </a>        
                         <div class="header-png"><img src="{{ asset('images/Utilitarios/header.png'); }}" width="1134" height="137" /> 
