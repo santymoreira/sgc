@@ -125,16 +125,6 @@ class MapasController extends BaseController {
         				# code...
         				return View::make('mapas.M_Administrativa');
         			}else{
-<<<<<<< HEAD
-        				//echo("<script>alert('hola');</script>");
-        				return Redirect::back();
-        			}
-        	}elseif ($this->permiso()==0) {
-        		return Redirect::back();
-        		$nombre = 'logout';
-    				  return View::make('mapas.macroprocesos')->with('nombre', $nombre);
-        	}else{Login::logout();return Redirect::back();}
-=======
         			  $denied = 'denied';
     				  return View::make('mapas.macroprocesos')->with('denied', $denied);
         			}
@@ -143,7 +133,6 @@ class MapasController extends BaseController {
     				  return View::make('mapas.macroprocesos')->with('logout', $logout);
         	}
         else{Login::logout();}
->>>>>>> ea65d8901320a8d3f570ceebeab9b93fb1b50b57
         		return View::make('mapas.macroprocesos');
 	}
 	public function academica()
