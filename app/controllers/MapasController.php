@@ -125,6 +125,7 @@ class MapasController extends BaseController {
         				# code...
         				return View::make('mapas.M_Administrativa');
         			}else{
+<<<<<<< HEAD
         				//echo("<script>alert('hola');</script>");
         				return Redirect::back();
         			}
@@ -133,6 +134,17 @@ class MapasController extends BaseController {
         		$nombre = 'logout';
     				  return View::make('mapas.macroprocesos')->with('nombre', $nombre);
         	}else{Login::logout();return Redirect::back();}
+=======
+        			  $denied = 'denied';
+    				  return View::make('mapas.macroprocesos')->with('denied', $denied);
+        			}
+        	}elseif ($this->permiso()==0) {
+        			  
+        			  $logout = 'logout';
+    				  return View::make('mapas.macroprocesos')->with('logout', $logout);
+        	}
+        else{Login::logout();}
+>>>>>>> ea65d8901320a8d3f570ceebeab9b93fb1b50b57
         		return View::make('mapas.macroprocesos');
 	}
 	public function academica()
@@ -143,10 +155,12 @@ class MapasController extends BaseController {
         				# code...
         				return View::make('mapas.M_Academica');
         			}else{
-        				//return View::make('home.sinAcceso');
+        				$denied = 'denied';
+    				  return View::make('mapas.macroprocesos')->with('denied', $denied);
         			}
         	}elseif ($this->permiso()==0) {
-        		# code...
+        		 $logout = 'logout';
+    				  return View::make('mapas.macroprocesos')->with('logout', $logout);
         	}else{Login::logout();}
         		return View::make('mapas.macroprocesos');
 	}
@@ -158,11 +172,13 @@ class MapasController extends BaseController {
         				# code...
         				return View::make('mapas.M_Docencia');
         			}else{
-        				//return View::make('home.sinAcceso');
+        				$denied = 'denied';
+    				  return View::make('mapas.macroprocesos')->with('denied', $denied);
         			}
         	}
 			elseif ($this->permiso()==0) {
-        		# code...
+        	 $logout = 'logout';
+    				  return View::make('mapas.macroprocesos')->with('logout', $logout);
         	}else{Login::logout();}
         		return View::make('mapas.macroprocesos');
 	}
@@ -174,10 +190,12 @@ class MapasController extends BaseController {
         				# code...
         				return View::make('mapas.M_Investigacion');
         			}else{
-        				//return View::make('home.sinAcceso');
+        				$denied = 'denied';
+    				  return View::make('mapas.macroprocesos')->with('denied', $denied);
         			}
         	}elseif ($this->permiso()==0) {
-        		# code...
+        		 $logout = 'logout';
+    				  return View::make('mapas.macroprocesos')->with('logout', $logout);
         	}else{Login::logout();}
         		return View::make('mapas.macroprocesos');
 	}
@@ -189,10 +207,12 @@ class MapasController extends BaseController {
         				# code...
         				return View::make('mapas.M_Vinculacion');
         			}else{
-        				//return View::make('home.sinAcceso');
+        				$denied = 'denied';
+    				  return View::make('mapas.macroprocesos')->with('denied', $denied);
         			}
         	}elseif ($this->permiso()==0) {
-        		# code...
+        		 $logout = 'logout';
+    				  return View::make('mapas.macroprocesos')->with('logout', $logout);
         	}else{Login::logout();}
         		return View::make('mapas.macroprocesos');
 	}
@@ -204,10 +224,12 @@ class MapasController extends BaseController {
         				# code...
         				return View::make('mapas.M_Asistencia');
         			}else{
-        				//return View::make('home.sinAcceso');
+        				$denied = 'denied';
+    				  return View::make('mapas.macroprocesos')->with('denied', $denied);
         			}
         	}elseif ($this->permiso()==0) {
-        		# code...
+        		 $logout = 'logout';
+    				  return View::make('mapas.macroprocesos')->with('logout', $logout);
         	}else{Login::logout();}
         		return View::make('mapas.macroprocesos');
 	}
@@ -219,10 +241,12 @@ class MapasController extends BaseController {
         				# code...
         				return View::make('mapas.M_Mantenimiento');
         			}else{
-        				//return View::make('home.sinAcceso');
+        			$denied = 'denied';
+    				  return View::make('mapas.macroprocesos')->with('denied', $denied);
         			}
         	}elseif ($this->permiso()==0) {
-        		# code...
+        		 $logout = 'logout';
+    				  return View::make('mapas.macroprocesos')->with('logout', $logout);
         	}else{Login::logout();}
         		return View::make('mapas.macroprocesos');
 	}

@@ -7,7 +7,7 @@
 @section('not_general_styles')
 {{ HTML::script('js/framebox_modal.js'); }}
 {{ HTML::script('js/smoke.js'); }}
-{{ HTML::style('css/smoke.css'); $nom=Session::get('nombre'); }}
+{{ HTML::style('css/smoke.css');  }}
 @stop
 
 @section('options')
@@ -38,10 +38,13 @@
    
 @stop
 
-
 @section('content')
 @stop
+
 @section('body')
+
+      
+
         <div class="content-layout" >
          @if($var == 2)
             <div id="apDiv21"><center><img src="{{ asset('images/Contabilidad/contenedor.png') }}"></center></div>
@@ -64,34 +67,47 @@
                     <img onclick="GestionAdmin();" id="gestionadmin" src="{{ asset('images/MacroprocesosEscuelas/GestionAdmin.png') }}" style="cursor:pointer;" width="670" height="51">
                     <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/4"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
                </div>
-     
                <div id="apDiv23">
                     <img onclick="GestionAcademica();" id="gestionacad" src="{{ asset('images/MacroprocesosEscuelas/GestionAcade.png'); }}" style="cursor:pointer;" width="670" height="51">
                     <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/5"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
                 </div>
-                           <div id="apDiv26">
-                                <img src="{{ asset('images/MacroprocesosEscuelas/docencia.png'); }}" width="207" height="66" id="docencia" style="cursor:pointer;"  onclick="Docencia();">
-                                    <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/1"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>  
-                           </div>
-                           <div id="apDiv27">
-                               <img src="{{ asset('images/MacroprocesosEscuelas/investigacion.png'); }}" width="207" height="66"  id="investigacion" style="cursor:pointer;"  onclick="Investigacion();">
-                                   <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/2"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
-                           </div>
-                           <div id="apDiv28">
-                           	 <img src="{{ asset('images/MacroprocesosEscuelas/vinculacion.png'); }}" width="207" height="66"  id="vinculacion" style="cursor:pointer;"  onclick="Vinculacion();">
-                                     <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/3"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
-                           </div>
-          <div id="apDiv29"> 
-                           		<img onclick="Asistencia();" id="asistencia" style="cursor:pointer;" src="{{ asset('images/MacroprocesosEscuelas/asistencia.png'); }}" width="670" height="51" /> 
-                                        <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/6"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
-          </div>
-                            <div id="apDiv30">
-                           		<img onclick="Mantenimiento();" id="mantenimiento" style="cursor:pointer;" src="{{ asset('images/MacroprocesosEscuelas/mantenimiento.png'); }}" width="670" height="51" /> 
-                                        <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/7"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
-                           </div>
+
+                <div id="apDiv26">
+                     <img src="{{ asset('images/MacroprocesosEscuelas/docencia.png'); }}" width="207" height="66" id="docencia" style="cursor:pointer;"  onclick="Docencia();">
+                        <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/1"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>  
+                     </div>
+               <div id="apDiv27">
+                    <img src="{{ asset('images/MacroprocesosEscuelas/investigacion.png'); }}" width="207" height="66"  id="investigacion" style="cursor:pointer;"  onclick="Investigacion();">
+                      <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/2"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
+                    </div>
+                <div id="apDiv28">
+                   	 <img src="{{ asset('images/MacroprocesosEscuelas/vinculacion.png'); }}" width="207" height="66"  id="vinculacion" style="cursor:pointer;"  onclick="Vinculacion();">
+                        <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/3"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
+                     </div>
+                <div id="apDiv29"> 
+                  		<img onclick="Asistencia();" id="asistencia" style="cursor:pointer;" src="{{ asset('images/MacroprocesosEscuelas/asistencia.png'); }}" width="670" height="51" /> 
+                        <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/6"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
+                </div>
+                <div id="apDiv30">
+                   		<img onclick="Mantenimiento();" id="mantenimiento" style="cursor:pointer;" src="{{ asset('images/MacroprocesosEscuelas/mantenimiento.png'); }}" width="670" height="51" /> 
+                        <a rel="floatbox" class="fbPopup" href="../consolidado/{{Session::get('escuela')}}/7"><center><input type="image" src="{{ asset('images/Utilitarios/chart_bar.png') }}"/></center> </a>
+                </div>
 				
-                  <h1>{{$nom}}</h1>
+                 
 			</div>	
+
+        <!-- Mensajes -->
+              @if(!empty($logout))
+                 <script type="text/javascript">
+                    smoke.alert('Ud no tiene acceso, Inicie Sesión')
+                 </script>
+              @endif
+              @if(!empty($denied))
+                 <script type="text/javascript">
+                    smoke.alert('Ud no tiene acceso, No pertenece a esta Escuela')
+                 </script>
+              @endif
+
         <!-- Footer --> 
             
             </br></br></br></br></br></br></br></br></br></br>
@@ -104,5 +120,7 @@
                     <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
             </p>
       </center>
+
+
         </div>
 @stop
