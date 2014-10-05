@@ -3,7 +3,7 @@
 {{ HTML::style('css/menu24.css'); }} 
 @stop
 @section('not_general_styles')
-{{ HTML::script('js/framebox_modal.js'); }}
+{{ HTML::script('js/framebox_reporte.js'); }}
 @stop
 @section('options')
    	

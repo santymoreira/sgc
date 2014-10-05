@@ -46,20 +46,7 @@
                     <p class="descripcion"> Diseño de Imagen Corporativa </p>
                     <p class="correo"> xperience_design@outlook.com </p></center>
              </div>
-<<<<<<< HEAD
-=======
-             <div id="apDiv12">
-             <br/><br/><br/>
-               		<img src="{{asset('images/creditos/hellfox2.png')}}" alt="equipo de desarrollo de software Hellfox Team Solutions" width="304" height="100" id="img_hellfox" />
-               		 <p class="empresa">&nbsp;</p>
-               		 <p class="empresa">&nbsp;</p>
-               		 <p class="empresa">&nbsp;</p>
-               	<center>	 <p class="empresa">&nbsp;</p>
-               	  <p class="empresa"><b>HellFox Team Solutions</b></p>
-               		 <p class="descripcion"> Desarrollo Web y Sistemas Informáticos</p>
-               		 <p class="correo"> helfoxteam@outlook.com</p> </center>
-             </div>
->>>>>>> ea65d8901320a8d3f570ceebeab9b93fb1b50b57
+
             	</div>
 
             </div>

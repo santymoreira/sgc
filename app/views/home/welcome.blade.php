@@ -2,6 +2,10 @@
 @section('options')
      @parent
 @stop
+  @section('not_general_styles')
+
+{{ HTML::script('js/framebox_reporte.js'); }}
+@stop
 @section('login')
    @parent
 @stop
@@ -21,7 +25,7 @@
                                  </div>
                                   <p><b>Volver</b></p>
                                     <div id="avance"></div>
-                                        <center><label>Cumplimiento&nbsp;&nbsp;&nbsp;</label><a rel="floatbox" class="fbPopup" href="" /><input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/></a> </center>
+                                        <center><label>Cumplimiento&nbsp;&nbsp;&nbsp;</label><a rel="floatbox" class="fbPopup" href="../consolidadoFacultad" /><input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/></a> </center>
                                         </br>
                                          </br>
                                          <div class="demo">
