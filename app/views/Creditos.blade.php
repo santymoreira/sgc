@@ -23,7 +23,7 @@
             <div id="central">
             <div id="apDiv9"><h1>Créditos</h1></div>
              <div id="apDiv8">
-             <center>	<img src="{{asset('images/Creditos/alpa.png')}}" alt="equipo de consultoría" width="148" height="134"  id="img_alpa" />
+             <center>	<img src="{{asset('images/creditos/alpa.png')}}" alt="equipo de consultoría" width="148" height="134"  id="img_alpa" />
                     <p class="empresa">&nbsp;</p>
                     <p class="empresa"><b>Alpa Consultores</b></p>
                     <p class="descripcion"> Sistemas de Gestión de la Calidad, Planificación Estratégica Balanced Scored Card</p>
@@ -31,7 +31,7 @@
              </div>
              <div id="apDiv10">
              	  <br/>	 <br/>	 <br/>	
-             	 <img src="{{asset('images/Creditos/devtem.png')}}" alt="equipo de desarrollo de software deaft team" width="300" height="34" id="img_dev" />
+             	 <img src="{{asset('images/creditos/devtem.png')}}" alt="equipo de desarrollo de software deaft team" width="300" height="34" id="img_dev" />
                <center>     <p class="empresa">&nbsp;</p>
                     <p class="empresa">&nbsp;</p>
                     <p class="empresa">&nbsp;</p>
@@ -41,14 +41,14 @@
                     <p class="correo"> devteam@outlook.es </p> </center>
              </div>
              <div id="apDiv11">
-             	  <img src="{{asset('images/Creditos/xperience.png')}}" alt="equipo de diseño gráfico xperience design" width="298" height="208" id="img_xperience" />
+             	  <img src="{{asset('images/creditos/xperience.png')}}" alt="equipo de diseño gráfico xperience design" width="298" height="208" id="img_xperience" />
                    <center> <p class="empresa"><b>Xperience</b></p>
                     <p class="descripcion"> Diseño de Imagen Corporativa </p>
                     <p class="correo"> xperience_design@outlook.com </p></center>
              </div>
              <div id="apDiv12">
              <br/><br/><br/>
-               		<img src="{{asset('images/Creditos/hellfox2.png')}}" alt="equipo de desarrollo de software Hellfox Team Solutions" width="304" height="100" id="img_hellfox" />
+               		<img src="{{asset('images/creditos/hellfox2.png')}}" alt="equipo de desarrollo de software Hellfox Team Solutions" width="304" height="100" id="img_hellfox" />
                		 <p class="empresa">&nbsp;</p>
                		 <p class="empresa">&nbsp;</p>
                		 <p class="empresa">&nbsp;</p>
