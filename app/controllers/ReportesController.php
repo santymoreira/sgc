@@ -566,20 +566,22 @@ class ReportesController extends BaseController {
         //echo("<script>console.log('PHP: ".$total."');</script>");
         
         $valor=0;
-
-        for ($i=1; $i <=6 ; $i++) 
+        //macroprocesos
+        for ($i=1; $i <=7 ; $i++) 
         { 
-                for ($j=1; $j <= 7; $j++) 
+                //escuela
+                for ($j=1; $j <= 6; $j++) 
                 { 
                     $total=0;
-                    $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$j.','.$i.')');
+                    $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.','.$j.')');
                     foreach ($Indicadores as $indicador) 
                     {
-                        $total+=$indicador->resultado;
+                        $total+=$indicador->avance;
                     }
+                    $total/=6;
                 }
                 switch (i) {
-                    case 1:$valor+=round($total*18/100,2);break;
+                    case 1:$valor+=round($total*100/18,2);break;
                     case 2:$valor+=round($total*20/100,2);break;
                     case 3:$valor+=round($total*12/100,2);break;
                     case 4:$valor+=round($total*15/100,2);break;
@@ -675,7 +677,7 @@ class ReportesController extends BaseController {
                     $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.','.$escuela.')');
                     foreach ($Indicadores as $indicador) 
                     {
-                        $total+=$indicador->resultado;
+                        $total+=$indicador->avance;
                           $f1=$indicador->fecha1;
                          $f2=$indicador->fecha2;
                          echo("<script>console.log('PHP: ".$total."');</script>");
