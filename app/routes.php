@@ -14,7 +14,7 @@
 Route::get('/', function()
 {
     //return View::make('hello');
-    return Redirect::to('home');
+    return Redirect::to('home/welcome');
 });
 
 // esta sera la ruta principal de nuestra aplicación
@@ -130,7 +130,7 @@ Route::get('login', function(){
 });
 
 //Route::get('home', array('uses' => 'HomeController@showWelcome'));
-Route::get('home', 'HomeController@showWelcome');
+Route::get('home/welcome', 'HomeController@showWelcome');
 
 //Route::get('empleados', array('uses' => 'EmpleadosController@mostrarEmp'));
 

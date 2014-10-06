@@ -15,7 +15,7 @@ this.defaultOptions = {
 // see docs/options.html for detailed descriptions
 
 /*** <General Options> ***/
-theme:          'blue'    ,// 'auto'|'black'|'white'|'blue'|'yellow'|'red'|'custom'
+theme:          'auto'    ,// 'auto'|'black'|'white'|'blue'|'yellow'|'red'|'custom'
 padding:         12       ,// pixels
 panelPadding:    8        ,// pixels
 outerBorder:     4        ,// pixels
@@ -69,7 +69,7 @@ doAnimations:         true   ,// true|false
 resizeDuration:       3.5    ,// 0-10
 imageFadeDuration:    3.5    ,// 0-10
 overlayFadeDuration:  4      ,// 0-10
-splitResize:         'auto'    ,// 'no'|'auto'|'wh'|'hw'
+splitResize:         'no'    ,// 'no'|'auto'|'wh'|'hw'
 startAtClick:         true   ,// true|false
 zoomImageStart:       true   ,// true|false
 liveImageResize:      false  ,// true|false
@@ -113,8 +113,8 @@ Floatbox.prototype = {
 	loaderDelay: 200,
 	autoSizeSpace: 4,
 	initialSize: 120,
-	defaultWidth: '49%', //aki............................
-	defaultHeight: '39%',
+	defaultWidth: '45%',
+	defaultHeight: '60%',
 init: function() {
 	this.setOptions(this.defaultOptions);
 	if (typeof fbPageOptions === 'object') this.setOptions(fbPageOptions);
@@ -127,7 +127,7 @@ init: function() {
 	var path = this.urlGraphics;
 	this.slowZoomImg = path + 'loading_white.gif';
 	this.slowLoadImg = path + 'loading_black.gif';
-	this.iframeSrc = path + 'loading_iframe.html';
+	
 	this.resizeUpCursor = path + 'magnify_plus.cur';
 	this.resizeDownCursor = path + 'magnify_minus.cur';
 	this.notFoundImg = path + '404.jpg';
@@ -712,6 +712,7 @@ newNode: function(nodeType, id, parentNode, title) {
 		node.setAttribute('scrolling', this.itemScroll);
 		node.setAttribute('frameBorder', '0');
 		node.setAttribute('align', 'middle');
+		
 	}
 	if (this.isChild && this.fbParent[id]) title = this.fbParent[id].getAttribute('title');
 	if (title && this.showHints !== 'never') node.setAttribute('title', title);
@@ -2225,7 +2226,7 @@ getLeftTop: function(el, local) {
 				idoc = node.contentDocument || node.contentWindow;
 				idoc = idoc.document || idoc;
 			} catch(e) {}
-			if (idoc === doc || (typeof idoc !== 'object' )) {
+			if (idoc === doc || (typeof idoc !== 'object')) {
 				if (this.webkitOld) win = doc.defaultView;
 				var pos = this.getLeftTop(node);
 				left += pos.left - scroll.left;

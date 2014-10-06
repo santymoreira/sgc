@@ -652,9 +652,6 @@ class ReportesController extends BaseController {
         $tipo=Login::tipoEmpleado();
         $total=0;
 
-        if ($tiempo==1) {
-            if ($tipo==1 || $tipo==2) {
-
                 for ($i=1; $i <= 7; $i++) 
                 { 
                     $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.','.$escuela.')');
@@ -736,13 +733,7 @@ class ReportesController extends BaseController {
          
              $myPicture->render("images/example.drawIndicator.png");
             return View::make("reportes/imagenReporte");
-         
-         
-             }
-     }else{
-        Login::logout();
-         return View::make('home.sinAcceso');
-     }
+
     }
 
             public function imagenReporteConsolidadoFade()
