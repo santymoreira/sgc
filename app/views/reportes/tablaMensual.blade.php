@@ -8,7 +8,7 @@
 
         {{ HTML::style('css/estilos.css'); }}
         {{ HTML::style('css/estilotab.css'); }}
-        {{ HTML::script('js/framebox_reporte.js'); }}
+        {{ HTML::script('js/framebox_1.js'); }}
         {{ HTML::style('css/floatbox_reporte.css'); }}
 
       
