@@ -36,12 +36,13 @@ class UserController extends \BaseController {
 				}
 				else{	
 				$denied = 'denied';
-				if($escuela ==1){return View::make('mapas.empresas_sgc')->with('denied',$denied);}
+				if($escuela ==1 ){return View::make('mapas.empresas_sgc')->with('denied',$denied);}
 				if($escuela ==2){return View::make('mapas.cont_audi_sgc')->with('denied',$denied);}		
 				if($escuela ==3){return View::make('mapas.exterior_sgc')->with('denied',$logout);}
 				if($escuela ==4){return View::make('mapas.finanzas_sgc')->with('denied',$denied);}
 				if($escuela ==5){return View::make('mapas.marketing_sgc')->with('denied',$denied);}
 				if($escuela ==6){return View::make('mapas.transporte_sgc')->with('denied',$denied);}
+				if($escuela ==8){return View::make('mapas.fade_sgc')->with('denied',$denied);}
 				}
 			}
 			elseif ($this->permiso()==0) {
@@ -52,6 +53,7 @@ class UserController extends \BaseController {
 				if($escuela ==4){return View::make('mapas.finanzas_sgc')->with('logout',$logout);}
 				if($escuela ==5){return View::make('mapas.marketing_sgc')->with('logout',$logout);}
 				if($escuela ==6){return View::make('mapas.transporte_sgc')->with('logout',$logout);}
+				if($escuela ==8){return View::make('mapas.fade_sgc')->with('logout',$logout);}
     		}
     	else{Login::logout();}
         		return Redirect::back();
@@ -97,7 +99,7 @@ class UserController extends \BaseController {
 			$reglas = array(
 				  'ci' => 'required|regex:/^([0-9])+$/i|size:10|unique:empleado,CI',
 				  'nombres' => 'required',
-				  'email' => 'email',
+				  'email' => 'required|email',
 				  'celular' => 'regex:/^([0-9])+$/i|size:10',
 				  'convencional' => 'regex:/^([0-9])+$/i|size:9',
 			);
@@ -115,7 +117,7 @@ class UserController extends \BaseController {
 						$reglas = array(
 							  'ci' => 'required|regex:/^([0-9])+$/i|size:10a',   
 							  'nombres' => 'required',
-							  'email' => 'email',
+							  'email' => 'required|email',
 							  'celular' => 'regex:/^([0-9])+$/i|size:10',
 							  'convencional' => 'regex:/^([0-9])+$/i|size:9',	
 					);
@@ -296,7 +298,7 @@ class UserController extends \BaseController {
 			$reglas = array(
 				  'ci' => 'required|regex:/^([0-9])+$/i|size:10|unique:empleado,CI',
 				  'nombres' => 'required',
-				  'email' => 'email',
+				  'email' => 'required|email',
 				  'celular' => 'regex:/^([0-9])+$/i|size:10',
 				  'convencional' => 'regex:/^([0-9])+$/i|size:9',
 			);
@@ -307,7 +309,7 @@ class UserController extends \BaseController {
 			$reglas = array(
 				  'ci' => 'required|regex:/^([0-9])+$/i|size:10a',
 				  'nombres' => 'required',
-				  'email' => 'email',
+				  'email' => 'required|email',
 				  'celular' => 'regex:/^([0-9])+$/i|size:10',
 				  'convencional' => 'regex:/^([0-9])+$/i|size:9',	
 			);
