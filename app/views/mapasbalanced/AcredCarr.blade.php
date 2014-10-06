@@ -81,26 +81,15 @@
                  @endif
 
 
-                  <div id="apDiv112">
-                          <img src="{{ asset('images/objetivosO/PotenInvest_red.png') }}">
+                   <div id="apDiv112">
+                        <img src="{{ asset('images/objetivosO/PotenInvest_red.png') }}">
                     </div>
                     <div id="apDiv113">
                         <img src="{{ asset('images/objetivosO/AcredCarr_red.png') }}">
                     </div>
-               <div id="apDiv116">
-                          <img src="{{ asset('images/Acciones/Evaluar_imp.png') }}">
-                    </div>
-                    <div id="apDiv117">
-                      <a id="1" href="{{ asset('images/descripcion/InserLab.png'); }}" rel="slideshow1">
 
-                         <img src="{{ asset('images/Acciones/InserLab.png') }}"  style="cursor:pointer;">  
-                       </a>  
-                    </div>
-                    <div id="apDiv118">
-                      <a id="2" href="{{ asset('images/descripcion/SatisEmpre.png'); }}" rel="slideshow2">
-                          <img src="{{ asset('images/Acciones/SatisEmpre.png') }}"  style="cursor:pointer;">
-                      </a>
-                    </div>
+
+                   
                     <div id="apDiv119">
                         <a id="3" href="{{ asset('images/descripcion/AvanceAcred.png'); }}" rel="slideshow3">
                           <img src="{{ asset('images/Acciones/AvanceAcred.png') }}"  style="cursor:pointer;">
@@ -109,13 +98,7 @@
 
                     <!-- Evaluacion Acciones -->
                      <!-- nombre del proyecto/macroproceso/escuela/proceso/objeto/peso-->
-                    <div id="apDiv179">
-                      <a style="cursor:default;" href="../evaluacionBalance/Producciones Científicas/20/{{Session::get('escuela')}}/2/2/4.5"  rel="floatbox">
-                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
-                    </div>
-                     <div id="apDiv180">
-                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
-                    </div>
+                   
                      <div id="apDiv181">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                     </div>
