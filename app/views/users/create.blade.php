@@ -29,6 +29,8 @@
                            <li class="nivel1"><a class="nivel1" {{ HTML::link('marketing/marketing_sgc','SGC'); }}  
                         @elseif($var ==6)
                            <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/transporte_sgc','SGC'); }}  
+                         @elseif($var ==8)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('fade/fade_sgc','SGC'); }}  
                       @endif
                        	</ul>			
           </div> 
@@ -62,6 +64,8 @@
 					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Marketing</a>
 				@elseif($var == 6)
 					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Gestión de Transporte</a>
+				@elseif($var == 8)
+					<a class="navbar-brand" style="cursor:default;" href="#">Facultad de Empresas</a>
 				@endif
   			</div>
     		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

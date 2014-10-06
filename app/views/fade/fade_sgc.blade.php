@@ -8,8 +8,8 @@
 						<ul>
 				              <li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio');}}
 							  <li class="nivel1"><a class="nivel1" {{ HTML::link('fade/macroprocesos', 'Macroprocesos');}}
-							  <li class="nivel1"><a onclick="Alert()" class="nivel1">Administración</a></li>
-							  <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a></li>
+							  <li class="nivel1"><a onclick="Alert()" class="nivel1" {{ HTML::link('users/empleados/8', 'Administración');}} 
+               <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a></li>
 						</ul>
 				  </div> 
 @stop
@@ -24,6 +24,7 @@
 @stop
 
 @section('body')
+	{{Session::put('escuela','8'); }}
         <div class="layout-cell content">    
             <div id="central"> 
                <div id="central-content"> </br></br>
@@ -31,6 +32,18 @@
                </div>
             </div>
              
+             <!-- Mensajes -->
+              @if(!empty($logout))
+                 <script type="text/javascript">
+                    smoke.alert('Ud no tiene acceso, Inicie Sesión')
+                 </script>
+              @endif
+              @if(!empty($denied))
+                 <script type="text/javascript">
+                    smoke.alert('Ud no tiene acceso, Tiene que ser Administrador del Sistema')
+                 </script>
+              @endif	
+
       		 <div class="cleared"> 
 				<center> <p style="font-size:10px;color:#03F">&nbsp;</p>
 				  <p style="font-size:10px;color:#03F">&nbsp;</p>
