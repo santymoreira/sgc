@@ -76,9 +76,9 @@ class MapasBalancedController extends BaseController {
 		{
 			return View::make('mapasbalanced.DesarrCentrosApoyo');
 		}	
-		public function PromvProyecSoc()
+		public function ImplenGestionProc()
 		{
-			return View::make('mapasbalanced.PromvProyecSoc');
+			return View::make('mapasbalanced.ImplenGestionProc');
 		}	
 			public function FortaCapDocentes()
 		{

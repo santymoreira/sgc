@@ -61,23 +61,23 @@
 
              @if($var == 2)  
                <div id="apDiv111">
-                        <img src="{{ asset('images/contabilidadbsc/PromvProySoc.png') }}" >
+                        <img src="{{ asset('images/contabilidadbsc/ImpleGProces.png') }}" >
               </div>
                 @elseif($var ==1)
                        <div id="apDiv111">
-                        <img src="{{ asset('images/empresasbsc/PromvProySoc.png') }}" >
+                        <img src="{{ asset('images/empresasbsc/ImpleGProces.png') }}" >
               </div>
                  @elseif($var ==4)
                        <div id="apDiv111">
-                        <img src="{{ asset('images/finanzasbsc/PromvProySoc.png') }}" >
+                        <img src="{{ asset('images/finanzasbsc/ImpleGProces.png') }}" >
               </div>
                  @elseif($var ==5)
                         <div id="apDiv111">
-                        <img src="{{ asset('images/marketingbsc/PromvProySoc.png') }}" >
+                        <img src="{{ asset('images/marketingbsc/ImpleGProces.png') }}" >
               </div>
                  @elseif($var ==6)
                           <div id="apDiv111">
-                        <img src="{{ asset('images/transportebsc/PromvProySoc.png') }}" >
+                        <img src="{{ asset('images/transportebsc/ImpleGProces.png') }}" >
               </div>
                  @endif  
  
@@ -93,26 +93,37 @@
                    <div id="apDiv126">
                       <img src="{{ asset('images/objetivosO/PoteInnov_red.png') }}">
                    </div>
-                   <div id="apDiv127">
-                      <img src="{{ asset('images/objetivosO/ImpleMcontemp_red.png') }}">
-                   </div>
-                   <div id="apDiv128">
-                      <img src="{{ asset('images/objetivosO/DesaCent_red.png') }}">
-                   </div>
-                   <div id="apDiv129">
-                      <img src="{{ asset('images/objetivosO/PromProyec_red.png') }}">  
-                   </div>
-                   <div id="apDiv149">
-                      <img src="{{ asset('images/Acciones/nCentrosApoyo.png') }}" style="cursor:pointer;">
+                    <div id="apDiv228">
+                         <img src="{{ asset('images/objetivosO/PotenVincSoc_red.png')}}">
                    </div>
 
-                   <!-- Evaluacion Acciones -->
-                  
-                    <div id="apDiv227">
-                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
-                   </div> 
-                                      
-
+                     <div id="apDiv253">
+              <img src="{{ asset('images/acciones/LevanProces.png')}}" style="cursor:pointer;">
+             </div>
+             <div id="apDiv254">
+              <img src="{{ asset('images/acciones/EstanProc.png')}}"  style="cursor:pointer;">
+             </div>
+             <div id="apDiv255">
+              <img src="{{ asset('images/acciones/Capacitacion.png')}}"  style="cursor:pointer;">
+             </div>
+             <div id="apDiv256">
+                  <img src="{{ asset('images/acciones/Evaluacion.png')}}"  style="cursor:pointer;">
+             </div>
+      
+         
+      <!-- Evaluar Acciones -->
+          <div id="apDiv257">
+              <img src="{{ asset('images/semaforo/rojo.png')}}">
+            </div>
+            <div id="apDiv258">
+              <img src="{{ asset('images/semaforo/rojo.png')}}">  
+            </div>
+            <div id="apDiv259">
+              <img src="{{ asset('images/semaforo/rojo.png')}}">
+            </div>
+            <div id="apDiv260">
+              <img src="{{ asset('images/semaforo/rojo.png')}}">  
+            </div>
 
           </div>
 @stop

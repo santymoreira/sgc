@@ -33,9 +33,9 @@
                 { 
                     location.href = "DesarrCentrosApoyo";
                 }
-            function PromProyec()
+            function ImpleGproce()
             {
-                  location.href = "PromvProyecSoc";   
+                  location.href = "ImplenGestionProc";   
             }
             function FortaCapDocentes()
             {

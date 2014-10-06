@@ -67,7 +67,7 @@
               <img onclick="ImpleSgc();" id="ImpleSgc1" style="cursor:pointer;" src="{{ asset('images/objetivosO/ImpleSgc_red.png')}}">
             </div>
           <div id="apDiv42">
-            <img onclick="ImpleGproce();" id="ImpleGproce" style="cursor:pointer;" src="{{ asset('images/objetivosO/ImpleGproce_red.png')}}">  
+            <img onclick="ImpleGproce();" id="ImpleGproce1" style="cursor:pointer;" src="{{ asset('images/objetivosO/ImpleGproce_red.png')}}">  
             </div>
             <div id="apDiv43">
                <img onclick="PoteInnov();" id="PoteInnov1" style="cursor:pointer;" src="{{ asset('images/objetivosO/PoteInnov_red.png')}}">  
