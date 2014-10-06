@@ -116,7 +116,7 @@ Route::post('/insertar', array('uses' => 'EmpleadosController@insertar'));
 #fin evaluación
 
   //reporte individual
-  Route::get('reportes/individual/{cod}/{tipo}', 'ReportesController@individual');
+  Route::get('reportes/individual/{e}/{t}', 'ReportesController@individual');
     //reporte con busqueda
   Route::get('reportes/mensualE/{cod}/{tipo}', 'ReportesController@mensualE');
 

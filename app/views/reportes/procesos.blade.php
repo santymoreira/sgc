@@ -39,7 +39,8 @@ var proceso=0;
     var tipoReporte=$('#tipoReporte').val();
     var name=$('#name').val();
     var mail=$('#mail').val();
-    //alert(codigo);
+
+
     $('#tablares').load("../../../tabla",{escuela:escuela,tipoEmpleado:tipo,macroproceso:macro,proceso:proceso,cedula:cedula,codigo:codigo,name:name,mail:mail,tipoReporte:tipoReporte});
 });
 
