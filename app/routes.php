@@ -14,7 +14,7 @@
 Route::get('/', function()
 {
     //return View::make('hello');
-    return Redirect::to('home');
+    return Redirect::to('home/welcome');
 });
 
 // esta sera la ruta principal de nuestra aplicación
@@ -82,10 +82,10 @@ Route::post('layout', function(){
         Session::put('inicio', time());
         //echo("<script>console.log('PHP: ".Session::get('inicio')."');</script>");
 
-        return Redirect::to('home')->with('mensaje_login', Auth::user()->CI);
+        return Redirect::to('home/welcome')->with('mensaje_login', Auth::user()->CI);
         //return Redirect::to('home')->with('mensaje_login', json_encode($tipo));
     }else{
-        return Redirect::to('home')->with('mensaje_login', 'Ingreso invalido');
+        return Redirect::to('home/welcome')->with('mensaje_login', 'Ingreso invalido');
     }
 
  
@@ -130,7 +130,7 @@ Route::get('login', function(){
 });
 
 //Route::get('home', array('uses' => 'HomeController@showWelcome'));
-Route::get('home', 'HomeController@showWelcome');
+Route::get('home/welcome', 'HomeController@showWelcome');
 
 //Route::get('empleados', array('uses' => 'EmpleadosController@mostrarEmp'));
 

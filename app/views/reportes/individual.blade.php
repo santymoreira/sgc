@@ -73,8 +73,6 @@
        var name=$('#name').val();
        var mail=$('#mail').val();
 
-       alert(tipoEmpl);
-
            $("#contenido").load("../../../combo1",
             {tipoEmpleado: tipoEmpl,escuela: escuela,cedula:cedula,codigo:codigo,name:name,mail:mail,tipoReporte:tipoReporte}
             );

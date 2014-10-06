@@ -80,6 +80,7 @@ class ReportesController extends BaseController {
             }
             else
             {
+
                 Login::logout();
                 //return View::make('home.welcome');
                 //return View::make('home.sinAcceso');
@@ -96,14 +97,14 @@ class ReportesController extends BaseController {
         $tipoReporte=Input::get('tipoReporte');
         $name=Input::get('name');
         $mail=Input::get('mail');
-
+        //echo("<script>console.log('PHP: ".$tipoReporte."');</script>");
         $macroprocesos=DB::select('SELECT distinct(m.COD_MACROPROCESO) as OBJETIVO,m.NOMBRE as DESCRIPCION from macroproceso as m inner join proceso as p on m.COD_MACROPROCESO=p.COD_MACROPROCESO where p.TIPO_EMPLEADO='.$tipoEmpleado.';');
         //echo("<script>console.log('PHP: ".$escuela."');</script>");
         //echo("<script>console.log('PHP: ".$escuela."');</script>");
         return View::make('reportes.macroprocesos', array('macroprocesos' => $macroprocesos,'tipoEmpleado' => $tipoEmpleado,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
     }
 
-        public function mensualE($escuela,$tipo)
+        public function mensualE($escuela,$tipoR)
     {
         $tiempo=Login::tiempoSesion();
             $tipo=Login::tipoEmpleado();
@@ -113,7 +114,8 @@ class ReportesController extends BaseController {
                 {
 
                     $ci=Auth::user()->COD_EMPLEADO;
-                    return View::make('reportes.mensual_empleado', array('escuela' =>$escuela,'tipoReporte'=>$tipo));
+                   // echo("<script>console.log('PHP: ".$tipoR."');</script>");
+                    return View::make('reportes.mensual_empleado', array('escuela' =>$escuela,'tipoReporte'=>$tipoR));
                 }   
                 else
                 {
@@ -139,6 +141,7 @@ class ReportesController extends BaseController {
         $tipoReporte=Input::get('tipoReporte');
         $mail=Input::get('mail');
         $tipos=$this->getTipos($empleado,$escuela);
+       // echo("<script>console.log('PHP: ".$tipoReporte."');</script>");
         //echo("<script>console.log('PHP: ".$ci."');</script>");
         //echo("<script>console.log('PHP: ".$nombres."');</script>");
          return View::make('reportes.individualBusqueda', array('tipoEmpleados' => $tipos,'escuela' =>$escuela,'empleado'=>$empleado,'cedula'=>$ci,'nombre'=>$nombres,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
@@ -150,7 +153,7 @@ class ReportesController extends BaseController {
         $escuela=Input::get('escuela');
         $tipoReporte=Input::get('tipoReporte');
         $cedulaEmpleado=Auth::user()->CI;
- 
+    //echo("<script>console.log('PHP: ".$tipoReporte."');</script>");
             $empleados=DB::select("SELECT e.CI,e.COD_EMPLEADO,e.NOMBRES,e.EMAIL FROM empleado as e inner join empleado_escuela as ee on e.COD_EMPLEADO=ee.COD_EMPLEADO WHERE ee.COD_ESCUELA=".$escuela." AND e.CI !=".$cedulaEmpleado." AND  e.NOMBRES LIKE '%".$consulta."%'");
             foreach ($empleados as $e) { $em=$e->NOMBRES; }
 
@@ -211,7 +214,7 @@ class ReportesController extends BaseController {
         $tipoReporte=Input::get('tipoReporte');
         $name=Input::get('name');
         $mail=Input::get('mail');
-        //echo("<script>console.log('PHP: ".$tipoEmpleado."');</script>");
+        //echo("<script>console.log('PHP: ".$tipoReporte."');</script>");
 
     	$proceso = DB::table('proceso')->where('TIPO_EMPLEADO', '=', $tipoE)->where('COD_MACROPROCESO','=',$macroproceso)->get();
         if ($tipoReporte==1 || $tipoReporte==4) {
@@ -220,6 +223,7 @@ class ReportesController extends BaseController {
          if ($tipoReporte==2 || $tipoReporte==3) {
             return View::make('reportes.procesosBusqueda', array('procesos' => $proceso,'tipoEmpleado' => $tipoE,'macroproceso' => $macroproceso,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
         }
+
     }
 
 
@@ -381,7 +385,7 @@ class ReportesController extends BaseController {
          
          # Create the pChart object
          //$myPicture = new pImage(900,330,$MyData);
-         $myPicture = new pImage(700,230,$MyData);
+         $myPicture = new pImage(900,330,$MyData);
 
          # Draw the background
          //$Settings = array("R"=>0, "G"=>0, "B"=>255, "Dash"=>1, "DashR"=>0, "DashG"=>0, "DashB"=>255);
@@ -652,9 +656,6 @@ class ReportesController extends BaseController {
         $tipo=Login::tipoEmpleado();
         $total=0;
 
-        if ($tiempo==1) {
-            if ($tipo==1 || $tipo==2) {
-
                 for ($i=1; $i <= 7; $i++) 
                 { 
                     $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.','.$escuela.')');
@@ -736,13 +737,7 @@ class ReportesController extends BaseController {
          
              $myPicture->render("images/example.drawIndicator.png");
             return View::make("reportes/imagenReporte");
-         
-         
-             }
-     }else{
-        Login::logout();
-         return View::make('home.sinAcceso');
-     }
+
     }
 
             public function imagenReporteConsolidadoFade()
@@ -938,7 +933,7 @@ class ReportesController extends BaseController {
         $pdf->Image($codigoEmpleado.".PNG",20,120,180,45.5);
         //$pdf->Image("../pChart2.1.4/examples/pictures/".$_SESSION['user'].".png",20,120,180,45.5);
 
-        $pdf->Output('images/'.$codigoEmpleado.'.pdf','I');
+        $pdf->Output('images/'.$codigoEmpleado.'.pdf','D');
 
                  //return View::make("reportes/imagenReporte");
             }
@@ -1038,7 +1033,7 @@ class ReportesController extends BaseController {
             $pdf->Image($codigoEmpleado.".PNG",20,140,180,45.5);
         //$pdf->Image("../pChart2.1.4/examples/pictures/".$_SESSION['user'].".png",20,120,180,45.5);
 
-            $pdf->Output('images/'.$codigoEmpleado.'.pdf','I');
+            $pdf->Output('images/'.$codigoEmpleado.'.pdf','D');
 
             }
 
