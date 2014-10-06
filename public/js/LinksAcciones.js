@@ -25,9 +25,9 @@
                 { 
                     location.href = "PotenInnov";
                 }
-            function ImpleMcontemp()
+            function PotenVinSoc()
                 { 
-                    location.href = "ImpleModContem";
+                    location.href = "PotenVincSociedad";
                 }
              function DesaCent()
                 { 
@@ -37,9 +37,9 @@
             {
                   location.href = "PromvProyecSoc";   
             }
-            function FortaRRHH()
+            function FortaCapDocentes()
             {
-                  location.href = "FortaCapRRHH";   
+                  location.href = "FortaCapDoc";   
             }
             function MejorarClima()
             {
