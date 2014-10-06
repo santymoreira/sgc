@@ -78,7 +78,7 @@
      <p><b>{{ Auth::user()->NOMBRES }}</b></p> 
    </div> 
    </a>
-@else
+@else   
    <div id="fotoperfil"><img src="{{ asset('images/Login/fotoreal.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>
 @endif
 

@@ -4,11 +4,12 @@
 	@parent
 	{{ HTML::style('css/StylesMacroprocesos.css'); $var=Session::get('escuela'); }}
 @stop
-@section('not_general_styles')
-{{ HTML::script('js/framebox_modal.js'); }}
+  @section('not_general_styles')
+{{ HTML::script('js/framebox_reporte.js'); }}
 {{ HTML::script('js/smoke.js'); }}
 {{ HTML::style('css/smoke.css');  }}
 @stop
+
 
 @section('options')
 

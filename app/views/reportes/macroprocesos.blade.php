@@ -26,7 +26,7 @@
 
 <script type="text/javascript">
 	
-		 $(document).ready(function(){
+
   	$('#combo2').change(function(e){
       e.preventDefault();
        var macroproceso=$(this).val();
@@ -45,7 +45,7 @@
            
 });
 
-  });
+
 
 
 </script>

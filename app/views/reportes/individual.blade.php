@@ -7,7 +7,7 @@
 	{{ HTML::script('js/Evaluacionfloatbox.js'); }}
 	{{ HTML::script('js/FocusAcademica.js'); }} 
 	{{ HTML::script('js/jquery.jCombo.min.js'); }} 
-	{{ HTML::script('js/combosAnidados.js'); }} 
+
 
 @stop
 
@@ -40,7 +40,7 @@
 <label><b>TIPO: </b></label>
 	<select id="combo1" class="select" style="width: 200px;">
 	<option value="1" selected>Seleccione opción</option>
-	@foreach ($tipoEmpleados as $tipo)
+	@foreach ($tipoEmpl as $tipo)
 	<option value="{{ $tipo->COD_TIPO }}">{{ $tipo->DESCRIPCION }}</option>
  	@endforeach
 	</select></br></br>
@@ -61,5 +61,26 @@
 <input type="hidden" id="mail" value="{{ $mail }}">
 
 
+<script type="text/javascript">
 
-@stop     
+  	$('#combo1').change(function(e){
+      //e.preventDefault();
+       var tipoEmpl=$(this).val();
+       var escuela=$('#esc').val();
+       var cedula=$('#cedula').val();
+       var codigo=$('#codigo').val();
+       var tipoReporte=$('#tipoReporte').val();
+       var name=$('#name').val();
+       var mail=$('#mail').val();
+
+       alert(tipoEmpl);
+
+           $("#contenido").load("../../../combo1",
+            {tipoEmpleado: tipoEmpl,escuela: escuela,cedula:cedula,codigo:codigo,name:name,mail:mail,tipoReporte:tipoReporte}
+            );
+});
+
+
+
+</script>
+@stop

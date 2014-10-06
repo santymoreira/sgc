@@ -116,7 +116,7 @@ Route::post('/insertar', array('uses' => 'EmpleadosController@insertar'));
 #fin evaluación
 
   //reporte individual
-  Route::get('reportes/individual/{cod}/{tipo}', 'ReportesController@individual');
+  Route::get('reportes/individual/{e}/{t}', 'ReportesController@individual');
     //reporte con busqueda
   Route::get('reportes/mensualE/{cod}/{tipo}', 'ReportesController@mensualE');
 
@@ -159,7 +159,7 @@ Route::post('empleados/crear', array('uses' => 'EmpleadosController@crearEmplead
 //Route::get('evaluacion/{a}/{b}/{c}/{d}/{e}/{f}/{g}', array('uses' => 'EmpleadosController@mostrarEmp'));
 //
 Route::get('consolidado/{a}/{b}', array('uses' => 'ReportesController@imagenReporteConsolidado'));
-Route::get('consolidadoTotal', array('uses' => 'ReportesController@imagenReporteConsolidadoFacultad'));
+Route::get('consolidadoFacultad', array('uses' => 'ReportesController@imagenReporteConsolidadoFacultad'));
 Route::get('consolidadoEscuela/{a}', array('uses' => 'ReportesController@imagenReporteConsolidadoEscuela'));
 
 Route::post('/busquedaBalance', array('uses' => 'EmpleadosController@busquedaBalance'));
