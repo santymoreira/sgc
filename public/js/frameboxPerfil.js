@@ -1,14 +1,14 @@
 /************************************************************************************************
-* Floatbox v3.24  (frame constrained version)
+* floatboxp v3.24  (frame constrained version)
 * December 01, 2008
 *
 * Copyright (C) 2008 Byron McGregor
-* Website: http://randomous.com/tools/floatbox/
+* Website: http://randomous.com/tools/floatboxp/
 * License: Creative Commons Attribution 3.0 License (http://creativecommons.org/licenses/by/3.0/)
 * This comment block must be retained in all deployments and distributions
 *************************************************************************************************/
 
-function Floatbox() {
+function floatboxp() {
 this.defaultOptions = {
 
 /***** BEGIN OPTIONS CONFIGURATION *****/
@@ -46,8 +46,8 @@ enableCookies:   false    ,// true|false
 cookieScope:    'site'    ,// 'site'|'folder'
 language:       'auto'    ,// 'auto'|'en'|... (see the languages folder)
 graphicsType:   'auto'    ,// 'auto'|'international'|'english'
-urlGraphics:    '/floatbox/graphics/'   ,// change this if you install in another folder
-urlLanguages:   '/floatbox/languages/'  ,// change this if you install in another folder
+urlGraphics:    '/floatboxp/graphics/'   ,// change this if you install in another folder
+urlLanguages:   '/floatboxp/languages/'  ,// change this if you install in another folder
 /*** </General Options> ***/
 
 /*** <Navigation Options> ***/
@@ -87,7 +87,7 @@ pauseOnNext:    false   // true|false
 };
 
 /*** <New Child Window Options> ***/
-// Will inherit from the primary floatbox options unless overridden here
+// Will inherit from the primary floatboxp options unless overridden here
 // Add any you like
 this.childOptions = {
 overlayOpacity:      45,
@@ -100,7 +100,7 @@ overlayFadeDuration:  0
 /***** END OPTIONS CONFIGURATION *****/
 this.init();
 }
-Floatbox.prototype = {
+floatboxp.prototype = {
         autoFit :'true',
 	panelGap: 22,
 	infoLinkGap: 16,
@@ -115,7 +115,7 @@ Floatbox.prototype = {
 	autoSizeSpace: 10,
 	initialSize: 120,
 	defaultWidth: '48%', //cambiar tamaño
-	defaultHeight: '80%',
+	defaultHeight: '85%',
 init: function() {
 	this.setOptions(this.defaultOptions);
 	if (typeof fbPageOptions === 'object') this.setOptions(fbPageOptions);
@@ -259,8 +259,8 @@ tagAnchors: function(baseEl) {
 			var el = elements[i],
 				revOptions = that.parseOptionString(el.getAttribute('rev')),
 				href = revOptions.href || el.getAttribute('href');
-			if (that.autoGallery && that.fileType(href) === 'img' && el.getAttribute('rel') !== 'nofloatbox') {
-				el.setAttribute('rel', 'floatbox.autoGallery');
+			if (that.autoGallery && that.fileType(href) === 'img' && el.getAttribute('rel') !== 'nofloatboxp') {
+				el.setAttribute('rel', 'floatboxp.autoGallery');
 				if (that.autoTitle && !el.getAttribute('title')) el.setAttribute('title', that.autoTitle);
 			}
 			if (doOutline) el.setAttribute('hideFocus', 'true');
@@ -318,7 +318,7 @@ tagOneAnchor: function(anchor, revOptions) {
 	} else {
 		var a = anchor;
 	}
-	if (/^(floatbox|gallery|iframe|slideshow|lytebox|lyteshow|lyteframe|lightbox)/i.test(a.rel)) {
+	if (/^(floatboxp|gallery|iframe|slideshow|lytebox|lyteshow|lyteframe|lightbox)/i.test(a.rel)) {
 		a.revOptions = revOptions || this.parseOptionString(a.rev);
 		a.href = a.revOptions.href || anchor.href || anchor.getAttribute('href');
 		a.level = this.children.length + (fb.lastChild.fbBox && !a.revOptions.sameBox ? 1 : 0);
@@ -443,7 +443,7 @@ start: function(anchor) {
 	}
 	this.isRestart = !!this.fbBox;
 	if (this.isRestart) {
-		if (!a.revOptions.sameBox) return new Floatbox().start(anchor);
+		if (!a.revOptions.sameBox) return new floatboxp().start(anchor);
 		this.setOptions(a.revOptions);
 	} else {
 		this.clickedAnchor = anchor.getAttribute ? anchor : false;
@@ -493,7 +493,7 @@ buildItemArray: function(a) {
 	this.itemCount = this.items.length = this.currentIndex = 0;
 	this.justImages = true;
 	this.hasImages = false;
-	var isSingle = /^(floatbox|gallery|iframe|lytebox|lyteframe|lightbox)$/i.test(a.rel);
+	var isSingle = /^(floatboxp|gallery|iframe|lytebox|lyteframe|lightbox)$/i.test(a.rel);
 	for (var i = 0, len = this.anchors.length; i < len; i++) {
 		var a_i = this.anchors[i];
 		if (a_i.rel === a.rel && a_i.level === a.level) {
@@ -535,7 +535,7 @@ getOptions: function() {
 	}
 	this.doSlideshow = this.loadPageOnClose = this.sameBox = false;
 	if (!(this.isChild || this.fbBox)) {
-		if (typeof setFloatboxOptions === 'function') setFloatboxOptions();
+		if (typeof setfloatboxpOptions === 'function') setfloatboxpOptions();
 		if (typeof fbPageOptions === 'object') this.setOptions(fbPageOptions);
 		if (this.enableCookies) {
 			var match = /fbOptions=(.+?)(;|$)/.exec(document.cookie);
@@ -1264,7 +1264,7 @@ updatePanels: function() {
 		str = this.encodeHTML(this.decodeHTML(item.revOptions.info));
 		var options = item.revOptions.infoOptions || '';
 		if (options) options = this.encodeHTML(this.decodeHTML(options));
-		str = '<a href="' + str + '" rel="floatbox" rev="' + options + '"><b>' +
+		str = '<a href="' + str + '" rel="floatboxp" rev="' + options + '"><b>' +
 		(item.revOptions.infoText || this.strings.infoText) + '</b></a>';
 		if (this.setInnerHTML(this.fbInfoLink, str)) infoPanel.display = infoDiv.display = infoLink.display = '';
 	}
@@ -1316,7 +1316,7 @@ updatePanels: function() {
 			} else {
 				if (i !== this.currentIndex) {
 					var item = this.items[i];
-					str += '<a class="fbPop' + pos + '" rel="nofloatbox" href="' + item.href +
+					str += '<a class="fbPop' + pos + '" rel="nofloatboxp" href="' + item.href +
 					'" onclick="fb.newContent(' + i + '); if (window.event) event.returnValue = false; return false;">' + ++i;
 					try {
 						if (this.showIndexThumbs && item.thumb) {
@@ -2388,10 +2388,10 @@ printContents: function(el, style) {
 loadAnchor: function(href, rev, title) {
 	if (href.setAttribute) {
 		var anchor = href;
-		if (!anchor.getAttribute('rel')) anchor.setAttribute('rel', 'floatbox');
+		if (!anchor.getAttribute('rel')) anchor.setAttribute('rel', 'floatboxp');
 		fb.lastChild.start(this.tagOneAnchor(anchor));
 	} else {
-		fb.lastChild.start(this.tagOneAnchor({ href: href, rev: rev, title: title, rel: 'floatbox' }));
+		fb.lastChild.start(this.tagOneAnchor({ href: href, rev: rev, title: title, rel: 'floatboxp' }));
 	}
 },
 goBack: function() {
@@ -2415,10 +2415,10 @@ function initfb() {
 	if (arguments.callee.done) return;
 	arguments.callee.done = true;
 	if (document.compatMode === 'BackCompat') {
-		alert('Floatbox does not support quirks mode.\nPage needs to have a valid a doc type.');
+		alert('floatboxp does not support quirks mode.\nPage needs to have a valid a doc type.');
 		return;
 	}
-	fb = new Floatbox();
+	fb = new floatboxp();
 	fb.tagAnchors(self.document.body || self.document.getElementsByTagName('body')[0]);
 	if (fb.autoStart) {
 		fb.start(fb.autoStart);

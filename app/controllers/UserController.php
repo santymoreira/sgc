@@ -254,6 +254,13 @@ class UserController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
+	public function editp($id)
+	{
+		//$user= DB::select('CALL ShowEmpleado('.$id.')');
+		$contrasena1=0;
+		$user =  Empleado::find($id);
+		return View::make('users.editp',array('user'=>$user));
+	}
 	public function edit($id,$esc)
 	{
 		//$user= DB::select('CALL ShowEmpleado('.$id.')');

@@ -402,6 +402,8 @@ Route::get('users/empleados/{cod}', 'UserController@listado');
 Route::get('users/create', 'UserController@newuser');
 Route::post('users/store/{esc}','UserController@store');
 
+//Editar Datos Personales
+Route::get('users/editp/{cod}', 'UserController@editp');
 //Editar Empleado
 Route::get('users/edit/{cod},{esc}', 'UserController@edit');
 Route::post('users/update/{cod},{esc}','UserController@update');
