@@ -33,15 +33,15 @@
                            <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/transporte_bsc','BSC  '); }}  
                       @endif
                	  @if($var == 2)  
-                     <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/perspectivas','Volver'); }}  
+                     <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a>
                       @elseif($var ==1)
-                           <li class="nivel1"><a class="nivel1" {{ HTML::link('empresas/perspectivas','Volver'); }}  
+                          <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a> 
                         @elseif($var ==4)
-                        <li class="nivel1"><a class="nivel1" {{ HTML::link('finanzas/perspectivas','Volver'); }}  
+                        <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a> 
                         @elseif($var ==5)
-                           <li class="nivel1"><a class="nivel1" {{ HTML::link('marketing/perspectivas','Volver'); }}  
+                           <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a>  
                         @elseif($var ==6)
-                       <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/perspectivas','Volver'); }}  
+                        <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a>
                       @endif 
             </ul>			
           </div> 

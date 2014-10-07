@@ -13,23 +13,7 @@
    			 <div id="menu">
 						<ul>
 				       		<li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio'); }} 
-                       	@if($var == 2)  
-                          <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/cont_audi_sgc','SGC'); }}  
-                        @elseif($var ==7)
-                          <li class="nivel1"><a class="nivel1" {{ HTML::link('E_distancia/distancia_sgc','SGC'); }}  
-                        @elseif($var ==1)
-                           <li class="nivel1"><a class="nivel1" {{ HTML::link('empresas/empresas_sgc','SGC'); }}  
-                        @elseif($var ==3)
-                           <li class="nivel1"><a class="nivel1" {{ HTML::link('C_exterior/exterior_sgc','SGC'); }}  
-                        @elseif($var ==4)
-                           <li class="nivel1"><a class="nivel1" {{ HTML::link('finanzas/finanzas_sgc','SGC'); }}  
-                        @elseif($var ==5)
-                           <li class="nivel1"><a class="nivel1" {{ HTML::link('marketing/marketing_sgc','SGC'); }}  
-                        @elseif($var ==6)
-                           <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/transporte_sgc','SGC'); }}  
-                        @elseif($var ==8)
-                           <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/fade_sgc','SGC'); }}  
-                        @endif
+                      		<li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a>
                        	</ul>			
           </div> 
 @stop

@@ -34,8 +34,8 @@
                         @elseif($var ==6)
                            <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/transporte_sgc','SGC'); }}  
                       @endif
-                       		<li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/macroprocesos','Volver'); }}  
-                       	</ul>			
+                       	 <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a>
+              </ul>			
           </div> 
 @stop
 

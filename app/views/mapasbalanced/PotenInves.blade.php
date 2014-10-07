@@ -32,7 +32,7 @@
                         @elseif($var ==6)
                            <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/transporte_bsc','BSC  '); }}  
                       @endif
-               		<li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/perspectivas','Volver'); }}  
+               		<li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a>  
             </ul>			
           </div> 
 @stop
