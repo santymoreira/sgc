@@ -33,15 +33,15 @@
                            <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/transporte_bsc','BSC  '); }}  
                       @endif
                	  @if($var == 2)  
-                     <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/perspectivas','Volver'); }}  
+                    <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a>
                       @elseif($var ==1)
-                           <li class="nivel1"><a class="nivel1" {{ HTML::link('empresas/perspectivas','Volver'); }}  
+                          <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a> 
                         @elseif($var ==4)
-                        <li class="nivel1"><a class="nivel1" {{ HTML::link('finanzas/perspectivas','Volver'); }}  
+                       <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a> 
                         @elseif($var ==5)
-                           <li class="nivel1"><a class="nivel1" {{ HTML::link('marketing/perspectivas','Volver'); }}  
+                        <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a> 
                         @elseif($var ==6)
-                       <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/perspectivas','Volver'); }}  
+                       <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a>
                       @endif
             </ul>			
           </div> 
@@ -83,19 +83,19 @@
 
 
                  <div id="apDiv123">
-                      <img src="{{ asset('images/objetivosO/FortInterA_red.png') }}">
+                      <img onclick="FortInterA();" id="FortInterA1" style="cursor:pointer;" src="{{ asset('images/objetivosO/FortInterA_red.png') }}">
                    </div>
                    <div id="apDiv124">
-                      <img src="{{ asset('images/objetivosO/ImpleSgc_red.png') }}">
+                      <img onclick="ImpleSgc();" id="ImpleSgc1" style="cursor:pointer;" src="{{ asset('images/objetivosO/ImpleSgc_red.png') }}">
                    </div>
                    <div id="apDiv125">
-                      <img src="{{ asset('images/objetivosO/ImpleGproce_red.png') }}">
+                      <img  onclick="ImpleGproce();" id="ImpleGproce1" style="cursor:pointer;" src="{{ asset('images/objetivosO/ImpleGproce_red.png') }}">
                    </div>
                    <div id="apDiv126">
-                      <img src="{{ asset('images/objetivosO/PoteInnov_red.png') }}">
+                      <img onclick="PoteInnov();" id="PoteInnov1" style="cursor:pointer;" src="{{ asset('images/objetivosO/PoteInnov_red.png') }}">
                    </div>
                     <div id="apDiv228">
-                         <img src="{{ asset('images/objetivosO/PotenVincSoc_red.png')}}">
+                         <img onclick="PotenVinSoc();" id="PotenVinSoc1" style="cursor:pointer;" src="{{ asset('images/objetivosO/PotenVincSoc_red.png')}}">
                    </div>
                   
                  

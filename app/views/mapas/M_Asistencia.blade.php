@@ -20,8 +20,8 @@
    			 <div id="menu">
 						<ul>
 				       		<li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/cont_audi_sgc', 'SGC'); }} 
-                       		<li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/macroprocesos','Volver'); }}  
-                       	</ul>			
+                    <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a>
+           	</ul>			
           </div> 
 @stop
 

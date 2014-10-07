@@ -32,7 +32,7 @@
                         @elseif($var ==6)
                            <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/transporte_bsc','BSC  '); }}  
                       @endif
-               		<li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/perspectivas','Volver'); }}  
+               		<li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a>  
             </ul>			
           </div> 
 @stop
@@ -77,7 +77,7 @@
                         <img src="{{ asset('images/objetivosO/PotenInvest_red.png') }}">
                     </div>
                     <div id="apDiv113">
-                        <img src="{{ asset('images/objetivosO/AcredCarr_red.png') }}">
+                        <img onclick="AcredCarr();" id="AcredCarr1" style="cursor:pointer;" src="{{ asset('images/objetivosO/AcredCarr_red.png') }}">
                     </div>
                  
 

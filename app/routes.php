@@ -321,13 +321,11 @@ Route::get('contabilidad/FortaInterApre', 'MapasBalancedController@FortaInterApr
 Route::get('contabilidad/ImpleSgc', 'MapasBalancedController@ImpleSgc');  
 Route::get('contabilidad/PotenInnov', 'MapasBalancedController@PotenInnov');  
 Route::get('contabilidad/PotenVincSociedad', 'MapasBalancedController@PotenVincSociedad');  
-Route::get('contabilidad/DesarrCentrosApoyo', 'MapasBalancedController@DesarrCentrosApoyo'); 
 Route::get('contabilidad/ImplenGestionProc', 'MapasBalancedController@ImplenGestionProc');
 Route::get('contabilidad/FortaCapDoc', 'MapasBalancedController@FortaCapDocentes'); 
 Route::get('contabilidad/MejorarClimaLab', 'MapasBalancedController@MejorarClimaLab'); 
-Route::get('contabilidad/PromoCoop', 'MapasBalancedController@PromoCoop');
 Route::get('contabilidad/OptimiRecu', 'MapasBalancedController@OptimiRecu');
-Route::get('contabilidad/ObtenerFinan', 'MapasBalancedController@ObtenerFinan');
+
 
 
 
@@ -342,13 +340,11 @@ Route::get('empresas/FortaInterApre', 'MapasBalancedController@FortaInterApre');
 Route::get('empresas/ImpleSgc', 'MapasBalancedController@ImpleSgc');  
 Route::get('empresas/PotenInnov', 'MapasBalancedController@PotenInnov');  
 Route::get('empresas/PotenVincSociedad', 'MapasBalancedController@PotenVincSociedad');  
-Route::get('empresas/DesarrCentrosApoyo', 'MapasBalancedController@DesarrCentrosApoyo'); 
 Route::get('empresas/ImplenGestionProc', 'MapasBalancedController@ImplenGestionProc');
-Route::get('empresas/FortaCapDoc', 'MapasBalancedController@FortaCapDoc'); 
+Route::get('empresas/FortaCapDoc', 'MapasBalancedController@FortaCapDocentes'); 
 Route::get('empresas/MejorarClimaLab', 'MapasBalancedController@MejorarClimaLab'); 
-Route::get('empresas/PromoCoop', 'MapasBalancedController@PromoCoop');
 Route::get('empresas/OptimiRecu', 'MapasBalancedController@OptimiRecu');
-Route::get('empresas/ObtenerFinan', 'MapasBalancedController@ObtenerFinan');
+
 
 
 //Balanced finanzas
@@ -362,13 +358,11 @@ Route::get('finanzas/FortaInterApre', 'MapasBalancedController@FortaInterApre');
 Route::get('finanzas/ImpleSgc', 'MapasBalancedController@ImpleSgc');  
 Route::get('finanzas/PotenInnov', 'MapasBalancedController@PotenInnov');  
 Route::get('finanzas/PotenVincSociedad', 'MapasBalancedController@PotenVincSociedad');  
-Route::get('finanzas/DesarrCentrosApoyo', 'MapasBalancedController@DesarrCentrosApoyo'); 
 Route::get('finanzas/ImplenGestionProc', 'MapasBalancedController@ImplenGestionProc');
-Route::get('finanzas/FortaCapDoc', 'MapasBalancedController@FortaCapDoc'); 
+Route::get('finanzas/FortaCapDoc', 'MapasBalancedController@FortaCapDocentes'); 
 Route::get('finanzas/MejorarClimaLab', 'MapasBalancedController@MejorarClimaLab'); 
-Route::get('finanzas/PromoCoop', 'MapasBalancedController@PromoCoop');
 Route::get('finanzas/OptimiRecu', 'MapasBalancedController@OptimiRecu');
-Route::get('finanzas/ObtenerFinan', 'MapasBalancedController@ObtenerFinan');
+
 
 
 //Balanced marketing
@@ -382,13 +376,11 @@ Route::get('marketing/FortaInterApre', 'MapasBalancedController@FortaInterApre')
 Route::get('marketing/ImpleSgc', 'MapasBalancedController@ImpleSgc');  
 Route::get('marketing/PotenInnov', 'MapasBalancedController@PotenInnov');  
 Route::get('marketing/PotenVincSociedad', 'MapasBalancedController@PotenVincSociedad');  
-Route::get('marketing/DesarrCentrosApoyo', 'MapasBalancedController@DesarrCentrosApoyo'); 
 Route::get('marketing/ImplenGestionProc', 'MapasBalancedController@ImplenGestionProc');
-Route::get('marketing/FortaCapDoc', 'MapasBalancedController@FortaCapDoc'); 
+Route::get('marketing/FortaCapDoc', 'MapasBalancedController@FortaCapDocentes'); 
 Route::get('marketing/MejorarClimaLab', 'MapasBalancedController@MejorarClimaLab'); 
-Route::get('marketing/PromoCoop', 'MapasBalancedController@PromoCoop');
 Route::get('marketing/OptimiRecu', 'MapasBalancedController@OptimiRecu');
-Route::get('marketing/ObtenerFinan', 'MapasBalancedController@ObtenerFinan');
+
 
 //Balanced transporte
 Route::get('home/welcome', 'MapasController@home');
@@ -401,13 +393,10 @@ Route::get('transporte/FortaInterApre', 'MapasBalancedController@FortaInterApre'
 Route::get('transporte/ImpleSgc', 'MapasBalancedController@ImpleSgc');  
 Route::get('transporte/PotenInnov', 'MapasBalancedController@PotenInnov');  
 Route::get('transporte/PotenVincSociedad', 'MapasBalancedController@PotenVincSociedad');  
-Route::get('transporte/DesarrCentrosApoyo', 'MapasBalancedController@DesarrCentrosApoyo'); 
 Route::get('transporte/ImplenGestionProc', 'MapasBalancedController@ImplenGestionProc');
-Route::get('transporte/FortaCapDoc', 'MapasBalancedController@FortaCapDoc'); 
+Route::get('transporte/FortaCapDoc', 'MapasBalancedController@FortaCapDocentes'); 
 Route::get('transporte/MejorarClimaLab', 'MapasBalancedController@MejorarClimaLab'); 
-Route::get('transporte/PromoCoop', 'MapasBalancedController@PromoCoop');
 Route::get('transporte/OptimiRecu', 'MapasBalancedController@OptimiRecu');
-Route::get('transporte/ObtenerFinan', 'MapasBalancedController@ObtenerFinan');
 
 
 
