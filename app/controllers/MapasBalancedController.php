@@ -68,21 +68,21 @@ class MapasBalancedController extends BaseController {
 		{
 			return View::make('mapasbalanced.PotenInnov');
 		}	
-	public function ImpleModContem()
+	public function PotenVincSociedad()
 		{
-			return View::make('mapasbalanced.ImpleModContem');
+			return View::make('mapasbalanced.PotenVincSociedad');
 		}	
 	public function DesarrCentrosApoyo()
 		{
 			return View::make('mapasbalanced.DesarrCentrosApoyo');
 		}	
-		public function PromvProyecSoc()
+		public function ImplenGestionProc()
 		{
-			return View::make('mapasbalanced.PromvProyecSoc');
+			return View::make('mapasbalanced.ImplenGestionProc');
 		}	
-			public function FortaCapRRHH()
+			public function FortaCapDocentes()
 		{
-			return View::make('mapasbalanced.FortaCapRRHH');
+			return View::make('mapasbalanced.FortaCapDoc');
 		}	
 			public function MejorarClimaLab()
 		{

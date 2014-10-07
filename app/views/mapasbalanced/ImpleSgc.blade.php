@@ -82,7 +82,7 @@
                  @endif  
 
 
-              <div id="apDiv123">
+               <div id="apDiv123">
                       <img src="{{ asset('images/objetivosO/FortInterA_red.png') }}">
                    </div>
                    <div id="apDiv124">
@@ -94,15 +94,10 @@
                    <div id="apDiv126">
                       <img src="{{ asset('images/objetivosO/PoteInnov_red.png') }}">
                    </div>
-                   <div id="apDiv127">
-                      <img src="{{ asset('images/objetivosO/ImpleMcontemp_red.png') }}">
+                    <div id="apDiv228">
+                         <img src="{{ asset('images/objetivosO/PotenVincSoc_red.png')}}">
                    </div>
-                   <div id="apDiv128">
-                      <img src="{{ asset('images/objetivosO/DesaCent_red.png') }}">
-                   </div>
-                   <div id="apDiv129">
-                      <img src="{{ asset('images/objetivosO/PromProyec_red.png') }}">  
-                   </div>
+
                    <div id="apDiv139">
                      <a id="1" href="{{ asset('images/descripcion/AvanceSgc.png'); }}" rel="slideshow1">
                          <img src="{{ asset('images/Acciones/AvanceSgc.png') }}" style="cursor:pointer;">

@@ -72,35 +72,46 @@
                  @endif  
 
 
+
                     <div id="apDiv112">
                         <img src="{{ asset('images/objetivosO/PotenInvest_red.png') }}">
                     </div>
                     <div id="apDiv113">
                         <img src="{{ asset('images/objetivosO/AcredCarr_red.png') }}">
                     </div>
-                    <div id="apDiv114">
-                      <a id="1" href="{{ asset('images/descripcion/cant_inves.png'); }}" rel="slideshow1">
-                         <img src="{{ asset('images/Acciones/cant_inves.png') }}" style="cursor:pointer;">
-                      </a>
+                 
+
+                  <div id="apDiv114">
+                        <img src="{{ asset('images/Acciones/PlanInves.png')}}" style="cursor:pointer;">
+                   </div>
+                    
+                   <div id="apDiv115">
+                        <img src="{{ asset('images/Acciones/ProduccCient.png')}}" style="cursor:pointer;">
                     </div>
-                    <div id="apDiv115">
-                      <a id="2" href="{{ asset('images/descripcion/cant_publi.png'); }}" rel="slideshow2">
-                        <img src="{{ asset('images/Acciones/cant_publi.png') }}" style="cursor:pointer;">
-                      </a>
-                    </div>
+                  <div id="apDiv235">
+                       <img src="{{ asset('images/Acciones/CantLibrosRevi.png')}}" style="cursor:pointer;">
+                   </div>
+                   <div id="apDiv236">
+                       <img src="{{ asset('images/Acciones/ProducRegio.png')}}" style="cursor:pointer;">
+                   </div>
+                   
+                 
 
                     <!-- Evaluacion Acciones -->
                       <!-- nombre del proyecto/macroproceso/escuela/proceso/objeto/peso-->
-                    <div id="apDiv221">
-                     <a style="cursor:default;" href="../evaluacionBalance/Plan de investigación/20/{{Session::get('escuela')}}/1/1/1.5"  rel="floatbox">
-                   <img src="{{ asset('images/semaforo/rojo.png') }}">  
-                 </a>   
-                        
-                    </div>
-                    <div id="apDiv222">
-                    <a style="cursor:default;" href="../evaluacionBalance/Producciones Científicas/20/{{Session::get('escuela')}}/2/2/4.5"  rel="floatbox">
-                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
-                    </div>
+                 
+                  <div id="apDiv237">
+                      <img src="{{ asset('images/semaforo/rojo.png')}}">
+                   </div>
+                   <div id="apDiv238">
+                     <img src="{{ asset('images/semaforo/rojo.png')}}">
+                   </div>
+                   <div id="apDiv239">
+                     <img src="{{ asset('images/semaforo/rojo.png')}}">
+                   </div>
+                   <div id="apDiv240">
+                     <img src="{{ asset('images/semaforo/rojo.png')}}">
+                   </div>
                     
       </div>
   @stop
