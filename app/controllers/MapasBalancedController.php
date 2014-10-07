@@ -44,37 +44,33 @@ class MapasBalancedController extends BaseController {
 
 	//Acciones
 
-	public function PotenInves()
+		public function PotenInves()
 		{
 			return View::make('mapasbalanced.PotenInves');
 		}
-	public function AcredCarr()
+		public function AcredCarr()
 		{
 			return View::make('mapasbalanced.AcredCarr');
 		}	
-	public function AumentarSatis()
+		public function AumentarSatis()
 		{
 			return View::make('mapasbalanced.AumentarSatis');
 		}	
-	public function FortaInterApre()
+		public function FortaInterApre()
 		{
 			return View::make('mapasbalanced.FortaInterApre');
 		}	
-	public function ImpleSgc()
+		public function ImpleSgc()
 		{
 			return View::make('mapasbalanced.ImpleSgc');
 		}	
-	public function PotenInnov()
+		public function PotenInnov()
 		{
 			return View::make('mapasbalanced.PotenInnov');
 		}	
-	public function PotenVincSociedad()
+		public function PotenVincSociedad()
 		{
 			return View::make('mapasbalanced.PotenVincSociedad');
-		}	
-	public function DesarrCentrosApoyo()
-		{
-			return View::make('mapasbalanced.DesarrCentrosApoyo');
 		}	
 		public function ImplenGestionProc()
 		{
@@ -88,16 +84,9 @@ class MapasBalancedController extends BaseController {
 		{
 			return View::make('mapasbalanced.MejorarClimaLab');
 		}
-			public function PromoCoop()
-		{
-			return View::make('mapasbalanced.PromoCoop');
-		}
 		public function OptimiRecu()
 		{
 			return View::make('mapasbalanced.OptimiRecu');
 		}
-		public function ObtenerFinan()
-		{
-			return View::make('mapasbalanced.ObtenerFinan');
-		}
+		
 }

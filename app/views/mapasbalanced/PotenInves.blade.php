@@ -77,7 +77,7 @@
                         <img src="{{ asset('images/objetivosO/PotenInvest_red.png') }}">
                     </div>
                     <div id="apDiv113">
-                        <img src="{{ asset('images/objetivosO/AcredCarr_red.png') }}">
+                        <img onclick="AcredCarr();" id="AcredCarr1" style="cursor:pointer;" src="{{ asset('images/objetivosO/AcredCarr_red.png') }}">
                     </div>
                  
 

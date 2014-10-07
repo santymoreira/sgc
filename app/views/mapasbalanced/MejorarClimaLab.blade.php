@@ -85,7 +85,7 @@
                         <img src="{{ asset('images/objetivosO/MejorarClima_red.png') }}">
                     </div>
                      <div id="apDiv231">
-                      <img src="{{ asset('images/objetivosO/FortaCapDocentes_red.png')}}">
+                      <img onclick="FortaCapDocentes();" id="FortaCapDocentes1" style="cursor:pointer;" src="{{ asset('images/objetivosO/FortaCapDocentes_red.png')}}">
                     </div>
 
                       <div id="apDiv247">

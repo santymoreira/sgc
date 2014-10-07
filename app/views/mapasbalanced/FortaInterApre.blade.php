@@ -87,16 +87,16 @@
                       <img src="{{ asset('images/objetivosO/FortInterA_red.png') }}">
                    </div>
                    <div id="apDiv124">
-                      <img src="{{ asset('images/objetivosO/ImpleSgc_red.png') }}">
+                      <img onclick="ImpleSgc();" id="ImpleSgc1" style="cursor:pointer;" src="{{ asset('images/objetivosO/ImpleSgc_red.png') }}">
                    </div>
                    <div id="apDiv125">
-                      <img src="{{ asset('images/objetivosO/ImpleGproce_red.png') }}">
+                      <img onclick="ImpleGproce();" id="ImpleGproce1" style="cursor:pointer;" src="{{ asset('images/objetivosO/ImpleGproce_red.png') }}">
                    </div>
                    <div id="apDiv126">
-                      <img src="{{ asset('images/objetivosO/PoteInnov_red.png') }}">
+                      <img onclick="PoteInnov();" id="PoteInnov1" style="cursor:pointer;" src="{{ asset('images/objetivosO/PoteInnov_red.png') }}">
                    </div>
                     <div id="apDiv228">
-                         <img src="{{ asset('images/objetivosO/PotenVincSoc_red.png')}}">
+                         <img onclick="PotenVinSoc();" id="PotenVinSoc1" style="cursor:pointer;" src="{{ asset('images/objetivosO/PotenVincSoc_red.png')}}">
                    </div>
 
               <div id="apDiv230">

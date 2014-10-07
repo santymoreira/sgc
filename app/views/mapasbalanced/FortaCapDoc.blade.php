@@ -83,7 +83,7 @@
               
                    
                <div id="apDiv157">
-                        <img src="{{ asset('images/objetivosO/MejorarClima_red.png') }}">
+                        <img  onclick="MejorarClima();" id="MejorarClima1" style="cursor:pointer;" src="{{ asset('images/objetivosO/MejorarClima_red.png') }}">
                     </div>
                      <div id="apDiv231">
                       <img src="{{ asset('images/objetivosO/FortaCapDocentes_red.png')}}">
