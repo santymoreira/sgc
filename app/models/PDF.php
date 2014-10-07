@@ -101,6 +101,8 @@ public  function Footer()
         $this->Cell(4);
         $this->Cell(9, 0, utf8_decode("Impreso: "), 0,"L", FALSE);
         $this->Cell(2);
+        //horario de ecuador
+        date_default_timezone_set('America/Guayaquil');
         $this->Cell(15,0,date("d/m/Y   H:i:s"),0,1,'L');
         $this->Cell(100);
     // N�mero de p�gina

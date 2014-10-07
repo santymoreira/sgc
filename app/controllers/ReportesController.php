@@ -289,8 +289,8 @@ class ReportesController extends BaseController {
 
          $myPicture = new pImage(900,330,$MyData);
          /* Draw the background */
-         $Settings = array("R"=>255, "G"=>255, "B"=>255, "Dash"=>255, "DashR"=>255, "DashG"=>255, "DashB"=>255);
-         //$Settings = array("R"=>0, "G"=>0, "B"=>255, "Dash"=>1, "DashR"=>0, "DashG"=>0, "DashB"=>255);
+         //$Settings = array("R"=>255, "G"=>255, "B"=>255, "Dash"=>255, "DashR"=>255, "DashG"=>255, "DashB"=>255);
+         $Settings = array("R"=>0, "G"=>0, "B"=>255, "Dash"=>1, "DashR"=>0, "DashG"=>0, "DashB"=>255);
          
          $myPicture->drawFilledRectangle(0,0,900,330,$Settings);
          /* Overlay with a gradient */
@@ -310,27 +310,27 @@ class ReportesController extends BaseController {
          /* Enable shadow computing */  
          $myPicture->setShadow(TRUE,array("X"=>1,"Y"=>1,"R"=>0,"G"=>0,"B"=>0,"Alpha"=>20)); 
           /* Write some text */  
-          $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>11); 
-         //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+          //$TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>11); 
+         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
 
          $myPicture->drawText(110,200,"CI: ".$cedulaEmpleado,$TextSettings); 
          //$myPicture->drawText(110,200,"CEDULA: ".$cedulaEmpleado,$TextSettings); 
          //
           /* Write some text  */
-          $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>11);  
-         //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+          //$TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>11);  
+         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
          //$myPicture->drawText(110,222,$escuelare[0],$TextSettings); 
          $myPicture->drawText(110,222,$school,$TextSettings); 
 
            /* Write some text   */
-          $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>11); 
-         //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+          //$TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>11); 
+        $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
          //$myPicture->drawText(110,244,"Fecha Inicio: ".$_SESSION['iini'],$TextSettings); 
          $myPicture->drawText(110,244,"Fecha Inicio: ".$f1,$TextSettings); 
 
            /* Write some text  */ 
-           $TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>11); 
-         //$TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
+           //$TextSettings = array("R"=>0,"G"=>0,"B"=>0,"Angle"=>0,"FontSize"=>11); 
+         $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
          //$myPicture->drawText(110,266,"Fecha Fin: ".$_SESSION['ffin'],$TextSettings); 
          $myPicture->drawText(110,266,"Fecha Fin: ".$f2,$TextSettings); 
          /* Create the pIndicator object */ 
@@ -388,8 +388,9 @@ class ReportesController extends BaseController {
          $myPicture = new pImage(900,330,$MyData);
 
          # Draw the background
-         //$Settings = array("R"=>0, "G"=>0, "B"=>255, "Dash"=>1, "DashR"=>0, "DashG"=>0, "DashB"=>255);
-         $Settings = array("R"=>255, "G"=>255, "B"=>255, "Dash"=>255, "DashR"=>255, "DashG"=>255, "DashB"=>255);
+         # $Settings = array("R"=>0, "G"=>0, "B"=>255, "Dash"=>1, "DashR"=>0, "DashG"=>0, "DashB"=>255);
+         $Settings = array("R"=>0, "G"=>0, "B"=>255, "Dash"=>1, "DashR"=>0, "DashG"=>0, "DashB"=>255);
+         //$Settings = array("R"=>255, "G"=>255, "B"=>255, "Dash"=>255, "DashR"=>255, "DashG"=>255, "DashB"=>255);
          $myPicture->drawFilledRectangle(0,0,900,330,$Settings);
 
          # Overlay with a gradient
@@ -559,25 +560,45 @@ class ReportesController extends BaseController {
         //echo("<script>console.log('PHP: ".$total."');</script>");
         
         $valor=0;
+        $tot=0;
         //macroprocesos
+        //
         for ($i=1; $i <=7 ; $i++) 
         { 
-                //escuela
+            //escuela
+                $total=0;
                 for ($j=1; $j <= 6; $j++) 
                 { 
-                    $total=0;
+                    
                     $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.','.$j.')');
                     foreach ($Indicadores as $indicador) 
                     {
                         $total+=$indicador->avance;
+                          echo("<script>console.log('Escuela: ".$j.' '.$total."');</script>");
                     }
+                    
                 }
-                //echo("<script>console.log('Escuela: ".$j.' '.$total"');</script>");
-                $total=round($total/6,2);
-                // echo("<script>console.log('Escuela: ".$j.' '.$total."');</script>");
-                    $valor+=round($total,2);
-                     //echo("<script>console.log('Valortotal: ".$j.' '.$valor."');</script>");
+                $tot=$total/6;
+                    $valor+=$tot;
         }
+
+        //escuela
+
+        #escuela
+                /*$total=0;
+
+                for ($i=1; $i <= 7; $i++) 
+                { 
+                    $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.',2)');
+                    foreach ($Indicadores as $indicador) 
+                    {
+                        $total+=$indicador->resultado;
+                          $f1=$indicador->fecha1;
+                         $f2=$indicador->fecha2;
+                         //echo("<script>console.log('PHP: ".$total."');</script>");
+                    }
+                }*/
+
         $macro="";
         $school='Facultad';
        // $maximo=$this->getValorTotal($escuela,$macroproceso);
@@ -624,7 +645,7 @@ class ReportesController extends BaseController {
 
         // /* Write some text */  
          $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
-         $myPicture->drawText(30,172,'Porcentaje: '.$valor,$TextSettings); 
+         $myPicture->drawText(30,172,'Porcentaje: '.round($valor,2),$TextSettings); 
          
          // /* Write some text */  
          $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
@@ -706,7 +727,7 @@ class ReportesController extends BaseController {
          
          /* Write the picture title */ 
          $myPicture->setFontProperties(array("FontName"=>"pChart2.1.4/fonts/Forgotte.ttf","FontSize"=>10));//tamaño letra
-         $myPicture->drawText(20,25,$macro,array("R"=>255,"G"=>255,"B"=>255));
+         $myPicture->drawText(20,25,$school,array("R"=>255,"G"=>255,"B"=>255));
 
          
          /* Enable shadow computing */  
@@ -807,7 +828,7 @@ class ReportesController extends BaseController {
 
         // /* Write some text */  
          $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
-         $myPicture->drawText(30,172,'Porcentaje: '.$total,$TextSettings); 
+         $myPicture->drawText(30,172,'Porcentaje: '.round($total,2),$TextSettings); 
          
          // /* Write some text */  
          $TextSettings = array("R"=>255,"G"=>255,"B"=>255,"Angle"=>0,"FontSize"=>12); 
@@ -973,12 +994,13 @@ class ReportesController extends BaseController {
         $pdf->Cell(20);
         $pdf->SetFont('ARIAL','',10);
         $pdf->SetTextColor(12,41,68);
-        $pdf->Cell(50, 8, "Impreso por:    ".$nombreEmpleadoActual."       CI:     ".$ciEmpleadoActual,"", 0,"L", FALSE);
+        $pdf->Cell(50, 8, utf8_decode("Impreso por:    ".$nombreEmpleadoActual."       CI:     ".$ciEmpleadoActual),"", 0,"L", FALSE);
         $pdf->Ln(12);
         $pdf->Cell(20);
         $pdf->Cell(50, 8, "CI:    ".$cedulaEmpleado,"TLRB", 0,"L", FALSE);
         //$pdf->Cell(10);
         //$pdf->Ln(9);
+        //utf8_decode("NOMBRE:    ".$nombreEmpleado)
         $pdf->Cell(100, 8, utf8_decode("NOMBRE:    ".$nombreEmpleado),"TBR", 0,"L", FALSE);
         $pdf->Ln(8);
         $pdf->Cell(20);
@@ -1030,7 +1052,8 @@ class ReportesController extends BaseController {
             $pdf->SetFillColor(255,255,255);
             $pdf->Cell(150, 0, utf8_decode("Gráfico"), 0,"C", FALSE);
             //$pdf->Ln(8);
-            $pdf->Image($codigoEmpleado.".PNG",20,140,180,45.5);
+            $pdf->Image("images/".$codigoEmpleado.".PNG",20,140,180,45.5);
+           // $myPicture->render("images/".$codigoEmpleado.".PNG");
         //$pdf->Image("../pChart2.1.4/examples/pictures/".$_SESSION['user'].".png",20,120,180,45.5);
 
             $pdf->Output('images/'.$codigoEmpleado.'.pdf','D');
