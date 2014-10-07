@@ -105,8 +105,11 @@
                    </div>
 
                    <!-- Evaluacion Acciones -->
+                   <!-- nombre del proyecto/macroproceso/escuela/proceso/objeto/peso-->
                     <div id="apDiv204">
-                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                     <a style="cursor:default;"  href="../evaluacionBalance/Avance de implementación del SGC/22/{{Session::get('escuela')}}/4/2/4"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a> 
                    </div>
             </div>
   @stop

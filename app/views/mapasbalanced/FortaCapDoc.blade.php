@@ -106,13 +106,19 @@
 
                     <!-- Evaluacion Acciones -->
                      <div id="apDiv189">
-                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      <a style="cursor:default;"  href="../evaluacionBalance/Relación Msc - Docentes/23/{{Session::get('escuela')}}/1/2/3.33"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a> 
                     </div>
                     <div id="apDiv190">
-                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      <a style="cursor:default;"  href="../evaluacionBalance/Relación Phd - Docentes/23/{{Session::get('escuela')}}/2/2/3.33"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a>
                     </div>
                      <div id="apDiv191">
-                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      <a style="cursor:default;"  href="../evaluacionBalance/Número de Docentes mujeres/23/{{Session::get('escuela')}}/3/2/3.33"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a> 
                      </div>
                     
 

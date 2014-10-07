@@ -89,27 +89,33 @@
                     </div>
 
                       <div id="apDiv247">
-                        <img src="{{ asset('images/acciones/Compromiso.png')}}" style="cursor:pointer;">
+                        <img src="{{ asset('images/Acciones/Compromiso.png')}}" style="cursor:pointer;">
                      </div>
                      <div id="apDiv248">
-                       <img src="{{ asset('images/acciones/Liderazgo.png')}}" style="cursor:pointer;">
+                       <img src="{{ asset('images/Acciones/Liderazgo.png')}}" style="cursor:pointer;">
                      </div>
                      <div id="apDiv249">
-                        <img src="{{ asset('images/acciones/MotivPersonal.png')}}" style="cursor:pointer;">
+                        <img src="{{ asset('images/Acciones/MotivPersonal.png')}}" style="cursor:pointer;">
                      </div>
 
                    
 
                     <!-- Evaluacion Acciones -->
 
-                       <div id="apDiv250">
-             <img src="{{ asset('images/semaforo/rojo.png') }}">  
+              <div id="apDiv250">
+                      <a style="cursor:default;"  href="../evaluacionBalance/Compromiso/23/{{Session::get('escuela')}}/4/1/3.33"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a>
              </div>
              <div id="apDiv251">
-              <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      <a style="cursor:default;"  href="../evaluacionBalance/Liderazgo/23/{{Session::get('escuela')}}/5/1/3.33"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a> 
              </div>
              <div id="apDiv252">
-               <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      <a style="cursor:default;"  href="../evaluacionBalance/Motivación Personal/23/{{Session::get('escuela')}}/6/1/3.33"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a> 
              </div> 
                     
             </div>

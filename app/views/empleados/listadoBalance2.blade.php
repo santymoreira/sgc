@@ -60,9 +60,15 @@
                 <input disabled type="text" class="numeric" id="t2" required></input>
               </label>
               </td>
+              @if ($cumpli==1)
               <td scope='row'> 
+                  <img id="p" src="../../../../../../images/correcto.gif" />
+              </td>
+              @else
+                  <td scope='row'> 
                   <img id="p" src="../../../../../../images/question1.gif" />
               </td>
+              @endif
                 <td scope='row'> 
                   <!--<img height="75%" width="50%" id="o" src="../../../../../images/file.png" />-->
                   {{ Form::open(array('url'=>'upload/', 'method' => 'post','enctype'=>'multipart/form-data') )}}

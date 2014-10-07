@@ -115,16 +115,23 @@
                </div>
                   
                    <!-- Evaluacion Acciones -->
+                   <!-- nombre del proyecto/macroproceso/escuela/proceso/objeto/peso-->
 
 
                   <div id="apDiv195">
-                    <img src="{{ asset('images/semaforo/rojo.png') }}">  
-                    </div>
-                    <div id="apDiv196">
-                     <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                    <a style="cursor:default;"  href="../evaluacionBalance/Cumplimiento de estafeta/22/{{Session::get('escuela')}}/1/2/1.33"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a>  
                     </div>
                     <div id="apDiv197">
-                     <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                    <a style="cursor:default;"  href="../evaluacionBalance/Cumplimiento de sílabos/22/{{Session::get('escuela')}}/2/2/1.33"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a>
+                    </div>
+                    <div id="apDiv196">
+                      <a style="cursor:default;"  href="../evaluacionBalance/Horas de atención/22/{{Session::get('escuela')}}/3/2/1.33"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a> 
                     </div>
                    
       </div>

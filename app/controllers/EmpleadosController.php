@@ -217,11 +217,20 @@ class EmpleadosController extends BaseController {
          $ci=Input::get('ci');
            $nombres=Input::get('nombres');
            $mail=Input::get('mail');
+           $porc=0;
 
+           $porcentaje=DB::select("select PORCENTAJE from indicador where cod_empleado=? and COD_PROCESO=? 
+            and COD_MACROPROCESO=? AND COD_ESCUELA=? and FECHA_INICIO=? and FECHA_FIN=?",array($empleados,$proceso,$macro,$escuela,$f1,$f2));
+            foreach ($porcentaje as $p) { $porc=$p->PORCENTAJE; }
+            if ($porc==$peso) {
+                $cumpli=1;
+            }else{
+                $cumpli=0;
+            }
            if ($objeto==1) {
-               return View::make('empleados.listadoBalance', array('escuela' => $escuela,'empleados'=>$empleados,'ci'=>$ci,'nombres'=>$nombres,'f1'=>$f1,'f2'=>$f2,'macro'=>$macro,'escuela'=>$escuela,'proceso'=>$proceso,'objeto'=>$objeto,'peso'=>$peso));
+               return View::make('empleados.listadoBalance', array('escuela' => $escuela,'empleados'=>$empleados,'ci'=>$ci,'nombres'=>$nombres,'f1'=>$f1,'f2'=>$f2,'macro'=>$macro,'escuela'=>$escuela,'proceso'=>$proceso,'objeto'=>$objeto,'peso'=>$peso,'cumpli'=>$cumpli));
            }else{
-             return View::make('empleados.listadoBalance2', array('escuela' => $escuela,'empleados'=>$empleados,'ci'=>$ci,'nombres'=>$nombres,'f1'=>$f1,'f2'=>$f2,'macro'=>$macro,'escuela'=>$escuela,'proceso'=>$proceso,'objeto'=>$objeto,'peso'=>$peso));
+             return View::make('empleados.listadoBalance2', array('escuela' => $escuela,'empleados'=>$empleados,'ci'=>$ci,'nombres'=>$nombres,'f1'=>$f1,'f2'=>$f2,'macro'=>$macro,'escuela'=>$escuela,'proceso'=>$proceso,'objeto'=>$objeto,'peso'=>$peso,'cumpli'=>$cumpli));
            }
 
         

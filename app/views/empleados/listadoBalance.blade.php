@@ -29,8 +29,7 @@
 <input type="hidden" id="peso" value="{{ $peso }}">
 <input type="hidden" id="empleado" value="{{ $empleados }}">
   <div style="margin-top:20px; text-align:center;">
-        
-            
+    
              <table class="features-table">
 
                 <thead>
@@ -54,11 +53,16 @@
                 <select id="1" class="select" style="width: 200px;"><option value="1" selected>Seleccione opción</option><option value="2">Sí</option><option value="3">No</option>
                 </select>
               </td>
+              @if ($cumpli==1)
               <td scope='row'> 
+                  <img id="p" src="../../../../../../images/correcto.gif" />
+              </td>
+              @else
+                  <td scope='row'> 
                   <img id="p" src="../../../../../../images/question1.gif" />
               </td>
+              @endif
                 <td scope='row'> 
-                  <!--<img height="75%" width="50%" id="o" src="../../../../../images/file.png" />-->
                   {{ Form::open(array('url'=>'upload/', 'method' => 'post','enctype'=>'multipart/form-data') )}}
 
                 {{ Form::file('archivo') }}
@@ -97,7 +101,7 @@
       if(opcion==1)
         {
           op=-1;
-           $('#'+empleado+'p').attr('src', "../../../../../../images/question1.gif");
+           $('#p').attr('src', "../../../../../../images/question1.gif");
         }
       if(opcion==2)
         {

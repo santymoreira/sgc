@@ -101,17 +101,27 @@
                       <!-- nombre del proyecto/macroproceso/escuela/proceso/objeto/peso-->
                  
                   <div id="apDiv237">
-                      <img src="{{ asset('images/semaforo/rojo.png')}}">
-                   </div>
+                      <a style="cursor:default;" href="../evaluacionBalance/Plan de investigación/20/{{Session::get('escuela')}}/1/1/1.5"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a> 
+                  </div>
+
                    <div id="apDiv238">
-                     <img src="{{ asset('images/semaforo/rojo.png')}}">
+                      <a style="cursor:default;"  href="../evaluacionBalance/Producciones Científicas/20/{{Session::get('escuela')}}/2/2/4.5"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a> 
                    </div>
                    <div id="apDiv239">
-                     <img src="{{ asset('images/semaforo/rojo.png')}}">
+                      <a style="cursor:default;"  href="../evaluacionBalance/Cantidad de libros revisados por pares/20/{{Session::get('escuela')}}/3/1/3"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a> 
                    </div>
                    <div id="apDiv240">
-                     <img src="{{ asset('images/semaforo/rojo.png')}}">
+                     <a style="cursor:default;"  href="../evaluacionBalance/Producciones regionales/20/{{Session::get('escuela')}}/4/1/1"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a> 
                    </div>
                     
       </div>
   @stop
+

@@ -88,19 +88,19 @@
               </div>
 
               <div id="apDiv242">
-                <img src="{{ asset('images/acciones/PresuDoc.png')}}" style="cursor:pointer;">
+                <img src="{{ asset('images/Acciones/PresuDoc.png')}}" style="cursor:pointer;">
               </div>
               <div id="apDiv243">
-                <img src="{{ asset('images/acciones/PresuVinc.png')}}" style="cursor:pointer;">
+                <img src="{{ asset('images/Acciones/PresuVinc.png')}}" style="cursor:pointer;">
               </div>
               <div id="apDiv244">
-                <img src="{{ asset('images/acciones/PresuInves.png')}}" style="cursor:pointer;">  
+                <img src="{{ asset('images/Acciones/PresuInves.png')}}" style="cursor:pointer;">  
               </div>
               <div id="apDiv245">
-                <img src="{{ asset('images/acciones/PresuAdmin.png')}}" style="cursor:pointer;">  
+                <img src="{{ asset('images/Acciones/PresuAdmin.png')}}" style="cursor:pointer;">  
               </div>
               <div id="apDiv246">
-                <img src="{{ asset('images/acciones/POA.png')}}" style="cursor:pointer;">
+                <img src="{{ asset('images/Acciones/POA.png')}}" style="cursor:pointer;">
               </div>
                    
 
@@ -109,19 +109,29 @@
                 <!-- Evaluacion Acciones -->
 
                   <div id="apDiv210">
-                    <img src="{{ asset('images/semaforo/rojo.png') }}">  
-                </div>
+                      <a style="cursor:default;"  href="../evaluacionBalance/Presupuesto de Docencia/24/{{Session::get('escuela')}}/1/1/4"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a>
+                  </div>
                 <div id="apDiv211">
-                   <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                    <a style="cursor:default;"  href="../evaluacionBalance/Presupuesto de Vinculación/24/{{Session::get('escuela')}}/2/1/4"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a>
                 </div>
                 <div id="apDiv212">
-                    <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                    <a style="cursor:default;"  href="../evaluacionBalance/Presupuesto de Investigación/24/{{Session::get('escuela')}}/3/1/4"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a>
                 </div>
                 <div id="apDiv213">
-                   <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      <a style="cursor:default;"  href="../evaluacionBalance/Presupuesto de Administración/24/{{Session::get('escuela')}}/4/1/4"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a>
                 </div>
                 <div id="apDiv214">
-                   <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      <a style="cursor:default;"  href="../evaluacionBalance/POA/24/{{Session::get('escuela')}}/5/1/4"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a>
                 </div>
                
         </div>

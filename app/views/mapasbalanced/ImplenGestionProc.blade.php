@@ -98,31 +98,39 @@
                    </div>
 
                      <div id="apDiv253">
-              <img src="{{ asset('images/acciones/LevanProces.png')}}" style="cursor:pointer;">
+              <img src="{{ asset('images/Acciones/LevanProces.png')}}" style="cursor:pointer;">
              </div>
              <div id="apDiv254">
-              <img src="{{ asset('images/acciones/EstanProc.png')}}"  style="cursor:pointer;">
+              <img src="{{ asset('images/Acciones/EstanProc.png')}}"  style="cursor:pointer;">
              </div>
              <div id="apDiv255">
-              <img src="{{ asset('images/acciones/Capacitacion.png')}}"  style="cursor:pointer;">
+              <img src="{{ asset('images/Acciones/Capacitacion.png')}}"  style="cursor:pointer;">
              </div>
              <div id="apDiv256">
-                  <img src="{{ asset('images/acciones/Evaluacion.png')}}"  style="cursor:pointer;">
+                  <img src="{{ asset('images/Acciones/Evaluacion.png')}}"  style="cursor:pointer;">
              </div>
       
          
       <!-- Evaluar Acciones -->
           <div id="apDiv257">
-              <img src="{{ asset('images/semaforo/rojo.png')}}">
+                     <a style="cursor:default;"  href="../evaluacionBalance/Levantamiento del proceso/22/{{Session::get('escuela')}}/9/1/1"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a> 
             </div>
             <div id="apDiv258">
-              <img src="{{ asset('images/semaforo/rojo.png')}}">  
+                     <a style="cursor:default;"  href="../evaluacionBalance/Estandarización de procesos/22/{{Session::get('escuela')}}/10/1/1"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a> 
             </div>
             <div id="apDiv259">
-              <img src="{{ asset('images/semaforo/rojo.png')}}">
+                     <a style="cursor:default;"  href="../evaluacionBalance/Capacitación/22/{{Session::get('escuela')}}/11/1/1"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a> 
             </div>
             <div id="apDiv260">
-              <img src="{{ asset('images/semaforo/rojo.png')}}">  
+                     <a style="cursor:default;"  href="../evaluacionBalance/Evaluación/22/{{Session::get('escuela')}}/12/1/1"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a>  
             </div>
 
           </div>

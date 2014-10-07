@@ -91,9 +91,12 @@
                     </div>
                    
 
-                <!-- evaluacion Acciones -->      
+                <!-- evaluacion Acciones -->    
+                 <!-- nombre del proyecto/macroproceso/escuela/proceso/objeto/peso-->  
                 <div id="apDiv182">
-                     <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                                          <a style="cursor:default;"  href="../evaluacionBalance/Satisfacción del estudiante/21/{{Session::get('escuela')}}/1/1/20"  rel="floatbox">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a> 
                 </div>
                    
 
