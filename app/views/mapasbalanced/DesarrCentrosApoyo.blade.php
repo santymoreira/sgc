@@ -16,7 +16,7 @@
   {{ HTML::script('js/framebox_1.js'); }}
 
 @stop
-
+ 
 @section('options')
    	
    			 <div id="menu">
