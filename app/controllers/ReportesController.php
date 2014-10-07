@@ -80,15 +80,58 @@ class ReportesController extends BaseController {
             }
             else
             {
-
                 Login::logout();
-                //return View::make('home.welcome');
-                //return View::make('home.sinAcceso');
+                return Redirect::back();
+            }
+    }
+
+          public function individual_bsc($e,$t)
+    {
+            $tiempo=Login::tiempoSesion();
+            $tipos=Login::tipoEmpleado();
+            if ($tiempo == 1) 
+            {
+                if ( $this->getEscuelaEmpleado()==1 || $tipos==1) {
+                    # code...
+                $codigoEmpleado=Auth::user()->COD_EMPLEADO;
+                $cedulaEmpleado=Auth::user()->CI;
+                $name=Auth::user()->NOMBRES;
+                $mail=Auth::user()->EMAIL;
+                $tipoEmpl='h';
+                //$tipoEmpl=$this->getTipos($codigoEmpleado,$e);
+                $macroprocesos=DB::select('SELECT distinct(m.COD_MACROPROCESO) as OBJETIVO,m.NOMBRE as DESCRIPCION 
+                    from macroproceso as m inner join indicador as i on m.COD_MACROPROCESO=i.COD_MACROPROCESO 
+                    where i.COD_EMPLEADO =? AND i.COD_ESCUELA=?',array($codigoEmpleado,$e));
+               // return View::make('reportes.individual_bsc', array('tipoEmpl' => $tipoEmpl,'escuela' =>$e,'cedula'=>$cedulaEmpleado,'codigo'=>$codigoEmpleado,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$t));
+                return View::make('reportes.individual_bsc', array('macroprocesos' => $macroprocesos,'tipoEmpleado' => $tipoEmpl,'escuela' =>$e,'cedula'=>$cedulaEmpleado,'codigo'=>$codigoEmpleado,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$t));
+                }else{
+                     return Redirect::back();
+                }
+            }
+            else
+            {
+                Login::logout();
                 return Redirect::back();
             }
     }
 
         public function combo1()
+    {
+        $tipoEmpleado=Input::get('tipoEmpleado');
+        $escuela=Input::get('escuela');
+        $cedula=Input::get('cedula');
+        $codigo=Input::get('codigo');
+        $tipoReporte=Input::get('tipoReporte');
+        $name=Input::get('name');
+        $mail=Input::get('mail');
+        //echo("<script>console.log('PHP: ".$tipoReporte."');</script>");
+        $macroprocesos=DB::select('SELECT distinct(m.COD_MACROPROCESO) as OBJETIVO,m.NOMBRE as DESCRIPCION from macroproceso as m inner join proceso as p on m.COD_MACROPROCESO=p.COD_MACROPROCESO where p.TIPO_EMPLEADO='.$tipoEmpleado.';');
+        //echo("<script>console.log('PHP: ".$escuela."');</script>");
+        //echo("<script>console.log('PHP: ".$escuela."');</script>");
+        return View::make('reportes.macroprocesos', array('macroprocesos' => $macroprocesos,'tipoEmpleado' => $tipoEmpleado,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
+    }
+
+            public function combo1_bsc()
     {
         $tipoEmpleado=Input::get('tipoEmpleado');
         $escuela=Input::get('escuela');
@@ -600,7 +643,7 @@ class ReportesController extends BaseController {
                 }*/
 
         $macro="";
-        $school='Facultad';
+        $school='Facultad de Administración de Empresas';
        // $maximo=$this->getValorTotal($escuela,$macroproceso);
         $mes=date('M');
         $year=date('y');
@@ -637,7 +680,7 @@ class ReportesController extends BaseController {
          
          /* Write the picture title */ 
          $myPicture->setFontProperties(array("FontName"=>"pChart2.1.4/fonts/Forgotte.ttf","FontSize"=>10));//tamaño letra
-         $myPicture->drawText(20,25,$macro,array("R"=>255,"G"=>255,"B"=>255));
+         $myPicture->drawText(20,25,$school,array("R"=>255,"G"=>255,"B"=>255));
 
          
          /* Enable shadow computing */  

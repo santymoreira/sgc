@@ -120,6 +120,10 @@ Route::post('/insertar', array('uses' => 'EmpleadosController@insertar'));
     //reporte con busqueda
   Route::get('reportes/mensualE/{cod}/{tipo}', 'ReportesController@mensualE');
 
+  Route::get('reportes/individual_bsc/{e}/{t}', 'ReportesController@individual_bsc');
+    //reporte con busqueda
+  Route::get('reportes/mensualE_bsc/{cod}/{tipo}', 'ReportesController@mensualE_bsc');
+
 
 
 Route::get('evaluacionBalance/{a}/{b}/{c}/{d}/{e}/{f}', array('uses' => 'EmpleadosController@mostrarEmpBalance'));
@@ -186,6 +190,8 @@ Route::get('/datos', array('uses' => 'HomeController@envios_ajax'));
   Route::post('/buscarEmpleado', 'ReportesController@buscarEmpleado');
 //Route::get('/tipos', array('uses' => 'ReportesController@mostrarTipo'));
 Route::post('/combo1', array('uses' => 'ReportesController@combo1'));
+Route::post('/combo1_bsc', array('uses' => 'ReportesController@combo1'));
+
 Route::post('/combo2', array('uses' => 'ReportesController@combo2'));
 Route::post('/tabla',array('uses' => 'ReportesController@tabla'));
 Route::get('/imagenReporteMensual/{escuela}/{macroproceso}/{proceso}/{mes}/{cedula}/{codigo}/{suma}/{op}',array('uses' => 'ReportesController@imagenReporteMensual'));
