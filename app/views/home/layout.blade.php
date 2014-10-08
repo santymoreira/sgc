@@ -47,8 +47,7 @@
  
   <!-- Modal Editar Datos Personales -->
 
-  {{ HTML::script('js/frameboxPerfil.js'); }}  
-  <!--{{ HTML::style('css/floatboxPerfil.css'); }} -->
+
  
 
  
@@ -68,15 +67,18 @@
                  <div class="header">
                     <div class="header-center">        
                      <!--   <a href="DatosPersonales/index.php"  rel="floatbox"> -->
+@if (Session::has('mensaje_login'))
+<span>{{ Session::get('mensaje_login') }}</span>
+@endif
 
                          <!--    <div id="fotoperfil"><img src="{{ asset('images/fotoreal.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>-->
 @if (Auth::user())
 <!--<div id="fotoperfil"><img src="images/{{Session::get('ci') }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>-->
 
 @if(file_exists('images/Login/'.Auth::user()->CI.'.png'))
-   <div id="fotoperfil"><a href="../users/editp/{{Auth::user()->COD_EMPLEADO}}"  rel="floatboxp" class="fbPopup1" ><img src="{{ asset('images/Login/'.Auth::user()->CI.'.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></a></div>
+   <div id="fotoperfil"><a href="../users/editp/{{Auth::user()->COD_EMPLEADO}}" class="fbPopup1" rel="floatbox" title="Cambiar Informacion Personal" rev="width:450 height:590 scrolling:no" ><img src="{{ asset('images/Login/'.Auth::user()->CI.'.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></a></div>
    @else
-    <div id="fotoperfil"><a href="../users/editp/{{Auth::user()->COD_EMPLEADO}}"  rel="floatboxp" class="fbPopup1" >
+    <div id="fotoperfil"><a href="../users/editp/{{Auth::user()->COD_EMPLEADO}}" class="fbPopup1" rel="floatbox" title="Cambiar Informacion Personal" rev="width:450 height:590 scrolling:no">
       <img src="{{ asset('images/Login/fotoreal.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92">
     </a></div>
    @endif
@@ -178,4 +180,10 @@
                 @yield('content')
 
    </body>
+       @if(Session::get('mensaje_login'))
+          <script type="text/javascript">
+              smoke.alert('Credenciales incorrectas, vuelva a intentarlo');
+          </script>
+       @endif
+
 </html>
