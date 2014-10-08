@@ -5,6 +5,8 @@
   @section('not_general_styles')
 
 {{ HTML::script('js/framebox_reporte.js'); }}
+{{ HTML::script('js/smoke.js'); }}
+{{ HTML::style('css/smoke.css');  }}
 @stop
 @section('login')
    @parent
@@ -12,6 +14,8 @@
 @section('content')
 @stop
 @section('body')
+
+
                 <div class="container">
                     <div class="content-layout-row">
                         <div class="layout-cell sidebar1">
@@ -25,8 +29,7 @@
                                  </div>
                                   <p><b>Volver</b></p>
                                     <div id="avance"></div>
-                                        <center><label>Cumplimiento&nbsp;&nbsp;&nbsp;</label><a rel="floatbox" class="fbPopup" href="../consolidadoFacultad" /><input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/></a> </center>
-                                        </br>
+                                          <center><label>Cumplimiento&nbsp;&nbsp;&nbsp;</label><a rel="floatbox" class="fbPopup"  title="Avance Cumplimiento Facultad" rev="width:608 height:217 scrolling:no" href="../consolidadoFacultad" /><input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/></a> </center>                                        </br>
                                          </br>
                                          <div class="demo">
                                         	<div id="GestiondeCalidad">
@@ -94,6 +97,10 @@
               </div>
             </div>
 			</br>
+
+           <!-- Mensajes -->
+        
+
               <div class="cleared"></div>
           </div>
           <div class="layout-cell sidebar2">

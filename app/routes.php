@@ -82,10 +82,11 @@ Route::post('layout', function(){
         Session::put('inicio', time());
         //echo("<script>console.log('PHP: ".Session::get('inicio')."');</script>");
 
-        return Redirect::to('home/welcome')->with('mensaje_login', Auth::user()->CI);
+        return Redirect::to('home/welcome');//->with('mensaje_login', Auth::user()->CI);
         //return Redirect::to('home')->with('mensaje_login', json_encode($tipo));
     }else{
-        return Redirect::to('home/welcome')->with('mensaje_login', 'Ingreso invalido');
+        //return Redirect::to('home/welcome')->with('mensaje_login', 'incorrecto');
+        return Redirect::to('home/welcome')->with('mensaje_login','incorrecto');
     }
 
  
@@ -410,6 +411,7 @@ Route::post('users/store/{esc}','UserController@store');
 
 //Editar Empleado
 Route::get('users/editp/{cod}', 'UserController@editp');
+Route::post('users/updatep/{cod}','UserController@updatep');
 
 //Editar Empleado
 Route::get('users/edit/{cod},{esc}', 'UserController@edit');
