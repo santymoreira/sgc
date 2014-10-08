@@ -261,6 +261,85 @@ class UserController extends \BaseController {
 		$user =  Empleado::find($id);
 		return View::make('users.editp',array('user'=>$user));
 	}
+	public function updatep($id)
+	{
+		$empleado= Empleado::find($id);
+		
+		$file = Input::file("photo");
+		$var=$empleado->CI= Input::get('ci');
+		$empleado->CI= Input::get('ci');
+		$empleado->NOMBRES= Input::get('nombres');
+		$empleado->SEXO= Input::get('sexo');
+		$empleado->EMAIL= Input::get('email');
+		$empleado->CELULAR= Input::get('celular');
+		$empleado->CONVENCIONAL= Input::get('convencional');
+		if (Input::get('password') == '12345678-9') {
+			$empleado->password= Hash::make(Input::get('ci'));
+		}else{
+			$empleado->password= Hash::make(Input::get('password'));
+		}
+		
+		
+			//Validaciones del Formulario 
+	$Ciexist=DB::select('SELECT COUNT(COD_EMPLEADO) as valor FROM empleado WHERE CI =? AND COD_EMPLEADO= ?', array($var,$id));
+					foreach ($Ciexist as $cont) {	$ced = $cont->valor; }
+
+		if($ced ==0)
+		{
+			$inputs	= Input::all();
+			$reglas = array(
+				  'ci' => 'required|regex:/^([0-9])+$/i|size:10|unique:empleado,CI',
+				  'nombres' => 'required',
+				  'email' => 'required|email',
+				  'celular' => 'regex:/^([0-9])+$/i|size:10',
+				  'convencional' => 'regex:/^([0-9])+$/i|size:9',
+			);
+		}
+		else{
+
+			$inputs	= Input::all();
+			$reglas = array(
+				  'ci' => 'required|regex:/^([0-9])+$/i|size:10a',
+				  'nombres' => 'required',
+				  'email' => 'required|email',
+				  'celular' => 'regex:/^([0-9])+$/i|size:10',
+				  'convencional' => 'regex:/^([0-9])+$/i|size:9',	
+			);
+		}
+
+
+			$mensajes = array(
+					'required' => 'Campo Obligatorio',
+					'size' => 'El campo debe tener la dígitos correcta,, vuelva a intentarlo',
+					'email' => 'El email no tiene la sintaxis correcta, vuelva a intentarlo',
+					'unique' => 'El cédula ingresada ya existe, vuelva a intentarlo',
+					'regex' => 'Solo se acepta caracteres numéricos, vuelva a intentarlo',
+				);	
+
+			$validar = Validator::make($inputs,$reglas,$mensajes);
+	if($validar->fails())
+	{
+			return Redirect::back()->withErrors($validar);
+	}
+	else{
+		
+		if($empleado->save()){
+			 //guardamos la imagen en public/imgs con el nombre original
+            $file->move("images/Login",$var.'.png');	
+
+			Session::flash('message','Actualizado correctamente!');
+				Session::flash('class','success');		
+		}
+		else{
+			Session::flash('message','A ocurrido un error!');
+				Session::flash('class','success');		
+		}
+	}
+	return Redirect::to('users/editp/'.$id);
+}
+
+
+
 	public function edit($id,$esc)
 	{
 		//$user= DB::select('CALL ShowEmpleado('.$id.')');
@@ -324,10 +403,10 @@ class UserController extends \BaseController {
 
 			$mensajes = array(
 					'required' => 'Campo Obligatorio',
-					'size' => 'El campo debe tener la dígitos correcta,, vuelva a intenralo',
-					'email' => 'El email no tiene la sintaxis correcta, vuelva a intenralo',
-					'unique' => 'El cédula ingresada ya existe, vuelva a intenralo',
-					'regex' => 'Solo se acepta caracteres numéricos, vuelva a intenralo',
+					'size' => 'El campo debe tener la dígitos correcta,, vuelva a intentarlo',
+					'email' => 'El email no tiene la sintaxis correcta, vuelva a intentarlo',
+					'unique' => 'El cédula ingresada ya existe, vuelva a intentarlo',
+					'regex' => 'Solo se acepta caracteres numéricos, vuelva a intentarlo',
 				);	
 
 			$validar = Validator::make($inputs,$reglas,$mensajes);

@@ -5,6 +5,8 @@
   @section('not_general_styles')
 
 {{ HTML::script('js/framebox_reporte.js'); }}
+{{ HTML::script('js/smoke.js'); }}
+{{ HTML::style('css/smoke.css');  }}
 @stop
 @section('login')
    @parent
@@ -12,6 +14,8 @@
 @section('content')
 @stop
 @section('body')
+
+
                 <div class="container">
                     <div class="content-layout-row">
                         <div class="layout-cell sidebar1">
@@ -19,14 +23,12 @@
                         </div>
                         <div class="layout-cell content">     
                             <div id="central">
-                                <div id="central-content">
-                                 <div style="cursor:pointer;">
+                                <div id="central-content"> 
+                                 <div style="cursor:pointer;" id="apDiv264" >
                                         <img src="{{ asset('images/Utilitarios/logo.png'); }}" width="50" height="50"> </img>
                                  </div>
-                                  <p><b>Volver</b></p>
                                     <div id="avance"></div>
-                                        <center><label>Cumplimiento&nbsp;&nbsp;&nbsp;</label><a rel="floatbox" class="fbPopup" href="../consolidadoFacultad" /><input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/></a> </center>
-                                        </br>
+                                          <center><label>Cumplimiento&nbsp;&nbsp;&nbsp;</label><a rel="floatbox" class="fbPopup"  title="Avance Cumplimiento Facultad" rev="width:608 height:217 scrolling:no" href="../consolidadoFacultad" /><input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/></a> </center>                                        </br>
                                          </br>
                                          <div class="demo">
                                         	<div id="GestiondeCalidad">
@@ -80,7 +82,7 @@
                               
                           </div>
                           <div id="central-content">
-                                <center><h1>Redes Sociales</h1></center></br>
+                               
                                    <div class="fb-like-box" data-href="https://www.facebook.com/pages/Comisi%C3%B3n-Gesti%C3%B3n-de-Calidad-FADE/659319644160604?ref_type=bookmark" data-width="650" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="true" data-show-border="true"></div> 
                           </div>
                           
@@ -94,6 +96,10 @@
               </div>
             </div>
 			</br>
+
+           <!-- Mensajes -->
+        
+
               <div class="cleared"></div>
           </div>
           <div class="layout-cell sidebar2">

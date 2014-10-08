@@ -22,12 +22,12 @@
   		
   		<div class="panel-body" >
 		  	@if(!empty($user))
-  				<form method="post" enctype="multipart/form-data" action="#">
+  				<form method="post" enctype="multipart/form-data" action="../updatep/{{ $user->COD_EMPLEADO}}">
 				<p>
 					    <label class="form-control">Cambiar foto de Perfil</label>
                 <br/><br/>
 	                <!--así se crea un campo file en laravel-->
-	                <center><input type="file" id="photo" name="photo" class="form-control"></center>
+	                <center><input type="file" id="photo" name="photo" accept="image/jpg,image/png,image/gif,image/jpeg,image/bmp" class="form-control"></center>
 				</p>
 				<p>
 						<input value="{{ $user->CI }}" type="text" name="ci" placeholder="Cédula de Identidad" class="form-control" required>
@@ -63,8 +63,9 @@
 				</p>
 					{{$errors->first('convencional')}}
 				<p>
-					<input value="123456789" type="password" name="password"  placeholder="Contraseña" class="form-control">
+					<input value="12345678-9" type="password" name="password"  placeholder="Contraseña" class="form-control">
 				</p>
+					{{$errors->first('convencional')}}
 			   @endif
 			  
 					 <input type="submit" value="Actualizar" class="btn btn-success">

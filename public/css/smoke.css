@@ -112,3 +112,11 @@ button.cancel {
 .queue{
 	display:none;
 }
+#apDiv264 {
+  position:absolute;
+  left:40px;
+  top:162px;
+  width:118px;
+  height:85px;
+  z-index:1;
+}
