@@ -23,11 +23,10 @@
                         </div>
                         <div class="layout-cell content">     
                             <div id="central">
-                                <div id="central-content">
-                                 <div style="cursor:pointer;">
+                                <div id="central-content"> 
+                                 <div style="cursor:pointer;" id="apDiv264" >
                                         <img src="{{ asset('images/Utilitarios/logo.png'); }}" width="50" height="50"> </img>
                                  </div>
-                                  <p><b>Volver</b></p>
                                     <div id="avance"></div>
                                           <center><label>Cumplimiento&nbsp;&nbsp;&nbsp;</label><a rel="floatbox" class="fbPopup"  title="Avance Cumplimiento Facultad" rev="width:608 height:217 scrolling:no" href="../consolidadoFacultad" /><input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/></a> </center>                                        </br>
                                          </br>
@@ -83,7 +82,7 @@
                               
                           </div>
                           <div id="central-content">
-                                <center><h1>Redes Sociales</h1></center></br>
+                               
                                    <div class="fb-like-box" data-href="https://www.facebook.com/pages/Comisi%C3%B3n-Gesti%C3%B3n-de-Calidad-FADE/659319644160604?ref_type=bookmark" data-width="650" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="true" data-show-border="true"></div> 
                           </div>
                           
