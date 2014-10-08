@@ -24,10 +24,7 @@
                         <div class="layout-cell content">     
                             <div id="central">
                                 <div id="central-content"> 
-                                <div id="apDiv265"><img style="cursor:pointer;" src="{{asset('images/Utilitarios/volver.png')}}" width="45" height="25"></div>
-                                 <div id="apDiv264" >
-                                        <img src="{{ asset('images/Utilitarios/logo.png'); }}" width="50" height="50"> </img>
-                                 </div>
+                                <div id="apDiv265"><img style="cursor:pointer;" src="{{asset('images/Utilitarios/volver.png')}}" width="45" height="45"></div>
                                     <div id="avance"></div>
                                           <center><label>Cumplimiento&nbsp;&nbsp;&nbsp;</label><a rel="floatbox" class="fbPopup"  title="Avance Cumplimiento Facultad" rev="width:608 height:217 scrolling:no" href="../consolidadoFacultad" /><input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/></a> </center>                                        </br>
                                          </br>
