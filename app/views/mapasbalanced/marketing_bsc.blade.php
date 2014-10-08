@@ -1,6 +1,8 @@
 @extends('home.layout')
 @section('Different_Styles')
 {{ HTML::style('css/menu24.css'); }} 
+{{ HTML::script('js/smoke.js'); }}
+{{ HTML::style('css/smoke.css');  }}
 @stop
 @section('options')
    	
@@ -39,6 +41,18 @@
                    <center><img src="{{ asset('images/marketingbsc/marketing.png') }}" width="850" height="295"></center>    
                </div>
             </div>
+
+              <!-- Mensajes -->
+            @if(Session::get('logout'))
+                 <script type="text/javascript">
+                    smoke.alert('Ud no tiene acceso, Inicie Sesión')
+                 </script>
+              @endif
+           @if(Session::get('denied'))
+                 <script type="text/javascript">
+                    smoke.alert('Ud no tiene acceso, Tiene que ser Administrador del Sistema')
+                 </script>
+              @endif
              
       		 <div class="cleared"> 
 				<center> <p style="font-size:10px;color:#03F">&nbsp;</p>

@@ -13,6 +13,35 @@ class MapasBalancedController extends BaseController {
 	|
 	|	
 	*/
+	//Permisos
+	public function getEscuela()
+	{
+		$escuelaEmpleado=0;
+		$escuelaIngresada=Session::get('escuela');
+		 $tipo=Login::tipoEmpleado();
+		$cod=Auth::user()->COD_EMPLEADO;
+		$esc = DB::select('SELECT ee.COD_ESCUELA FROM empleado as e inner join empleado_escuela as ee on e.COD_EMPLEADO=ee.COD_EMPLEADO  where e.COD_EMPLEADO=?',array($cod));
+		if ($tipo==1 || $tipo==2) {
+			$escuelaEmpleado=1;
+		}
+		 foreach ($esc as $e) 
+		 { 
+		 	$es=$e->COD_ESCUELA; 
+		 	if ($es==$escuelaIngresada) {
+		 		$escuelaEmpleado=1;
+		 	}
+		 }
+		 return $escuelaEmpleado;
+	}
+	public function permiso()
+		{
+			return Login::tiempoSesion();
+		}
+	
+
+
+
+	//Ruteamiento de Views - Routes
 	public function home()
 		{
 			return View::make('home.welcome');

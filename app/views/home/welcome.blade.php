@@ -24,7 +24,8 @@
                         <div class="layout-cell content">     
                             <div id="central">
                                 <div id="central-content"> 
-                                 <div style="cursor:pointer;" id="apDiv264" >
+                                <div id="apDiv265"><img style="cursor:pointer;" src="{{asset('images/Utilitarios/volver.png')}}" width="45" height="25"></div>
+                                 <div id="apDiv264" >
                                         <img src="{{ asset('images/Utilitarios/logo.png'); }}" width="50" height="50"> </img>
                                  </div>
                                     <div id="avance"></div>

@@ -50,12 +50,12 @@
             </div>
 
                <!-- Mensajes -->
-              @if(!empty($logout))
+            @if(Session::get('logout'))
                  <script type="text/javascript">
                     smoke.alert('Ud no tiene acceso, Inicie Sesión')
                  </script>
               @endif
-              @if(!empty($denied))
+             @if(Session::get('denied'))
                  <script type="text/javascript">
                     smoke.alert('Ud no tiene acceso, Tiene que ser Administrador del Sistema')
                  </script>

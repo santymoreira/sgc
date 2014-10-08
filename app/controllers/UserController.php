@@ -35,25 +35,13 @@ class UserController extends \BaseController {
 					return View::make('users.empleados')->with('users',$query); 
 				}
 				else{	
-				$denied = 'denied';
-				if($escuela ==1 ){return View::make('mapas.empresas_sgc')->with('denied',$denied);}
-				if($escuela ==2){return View::make('mapas.cont_audi_sgc')->with('denied',$denied);}		
-				if($escuela ==3){return View::make('mapas.exterior_sgc')->with('denied',$logout);}
-				if($escuela ==4){return View::make('mapas.finanzas_sgc')->with('denied',$denied);}
-				if($escuela ==5){return View::make('mapas.marketing_sgc')->with('denied',$denied);}
-				if($escuela ==6){return View::make('mapas.transporte_sgc')->with('denied',$denied);}
-				if($escuela ==8){return View::make('mapas.fade_sgc')->with('denied',$denied);}
+					$denied = 'denied';
+					return Redirect::back()->with('denied',$denied);
 				}
 			}
 			elseif ($this->permiso()==0) {
 				$logout = 'logout';
-				if($escuela ==1){return View::make('mapas.empresas_sgc')->with('logout',$logout);}
-				if($escuela ==2){return View::make('mapas.cont_audi_sgc')->with('logout',$logout);}		
-				if($escuela ==3){return View::make('mapas.exterior_sgc')->with('logout',$logout);}
-				if($escuela ==4){return View::make('mapas.finanzas_sgc')->with('logout',$logout);}
-				if($escuela ==5){return View::make('mapas.marketing_sgc')->with('logout',$logout);}
-				if($escuela ==6){return View::make('mapas.transporte_sgc')->with('logout',$logout);}
-				if($escuela ==8){return View::make('mapas.fade_sgc')->with('logout',$logout);}
+				return Redirect::back()->with('logout',$logout);
     		}
     	else{Login::logout();}
         		return Redirect::back();
@@ -310,7 +298,7 @@ class UserController extends \BaseController {
 
 			$mensajes = array(
 					'required' => 'Campo Obligatorio',
-					'size' => 'El campo debe tener la dígitos correcta,, vuelva a intentarlo',
+					'size' => 'El campo debe tener la cantidad dígitos correcta, vuelva a intentarlo',
 					'email' => 'El email no tiene la sintaxis correcta, vuelva a intentarlo',
 					'unique' => 'El cédula ingresada ya existe, vuelva a intentarlo',
 					'regex' => 'Solo se acepta caracteres numéricos, vuelva a intentarlo',
@@ -325,10 +313,16 @@ class UserController extends \BaseController {
 		
 		if($empleado->save()){
 			 //guardamos la imagen en public/imgs con el nombre original
-            $file->move("images/Login",$var.'.png');	
+           if(!empty($file)){
+		            $file->move("images/Login",$var.'.png');	
 
-			Session::flash('message','Actualizado correctamente!');
-				Session::flash('class','success');		
+					Session::flash('message','Actualizado correctamente!');
+						Session::flash('class','success');		
+				}
+			else{
+				Session::flash('message','Actualizado correctamente!');
+						Session::flash('class','success');		
+			}	
 		}
 		else{
 			Session::flash('message','A ocurrido un error!');

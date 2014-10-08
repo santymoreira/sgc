@@ -181,7 +181,7 @@
 			   </p>
 				   
 					 <input type="submit" value="Guardar" class="btn btn-success">
-					  <a href="/users" class="btn btn-default">Regresar</a>
+					  <a href="../empleados/{{$var}}" class="btn btn-default">Regresar</a>
 					  @if(Session::has('message'))
 					<div class="alert alert-{{ Session::get('class') }}">{{ Session::get('message')}}</div>
 				@endif
