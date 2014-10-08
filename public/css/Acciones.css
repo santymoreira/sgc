@@ -736,8 +736,8 @@ position:absolute;
 }
 #apDiv203 {
 	position:absolute;
-	left:724px;
-	top:720px;
+	left:892px;
+	top:760px;
 	width:22px;
 	height:7px;
 	z-index:1;
@@ -1190,4 +1190,28 @@ position:absolute;
 	height:5px;
 	z-index:1;
 }
-</style>
+
+#apDiv261 {
+	position:absolute;
+	left:734px;
+	top:643px;
+	width:58px;
+	height:30px;
+	z-index:1;
+}
+#apDiv262 {
+	position:absolute;
+	left:733px;
+	top:792px;
+	width:57px;
+	height:21px;
+	z-index:1;
+}
+#apDiv263 {
+	position:absolute;
+	left:891px;
+	top:909px;
+	width:30px;
+	height:9px;
+	z-index:1;
+}

@@ -47,7 +47,7 @@
  
   <!-- Modal Editar Datos Personales -->
 
-  <!--{{ HTML::script('js/frameboxPerfil.js'); }}  -->
+  {{ HTML::script('js/frameboxPerfil.js'); }}  
   <!--{{ HTML::style('css/floatboxPerfil.css'); }} -->
  
 

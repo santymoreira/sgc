@@ -6,7 +6,9 @@
 
 	    {{ HTML::style('css/new.css'); }} 
 		{{ HTML::style('css/new1.css'); }} 
-	    {{ HTML::style('css/Table.css'); $var=Session::get('escuela'); }}
+	    {{ HTML::style('css/Table.css');}}
+
+
 
 <body>
 	<nav class="navbar navbar-default" role="navigation">
@@ -20,7 +22,13 @@
   		
   		<div class="panel-body" >
 		  	@if(!empty($user))
-  				<form method="post" action="#">
+  				<form method="post" enctype="multipart/form-data" action="#">
+				<p>
+					    <label class="form-control">Cambiar foto de Perfil</label>
+                <br/><br/>
+	                <!--así se crea un campo file en laravel-->
+	                <center><input type="file" id="photo" name="photo" class="form-control"></center>
+				</p>
 				<p>
 						<input value="{{ $user->CI }}" type="text" name="ci" placeholder="Cédula de Identidad" class="form-control" required>
 				</p>
@@ -55,7 +63,7 @@
 				</p>
 					{{$errors->first('convencional')}}
 				<p>
-					<input value="{{$user->password}}" type="password" name="password"  placeholder="Contraseña" class="form-control">
+					<input value="123456789" type="password" name="password"  placeholder="Contraseña" class="form-control">
 				</p>
 			   @endif
 			  

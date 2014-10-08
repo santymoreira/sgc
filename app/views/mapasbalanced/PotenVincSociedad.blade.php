@@ -98,12 +98,20 @@
                          <img onclick="PotenVinSoc();" id="PotenVinSoc1" style="cursor:pointer;" src="{{ asset('images/objetivosO/PotenVincSoc_red.png')}}">
                    </div>
                   
-                 
-              
+                    <div id="apDiv261">
+                      <img src="{{ asset('images/acciones/PlanVinculacion.png')}}" style="cursor:pointer;">
+                    </div> 
+                    <div id="apDiv262">
+                      <img src="{{ asset('images/acciones/PrograVsociedad.png')}}" style="cursor:pointer;">
+                    </div>   
+                      
 
                   <!-- Evaluación Acciones -->
 
                      <div id="apDiv203">
+                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                     </div>
+                      <div id="apDiv263">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                      </div>
       </div>

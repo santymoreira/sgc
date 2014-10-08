@@ -115,7 +115,7 @@ floatboxp.prototype = {
 	autoSizeSpace: 10,
 	initialSize: 120,
 	defaultWidth: '48%', //cambiar tamaño
-	defaultHeight: '85%',
+	defaultHeight: '95%',
 init: function() {
 	this.setOptions(this.defaultOptions);
 	if (typeof fbPageOptions === 'object') this.setOptions(fbPageOptions);
