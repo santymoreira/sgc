@@ -11,12 +11,7 @@
 
 
 <body>
-	<nav class="navbar navbar-default" role="navigation">
-	<div class="navbar-header">
-		<center><h3>{{ $user->NOMBRES }}</h3></center>
-	</div>
-	
-  	  </nav>
+
 
 	<div class="panel panel-success" align="center">
   		
