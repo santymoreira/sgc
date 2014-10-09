@@ -3,6 +3,8 @@
 @section('Different_Styles')
 	@parent
 	{{ HTML::style('css/StylesPerspectivas.css'); $var=Session::get('escuela'); }}
+  {{ HTML::script('js/smoke.js'); }}
+{{ HTML::style('css/smoke.css');  }}
   
 @stop
 
@@ -86,6 +88,35 @@
             </div>
        
      
-    </div>         
+    </div>    
+
+      <!-- Mensajes -->
+                @if(Session::get('logout'))
+                 <script type="text/javascript">
+                    smoke.alert('Ud no tiene acceso, Inicie Sesión')
+                 </script>
+              @endif
+               @if(Session::get('denied'))
+                 <script type="text/javascript">
+                    smoke.alert('Ud no tiene acceso, No pertenece a esta Escuela')
+                 </script>
+              @endif 
+
+
+        <!-- Footer --> 
+            
+            </br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br>   </br></br></br><br/>
+           
+        <center>
+        <p style="font-size:10px;color:#03F">&nbsp;</p>
+
+           <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
+                    <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
+            </p>
+      </center>    
 
 @stop

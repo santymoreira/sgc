@@ -48,74 +48,219 @@ class MapasBalancedController extends BaseController {
 		}     
 	public function empresas_bsc()
 		{
-			return View::make('mapasbalanced.empresas_bsc');
+			if ($this->permiso()==1) 
+			{
+        		return View::make('mapasbalanced.empresas_bsc');
+        	}
+        	else{Login::logout(); return View::make('mapasbalanced.empresas_bsc');}
 		}
 	public function cont_audi_bsc()
 		{
-			return View::make('mapasbalanced.cont_audi_bsc');
+			if ($this->permiso()==1) 
+			{
+        		return View::make('mapasbalanced.cont_audi_bsc');
+			}
+        	else{Login::logout(); return View::make('mapasbalanced.cont_audi_bsc');	}
 		}
 	public function finanzas_bsc()
 		{
-			return View::make('mapasbalanced.finanzas_bsc');
+			if ($this->permiso()==1) 
+			{
+        		return View::make('mapasbalanced.finanzas_bsc');
+			}
+        	else{Login::logout(); return View::make('mapasbalanced.finanzas_bsc');}
 		}
 	public function marketing_bsc()
 		{
-			return View::make('mapasbalanced.marketing_bsc');
+			if ($this->permiso()==1) 
+			{
+        		return View::make('mapasbalanced.marketing_bsc');
+			}
+        	else{Login::logout(); return View::make('mapasbalanced.marketing_bsc');}
 		}
 	public function transporte_bsc()
 		{
-			return View::make('mapasbalanced.transporte_bsc');
+			if ($this->permiso()==1) 
+			{
+        		return View::make('mapasbalanced.transporte_bsc');
+			}
+			else{Login::logout(); return View::make('mapasbalanced.transporte_bsc');}
 		}
 	public function perspectivas()
 		{
-			return View::make('mapasbalanced.Perspectivas');
+			if ($this->permiso()==1) 
+			{
+        		return View::make('mapasbalanced.Perspectivas');
+			}		
+        	else{Login::logout(); return View::make('mapasbalanced.Perspectivas');}
 		}
 
 	//Acciones
 
 		public function PotenInves()
 		{
-			return View::make('mapasbalanced.PotenInves');
+			if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+						return View::make('mapasbalanced.PotenInves');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('mapasbalanced.Perspectivas');
 		}
 		public function AcredCarr()
 		{
-			return View::make('mapasbalanced.AcredCarr');
+			if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+						return View::make('mapasbalanced.AcredCarr');
+				}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('mapasbalanced.Perspectivas');	
 		}	
 		public function AumentarSatis()
 		{
-			return View::make('mapasbalanced.AumentarSatis');
+			if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+							return View::make('mapasbalanced.AumentarSatis');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('mapasbalanced.Perspectivas');
 		}	
 		public function FortaInterApre()
 		{
-			return View::make('mapasbalanced.FortaInterApre');
+			if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+							return View::make('mapasbalanced.FortaInterApre');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('mapasbalanced.Perspectivas');
 		}	
 		public function ImpleSgc()
 		{
-			return View::make('mapasbalanced.ImpleSgc');
+			if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+						return View::make('mapasbalanced.ImpleSgc');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('mapasbalanced.Perspectivas');
 		}	
 		public function PotenInnov()
 		{
-			return View::make('mapasbalanced.PotenInnov');
+			if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+							return View::make('mapasbalanced.PotenInnov');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('mapasbalanced.Perspectivas');
 		}	
 		public function PotenVincSociedad()
 		{
-			return View::make('mapasbalanced.PotenVincSociedad');
+			if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+						return View::make('mapasbalanced.PotenVincSociedad');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('mapasbalanced.Perspectivas');
 		}	
 		public function ImplenGestionProc()
 		{
-			return View::make('mapasbalanced.ImplenGestionProc');
+			if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+							return View::make('mapasbalanced.ImplenGestionProc');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('mapasbalanced.Perspectivas');
 		}	
 			public function FortaCapDocentes()
 		{
-			return View::make('mapasbalanced.FortaCapDoc');
+			if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+						return View::make('mapasbalanced.FortaCapDoc');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('mapasbalanced.Perspectivas');
 		}	
 			public function MejorarClimaLab()
 		{
-			return View::make('mapasbalanced.MejorarClimaLab');
+			if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+						return View::make('mapasbalanced.MejorarClimaLab');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('mapasbalanced.Perspectivas');
 		}
 		public function OptimiRecu()
 		{
-			return View::make('mapasbalanced.OptimiRecu');
+			if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+						return View::make('mapasbalanced.OptimiRecu');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('mapasbalanced.Perspectivas');
 		}
 		
 }
