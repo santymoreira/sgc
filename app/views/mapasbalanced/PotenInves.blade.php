@@ -30,7 +30,9 @@
                         @elseif($var ==5)
                            <li class="nivel1"><a class="nivel1" {{ HTML::link('marketing/marketing_bsc','BSC'); }}  
                         @elseif($var ==6)
-                           <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/transporte_bsc','BSC  '); }}  
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/transporte_bsc','BSC  '); }} 
+                         @elseif($var ==8)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('fade/fade_bsc','BSC  '); }}  
                       @endif
                		<li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a>  
             </ul>			
@@ -68,6 +70,10 @@
                  @elseif($var ==6)
                          <div id="apDiv111">
                         <img src="{{ asset('images/transportebsc/Poten_Inves.png') }}" >
+              </div>
+              @elseif($var ==8)
+                         <div id="apDiv111">
+                        <img src="{{ asset('images/fadebsc/Poten_Inves.png') }}" >
               </div>
                  @endif  
 

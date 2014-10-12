@@ -86,6 +86,14 @@ class MapasBalancedController extends BaseController {
 			}
 			else{Login::logout(); return View::make('mapasbalanced.transporte_bsc');}
 		}
+	public function fade_bsc()
+		{
+			if ($this->permiso()==1) 
+			{
+        		return View::make('mapasbalanced.fade_bsc');
+			}
+			else{Login::logout(); return View::make('mapasbalanced.fade_bsc');}
+		}
 	public function perspectivas()
 		{
 			if ($this->permiso()==1) 
