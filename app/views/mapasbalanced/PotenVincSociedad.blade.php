@@ -99,20 +99,24 @@
                    </div>
                   
                     <div id="apDiv261">
-                      <img src="{{ asset('images/acciones/PlanVinculacion.png')}}" style="cursor:pointer;">
+                      <img src="{{ asset('images/Acciones/PlanVinculacion.png')}}" style="cursor:pointer;">
                     </div> 
                     <div id="apDiv262">
-                      <img src="{{ asset('images/acciones/PrograVsociedad.png')}}" style="cursor:pointer;">
+                      <img src="{{ asset('images/Acciones/PrograVsociedad.png')}}" style="cursor:pointer;">
                     </div>   
                       
 
                   <!-- Evaluación Acciones -->
 
                      <div id="apDiv203">
+                      <a style="cursor:default;"  href="../evaluacionBalance/Plan de Vinculación/22/{{Session::get('escuela')}}/7/1/2"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a>  
                      </div>
                       <div id="apDiv263">
+                      <a style="cursor:default;"  href="../evaluacionBalance/Programa de vinculación con la sociedad/22/{{Session::get('escuela')}}/8/2/2"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
+                      </a>   
                      </div>
       </div>
 

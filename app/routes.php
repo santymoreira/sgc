@@ -147,10 +147,9 @@ Route::get('empleados', array('uses' => 'EmpleadosController@mostrarEmpleados'))
   //array('uses' => 'EmpleadosController@mostrarEmpleados'
 //});
 Route::post('/upload', function(){
-     if(Input::hasFile('archivo')) {
+     if(Input::hasFile('photo')) {
 
-          Input::file('archivo')
-               ->move('carpetasArchivos', Input::get('id'));
+          Input::file('photo')->move('carpetasArchivos', Input::get('id').".pdf");
      }
      return Redirect::back();
 });

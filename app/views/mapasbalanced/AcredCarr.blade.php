@@ -100,7 +100,7 @@
                      <!-- nombre del proyecto/macroproceso/escuela/proceso/objeto/peso-->
                    
                      <div id="apDiv181">
-                      <img src="{{ asset('images/semaforo/rojo.png') }}">  
+
                     </div>
 
        </div>

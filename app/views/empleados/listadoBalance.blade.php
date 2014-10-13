@@ -64,9 +64,9 @@
               @endif
                 <td scope='row'> 
                   {{ Form::open(array('url'=>'upload/', 'method' => 'post','enctype'=>'multipart/form-data') )}}
+                   <center><input type="file" id="photo" name="photo" accept=".pdf" class="form-control"> {{ Form::submit('subir') }}</center>
 
-                {{ Form::file('archivo') }}
-                {{ Form::submit('subir') }}
+                
                 {{ Form::hidden('id', $ci.$f1.$f2) }}
 
                 {{ Form::close()}}
