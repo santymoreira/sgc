@@ -30,7 +30,9 @@
                         @elseif($var ==5)
                            <li class="nivel1"><a class="nivel1" {{ HTML::link('marketing/marketing_bsc','BSC'); }}  
                         @elseif($var ==6)
-                           <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/transporte_bsc','BSC  '); }}  
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/transporte_bsc','BSC  '); }} 
+                          @elseif($var ==8)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('fade/fade_bsc','BSC  '); }}  
                       @endif
                		  @if($var == 2)  
                           <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a>
@@ -41,6 +43,8 @@
                         @elseif($var ==5)
                           <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a> 
                         @elseif($var ==6)
+                          <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a>
+                         @elseif($var ==8)
                           <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a>
                       @endif
             </ul>			
@@ -78,6 +82,10 @@
                     <div id="apDiv111">
                         <img src="{{ asset('images/transportebsc/AumentarSatis.png') }}" >
               </div>
+               @elseif($var ==8)
+                    <div id="apDiv111">
+                        <img src="{{ asset('images/fadebsc/AumentarSatis.png') }}" >
+              </div>
                  @endif
 
 
@@ -98,7 +106,20 @@
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a> 
                 </div>
-                   
-
       </div>
+        <!-- Footer --> 
+            
+            </br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br></br>
+           
+        <center>
+        <p style="font-size:10px;color:#03F">&nbsp;</p>
+
+           <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
+                    <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
+            </p>
+      </center>    
 @stop

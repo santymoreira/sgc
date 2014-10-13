@@ -399,6 +399,22 @@ Route::get('transporte/MejorarClimaLab', 'MapasBalancedController@MejorarClimaLa
 Route::get('transporte/OptimiRecu', 'MapasBalancedController@OptimiRecu');
 
 
+Route::get('home/welcome', 'MapasController@home');
+Route::get('fade/fade_bsc', 'MapasBalancedController@fade_bsc');
+Route::get('fade/perspectivas', 'MapasBalancedController@perspectivas'); 
+Route::get('fade/PotenInves', 'MapasBalancedController@PotenInves');  
+Route::get('fade/AcredCarr', 'MapasBalancedController@AcredCarr'); 
+Route::get('fade/AumentarSatis', 'MapasBalancedController@AumentarSatis');  
+Route::get('fade/FortaInterApre', 'MapasBalancedController@FortaInterApre');  
+Route::get('fade/ImpleSgc', 'MapasBalancedController@ImpleSgc');  
+Route::get('fade/PotenInnov', 'MapasBalancedController@PotenInnov');  
+Route::get('fade/PotenVincSociedad', 'MapasBalancedController@PotenVincSociedad');  
+Route::get('fade/ImplenGestionProc', 'MapasBalancedController@ImplenGestionProc');
+Route::get('fade/FortaCapDoc', 'MapasBalancedController@FortaCapDocentes'); 
+Route::get('fade/MejorarClimaLab', 'MapasBalancedController@MejorarClimaLab'); 
+Route::get('fade/OptimiRecu', 'MapasBalancedController@OptimiRecu');
+
+
 
 //Administración de Empleados
 

@@ -114,7 +114,7 @@
                     </li>
                     <li class="nivel1"><a href="#" class="nivel1">BSC</a>
                     <ul class="dos">
-                      <li><a href="#">Facultad de Administración en Empresas</a></li>
+                        <li>{{ HTML::link('fade/fade_bsc', 'Facultad de Administración de Empresas'); }}</li>
                         <li>{{ HTML::link('empresas/empresas_bsc', 'Escuela de Ingeniería en Empresas'); }}</li>
                         <li>{{ HTML::link('contabilidad/cont_audi_bsc', 'Escuela de Ingeniería en Contabilidad y Auditoría'); }}</li>
                         <li>{{ HTML::link('finanzas/finanzas_bsc', 'Escuela de Ingeniería Financiera'); }}</li>

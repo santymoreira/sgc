@@ -3,6 +3,8 @@
 @section('Different_Styles')
 	@parent
 	{{ HTML::style('css/StylesPerspectivas.css'); $var=Session::get('escuela'); }}
+  {{ HTML::script('js/smoke.js'); }}
+{{ HTML::style('css/smoke.css');  }}
   
 @stop
 
@@ -21,6 +23,8 @@
                            <li class="nivel1"><a class="nivel1" {{ HTML::link('marketing/marketing_bsc','BSC'); }}  
                         @elseif($var ==6)
                            <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/transporte_bsc','BSC'); }}  
+                         @elseif($var ==8)
+                           <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/fade_bsc','BSC'); }}  
                       @endif
           </div> 
 @stop
@@ -46,6 +50,8 @@
             <div id="apDiv36"><center><img src="{{ asset('images/marketingbsc/contenedor.png') }}"></center></div> 
            @elseif($var ==6)
             <div id="apDiv36"><center><img width="949" height="994" src="{{ asset('images/transportebsc/contenedor.png') }}"></center></div>  
+          @elseif($var ==8)
+            <div id="apDiv36"><center><img width="949" height="994" src="{{ asset('images/fadebsc/contenedor.png') }}"></center></div>  
         @endif         
         
    
@@ -86,6 +92,35 @@
             </div>
        
      
-    </div>         
+    </div>    
+
+      <!-- Mensajes -->
+                @if(Session::get('logout'))
+                 <script type="text/javascript">
+                    smoke.alert('Ud no tiene acceso, Inicie Sesión')
+                 </script>
+              @endif
+               @if(Session::get('denied'))
+                 <script type="text/javascript">
+                    smoke.alert('Ud no tiene acceso, No pertenece a esta Escuela')
+                 </script>
+              @endif 
+
+
+        <!-- Footer --> 
+            
+            </br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br>   </br></br></br><br/>
+           
+        <center>
+        <p style="font-size:10px;color:#03F">&nbsp;</p>
+
+           <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
+                    <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
+            </p>
+      </center>    
 
 @stop

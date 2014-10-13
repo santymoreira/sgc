@@ -9,8 +9,8 @@
    			 <div id="menu">
 						<ul>
 				               <li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio');}}
-							  <li class="nivel1"><a class="nivel1" {{ HTML::link('marketing/perspectivas', 'Perspectivas');}}
-							  <li class="nivel1"><a onclick="Alert()" class="nivel1" {{ HTML::link('users/empleados/2', 'Administración');}} 
+							  <li class="nivel1"><a class="nivel1" {{ HTML::link('fade/perspectivas', 'Perspectivas');}}
+							  <li class="nivel1"><a onclick="Alert()" class="nivel1" {{ HTML::link('users/empleados/8', 'Administración');}} 
 							  <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a>
 							  	<ul class="cuatro">
             						<li><a {{ HTML::link('reportes/individual/2', 'Individual');}} </a></li>
@@ -34,11 +34,11 @@
 @stop
 
 @section('body')
-		{{Session::put('escuela','5'); }}
+		{{Session::put('escuela','8'); }}
         <div class="layout-cell content">    
             <div id="central"> 
                <div id="central-content"> </br></br>
-                   <center><img src="{{ asset('images/marketingbsc/marketing.png') }}" width="850" height="295"></center>    
+                   <center><img src="{{ asset('images/fadebsc/fade.png') }}" width="850" height="295"></center>    
                </div>
             </div>
 
@@ -54,7 +54,7 @@
                  </script>
               @endif
              
-      	   <div class="cleared"> 
+      		   <div class="cleared"> 
         <center> <p style="font-size:10px;color:#03F">&nbsp;</p>
           <p style="font-size:10px;color:#03F">&nbsp;</p>
           <p style="font-size:10px;color:#03F">&nbsp;</p>
@@ -67,4 +67,4 @@
         </center>
       </div>    
 		</div>		
-@stop
+@stop    
