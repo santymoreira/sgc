@@ -70,10 +70,9 @@
               </td>
               @endif
                 <td scope='row'> 
-                  <!--<img height="75%" width="50%" id="o" src="../../../../../images/file.png" />-->
                   {{ Form::open(array('url'=>'upload/', 'method' => 'post','enctype'=>'multipart/form-data') )}}
+                   <center><input type="file" id="photo" name="photo" accept=".pdf" class="form-control"></center>
 
-                {{ Form::file('archivo') }}
                 {{ Form::submit('subir') }}
                 {{ Form::hidden('id', $ci.$f1.$f2) }}
 

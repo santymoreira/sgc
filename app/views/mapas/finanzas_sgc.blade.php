@@ -41,7 +41,11 @@
                <div id="central-content"> </br></br>
                    <center>
                    <label>Avance SGC&nbsp;&nbsp;&nbsp;</label>
+<<<<<<< HEAD
                			<a rel="floatbox" class="fbPopup" title="Avance SGC Ingeniería en Finanzas" rev="width:608 height:217 scrolling:no" href="../consolidadoEscuela/{{Session::get('escuela')}}" />
+=======
+               			<a rel="floatbox" class="fbPopup" title="Avance SGC Escuela de Finanzas" rev="width:608 height:217 scrolling:no" href="../consolidadoEscuela/{{Session::get('escuela')}}" />
+>>>>>>> origin/master
                				<input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/>
                			</a>  <br/><br/>
                    		<img src="{{ asset('images/Finanzas/Finanzas.png') }}" width="850" height="295">
