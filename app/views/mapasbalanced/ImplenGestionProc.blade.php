@@ -121,22 +121,22 @@
          
       <!-- Evaluar Acciones -->
           <div id="apDiv257">
-                     <a style="cursor:default;"  href="../evaluacionBalance/Levantamiento del proceso/22/{{Session::get('escuela')}}/9/1/1"  rel="floatbox">
+                     <a style="cursor:default;" rev="width:1000 height:300 scrolling:no" href="../evaluacionBalance/Levantamiento del proceso/22/{{Session::get('escuela')}}/9/1/1"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a> 
             </div>
             <div id="apDiv258">
-                     <a style="cursor:default;"  href="../evaluacionBalance/Estandarización de procesos/22/{{Session::get('escuela')}}/10/1/1"  rel="floatbox">
+                     <a style="cursor:default;" rev="width:1000 height:300 scrolling:no" href="../evaluacionBalance/Estandarización de procesos/22/{{Session::get('escuela')}}/10/1/1"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a> 
             </div>
             <div id="apDiv259">
-                     <a style="cursor:default;"  href="../evaluacionBalance/Capacitación/22/{{Session::get('escuela')}}/11/1/1"  rel="floatbox">
+                     <a style="cursor:default;" rev="width:1000 height:300 scrolling:no" href="../evaluacionBalance/Capacitación/22/{{Session::get('escuela')}}/11/1/1"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a> 
             </div>
             <div id="apDiv260">
-                     <a style="cursor:default;"  href="../evaluacionBalance/Evaluación/22/{{Session::get('escuela')}}/12/1/1"  rel="floatbox">
+                     <a style="cursor:default;" rev="width:1000 height:300 scrolling:no" href="../evaluacionBalance/Evaluación/22/{{Session::get('escuela')}}/12/1/1"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a>  
             </div>

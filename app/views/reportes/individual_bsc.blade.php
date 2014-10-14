@@ -83,7 +83,7 @@
        var tipoReporte=$('#tipoReporte').val();
 
 
-           $("#contenido2").load("../../../combo2",
+           $("#contenido2").load("../../../combo2_bsc",
             {macroproceso: macroproceso,tipoEmpleado: tipoEmpleado,escuela:escuela,cedula:cedula,codigo:codigo,name:name,mail:mail,tipoReporte:tipoReporte}
             );
            

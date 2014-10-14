@@ -111,17 +111,17 @@
                     <!-- Evaluacion Acciones -->
 
               <div id="apDiv250">
-                      <a style="cursor:default;"  href="../evaluacionBalance/Compromiso/23/{{Session::get('escuela')}}/4/1/3.33"  rel="floatbox">
+                      <a style="cursor:default;" rev="width:1000 height:300 scrolling:no" href="../evaluacionBalance/Compromiso/23/{{Session::get('escuela')}}/4/1/3.33"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a>
              </div>
              <div id="apDiv251">
-                      <a style="cursor:default;"  href="../evaluacionBalance/Liderazgo/23/{{Session::get('escuela')}}/5/1/3.33"  rel="floatbox">
+                      <a style="cursor:default;" rev="width:1000 height:300 scrolling:no" href="../evaluacionBalance/Liderazgo/23/{{Session::get('escuela')}}/5/1/3.33"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a> 
              </div>
              <div id="apDiv252">
-                      <a style="cursor:default;"  href="../evaluacionBalance/Motivación Personal/23/{{Session::get('escuela')}}/6/1/3.33"  rel="floatbox">
+                      <a style="cursor:default;" rev="width:1000 height:300 scrolling:no" href="../evaluacionBalance/Motivación Personal/23/{{Session::get('escuela')}}/6/1/3.33"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a> 
              </div> 

@@ -190,9 +190,9 @@ Route::get('/datos', array('uses' => 'HomeController@envios_ajax'));
   Route::post('/buscarEmpleado', 'ReportesController@buscarEmpleado');
 //Route::get('/tipos', array('uses' => 'ReportesController@mostrarTipo'));
 Route::post('/combo1', array('uses' => 'ReportesController@combo1'));
-Route::post('/combo1_bsc', array('uses' => 'ReportesController@combo1'));
-
+//Route::post('/combo1_bsc', array('uses' => 'ReportesController@combo1'));
 Route::post('/combo2', array('uses' => 'ReportesController@combo2'));
+Route::post('/combo2_bsc', array('uses' => 'ReportesController@combo2_bsc'));
 Route::post('/tabla',array('uses' => 'ReportesController@tabla'));
 Route::get('/imagenReporteMensual/{escuela}/{macroproceso}/{proceso}/{mes}/{cedula}/{codigo}/{suma}/{op}',array('uses' => 'ReportesController@imagenReporteMensual'));
 Route::get('/imagenReporte/{escuela}/{macroproceso}/{proceso}/{f1}/{f2}/{cedula}/{codigo}/{op}',array('uses' => 'ReportesController@imagenReporte'));
