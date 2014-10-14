@@ -878,3 +878,11 @@
 	height: 34px;
 	z-index: 1;
 }
+#footer {
+	position: absolute;
+	left: 295px;
+	top: 990px;
+	width: 627px;
+	height: 55px;
+	z-index: 2;
+}

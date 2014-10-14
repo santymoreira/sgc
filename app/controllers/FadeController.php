@@ -13,21 +13,64 @@ class FadeController extends BaseController {
 	|
 	|	
 	*/
+	public function getEscuela()
+	{
+		$escuelaEmpleado=0;
+		$escuelaIngresada=Session::get('escuela');
+		 $tipo=Login::tipoEmpleado();
+		$cod=Auth::user()->COD_EMPLEADO;
+		$esc = DB::select('SELECT ee.COD_ESCUELA FROM empleado as e inner join empleado_escuela as ee on e.COD_EMPLEADO=ee.COD_EMPLEADO  where e.COD_EMPLEADO=?',array($cod));
+		if ($tipo==1 || $tipo==2) {
+			$escuelaEmpleado=1;
+		}
+		 foreach ($esc as $e) 
+		 { 
+		 	$es=$e->COD_ESCUELA; 
+		 	if ($es==$escuelaIngresada) {
+		 		$escuelaEmpleado=1;
+		 	}
+		 }
+		 return $escuelaEmpleado;
+	}
+	public function permiso()
+		{
+			return Login::tiempoSesion();
+		}
+
 	public function home()
 	{
 		return View::make('home.welcome');
 	}
 	public function fadesgc()
 	{
-		return View::make('fade.fade_sgc');
+		if ($this->permiso()==1) 
+			{
+				return View::make('fade.fade_sgc');
+			}
+			else{Login::logout(); return View::make('fade.fade_sgc');}
 	}
 	public function macroprocesos()
 	{
-		return View::make('fade.macroprocesos');
+		if ($this->permiso()==1) 
+			{
+				return View::make('fade.macroprocesos');
+			}
+			else{Login::logout(); return View::make('fade.macroprocesos');}
 	}
 	public function administrativa()
 	{
-		return View::make('fade.MF_Administrativa');
+		if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+						return View::make('fade.MF_Administrativa');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('fade.fade_sgc');
 	}
 	public function academica()
 	{
