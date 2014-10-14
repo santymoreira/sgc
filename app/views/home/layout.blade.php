@@ -129,7 +129,7 @@
                     </div>
 
                     @section('login')
-
+                <div id="position">    
                     <div id="container">
                   <div id="loginContainer">
                   @if (Auth::user())
@@ -166,6 +166,7 @@
                       </div>
                   </div>
                 </div>
+               </div> 
                 <div id="Logoheader"><img src="{{ asset('images/Utilitarios/SGCheader.png'); }}" width="426"></div> 
                  </div>
 
