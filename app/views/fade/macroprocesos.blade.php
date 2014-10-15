@@ -4,6 +4,8 @@
 	@parent
 	{{ HTML::style('css/StylesFade.css'); }}
   {{ HTML::script('js/LinksMacroprocesosFade.js'); }}
+  {{ HTML::script('js/smoke.js'); }}
+  {{ HTML::style('css/smoke.css');  }}
   
 @stop
 
@@ -51,7 +53,7 @@
           	<img id="vinculacion" style="cursor:pointer;" onclick="Vinculacion()" src="{{ asset('images/Fade/vinculacion.png') }}" width="196" height="63">
           </div>
           <div id="apDiv37">
-          	<img id="asistencia" style="cursor:pointer;" width="604" height="48"  src="{{ asset('images/Fade/asistencia.png') }}">
+          	<img id="asistencia" style="cursor:pointer;" width="604" height="48" src="{{ asset('images/Fade/asistencia.png') }}">
           </div>
           <div id="apDiv38">
           	<img id="academico" style="cursor:pointer;" onclick="Academico()"  width="604" height="48" src="{{ asset('images/Fade/academico.png') }}">
@@ -60,7 +62,7 @@
           	<img id="financiero" style="cursor:pointer;" onclick="Financiero()" width="604" height="48" src="{{ asset('images/Fade/financiero.png') }}">
           </div>
           <div id="apDiv40">
-          	<img id="mantenimiento" style="cursor:pointer;" width="604" height="48" src="{{ asset('images/Fade/mantenimiento.png') }}">
+          	<img id="mantenimiento" style="cursor:pointer;" width="604"  height="48" src="{{ asset('images/Fade/mantenimiento.png') }}">
           </div>
           <div id="apDiv41">
           	<img id="transporte" style="cursor:pointer;" onclick="Transporte()" width="604" height="48" src="{{ asset('images/Fade/transporte.png') }}">
@@ -69,19 +71,36 @@
           	<img id="informatico" style="cursor:pointer;" onclick="Informatico()" width="604" height="48"  src="{{ asset('images/Fade/informatico.png') }}">
           </div>             
    
+    <!-- Mensajes -->
+            @if(Session::get('logout'))
+                 <script type="text/javascript">
+                    smoke.alert('Ud no tiene acceso, Inicie Sesión')
+                 </script>
+              @endif
+           @if(Session::get('denied'))
+                 <script type="text/javascript">
+                    smoke.alert('Ud no tiene acceso, No pertenece a esta Escuela')
+                 </script>
+              @endif
+
+                <script type="text/javascript">
+                    function enconstruccion() {
+                        smoke.alert('Este macroproceso se encuentra en construcción');
+                      }
+                      document.getElementById("mantenimiento").onclick = enconstruccion;
+                      document.getElementById("asistencia").onclick = enconstruccion;
+                </script>
 
         <!-- Footer --> 
-            
-            </br></br></br></br></br></br></br></br></br></br>
-            </br></br></br></br></br></br></br></br></br></br>
-            </br></br></br></br></br></br></br></br></br></br> </br></br></br></br></br></br></br></br></br></br>
-             </br></br></br></br></br></br></br></br></br></br>  </br></br></br></br></br></br>
-        <center>
-        <p style="font-size:10px;color:#03F">&nbsp;</p>
-
-           <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
-                    <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
-            </p>
-      </center>
-        </div>
+          
+           <div id="macrofade" class="cleared"> 
+              <center> <p style="font-size:10px;color:#03F">&nbsp;</p>
+                <p style="font-size:10px;color:#03F">&nbsp;</p>
+                <p style="font-size:10px;color:#03F">&nbsp;</p>
+               <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
+                          <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
+                       </p>
+              </center>
+          </div>    
+  </div>    
 @stop

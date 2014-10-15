@@ -175,4 +175,12 @@ button.cancel {
   width: 500px;
   height: 55px;
   z-index: 2;
+} 
+#macrofade {
+  position: absolute;
+  left: 350px;
+  top: 1300px;
+  width: 500px;
+  height: 55px;
+  z-index: 2;
 }  

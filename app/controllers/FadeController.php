@@ -74,50 +74,169 @@ class FadeController extends BaseController {
 	}
 	public function academica()
 	{
-		return View::make('fade.MF_Academica');
+		if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+						return View::make('fade.MF_Academica');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('fade.fade_sgc');
 	}
 	public function calidad()
 	{
-		return View::make('fade.MF_Calidad');
+		if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+						return View::make('fade.MF_Calidad');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('fade.fade_sgc');
 	}
 	public function docencia()
 	{
-		return View::make('fade.MF_Docencia');
+		if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+						return View::make('fade.MF_Docencia');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('fade.fade_sgc');
 	}
 	public function investigacion()
 	{
-		return View::make('fade.MF_Investigacion');
+
+		if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+						return View::make('fade.MF_Investigacion');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('fade.fade_sgc');
 	}
 	public function vinculacion()
 	{
-		return View::make('fade.MF_Vinculacion');
+		if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+						return View::make('fade.MF_Vinculacion');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('fade.fade_sgc');
 	}
 	public function asistencia()
 	{
-		return View::make('fade.MF_Asistencia');
+		if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+						return View::make('fade.MF_Asistencia');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('fade.fade_sgc');
 	}
 	public function academico()
 	{
-		return View::make('fade.MF_Academico');
+		if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+						return View::make('fade.MF_Academico');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('fade.fade_sgc');
 	}
 	public function financiero()
 	{
-		return View::make('fade.MF_Financiero');
+		if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+						return View::make('fade.MF_Financiero');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('fade.fade_sgc');
 	}
 	public function mantenimiento()
 	{
-		return View::make('fade.MF_Mantenimiento');
+		if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {	
+						return View::make('fade.MF_Mantenimiento');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('fade.fade_sgc');
 	}
 	public function transporte()
 	{
-		return View::make('fade.MF_Transporte');
+		if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {	
+						return View::make('fade.MF_Transporte');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('fade.fade_sgc');
 	}
 	public function informatico()
 	{
-		return View::make('fade.MF_Informatico');
+		if ($this->permiso()==1) 
+			{
+        			if ($this->getEscuela()==1) {
+						return View::make('fade.MF_Informatico');
+					}else{
+        			 return Redirect::back()->with('denied','denied');
+        			}
+        	}elseif ($this->permiso()==0) {
+        			 	return Redirect::back()->with('logout','logout');
+        			}   
+      		 else{Login::logout();}
+        		return View::make('fade.fade_sgc');				
 	}
-
-
-
 }
 

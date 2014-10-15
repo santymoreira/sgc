@@ -55,8 +55,7 @@
               @endif
            @if(Session::get('denied'))
                  <script type="text/javascript">
-                    smoke.alert('Ud no tiene acceso, Tiene que ser Administrador del Sistema')
-                 </script>
+                 smoke.alert('Ud no tiene acceso, Tiene que ser administrador del sistema en esta Escuela');
               @endif
   
           <!-- Footer -->    
