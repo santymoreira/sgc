@@ -89,5 +89,11 @@ Route::filter('csrf', function()
 	}
 });
 
+Route::when('admin/*', 'admin');
+
+Route::filter('admin', function()
+{
+	return 'Area de Administradores';	
+});
 
 
