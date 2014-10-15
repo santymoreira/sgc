@@ -476,6 +476,11 @@ Route::get('contabilidad', function()
     //return View::make('hello');
     return Redirect::to('contabilidad/cont_audi_sgc');
 });
+Route::get('contabilidad/', function()
+{  
+    //return View::make('hello');
+    return Redirect::to('contabilidad/cont_audi_sgc');
+});
 Route::get('C_exterior', function()
 {
     //return View::make('hello');
@@ -491,3 +496,9 @@ Route::get('transporte', function()
     //return View::make('hello');
     return Redirect::to('transporte/transporte_sgc');
 });
+<<<<<<< HEAD
+=======
+
+
+    
+>>>>>>> 169becbd26eae4e8c569a459645df6b02329bf1d
