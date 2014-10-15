@@ -40,19 +40,18 @@
 
 @section('body')
 		{{Session::put('escuela','2'); }}
-        <div class="layout-cell content">    
-            <div id="central"> 
-               <div id="central-content">
-               	<center>
-               		<label>Avance SGC&nbsp;&nbsp;&nbsp;</label>
-               			<a rel="floatbox" class="fbPopup" title="Avance SGC Contabilidad y Auditoría" rev="width:608 height:217 scrolling:no" href="../consolidadoEscuela/{{Session::get('escuela')}}" />
-               				<input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/>
-               			</a>  <br/><br/>
-               		<img src="{{ asset('images/Contabilidad/contabilidad.png') }}" width="850" height="295">
-               	</center>    
-               </div>
-            </div>
-             
+        <div id="position1" class="layout-cell content"> 
+          
+             <center> <label>Avance SGC</label>
+                    <a rel="floatbox" class="fbPopup" title="Avance SGC Contabilidad y Auditoría" rev="width:608 height:217 scrolling:no" href="../consolidadoEscuela/{{Session::get('escuela')}}">
+                      <input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/>
+                    </a>
+                    <br/>
+                <!-- Logo SGC escuela -->    
+                  <img src="{{ asset('images/Contabilidad/contabilidad.png') }}" width="850" height="295">
+            </center>     
+
+
               <!-- Mensajes -->
             @if(Session::get('logout'))
                  <script type="text/javascript">
@@ -64,19 +63,18 @@
                     smoke.alert('Ud no tiene acceso, Tiene que ser Administrador del Sistema')
                  </script>
               @endif
-	
+  
+          <!-- Footer -->    
 
-      		 <div class="cleared"> 
-				<center> <p style="font-size:10px;color:#03F">&nbsp;</p>
-				  <p style="font-size:10px;color:#03F">&nbsp;</p>
-				  <p style="font-size:10px;color:#03F">&nbsp;</p>
-				  <p style="font-size:10px;color:#03F">&nbsp;</p>
-				  <p style="font-size:10px;color:#03F">&nbsp;</p>
-				  <p style="font-size:10px;color:#03F">&nbsp;</p>
-				 <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
-                    <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
-          			 </p>
-				</center>
-			</div>	  
-		</div>		
+           <div class="cleared"> 
+              <center> <p style="font-size:10px;color:#03F">&nbsp;</p>
+                <p style="font-size:10px;color:#03F">&nbsp;</p>
+                <p style="font-size:10px;color:#03F">&nbsp;</p>
+               <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
+                          <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
+                       </p>
+              </center>
+          </div>    
+  </div>    
+           
 @stop

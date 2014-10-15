@@ -101,7 +101,7 @@
       		</div>
       		<div id="apDiv97">
           		 <a  href="{{ asset('images/FichasProcesos/Fichas(afeg02-03)/proceso.png'); }}" rel="slideshow3">
-                 	    <img id="afeg023"  src="{{ asset('images/ProcesosEscuelas/afeg02-03.png'); }}"/>
+                 	    <img id="afeg023"  src="{{ asset('images/ProcesosEscuelas/afeg02-03.png'); }}">
                         <a  href="{{ asset('images/FichasProcesos/Fichas(afeg02-03)/diagrama.png'); }}" rel="slideshow3"></a>
                         <a  href="{{ asset('images/FichasProcesos/Fichas(afeg02-03)/indicador.png'); }}" rel="slideshow3"></a>
          		 </a>              
@@ -169,24 +169,17 @@
     		<div id="apDiv104">
     			<img src="{{ asset('images/Responsables/externos.png'); }}">
     		</div>
-      </div>
-       </div>  
-  <!-- Footer --> 
-            
-            </br></br></br></br></br></br></br></br></br></br>
-            </br></br></br></br></br></br></br></br></br></br>
-            </br></br></br></br></br></br></br></br></br></br>
-            </br></br></br></br></br></br></br></br> 
-            
-        <center>
-        <p style="font-size:10px;color:#03F">&nbsp;</p>
-
-           <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
-                    <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
-            </p>
-
-            </center> 
-
+      
+     <!-- Footer --> 
+         <div id="footer_academica" class="cleared"> 
+              <center> <p style="font-size:10px;color:#03F">&nbsp;</p>
+                <p style="font-size:10px;color:#03F">&nbsp;</p>
+                <p style="font-size:10px;color:#03F">&nbsp;</p>
+               <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
+                          <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
+                       </p>
+              </center>
+          </div>  
     
-
+    </div>
 @stop     

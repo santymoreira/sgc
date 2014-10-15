@@ -35,13 +35,17 @@
 
 @section('body')
 		{{Session::put('escuela','4'); }}
-        <div class="layout-cell content">    
-            <div id="central"> 
-               <div id="central-content"> </br></br>
-                   <center><img src="{{ asset('images/finanzasbsc/finanzas.png') }}" width="850" height="295"></center>    
-               </div>
-            </div>
-             
+        <div id="position1" class="layout-cell content">    
+            <center> <label>Avance BSC</label>
+                    <a rel="floatbox" class="fbPopup" title="Avance BSC Finanzas" rev="width:608 height:217 scrolling:no" href="">
+                      <input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/>
+                    </a>
+                    <br/>
+                <!-- Logo SGC escuela -->    
+                  <img src="{{ asset('images/finanzasbsc/finanzas.png') }}" width="850" height="295">
+            </center>     
+
+
               <!-- Mensajes -->
             @if(Session::get('logout'))
                  <script type="text/javascript">
@@ -52,19 +56,18 @@
                  <script type="text/javascript">
                     smoke.alert('Ud no tiene acceso, Tiene que ser Administrador del Sistema')
                  </script>
-              @endif	
+              @endif
+  
+          <!-- Footer -->    
 
-      		   <div class="cleared"> 
-        <center> <p style="font-size:10px;color:#03F">&nbsp;</p>
-          <p style="font-size:10px;color:#03F">&nbsp;</p>
-          <p style="font-size:10px;color:#03F">&nbsp;</p>
-          <p style="font-size:10px;color:#03F">&nbsp;</p>
-          <p style="font-size:10px;color:#03F">&nbsp;</p>
-          <p style="font-size:10px;color:#03F">&nbsp;</p>
-         <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
-                    <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
-                 </p>
-        </center>
-      </div>    
+           <div class="cleared"> 
+              <center> <p style="font-size:10px;color:#03F">&nbsp;</p>
+                <p style="font-size:10px;color:#03F">&nbsp;</p>
+                <p style="font-size:10px;color:#03F">&nbsp;</p>
+               <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
+                          <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
+                       </p>
+              </center>
+          </div>    
 		</div>		
 @stop

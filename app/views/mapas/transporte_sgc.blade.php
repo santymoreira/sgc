@@ -36,46 +36,41 @@
 
 @section('body')
 		{{Session::put('escuela','6'); }}
-        <div class="layout-cell content">    
-            <div id="central"> 
-               <div id="central-content"> </br></br>
-                   <center>
-                   <label>Avance SGC&nbsp;&nbsp;&nbsp;</label>
-<<<<<<< HEAD
-               			<a rel="floatbox" class="fbPopup" title="Avance SGC Ingeniería en Gestión de Transporte" rev="width:608 height:217 scrolling:no" href="../consolidadoEscuela/{{Session::get('escuela')}}" />
-=======
-               			<a rel="floatbox" class="fbPopup" title="Avance SGC Escuela de Transporte" rev="width:608 height:217 scrolling:no" href="../consolidadoEscuela/{{Session::get('escuela')}}" />
->>>>>>> origin/master
-               				<input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/>
-               			</a>  <br/><br/>
-                   		<img src="{{ asset('images/Transporte/Transporte.png') }}" width="850" height="295">
-                   </center>    
-               </div>
-            </div>
+        <div id="position1" class="layout-cell content">    
+          
 
-               <!-- Mensajes -->
+             <center> <label>Avance SGC</label>
+                    <a rel="floatbox" class="fbPopup" title="Avance SGC Gestión de Transporte" rev="width:608 height:217 scrolling:no" href="../consolidadoEscuela/{{Session::get('escuela')}}">
+                      <input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/>
+                    </a>
+                    <br/>
+                <!-- Logo SGC escuela -->    
+                  <img src="{{ asset('images/Transporte/transporte.png') }}" width="850" height="295">
+            </center>     
+
+
+              <!-- Mensajes -->
             @if(Session::get('logout'))
                  <script type="text/javascript">
                     smoke.alert('Ud no tiene acceso, Inicie Sesión')
                  </script>
               @endif
-             @if(Session::get('denied'))
+           @if(Session::get('denied'))
                  <script type="text/javascript">
                     smoke.alert('Ud no tiene acceso, Tiene que ser Administrador del Sistema')
                  </script>
               @endif
-             
-      		 <div class="cleared"> 
-				<center> <p style="font-size:10px;color:#03F">&nbsp;</p>
-				  <p style="font-size:10px;color:#03F">&nbsp;</p>
-				  <p style="font-size:10px;color:#03F">&nbsp;</p>
-				  <p style="font-size:10px;color:#03F">&nbsp;</p>
-				  <p style="font-size:10px;color:#03F">&nbsp;</p>
-				  <p style="font-size:10px;color:#03F">&nbsp;</p>
-				  <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
-                    <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
-          			  </p>
-				</center>
-			</div>	
+  
+          <!-- Footer -->    
+
+           <div class="cleared"> 
+              <center> <p style="font-size:10px;color:#03F">&nbsp;</p>
+                <p style="font-size:10px;color:#03F">&nbsp;</p>
+                <p style="font-size:10px;color:#03F">&nbsp;</p>
+               <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
+                          <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
+                       </p>
+              </center>
+          </div>    
 		</div>		
 @stop
