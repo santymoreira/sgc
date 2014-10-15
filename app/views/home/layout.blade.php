@@ -114,12 +114,12 @@
                     </li>
                     <li class="nivel1"><a href="#" class="nivel1">BSC</a>
                     <ul class="dos">
-                        <li>{{ HTML::link('fade/fade_bsc', 'Facultad de Administración de Empresas'); }}</li>
-                        <li>{{ HTML::link('empresas/empresas_bsc', 'Escuela de Ingeniería en Empresas'); }}</li>
-                        <li>{{ HTML::link('contabilidad/cont_audi_bsc', 'Escuela de Ingeniería en Contabilidad y Auditoría'); }}</li>
-                        <li>{{ HTML::link('finanzas/finanzas_bsc', 'Escuela de Ingeniería Financiera'); }}</li>
-                        <li>{{ HTML::link('marketing/marketing_bsc', 'Escuela de Ingeniería en Marketing'); }}</li>
-                        <li>{{ HTML::link('transporte/transporte_bsc', 'Escuela de Ingeniería en Gestión de Transporte'); }}</li>
+                        <li>{{ HTML::link('fadebsc/fade_bsc', 'Facultad de Administración de Empresas'); }}</li>
+                        <li>{{ HTML::link('empresasbsc/empresas_bsc', 'Escuela de Ingeniería en Empresas'); }}</li>
+                        <li>{{ HTML::link('contabilidadbsc/cont_audi_bsc', 'Escuela de Ingeniería en Contabilidad y Auditoría'); }}</li>
+                        <li>{{ HTML::link('finanzasbsc/finanzas_bsc', 'Escuela de Ingeniería Financiera'); }}</li>
+                        <li>{{ HTML::link('marketingbsc/marketing_bsc', 'Escuela de Ingeniería en Marketing'); }}</li>
+                        <li>{{ HTML::link('transportebsc/transporte_bsc', 'Escuela de Ingeniería en Gestión de Transporte'); }}</li>
                     </ul>
                   </li>
                   </ul></center>
