@@ -109,19 +109,17 @@
                  </script>
               @endif
 
-        <!-- Footer --> 
-            
-            </br></br></br></br></br></br></br></br></br></br>
-            </br></br></br></br></br></br></br></br></br></br>
-            </br></br></br></br></br></br></br></br></br></br>
-        <center>
-        <p style="font-size:10px;color:#03F">&nbsp;</p>
+       <!-- Footer -->    
 
-           <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
-                    <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
-            </p>
-      </center>
+           <div id="footer_macroprocesos" class="cleared"> 
+              <center> <p style="font-size:10px;color:#03F">&nbsp;</p>
+                <p style="font-size:10px;color:#03F">&nbsp;</p>
+                <p style="font-size:10px;color:#03F">&nbsp;</p>
+               <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
+                          <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
+                       </p>
+              </center>
+          </div>  
 
-
-        </div>
+   </div>  
 @stop

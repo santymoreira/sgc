@@ -90,10 +90,7 @@
             <div id="apDiv50">
               <img onclick="OptiRecursos();" id="OptiRecursos1" style="cursor:pointer;" src="{{ asset('images/objetivosO/OptiRecursos_red.png')}}">
             </div>
-       
-     
-    </div>    
-
+   
       <!-- Mensajes -->
                 @if(Session::get('logout'))
                  <script type="text/javascript">
@@ -109,18 +106,16 @@
 
         <!-- Footer --> 
             
-            </br></br></br></br></br></br></br></br></br></br>
-            </br></br></br></br></br></br></br></br></br></br>
-            </br></br></br></br></br></br></br></br></br></br>
-            </br></br></br></br></br></br></br></br></br></br>
-            </br></br></br></br>   </br></br></br><br/>
-           
-        <center>
-        <p style="font-size:10px;color:#03F">&nbsp;</p>
+              <div id="footer_perspectivas" class="cleared"> 
+              <center> <p style="font-size:10px;color:#03F">&nbsp;</p>
+                <p style="font-size:10px;color:#03F">&nbsp;</p>
+                <p style="font-size:10px;color:#03F">&nbsp;</p>
+               <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
+                          <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
+                       </p>
+              </center>
+          </div>  
 
-           <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
-                    <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
-            </p>
-      </center>    
+    </div>
 
 @stop

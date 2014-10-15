@@ -120,3 +120,59 @@ button.cancel {
   height:39px;
   z-index:2;
 }
+#footer_index {
+  position:absolute;
+  left:400px;
+  top:800px;
+  width:600px;
+  height:39px;
+  z-index:2;
+}
+#position1 {
+  position:absolute;
+  left:150px;
+  top:210px;
+  width:900px;
+  height:400px;
+  z-index:2;
+}
+#footer_macroprocesos {
+  position: absolute;
+  left: 350px;
+  top: 790px;
+  width: 500px;
+  height: 55px;
+  z-index: 2;
+}
+#footer_academica {
+  position: absolute;
+  left: 350px;
+  top: 950px;
+  width: 500px;
+  height: 55px;
+  z-index: 2;
+}
+#footer_perspectivas {
+  position: absolute;
+  left: 350px;
+  top: 1115px;
+  width: 500px;
+  height: 55px;
+  z-index: 2;
+}
+#footer_acredCarr {
+  position: absolute;
+  left: 350px;
+  top: 1050px;
+  width: 500px;
+  height: 55px;
+  z-index: 2;
+}  
+#footer_gestionProc {
+  position: absolute;
+  left: 350px;
+  top: 1120px;
+  width: 500px;
+  height: 55px;
+  z-index: 2;
+}  

@@ -139,22 +139,18 @@
                      <a style="cursor:default;" rev="width:1000 height:300 scrolling:no" href="../evaluacionBalance/Evaluación/22/{{Session::get('escuela')}}/12/1/1"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a>  
-            </div>
-
-          </div>
+           
+           </div>
             <!-- Footer --> 
             
-            </br></br></br></br></br></br></br></br></br></br>
-            </br></br></br></br></br></br></br></br></br></br>
-            </br></br></br></br></br></br></br></br></br></br>
-            </br></br></br></br></br></br></br></br></br></br>
-            </br></br></br></br></br>
-           
-        <center>
-        <p style="font-size:10px;color:#03F">&nbsp;</p>
-
-           <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
-                    <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
-            </p>
-      </center>    
+            <div id="footer_gestionProc" class="cleared"> 
+              <center> <p style="font-size:10px;color:#03F">&nbsp;</p>
+                <p style="font-size:10px;color:#03F">&nbsp;</p>
+                <p style="font-size:10px;color:#03F">&nbsp;</p>
+               <p style="font-size:10px;color:#03F">Copyright 2014. All Rights Reserved | 
+                          <a style="font-size:10px;color:#03F" {{ HTML::link('Creditos','Créditos'); }}
+                       </p>
+              </center>
+          </div>  
+  </div>
 @stop   
