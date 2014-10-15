@@ -125,7 +125,7 @@
                       </a> 
                    </div>
                    <div id="apDiv220">
-                      <a style="cursor:default;" rev="width:1000 height:300 scrolling:no" href="../evaluacionBalance/Relación Investigación - Estudiantes/22/{{Session::get('escuela')}}/7/2/2"  rel="floatbox">
+                      <a style="cursor:default;" rev="width:1000 height:300 scrolling:no" href="../evaluacionBalance/Relación Investigación - Estudiantes/22/{{Session::get('escuela')}}/6/2/2"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a> 
                    </div>

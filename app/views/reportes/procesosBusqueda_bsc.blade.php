@@ -5,8 +5,27 @@
 @foreach ($procesos as $tipo)
 <option value="{{ $tipo->COD_PROCESO }}">{{ $tipo->DESCRIPCION }}</option>
 @endforeach
+</select>
+
+</br>
+<label><b>MES: </b></label>
+<select id="meses" class="select" style="width: 200px;">
+<option value="0" selected>Seleccione opción</option>
+<option value="1">Enero</option>
+<option value="2">Febrero</option>
+<option value="3">Marzo</option>
+<option value="4">Abril</option>
+<option value="5">Mayo</option>
+<option value="6">Junio</option>
+<option value="7">Julio</option>
+<option value="8">Agosto</option>
+<option value="9">Septiembre</option>
+<option value="10">Octubre</option>
+<option value="11">Noviembre</option>
+<option value="12">Diciembre</option>
 
 
+</select>
 
 <input type="hidden" id="macroproceso" value="{{ $macroproceso }}">
 <input type="hidden" id="tipo_e" value="{{ $tipoEmpleado }}">
@@ -16,6 +35,8 @@
 <input type="hidden" id="tipoReporte" value="{{ $tipoReporte }}">
 <input type="hidden" id="name" value="{{ $name }}">
 <input type="hidden" id="mail" value="{{ $mail }}">
+
+
 <button disabled="true" type="submit" id="b"> <img src="{{ asset('images/buscar.png'); }}"/> Buscar </button>
 </br></br>
 <div style="float: left;" id="tablares"> </div></div>
@@ -26,8 +47,14 @@ var proceso=0;
   	$('#combo3').change(function(e){
       e.preventDefault();
        proceso=$(this).val();
-       $("#b").prop('disabled', false);
+       //$("#b").prop('disabled', false);
 });
+
+      $('#meses').change(function(e){
+          e.preventDefault();
+          seleccion=$(this).val();
+       $("#b").prop('disabled', false);
+      });
 
       $('#b').click(function()
     {
@@ -40,8 +67,7 @@ var proceso=0;
     var name=$('#name').val();
     var mail=$('#mail').val();
 
-
-    $('#tablares').load("../../../tabla_bsc",{escuela:escuela,tipoEmpleado:tipo,macroproceso:macro,proceso:proceso,cedula:cedula,codigo:codigo,name:name,mail:mail,tipoReporte:tipoReporte});
+    $('#tablares').load("../../../tabla_bsc",{escuela:escuela,tipoEmpleado:tipo,macroproceso:macro,proceso:proceso,cedula:cedula,codigo:codigo,tipoReporte:tipoReporte,mes:seleccion,name:name,mail:mail});
 });
 
 

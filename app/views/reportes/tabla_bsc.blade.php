@@ -51,7 +51,7 @@
 
              <center> 
               <td>
-                <a href="../../../pdfReporte/{{$escuela}}/{{$macroproceso}}/{{$proceso}}/{{$indicador->FECHA_INICIO}}/{{$indicador->FECHA_FIN}}/{{$cedula}}/{{$codigo}}/{{$name}}/{{$mail}}" target="_blank" >
+                <a href="../../../pdfReporteBalance/{{$escuela}}/{{$macroproceso}}/{{$proceso}}/{{$indicador->FECHA_INICIO}}/{{$indicador->FECHA_FIN}}/{{$cedula}}/{{$codigo}}/{{$name}}/{{$mail}}" target="_blank" >
                   <button type="submit" class='buttons'  type='submit'  name='submit' id='bpdf'>
                     <img src="{{ asset('images/pdfd.png'); }}" alt=""/> PDF 
                   </button> 
