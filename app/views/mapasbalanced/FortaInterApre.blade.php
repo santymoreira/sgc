@@ -18,7 +18,7 @@
 @stop
 
 @section('options')
-   	
+   	  
    			 <div id="menu">
 						<ul>
 				       		 @if($var == 2)  
