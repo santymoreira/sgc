@@ -464,7 +464,7 @@ Route::get('fade', function()
     return Redirect::to('fade/fade_sgc');
 });
 Route::get('contabilidad', function()
-{
+{  
     //return View::make('hello');
     return Redirect::to('contabilidad/cont_audi_sgc');
 });
