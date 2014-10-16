@@ -25,9 +25,22 @@
                             <div id="central">
                                 <div id="central-content"> 
                                 <div id="apDiv265"><img style="cursor:pointer;" src="{{asset('images/Utilitarios/volver.png')}}" width="45" height="45"></div>
-                                    <div id="avance"></div>
-                                          <center><label>Cumplimiento&nbsp;&nbsp;&nbsp;</label><a rel="floatbox" class="fbPopup"  title="Avance Cumplimiento Facultad" rev="width:608 height:217 scrolling:no" href="../consolidadoFacultad" /><input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/></a> </center>                                        </br>
-                                         </br>
+                                @if(!empty($valor))
+                                    @if($valor <= 70)
+                                    <div id="avance">
+                                          <center><label>Cumplimiento&nbsp;&nbsp;&nbsp;</label><a rel="floatbox" class="fbPopup"  title="Avance Cumplimiento Facultad" rev="width:608 height:217 scrolling:no" href="consolidadoFacultad" /><input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/></a> </center></br>
+                                    </div>  
+                                  @elseif($valor >= 70 && $valor <= 90)
+                                    <div id="avance">
+                                          <center><label>Cumplimiento&nbsp;&nbsp;&nbsp;</label><a rel="floatbox" class="fbPopup"  title="Avance Cumplimiento Facultad" rev="width:608 height:217 scrolling:no" href="consolidadoFacultad" /><input type="image" src="{{asset('images/Utilitarios/naranja.png'); }}"/></a> </center></br>
+                                    </div>
+                                  @elseif($valor >= 91 && $valor <= 100)
+                                    <div id="avance">
+                                          <center><label>Cumplimiento&nbsp;&nbsp;&nbsp;</label><a rel="floatbox" class="fbPopup"  title="Avance Cumplimiento Facultad" rev="width:608 height:217 scrolling:no" href="consolidadoFacultad" /><input type="image" src="{{asset('images/Utilitarios/verde.png'); }}"/></a> </center></br>
+                                    </div>
+                                @endif 
+                              @endif
+                                      </br>
                                          <div class="demo">
                                         	<div id="GestiondeCalidad">
                                             	<ul class="resp-tabs-list">    

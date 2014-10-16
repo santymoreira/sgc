@@ -13,15 +13,16 @@
 <body>
 
 
-	<div class="panel panel-success" align="center">
-  		
-  		<div class="panel-body" >
+			<div class="panel-body" >
 		  	@if(!empty($user))
-  				<form method="post" enctype="multipart/form-data" action="../updatep/{{ $user->COD_EMPLEADO}}">
+		  	<nav class="navbar navbar-default" role="navigation">
+  						<center><h4><b>{{$user->NOMBRES}}</b></h4></center>
+			</nav>
+  			<form method="post" enctype="multipart/form-data" action="../updatep/{{ $user->COD_EMPLEADO}}">
 				<p>
 					    <label class="form-control">Cambiar foto de Perfil</label>
                 <br/><br/>
-	                <!--así se crea un campo file en laravel-->
+	                <!--así se crea un campo file en laravel -->
 	                <center><input type="file" id="photo" name="photo" accept="image/jpg,image/png,image/gif,image/jpeg,image/bmp" class="form-control"></center>
 				</p>
 				<p>
@@ -63,12 +64,12 @@
 					{{$errors->first('convencional')}}
 			   @endif
 			  
-					 <input type="submit" value="Actualizar" class="btn btn-success">
+					<center> <input type="submit" value="Actualizar" class="btn btn-success"> </center>
 					  @if(Session::has('message'))
 					<div class="alert alert-{{ Session::get('class') }}">{{ Session::get('message')}}</div>
-				@endif
-				</form>
-		 
+				</form> 
+		 		@endif
+			
 		</div>
 
 </body>

@@ -17,7 +17,27 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
-		return View::make('home.welcome');
+		$valor=0;
+        $tot=0;
+        
+        for ($i=1; $i <=7 ; $i++) 
+        { 
+            //escuela
+                $total=0;
+                for ($j=1; $j <= 6; $j++) 
+                { 
+                    
+                    $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.','.$j.')');
+                    foreach ($Indicadores as $indicador) 
+                    {
+                        $total+=$indicador->avance;
+                    }
+                    
+                }
+                $tot=$total/6;
+                $valor+=$tot;
+        }
+		return View::make('home.welcome')->with('valor',$valor);
 	}
 
 		public function envio()
