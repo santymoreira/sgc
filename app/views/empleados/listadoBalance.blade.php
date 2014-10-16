@@ -50,7 +50,7 @@
               <td scope='row'> {{ $ci }} </td>
               <td scope='row'> {{ $nombres }} </td>
               <td>
-                <select id="1" class="select" style="width: 200px;"><option value="1" selected>Seleccione opción</option><option value="2">Sí</option><option value="3">No</option>
+                <select id="combog" class="select" style="width: 200px;"><option value="1" selected>Seleccione opción</option><option value="2">Sí</option><option value="3">No</option>
                 </select>
               </td>
               @if ($cumpli==1)
@@ -85,7 +85,7 @@
   </html>
 
 <script>
-  $('#1').change(function(e){
+  $('#combog').change(function(e){
       e.preventDefault();
      // var empleado = $(this).attr('id');
       var escuela=$('#escuela').val();
@@ -94,10 +94,11 @@
       var macroproceso=$('#macro').val();
       var fechaInicio=$('#fecha1').val();
       var fechaFin=$('#fecha2').val();
-      var peso=$('#peso').val();
+      var pesos=$('#peso').val();
       var empleado=$('#empleado').val();
       var opcion=$(this).val();
-      var op;
+      //alert(peso);
+      var op=-1;
       if(opcion==1)
         {
           op=-1;
@@ -113,8 +114,7 @@
           op=0;
           $('#p').attr('src', "../../../../../../images/incorrecto.gif");
         }
-
-      $.post('../../../../../../insertarBalance',{opcion:op,empleado:empleado,escuela:escuela,proceso:proceso,peso:peso,macro:macroproceso,fechaInicio:fechaInicio,fechaFin:fechaFin,texto1:'null',texto2:'null'},function(data){
+      $.post('../../../../../../insertarBalance',{opcion:op,empleado:empleado,escuela:escuela,proceso:proceso,peso:pesos,macro:macroproceso,fechaInicio:fechaInicio,fechaFin:fechaFin,texto1:'null',texto2:'null'},function(data){
         console.log(data);
       });
                

@@ -115,7 +115,7 @@
                    <!-- Evaluacion Acciones -->
                    <!-- nombre del proyecto/macroproceso/escuela/proceso/objeto/peso-->
                     <div id="apDiv204">
-                     <a style="cursor:default;"  href="../evaluacionBalance/Avance de implementación del SGC/22/{{Session::get('escuela')}}/4/2/4"  rel="floatbox">
+                     <a style="cursor:default;" rev="width:1000 height:300 scrolling:no" href="../evaluacionBalance/Avance de implementación del SGC/22/{{Session::get('escuela')}}/4/2/4"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a> 
                    </div>

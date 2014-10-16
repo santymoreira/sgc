@@ -251,7 +251,7 @@ class EmpleadosController extends BaseController {
         $tiempod=Login::tiempoSesion();
 
        // echo("<script>console.log('PHP: ".$escuela."');</script>");
-        $empleados=DB::select("SELECT CI,COD_EMPLEADO,NOMBRES,EMAIL FROM empleado WHERE  NOMBRES LIKE '%".$consulta."%'");
+        $empleados=DB::select("SELECT e.CI,e.COD_EMPLEADO,e.NOMBRES,e.EMAIL FROM empleado as e inner join empleado_escuela as ee on e.COD_EMPLEADO=ee.COD_EMPLEADO  WHERE  ee.COD_ESCUELA=".$escuela." and e.NOMBRES LIKE '%".$consulta."%'");
             foreach ($empleados as $e) { $em=$e->NOMBRES; }
        // 
         //$empleados = DB::select('SELECT * FROM empleado as e inner join empleado_tipo as et on e.COD_EMPLEADO=et.COD_EMPLEADO WHERE (et.COD_TIPO =1 OR et.COD_TIPO =4 OR et.COD_TIPO =5 OR et.COD_TIPO =6) AND et.COD_ESCUELA=?',array($escuela));
@@ -290,18 +290,22 @@ class EmpleadosController extends BaseController {
      public function insertarBalance()
     {
         if (Request::ajax()) {
-            $opcion=Input::get('opcion');
-            $empleado=Input::get('empleado');
-            $escuela=Input::get('escuela');
-            $proceso=Input::get('proceso');
-            $macro=Input::get('macro');
-            $porcentaje=Input::get('peso');
-            $fechaInicio=Input::get('fechaInicio');
-            $fechaFin=Input::get('fechaFin');
-            $texto1=Input::get('texto1');
-            $texto2=Input::get('texto2');
 
-            $d=DB::statement('call asignarValor('.$opcion.','.$macro.','.$empleado.','.$proceso.',\''.$fechaInicio.'\',\''.$fechaFin.'\','.$texto1.','.$texto2.','.$escuela.','.$porcentaje.')');
+                    $opcion=Input::get('opcion');
+                    $empleado=Input::get('empleado');
+                    $escuela=Input::get('escuela');
+                    $proceso=Input::get('proceso');
+                    $macro=Input::get('macro');
+                    $porcentaje=Input::get('peso');
+                    $fechaInicio=Input::get('fechaInicio');
+                    $fechaFin=Input::get('fechaFin');
+                    $texto1=Input::get('texto1');
+                    $texto2=Input::get('texto2');
+
+//            echo("<script>console.log('PHP: ".$porcentaje."');</script>");
+
+             $d=DB::statement('call asignarValor('.$opcion.','.$macro.','.$empleado.','.$proceso.',\''.$fechaInicio.'\',\''.$fechaFin.'\','.$texto1.','.$texto2.','.$escuela.','.$porcentaje.')');
+
             $dd='fuck';
         return Response::json($fechaFin);
         }

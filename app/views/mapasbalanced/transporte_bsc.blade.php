@@ -17,7 +17,7 @@
 									<li><a {{ HTML::link('reportes/mensual/2', 'Mensual');}} </a></li>
                 					<li><a {{ HTML::link('reportes/mensual_e/2', 'Mensual Empleados');}} </a></li>
                 					<li><a {{ HTML::link('reportes/individual_e/2', 'Individual Empleados');}} </a></li>
-                 					<li><a {{ HTML::link('descargas', 'Descargas');}} </a></li>
+                 					<li><a {{ HTML::link('#', 'Descargas');}} </a></li>
         						</ul>
 							  </li>
 						</ul>

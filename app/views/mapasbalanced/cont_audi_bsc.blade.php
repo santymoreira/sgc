@@ -17,7 +17,7 @@
 									<li><a {{ HTML::link('reportes/individual_bsc/2/2', 'Mensual');}} </a></li>
                 					<li><a {{ HTML::link('reportes/mensualE_bsc/2/3', 'Mensual Empleados');}} </a></li>
                 					<li><a {{ HTML::link('reportes/mensualE_bsc/2/4', 'Individual Empleados');}} </a></li>
-                 					<li><a {{ HTML::link('descargas', 'Descargas');}} </a></li>
+                 					<li><a {{ HTML::link('#', 'Descargas');}} </a></li>
         						</ul>
 							  </li>
 						</ul>

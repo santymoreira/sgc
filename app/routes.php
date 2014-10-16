@@ -181,23 +181,31 @@ Route::get('/datos', array('uses' => 'HomeController@envios_ajax'));
 
 
   Route::post('/individualBusqueda', 'ReportesController@individualBusqueda');
+  Route::post('/individualBusquedaBalance', 'ReportesController@individualBusquedaBalance');
+  Route::post('/individualBusquedaBalance', 'ReportesController@individualBusquedaBalance');
 
   //reporte mensual
   //Route::get('reportes/mensual/{cod}/{tipo}', 'ReportesController@mensual');
 
 
   Route::post('/buscarEmpleado', 'ReportesController@buscarEmpleado');
+  Route::post('/buscarEmpleadoBalance', 'ReportesController@buscarEmpleadoBalance');
 //Route::get('/tipos', array('uses' => 'ReportesController@mostrarTipo'));
 Route::post('/combo1', array('uses' => 'ReportesController@combo1'));
-Route::post('/combo1_bsc', array('uses' => 'ReportesController@combo1'));
-
+//Route::post('/combo1_bsc', array('uses' => 'ReportesController@combo1'));
 Route::post('/combo2', array('uses' => 'ReportesController@combo2'));
+Route::post('/combo2_bsc', array('uses' => 'ReportesController@combo2_bsc'));
 Route::post('/tabla',array('uses' => 'ReportesController@tabla'));
+Route::post('/tabla_bsc',array('uses' => 'ReportesController@tabla_bsc'));
 Route::get('/imagenReporteMensual/{escuela}/{macroproceso}/{proceso}/{mes}/{cedula}/{codigo}/{suma}/{op}',array('uses' => 'ReportesController@imagenReporteMensual'));
+Route::get('/imagenReporteMensualBalance/{escuela}/{macroproceso}/{proceso}/{mes}/{cedula}/{codigo}/{suma}/{op}',array('uses' => 'ReportesController@imagenReporteMensualBalance'));
 Route::get('/imagenReporte/{escuela}/{macroproceso}/{proceso}/{f1}/{f2}/{cedula}/{codigo}/{op}',array('uses' => 'ReportesController@imagenReporte'));
+Route::get('/imagenReporteBalance/{escuela}/{macroproceso}/{proceso}/{f1}/{f2}/{cedula}/{codigo}/{op}',array('uses' => 'ReportesController@imagenReporteBalance'));
 
 Route::get('/pdfReporte/{a}/{b}/{c}/{d}/{e}/{f}/{g}/{h}/{i}',array('uses' => 'ReportesController@pdfReporte'));
+Route::get('/pdfReporteBalance/{a}/{b}/{c}/{d}/{e}/{f}/{g}/{h}/{i}',array('uses' => 'ReportesController@pdfReporteBalance'));
 Route::get('/pdfReporteMensual/{a}/{b}/{c}/{d}/{e}/{f}/{g}/{h}/{i}',array('uses' => 'ReportesController@pdfReporteMensual'));
+Route::get('/pdfReporteMensualBalance/{a}/{b}/{c}/{d}/{e}/{f}/{g}/{h}/{i}',array('uses' => 'ReportesController@pdfReporteMensualBalance'));
 
 //Controllers Escuela programmer.
 
@@ -514,6 +522,7 @@ Route::get('transporte', function()
     //return View::make('hello');
     return Redirect::to('transporte/transporte_sgc');
 });
+<<<<<<< HEAD
 Route::get('transporte/', function()
 {
     //return View::make('hello');
@@ -571,3 +580,11 @@ Route::get('transportebsc/', function()
     //return View::make('hello');
     return Redirect::to('transportebsc/transporte_bsc');
 });
+=======
+<<<<<<< HEAD
+=======
+
+
+    
+>>>>>>> 169becbd26eae4e8c569a459645df6b02329bf1d
+>>>>>>> origin/master
