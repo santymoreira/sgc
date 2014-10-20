@@ -38,7 +38,7 @@
         <div id="position1" class="layout-cell content">    
             <center> <label>Avance BSC</label>
                     <a rel="floatbox" class="fbPopup" title="Avance BSC Finanzas" rev="width:608 height:217 scrolling:no" href="">
-                      <input type="image" src="{{asset('images/Utilitarios/chart_bar.png'); }}"/>
+                      <input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/>
                     </a>
                     <br/>
                 <!-- Logo SGC escuela -->    
@@ -54,7 +54,7 @@
               @endif
            @if(Session::get('denied'))
                  <script type="text/javascript">
-                    smoke.alert('Ud no tiene acceso, Tiene que ser Administrador del Sistema')
+                 smoke.alert('Ud no tiene acceso, Tiene que ser administrador del sistema en esta Escuela');
                  </script>
               @endif
   

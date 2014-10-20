@@ -17,7 +17,7 @@ color: #FFF;
 }
 
 </style>
-
+  
 
 <div id="resu"></div>
 

@@ -11,12 +11,11 @@
 |
 */
 
-Route::get('/', function()
-{
-    //return View::make('hello');
-    return Redirect::to('home/welcome');
-});
+Route::get('/', 'HomeController@showWelcome' );
 
+    //return View::make('hello');
+   // return Redirect::to('home/welcome');
+    
 // esta sera la ruta principal de nuestra aplicación
 // aquí va a estar el formulario para registrase y para inicio de sesión
 // esta ruta debe ser publica y por lo tanto no debe llegar el filtro auth
@@ -455,8 +454,15 @@ Route::get('Creditos','MapasController@creditos');
 
 
 
-//Redireccionamientos en URL
+//Redirect en URL
+
+//SGC
 Route::get('finanzas', function()
+{
+    //return View::make('hello');
+    return Redirect::to('finanzas/finanzas_sgc');
+});
+Route::get('finanzas/', function()
 {
     //return View::make('hello');
     return Redirect::to('finanzas/finanzas_sgc');
@@ -466,7 +472,17 @@ Route::get('empresas', function()
     //return View::make('hello');
     return Redirect::to('empresas/empresas_sgc');
 });
+Route::get('empresas/', function()
+{
+    //return View::make('hello');
+    return Redirect::to('empresas/empresas_sgc');
+});
 Route::get('fade', function()
+{
+    //return View::make('hello');
+    return Redirect::to('fade/fade_sgc');
+});
+Route::get('fade/', function()
 {
     //return View::make('hello');
     return Redirect::to('fade/fade_sgc');
@@ -486,7 +502,17 @@ Route::get('C_exterior', function()
     //return View::make('hello');
     return Redirect::to('C_exterior/exterior_sgc');
 });
+Route::get('C_exterior/', function()
+{
+    //return View::make('hello');
+    return Redirect::to('C_exterior/exterior_sgc');
+});
 Route::get('marketing', function()
+{
+    //return View::make('hello');
+    return Redirect::to('marketing/marketing_sgc');
+});
+Route::get('marketing/', function()
 {
     //return View::make('hello');
     return Redirect::to('marketing/marketing_sgc');
@@ -495,5 +521,63 @@ Route::get('transporte', function()
 {
     //return View::make('hello');
     return Redirect::to('transporte/transporte_sgc');
+});
+
+Route::get('transporte/', function()
+{
+    //return View::make('hello');
+    return Redirect::to('transporte/transporte_sgc');
+});
+
+//BSC
+Route::get('fadebsc', function()
+{
+    //return View::make('hello');
+    return Redirect::to('fadebsc/fade_bsc');
+});
+Route::get('fadebsc/', function()
+{
+    //return View::make('hello');
+    return Redirect::to('fadebsc/fade_bsc');
+});
+Route::get('empresasbsc', function()
+{
+    //return View::make('hello');
+    return Redirect::to('empresasbsc/empresas_bsc');
+});
+Route::get('empresasbsc/', function()
+{
+    //return View::make('hello');
+    return Redirect::to('empresasbsc/empresas_bsc');
+});
+Route::get('finanzasbsc', function()
+{
+    //return View::make('hello');
+    return Redirect::to('finanzasbsc/finanzas_bsc');
+});
+Route::get('finanzasbsc/', function()
+{
+    //return View::make('hello');
+    return Redirect::to('finanzasbsc/finanzas_bsc');
+});
+Route::get('marketingbsc', function()
+{
+    //return View::make('hello');
+    return Redirect::to('marketingbsc/marketing_bsc');
+});
+Route::get('marketingbsc/', function()
+{
+    //return View::make('hello');
+    return Redirect::to('marketingbsc/marketing_bsc');
+});
+Route::get('transportebsc', function()
+{
+    //return View::make('hello');
+    return Redirect::to('transportebsc/transporte_bsc');
+});
+Route::get('transportebsc/', function()
+{
+    //return View::make('hello');
+    return Redirect::to('transportebsc/transporte_bsc');
 });
 

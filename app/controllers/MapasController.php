@@ -58,12 +58,24 @@ class MapasController extends BaseController {
 		}
 	public function contabilidadsgc()
 		{
-			if ($this->permiso()==1) 
+			 $total=0;
+
+                for ($i=1; $i <= 7; $i++) 
+                { 
+                    $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.',2)');
+                    foreach ($Indicadores as $indicador) 
+                    {
+                        $total+=$indicador->resultado;
+                          $f1=$indicador->fecha1;
+                         $f2=$indicador->fecha2;
+                         //echo("<script>console.log('PHP: ".$total."');</script>");
+                    }
+                }
+        	if ($this->permiso()==1) 
 			{
-        				# code...
-        				return View::make('mapas.cont_audi_sgc');
+        				return View::make('mapas.cont_audi_sgc')->with('total',$total);
         	}
-        	else{Login::logout();return View::make('mapas.cont_audi_sgc');}	
+        	else{Login::logout();return View::make('mapas.cont_audi_sgc')->with('total',$total);}	
 		}	
 	public function empresasgc()
 		{
