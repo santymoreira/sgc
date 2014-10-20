@@ -19,7 +19,7 @@
 
 @section('options')
    	
-   			 <div id="menu">
+   			 <div id="menu"> 
 						<ul>
 				       		 @if($var == 2)  
                      <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidadbsc/cont_audi_bsc','BSC'); }}  
