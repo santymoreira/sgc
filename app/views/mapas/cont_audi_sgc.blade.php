@@ -38,13 +38,13 @@
 @section('content')
 @stop
 
-@section('body')
+@section('body')  
 		{{Session::put('escuela','2'); }}
         <div id="position1" class="layout-cell content"> 
           
              <center> <label>Avance SGC</label>
                     <a rel="floatbox" class="fbPopup" title="Avance SGC Contabilidad y Auditoría" rev="width:608 height:217 scrolling:no" href="../consolidadoEscuela/{{Session::get('escuela')}}">
-                       @if(!empty($total))
+                    @if(Session::get('logout'))
                           @if($total <= 70) 
                             <input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/>
                           @elseif($total >= 70 && $total <= 90)

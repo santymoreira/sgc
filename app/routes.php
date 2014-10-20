@@ -522,7 +522,7 @@ Route::get('transporte', function()
     //return View::make('hello');
     return Redirect::to('transporte/transporte_sgc');
 });
-<<<<<<< HEAD
+
 Route::get('transporte/', function()
 {
     //return View::make('hello');
@@ -580,11 +580,3 @@ Route::get('transportebsc/', function()
     //return View::make('hello');
     return Redirect::to('transportebsc/transporte_bsc');
 });
-=======
-<<<<<<< HEAD
-=======
-
-
-    
->>>>>>> 169becbd26eae4e8c569a459645df6b02329bf1d
->>>>>>> origin/master
