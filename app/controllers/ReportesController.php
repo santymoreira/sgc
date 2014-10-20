@@ -252,7 +252,7 @@ class ReportesController extends BaseController {
         $escuela=Input::get('escuela');
         $tipoReporte=Input::get('tipoReporte');
         $cedulaEmpleado=Auth::user()->CI;
-    //echo("<script>console.log('PHP: ".$tipoReporte."');</script>");
+        echo("<script>console.log('PHP: ".$escuela."');</script>");
             $empleados=DB::select("SELECT DISTINCT(e.CI),e.COD_EMPLEADO,e.NOMBRES,e.EMAIL FROM empleado as e inner join empleado_escuela as ee on e.COD_EMPLEADO=ee.COD_EMPLEADO inner join indicador as i on e.COD_EMPLEADO=i.COD_EMPLEADO WHERE ee.COD_ESCUELA=".$escuela." AND e.CI !=".$cedulaEmpleado." AND  e.NOMBRES LIKE '%".$consulta."%'");
             foreach ($empleados as $e) { $em=$e->NOMBRES; }
 

@@ -13,10 +13,10 @@
                 <li class="nivel1"><a onclick="Alert()" class="nivel1" {{ HTML::link('users/empleados/2', 'Administración');}} 
                 <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a>
                   <ul class="cuatro">
-                        <li><a {{ HTML::link('reportes/individual_bsc/2/1', 'Individual');}} </a></li>
-                         <li><a {{ HTML::link('reportes/individual_bsc/2/2', 'Mensual');}} </a></li>
-                          <li><a {{ HTML::link('reportes/mensualE_bsc/2/3', 'Mensual Empleados');}} </a></li>
-                          <li><a {{ HTML::link('reportes/mensualE_bsc/2/4', 'Individual Empleados');}} </a></li>
+                        <li><a {{ HTML::link('reportes/individual_bsc/4/1', 'Individual');}} </a></li>
+                         <li><a {{ HTML::link('reportes/individual_bsc/4/2', 'Mensual');}} </a></li>
+                          <li><a {{ HTML::link('reportes/mensualE_bsc/4/3', 'Mensual Empleados');}} </a></li>
+                          <li><a {{ HTML::link('reportes/mensualE_bsc/4/4', 'Individual Empleados');}} </a></li>
                           <li><a {{ HTML::link('#', 'Descargas');}} </a></li>
                     </ul>
                 </li>
