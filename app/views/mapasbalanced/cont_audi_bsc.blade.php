@@ -14,7 +14,7 @@
 							  <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a>
 							  	<ul class="cuatro">
             						<li><a {{ HTML::link('reportes/individual_bsc/2/1', 'Individual');}} </a></li>
-									<li><a {{ HTML::link('reportes/individual_bsc/2/2', 'Mensual');}} </a></li>
+									       <li><a {{ HTML::link('reportes/individual_bsc/2/2', 'Mensual');}} </a></li>
                 					<li><a {{ HTML::link('reportes/mensualE_bsc/2/3', 'Mensual Empleados');}} </a></li>
                 					<li><a {{ HTML::link('reportes/mensualE_bsc/2/4', 'Individual Empleados');}} </a></li>
                  					<li><a {{ HTML::link('#', 'Descargas');}} </a></li>
@@ -38,7 +38,7 @@
         <div id="position1" class="layout-cell content">    
             
                <center> <label>Avance BSC</label>
-                    <a rel="floatbox" class="fbPopup" title="Avance BSC Contabilidad y Auditoría" rev="width:608 height:217 scrolling:no" href="">
+                    <a rel="floatbox" class="fbPopup" title="Avance BSC Contabilidad y Auditoría" rev="width:608 height:217 scrolling:no" href="../consolidadoEscuela/{{Session::get('escuela')}}">
                       <input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/>
                     </a>
                     <br/>
