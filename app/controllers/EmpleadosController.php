@@ -197,7 +197,7 @@ class EmpleadosController extends BaseController {
         $proceso=Input::get('proceso');
         $objeto=Input::get('objeto');
         $peso=Input::get('peso');
-
+       // echo("<script>console.log('PHP: ".$escuela."');</script>");
 
          return View::make('empleados.textoBusquedaBalance', array('f1' => $f1,'f2' => $f2,'macro' => $macro,'escuela' => $escuela,'proceso' => $proceso,'objeto' => $objeto,'peso'=>$peso));
     }
@@ -250,7 +250,7 @@ class EmpleadosController extends BaseController {
          // $tiempo=new Login();
         $tiempod=Login::tiempoSesion();
 
-       // echo("<script>console.log('PHP: ".$escuela."');</script>");
+        echo("<script>console.log('PHPs: ".$escuela."');</script>");
         $empleados=DB::select("SELECT e.CI,e.COD_EMPLEADO,e.NOMBRES,e.EMAIL FROM empleado as e inner join empleado_escuela as ee on e.COD_EMPLEADO=ee.COD_EMPLEADO  WHERE  ee.COD_ESCUELA=".$escuela." and e.NOMBRES LIKE '%".$consulta."%'");
             foreach ($empleados as $e) { $em=$e->NOMBRES; }
        // 

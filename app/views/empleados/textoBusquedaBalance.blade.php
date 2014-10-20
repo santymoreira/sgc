@@ -34,10 +34,6 @@
             );
 
 });
-      $('#back').click(function(e)
-      {
-        //alert('sale');
-      });
 
   });
 

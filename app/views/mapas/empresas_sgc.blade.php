@@ -39,7 +39,15 @@
         <div id="position1" class="layout-cell content">    
             <center> <label>Avance SGC</label>
                     <a rel="floatbox" class="fbPopup" title="Avance SGC Administración de Empresas" rev="width:608 height:217 scrolling:no" href="../consolidadoEscuela/{{Session::get('escuela')}}">
-                      <input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/>
+                       @if(!empty($total1))
+                          @if($total1 <= 70) 
+                            <input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/>
+                          @elseif($total1 >= 70 && $total1 <= 90)
+                            <input type="image" src="{{asset('images/Utilitarios/naranja.png'); }}"/>
+                          @elseif($total1 >= 91 && $total1 <= 100)
+                            <input type="image" src="{{asset('images/Utilitarios/verde.png'); }}"/> 
+                       @endif
+                    @endif
                     </a>
                     <br/>
                 <!-- Logo SGC escuela -->    

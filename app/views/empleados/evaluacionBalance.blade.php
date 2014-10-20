@@ -77,7 +77,8 @@
 
         if (f2>=f1)
         {     
-          //alert(macro);
+          //alert(esc);
+          
             $("#contenido").load("../../../../../../textoBusquedaBalance",
             {fecha1: f1, fecha2: f2,macro: macro,escuela: esc,proceso: proc,objeto: objeto,peso:peso}
             );
