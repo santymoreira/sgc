@@ -10,7 +10,7 @@
             <ul>
                        <li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio');}}
                 <li class="nivel1"><a class="nivel1" {{ HTML::link('transportebsc/perspectivas', 'Perspectivas');}}
-                <li class="nivel1"><a onclick="Alert()" class="nivel1" {{ HTML::link('users/empleados/2', 'Administración');}} 
+                <li class="nivel1"><a onclick="Alert()" class="nivel1" {{ HTML::link('users/empleados/6', 'Administración');}} 
                 <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a>
                   <ul class="cuatro">
                         <li><a {{ HTML::link('reportes/individual_bsc/6/1', 'Individual');}} </a></li>
