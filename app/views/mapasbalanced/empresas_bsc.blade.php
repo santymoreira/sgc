@@ -37,7 +37,7 @@
 		{{Session::put('escuela','1'); }}
         <div id="position1" class="layout-cell content">    
           <center> <label>Avance BSC</label>
-                    <a rel="floatbox" class="fbPopup" title="Avance BSC Administración de Empresas" rev="width:608 height:217 scrolling:no" href="../consolidadoEscuela/{{Session::get('escuela')}}">
+                    <a rel="floatbox" class="fbPopup" title="Avance BSC Administración de Empresas" rev="width:608 height:217 scrolling:no" href="../consolidadoEscuela_bsc/{{Session::get('escuela')}}">
                       <input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/>
                     </a>
                     <br/>
