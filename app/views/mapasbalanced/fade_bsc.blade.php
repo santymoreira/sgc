@@ -6,22 +6,22 @@
 @stop
 @section('options')
    	
-   			 <div id="menu">
-						<ul>
-				               <li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio');}}
-							  <li class="nivel1"><a class="nivel1" {{ HTML::link('fadebsc/perspectivas', 'Perspectivas');}}
-							  <li class="nivel1"><a onclick="Alert()" class="nivel1" {{ HTML::link('users/empleados/8', 'Administración');}} 
-							  <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a>
-							  	<ul class="cuatro">
-            						<li><a {{ HTML::link('reportes/individual/2', 'Individual');}} </a></li>
-									<li><a {{ HTML::link('reportes/mensual/2', 'Mensual');}} </a></li>
-                					<li><a {{ HTML::link('reportes/mensual_e/2', 'Mensual Empleados');}} </a></li>
-                					<li><a {{ HTML::link('reportes/individual_e/2', 'Individual Empleados');}} </a></li>
-                 					<li><a {{ HTML::link('#', 'Descargas');}} </a></li>
-        						</ul>
-							  </li>
-						</ul>
-				  </div> 
+         <div id="menu">
+            <ul>
+                       <li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio');}}
+                <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidadbsc/perspectivas', 'Perspectivas');}}
+                <li class="nivel1"><a onclick="Alert()" class="nivel1" {{ HTML::link('users/empleados/2', 'Administración');}} 
+                <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a>
+                  <ul class="cuatro">
+                        <li><a {{ HTML::link('reportes/individual_bsc/2/1', 'Individual');}} </a></li>
+                         <li><a {{ HTML::link('reportes/individual_bsc/2/2', 'Mensual');}} </a></li>
+                          <li><a {{ HTML::link('reportes/mensualE_bsc/2/3', 'Mensual Empleados');}} </a></li>
+                          <li><a {{ HTML::link('reportes/mensualE_bsc/2/4', 'Individual Empleados');}} </a></li>
+                          <li><a {{ HTML::link('#', 'Descargas');}} </a></li>
+                    </ul>
+                </li>
+            </ul>
+          </div> 
 @stop
 
 @section('login')
@@ -37,7 +37,7 @@
 		{{Session::put('escuela','8'); }}
         <div id="position1" class="layout-cell content">    
            <center> <label>Avance BSC</label>
-                    <a rel="floatbox" class="fbPopup" title="Avance BSC Faculdad Administración de Empresas" rev="width:608 height:217 scrolling:no" href="">
+                    <a rel="floatbox" class="fbPopup" title="Avance BSC Facultad Administración de Empresas" rev="width:608 height:217 scrolling:no" href="">
                       <input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/>
                     </a>
                     <br/>
