@@ -183,7 +183,7 @@ Route::get('/datos', array('uses' => 'HomeController@envios_ajax'));
 
   Route::post('/individualBusqueda', 'ReportesController@individualBusqueda');
   Route::post('/individualBusquedaBalance', 'ReportesController@individualBusquedaBalance');
-  Route::post('/individualBusquedaBalance', 'ReportesController@individualBusquedaBalance');
+  //Route::post('/individualBusquedaBalance', 'ReportesController@individualBusquedaBalance');
 
   //reporte mensual
   //Route::get('reportes/mensual/{cod}/{tipo}', 'ReportesController@mensual');
@@ -496,9 +496,4 @@ Route::get('transporte', function()
     //return View::make('hello');
     return Redirect::to('transporte/transporte_sgc');
 });
-<<<<<<< HEAD
-=======
 
-
-    
->>>>>>> 169becbd26eae4e8c569a459645df6b02329bf1d

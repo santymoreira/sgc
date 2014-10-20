@@ -968,7 +968,7 @@ class ReportesController extends BaseController {
                     foreach ($Indicadores as $indicador) 
                     {
                         $total+=$indicador->avance;
-                          echo("<script>console.log('Escuela: ".$j.' '.$total."');</script>");
+                         // echo("<script>console.log('Escuela: ".$j.' '.$total."');</script>");
                     }
                     
                 }
@@ -1065,7 +1065,6 @@ class ReportesController extends BaseController {
                          //echo("<script>console.log('PHP: ".$total."');</script>");
                     }
                 }
-
 
         $macro="";
         $school=$this->getEscuela($escuela);
