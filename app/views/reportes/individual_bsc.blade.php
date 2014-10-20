@@ -55,7 +55,7 @@
 
 
 <div  id="contenido2">
-	<label><b>PROCESOS: </b></label>
+	<label><b>PROYECTO: </b></label>
 	<select id="cgh" class="select" style="width: 200px;" disabled="true">
 	<option value="1" selected>Seleccione opción</option>
 </div>

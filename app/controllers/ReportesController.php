@@ -140,10 +140,12 @@ class ReportesController extends BaseController {
         $name=Input::get('name');
         $mail=Input::get('mail');
         //echo("<script>console.log('PHP: ".$tipoReporte."');</script>");
-        $macroprocesos=DB::select('SELECT distinct(m.COD_MACROPROCESO) as OBJETIVO,m.NOMBRE as DESCRIPCION from macroproceso as m inner join proceso as p on m.COD_MACROPROCESO=p.COD_MACROPROCESO where p.TIPO_EMPLEADO='.$tipoEmpleado.';');
+        $macroprocesos=DB::select('SELECT distinct(m.COD_MACROPROCESO) as OBJETIVO,m.NOMBRE as DESCRIPCION 
+                    from macroproceso as m inner join indicador as i on m.COD_MACROPROCESO=i.COD_MACROPROCESO 
+                    where m.COD_TIPO=3 and i.COD_EMPLEADO =? AND i.COD_ESCUELA=?',array($empleado,$escuela));
         //echo("<script>console.log('PHP: ".$escuela."');</script>");
         //echo("<script>console.log('PHP: ".$escuela."');</script>");
-        return View::make('reportes.macroprocesos', array('macroprocesos' => $macroprocesos,'tipoEmpleado' => $tipoEmpleado,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
+        return View::make('reportes.perspectiva', array('macroprocesos' => $macroprocesos,'tipoEmpleado' => $tipoEmpleado,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
     }
 
         public function mensualE($escuela,$tipoR)
@@ -213,8 +215,6 @@ class ReportesController extends BaseController {
         $mail=Input::get('mail');
         $tipos=$this->getTipos($empleado,$escuela);
        // echo("<script>console.log('PHP: ".$tipoReporte."');</script>");
-        //echo("<script>console.log('PHP: ".$ci."');</script>");
-        //echo("<script>console.log('PHP: ".$nombres."');</script>");
          return View::make('reportes.individualBusqueda', array('tipoEmpleados' => $tipos,'escuela' =>$escuela,'empleado'=>$empleado,'cedula'=>$ci,'nombre'=>$nombres,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
     }
         public function individualBusquedaBalance()
@@ -230,8 +230,6 @@ class ReportesController extends BaseController {
                     from macroproceso as m inner join indicador as i on m.COD_MACROPROCESO=i.COD_MACROPROCESO 
                     where m.COD_TIPO=3 and i.COD_EMPLEADO =? AND i.COD_ESCUELA=?',array($empleado,$escuela));
        // echo("<script>console.log('PHP: ".$tipoReporte."');</script>");
-        //echo("<script>console.log('PHP: ".$ci."');</script>");
-        //echo("<script>console.log('PHP: ".$nombres."');</script>");
          return View::make('reportes.individualBusqueda_bsc', array('tipoEmpleados' => $tipos,'macroprocesos'=>$macroprocesos,'escuela' =>$escuela,'empleado'=>$empleado,'cedula'=>$ci,'nombre'=>$nombres,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
     }
 
@@ -968,7 +966,7 @@ class ReportesController extends BaseController {
                     foreach ($Indicadores as $indicador) 
                     {
                         $total+=$indicador->avance;
-                          echo("<script>console.log('Escuela: ".$j.' '.$total."');</script>");
+                         // echo("<script>console.log('Escuela: ".$j.' '.$total."');</script>");
                     }
                     
                 }
@@ -1065,7 +1063,6 @@ class ReportesController extends BaseController {
                          //echo("<script>console.log('PHP: ".$total."');</script>");
                     }
                 }
-
 
         $macro="";
         $school=$this->getEscuela($escuela);

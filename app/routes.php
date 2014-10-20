@@ -173,7 +173,6 @@ Route::post('/insertarBalance', array('uses' => 'EmpleadosController@insertarBal
 
 Route::get('/evaluacionEmpleado', array('uses' => 'EmpleadosController@evaluacionEmpleado'));
 //
-//
 
 Route::get('/pruebav01', array('uses' => 'EmpleadosController@mostrarEmp'));
 Route::get('/datos', array('uses' => 'HomeController@envios_ajax'));
@@ -182,14 +181,11 @@ Route::get('/datos', array('uses' => 'HomeController@envios_ajax'));
 
   Route::post('/individualBusqueda', 'ReportesController@individualBusqueda');
   Route::post('/individualBusquedaBalance', 'ReportesController@individualBusquedaBalance');
-  Route::post('/individualBusquedaBalance', 'ReportesController@individualBusquedaBalance');
-
-  //reporte mensual
-  //Route::get('reportes/mensual/{cod}/{tipo}', 'ReportesController@mensual');
+  //Route::post('/individualBusquedaBalance', 'ReportesController@individualBusquedaBalance');
 
 
-  Route::post('/buscarEmpleado', 'ReportesController@buscarEmpleado');
-  Route::post('/buscarEmpleadoBalance', 'ReportesController@buscarEmpleadoBalance');
+Route::post('/buscarEmpleado', 'ReportesController@buscarEmpleado');
+Route::post('/buscarEmpleadoBalance', 'ReportesController@buscarEmpleadoBalance');
 //Route::get('/tipos', array('uses' => 'ReportesController@mostrarTipo'));
 Route::post('/combo1', array('uses' => 'ReportesController@combo1'));
 //Route::post('/combo1_bsc', array('uses' => 'ReportesController@combo1'));
@@ -580,3 +576,7 @@ Route::get('transportebsc/', function()
     //return View::make('hello');
     return Redirect::to('transportebsc/transporte_bsc');
 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
