@@ -47,6 +47,7 @@
  
   <!-- Modal Editar Datos Personales -->
 
+{{ HTML::script('js/n_explorer.js'); }}
 
  
 

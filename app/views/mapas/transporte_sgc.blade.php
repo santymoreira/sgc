@@ -40,10 +40,16 @@
           
 
              <center> <label>Avance SGC</label>
-                    <a rel="floatbox" class="fbPopup" title="Avance SGC Gestión de Transporte" rev="width:608 height:217 scrolling:no" href="../consolidadoEscuela/{{Session::get('escuela')}}">
-                      <input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/>
+                     <a rel="floatbox" class="fbPopup" title="Avance SGC Transporte" rev="width:608 height:217 scrolling:no" href="../consolidadoEscuela/{{Session::get('escuela')}}">
+                          @if($total6 <= 70) 
+                            <input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/>
+                          @elseif($total6 >= 70 && $total6 <= 90)
+                            <input type="image" src="{{asset('images/Utilitarios/naranja.png'); }}"/>
+                          @elseif($total6 >= 91 && $total6 <= 100)
+                            <input type="image" src="{{asset('images/Utilitarios/verde.png'); }}"/> 
+                      @endif
                     </a>
-                    <br/>
+                 <br/>
                 <!-- Logo SGC escuela -->    
                   <img src="{{ asset('images/Transporte/transporte.png') }}" width="850" height="295">
             </center>     

@@ -40,10 +40,16 @@
 
 
              <center> <label>Avance SGC</label>
-                    <a rel="floatbox" class="fbPopup" title="Avance SGC Marketing" rev="width:608 height:217 scrolling:no" href="../consolidadoEscuela/{{Session::get('escuela')}}">
-                      <input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/>
+                     <a rel="floatbox" class="fbPopup" title="Avance SGC Marketing" rev="width:608 height:217 scrolling:no" href="../consolidadoEscuela/{{Session::get('escuela')}}">
+                          @if($av_marketing <= 70) 
+                            <input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/>
+                          @elseif($av_marketing >= 70 && $av_marketing <= 90)
+                            <input type="image" src="{{asset('images/Utilitarios/naranja.png'); }}"/>
+                          @elseif($av_marketing >= 91 && $av_marketing <= 100)
+                            <input type="image" src="{{asset('images/Utilitarios/verde.png'); }}"/> 
+                    @endif
                     </a>
-                    <br/>
+                 <br/>
                 <!-- Logo SGC escuela -->    
                   <img src="{{ asset('images/Marketing/marketing.png') }}" width="850" height="295">
             </center>     
