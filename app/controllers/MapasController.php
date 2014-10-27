@@ -101,38 +101,90 @@ class MapasController extends BaseController {
 		}	
 	public function exteriorsgc()
 		{
+             $av_exterior=0;
+
+                for ($i=1; $i <= 7; $i++) 
+                { 
+                    $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.',3)');
+                    foreach ($Indicadores as $indicador) 
+                    {
+                        $av_exterior+=$indicador->resultado;
+                          $f1=$indicador->fecha1;
+                         $f2=$indicador->fecha2;
+                         //echo("<script>console.log('PHP: ".$total."');</script>");
+                    }
+                }
 			if ($this->permiso()==1) 
 			{
-        				return View::make('mapas.exterior_sgc');
+        				return View::make('mapas.exterior_sgc')->with('av_exterior',$av_exterior);
         			
         	}
-        	else{Login::logout();return View::make('mapas.exterior_sgc');}	
+        	else{Login::logout();return View::make('mapas.exterior_sgc')->with('av_exterior',$av_exterior);}	
 		}
 	public function finanzasgc()
 		{
+             $total=0;
+
+                for ($i=1; $i <= 7; $i++) 
+                { 
+                    $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.',4)');
+                    foreach ($Indicadores as $indicador) 
+                    {
+                        $total+=$indicador->resultado;
+                          $f1=$indicador->fecha1;
+                         $f2=$indicador->fecha2;
+                         //echo("<script>console.log('PHP: ".$total."');</script>");
+                    }
+                }
 			if ($this->permiso()==1) 
 			{
         			
-        				return View::make('mapas.finanzas_sgc');
+        				return View::make('mapas.finanzas_sgc')->with('total',$total);
   
         	}
-        	else{Login::logout();return View::make('mapas.finanzas_sgc');}
+        	else{Login::logout();return View::make('mapas.finanzas_sgc')->with('total',$total);}
 		}	
 	public function marketingsgc()
 		{
+             $av_marketing=0;
+
+                for ($i=1; $i <= 7; $i++) 
+                { 
+                    $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.',5)');
+                    foreach ($Indicadores as $indicador) 
+                    {
+                        $av_marketing+=$indicador->resultado;
+                          $f1=$indicador->fecha1;
+                         $f2=$indicador->fecha2;
+                         //echo("<script>console.log('PHP: ".$total."');</script>");
+                    }
+                }
 			if ($this->permiso()==1) 
 			{
-        				return View::make('mapas.marketing_sgc');
+        				return View::make('mapas.marketing_sgc')->with('av_marketing',$av_marketing);
         	}
-        	else{Login::logout();return View::make('mapas.marketing_sgc');}	
+        	else{Login::logout();return View::make('mapas.marketing_sgc')->with('av_marketing',$av_marketing);}	
 		}	
 	public function transportesgc()
 		{
+             $total6=0;
+
+                for ($i=1; $i <= 7; $i++) 
+                { 
+                    $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.',6)');
+                    foreach ($Indicadores as $indicador) 
+                    {
+                        $total6+=$indicador->resultado;
+                          $f1=$indicador->fecha1;
+                         $f2=$indicador->fecha2;
+                         //echo("<script>console.log('PHP: ".$total."');</script>");
+                    }
+                }
 			if ($this->permiso()==1) 
 			{
-        				return View::make('mapas.transporte_sgc');
+        				return View::make('mapas.transporte_sgc')->with('total6',$total6);
         	}
-        	else{Login::logout();return View::make('mapas.transporte_sgc');}		
+        	else{Login::logout();return View::make('mapas.transporte_sgc')->with('total6',$total6);}		
 		}	
 	public function macroprocesos()
 	{

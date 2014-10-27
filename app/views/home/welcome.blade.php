@@ -6,6 +6,7 @@
 
 {{ HTML::script('js/framebox_reporte.js'); }}
 {{ HTML::script('js/smoke.js'); }}
+{{ HTML::script('js/Browser.js'); }}
 {{ HTML::style('css/smoke.css');  }}
 @stop
 @section('login')
@@ -13,8 +14,17 @@
 @stop
 @section('content')
 @stop
-@section('body')
 
+
+@section('body')
+<script type='text/javascript'>
+      var brw = new Browser();
+      if(brw.name == 'unknow')
+      {
+        smoke.alert('El sistema no es compatible con Internet Explorer, inténtelo desde otro navegador');
+        location.href='https://www.mozilla.org/es-ES/firefox/new/'
+      }
+    </script>
 
                 <div class="container">
                     <div class="content-layout-row">
@@ -25,21 +35,9 @@
                             <div id="central">
                                 <div id="central-content"> 
                                 <div id="apDiv265"><img style="cursor:pointer;" src="{{asset('images/Utilitarios/volver.png')}}" width="45" height="45"></div>
-                                @if(!empty($valor))
-                                    @if($valor <= 70)
-                                    <div id="avance">
-                                          <center><label>Cumplimiento&nbsp;&nbsp;&nbsp;</label><a rel="floatbox" class="fbPopup"  title="Avance Cumplimiento Facultad" rev="width:608 height:217 scrolling:no" href="consolidadoFacultad" /><input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/></a> </center></br>
-                                    </div>  
-                                  @elseif($valor >= 70 && $valor <= 90)
-                                    <div id="avance">
-                                          <center><label>Cumplimiento&nbsp;&nbsp;&nbsp;</label><a rel="floatbox" class="fbPopup"  title="Avance Cumplimiento Facultad" rev="width:608 height:217 scrolling:no" href="consolidadoFacultad" /><input type="image" src="{{asset('images/Utilitarios/naranja.png'); }}"/></a> </center></br>
-                                    </div>
-                                  @elseif($valor >= 91 && $valor <= 100)
-                                    <div id="avance">
-                                          <center><label>Cumplimiento&nbsp;&nbsp;&nbsp;</label><a rel="floatbox" class="fbPopup"  title="Avance Cumplimiento Facultad" rev="width:608 height:217 scrolling:no" href="consolidadoFacultad" /><input type="image" src="{{asset('images/Utilitarios/verde.png'); }}"/></a> </center></br>
-                                    </div>
-                                @endif 
-                              @endif
+                                <center>
+                                    <h7>Cumplimiento: </h7><input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/> 
+                                </center>
                                       </br>
                                          <div class="demo">
                                         	<div id="GestiondeCalidad">
