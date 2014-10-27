@@ -47,7 +47,6 @@ color: #FFF;
  
 
  <script type="text/javascript">
-  $(document).ready(function(){
      var escuela=$('#esc').val();
      var tipoReporte=$('#tipoReporte').val();
       $("a").click(function(e){
@@ -69,8 +68,6 @@ color: #FFF;
             {escuela: escuela,empleado:empleado,ci:ci,nombres:nombres,fecha1:fecha1,fecha2:fecha2,proceso:proceso,objeto:objeto,macro:macro,peso:peso}
            );
 });
-
-  });
 
 </script>             
 

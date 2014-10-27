@@ -252,7 +252,7 @@ class ReportesController extends BaseController {
         $escuela=Input::get('escuela');
         $tipoReporte=Input::get('tipoReporte');
         $cedulaEmpleado=Auth::user()->CI;
-        echo("<script>console.log('PHP: ".$escuela."');</script>");
+       // echo("<script>console.log('PHP: ".$escuela."');</script>");
             $empleados=DB::select("SELECT DISTINCT(e.CI),e.COD_EMPLEADO,e.NOMBRES,e.EMAIL FROM empleado as e inner join empleado_escuela as ee on e.COD_EMPLEADO=ee.COD_EMPLEADO inner join indicador as i on e.COD_EMPLEADO=i.COD_EMPLEADO WHERE ee.COD_ESCUELA=".$escuela." AND e.CI !=".$cedulaEmpleado." AND  e.NOMBRES LIKE '%".$consulta."%'");
             foreach ($empleados as $e) { $em=$e->NOMBRES; }
 
@@ -973,6 +973,7 @@ class ReportesController extends BaseController {
                 $tot=$total/6;
                     $valor+=$tot;
         }
+        if ($valor>100) {$valor=100;}
 
         $macro="";
         $school='Facultad de Administración de Empresas';
@@ -1152,7 +1153,7 @@ class ReportesController extends BaseController {
                          //echo("<script>console.log('PHP: ".$total."');</script>");
                     }
                 }
-
+        if ($total>100) {$total=100;}
         $macro="";
         $school=$this->getEscuela($escuela);
        // $maximo=$this->getValorTotal($escuela,$macroproceso);
