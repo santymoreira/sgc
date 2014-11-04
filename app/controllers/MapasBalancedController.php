@@ -48,51 +48,105 @@ class MapasBalancedController extends BaseController {
 		}     
 	public function empresas_bsc()
 		{
+			$total=0;
+                for ($i=20; $i <= 24; $i++) 
+                { 
+                    $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.',1)');
+                    foreach ($Indicadores as $indicador) 
+                    {
+                        $total+=$indicador->resultado;
+                    }
+                }
 			if ($this->permiso()==1) 
 			{
-        		return View::make('mapasbalanced.empresas_bsc');
+        		return View::make('mapasbalanced.empresas_bsc')->with('total',$total);
         	}
-        	else{Login::logout(); return View::make('mapasbalanced.empresas_bsc');}
+        	else{Login::logout(); return View::make('mapasbalanced.empresas_bsc')->with('total',$total);}
 		}
 	public function cont_audi_bsc()
 		{
+			$total=0;
+                for ($i=20; $i <= 24; $i++) 
+                { 
+                    $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.',2)');
+                    foreach ($Indicadores as $indicador) 
+                    {
+                        $total+=$indicador->resultado;
+                    }
+                }
 			if ($this->permiso()==1) 
 			{
-        		return View::make('mapasbalanced.cont_audi_bsc');
+				return View::make('mapasbalanced.cont_audi_bsc')->with('total',$total);
 			}
-        	else{Login::logout(); return View::make('mapasbalanced.cont_audi_bsc');	}
+        	else{Login::logout(); return View::make('mapasbalanced.cont_audi_bsc')->with('total',$total);	}
 		}
 	public function finanzas_bsc()
 		{
+			$total=0;
+                for ($i=20; $i <= 24; $i++) 
+                { 
+                    $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.',4)');
+                    foreach ($Indicadores as $indicador) 
+                    {
+                        $total+=$indicador->resultado;
+                    }
+                }
 			if ($this->permiso()==1) 
 			{
-        		return View::make('mapasbalanced.finanzas_bsc');
+        		return View::make('mapasbalanced.finanzas_bsc')->with('total',$total);
 			}
-        	else{Login::logout(); return View::make('mapasbalanced.finanzas_bsc');}
+        	else{Login::logout(); return View::make('mapasbalanced.finanzas_bsc')->with('total',$total);}
 		}
 	public function marketing_bsc()
 		{
+			$total=0;
+                for ($i=20; $i <= 24; $i++) 
+                { 
+                    $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.',5)');
+                    foreach ($Indicadores as $indicador) 
+                    {
+                        $total+=$indicador->resultado;
+                    }
+                }
 			if ($this->permiso()==1) 
 			{
-        		return View::make('mapasbalanced.marketing_bsc');
+        		return View::make('mapasbalanced.marketing_bsc')->with('total',$total);
 			}
-        	else{Login::logout(); return View::make('mapasbalanced.marketing_bsc');}
+        	else{Login::logout(); return View::make('mapasbalanced.marketing_bsc')->with('total',$total);}
 		}
 	public function transporte_bsc()
 		{
+			$total=0;
+                for ($i=20; $i <= 24; $i++) 
+                { 
+                    $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.',5)');
+                    foreach ($Indicadores as $indicador) 
+                    {
+                        $total+=$indicador->resultado;
+                    }
+                }
 			if ($this->permiso()==1) 
 			{
-        		return View::make('mapasbalanced.transporte_bsc');
+        		return View::make('mapasbalanced.transporte_bsc')->with('total',$total);
 			}
-			else{Login::logout(); return View::make('mapasbalanced.transporte_bsc');}
+			else{Login::logout(); return View::make('mapasbalanced.transporte_bsc')->with('total',$total);}
 		}
 	public function fade_bsc()
 		{
+			$total=0;
+                for ($i=20; $i <= 24; $i++) 
+                { 
+                    $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.',8)');
+                    foreach ($Indicadores as $indicador) 
+                    {
+                        $total+=$indicador->resultado;
+                    }
+                }
 			if ($this->permiso()==1) 
 			{
-        		return View::make('mapasbalanced.fade_bsc');
+        		return View::make('mapasbalanced.fade_bsc')->with('total',$total);
 			}
-			else{Login::logout(); return View::make('mapasbalanced.fade_bsc');}
+			else{Login::logout(); return View::make('mapasbalanced.fade_bsc')->with('total',$total);}
 		}
 	public function perspectivas()
 		{
