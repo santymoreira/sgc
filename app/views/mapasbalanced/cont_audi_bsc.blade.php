@@ -39,11 +39,17 @@
             
                <center> <label>Avance BSC</label>
                     <a rel="floatbox" class="fbPopup" title="Avance BSC Contabilidad y Auditoría" rev="width:608 height:217 scrolling:no" href="../consolidadoEscuela_bsc/{{Session::get('escuela')}}">
-                      <input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/>
+                        @if($total <= 70) 
+                          <input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/>
+                           @elseif($total >= 70 && $total <= 90)
+                             <input type="image" src="{{asset('images/Utilitarios/naranja.png'); }}"/>
+                           @elseif($total >= 91 && $total <= 100)
+                             <input type="image" src="{{asset('images/Utilitarios/verde.png'); }}"/> 
+                        @endif
                     </a>
                     <br/>
                 <!-- Logo SGC escuela -->    
-                  <img src="{{ asset('images/contabilidadbsc/contabilidad.png') }}" width="850" height="295">
+                  <img src="{{ asset('images/contabilidadbsc/contabilidad.png') }}" width="800" height="295">
             </center>     
 
 
