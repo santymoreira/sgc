@@ -36,7 +36,6 @@ h2.resp-accordion {
 .resp-tab-content {
     display: none;
     padding: 15px;
-	aaaaaaaaa
 }
 
 .resp-tab-active {
@@ -57,7 +56,6 @@ h2.resp-accordion {
 
 .resp-tab-content {
     border: 1px solid #c1c1c1;
-	
 }
 
 h2.resp-accordion {
@@ -82,7 +80,6 @@ h2.resp-tab-title:last-child {
 .resp-vtabs ul.resp-tabs-list {
     float: left;
     width: 30%;
-	
 }
 
 .resp-vtabs .resp-tabs-list li {
@@ -99,11 +96,7 @@ h2.resp-tab-title:last-child {
     border: 1px solid #c1c1c1;
     float: left;
     width: 68%;
-	
-    min-height: 150px;
-	max-height: 550px;
-	overflow:auto;
-	
+    min-height: 250px;
     border-radius: 4px;
     clear: none;
 }
@@ -182,10 +175,15 @@ h2.resp-accordion:first-child {
     }
 
     .resp-vtabs .resp-tabs-container {
-        border: none;
-        float: none;
-        width: 100%;
-        min-height: initial;
+        padding: 0px;
+        background-color: #fff;
+        border: 1px solid #c1c1c1;
+        float: left;
+        width: 68%;
+        min-height: 250px;
+        max-height: 550px;
+        overflow:auto;
+        border-radius: 4px;
         clear: none;
     }
     .resp-accordion-closed {

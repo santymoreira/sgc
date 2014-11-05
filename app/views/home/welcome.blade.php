@@ -8,6 +8,13 @@
 {{ HTML::script('js/smoke.js'); }}
 {{ HTML::script('js/Browser.js'); }}
 {{ HTML::style('css/smoke.css');  }}
+      {{ HTML::style('css/bootstrap.min.css'); }}
+
+    <!-- Bootstrap Core CSS -->
+    {{ HTML::style('css/bootstrap.min.css'); }}
+
+    <!-- Custom CSS -->
+
 @stop
 @section('login')
    @parent
@@ -36,7 +43,7 @@
                                 <div id="central-content"> 
                                 <div id="apDiv265"><img style="cursor:pointer;" src="{{asset('images/Utilitarios/volver.png')}}" width="45" height="45"></div>
                                 <center>
-                                    <h7>Cumplimiento: </h7><input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/> 
+                                    <h7>Cumplimiento: </h7><a rel="floatbox" class="fbPopup" title="Avance SGC Facultad de Administración de Empresas" rev="width:608 height:217 scrolling:no" href="../consolidadoFacultad"><input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/> </a>
                                 </center>
                                       </br>
                                          <div class="demo">
@@ -49,6 +56,7 @@
                                                 	<li>Mensaje de la Comision</li>
                                                 	<li>Contactanos</li>
                                                 	<li>Redes Sociales</li>
+                                                  <li>Descargas</li>
                                              	</ul>                         
                       							<div class="resp-tabs-container">
                                    			<div id="central-content">
@@ -95,7 +103,52 @@
                                    <div class="fb-like-box" data-href="https://www.facebook.com/pages/Comisi%C3%B3n-Gesti%C3%B3n-de-Calidad-FADE/659319644160604?ref_type=bookmark" data-width="650" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="true" data-show-border="true"></div> 
                           </div>
                           
-                          <div id="central-content">
+                          <div id="central-content" height="50px" >
+                              <div class="page-header" >
+                              <h1><center>Descargas</center></h1>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-12">
+                                <div class="list-group">
+                                  <a class="list-group-item active" >
+                                    Documentos Públicos Descargables
+                                  </a>
+                                  <a 
+                                  href="#" class="list-group-item">
+                                  <p> Estafeta Docente <center><label class="glyphicon glyphicon-save"></label></p></center></p>
+                                  <h5>jol</h5>   
+                                  
+                                  </a>
+
+                                     <a 
+                                  href="#" class="list-group-item">Estafeta Docente dfghjkl
+                                  <i  align=right class="fa fa-download"></i>
+                                  </a>
+
+                                  <a href="#" class="list-group-item">Estafeta Docente</a>
+                                  <a href="#" class="list-group-item">Estafeta Docente</a>
+                                  <a href="#" class="list-group-item">Estafeta Docente</a>
+                                  <a href="#" class="list-group-item">Estafeta Docente</a>
+                                  <a href="#" class="list-group-item">Estafeta Docente</a>
+                                  <a href="#" class="list-group-item">Estafeta Docente</a>
+                                  <a href="#" class="list-group-item">Estafeta Docente</a>
+                                  <a href="#" class="list-group-item">Estafeta Docente</a>
+                                  <a href="#" class="list-group-item">Estafeta Docente</a>
+                                  <a href="#" class="list-group-item">Estafeta Docente</a>
+                                  <a href="#" class="list-group-item">Estafeta Docente</a>
+                                  <a href="#" class="list-group-item">Estafeta Docente</a>
+                                  <a href="#" class="list-group-item">Estafeta Docente</a>
+                                  
+
+ 
+ 
+ 
+ 
+ 
+                                </div>
+                              </div><!-- /.col-sm-4 -->
+                              </div><!-- /.col-sm-4 -->
+                            </div>
                           </div>
                            
                       </div>

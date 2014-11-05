@@ -36,8 +36,9 @@ class HomeController extends BaseController {
                 }
                 $tot=$total/6;
                 $valor+=$tot;
+
         }
-		return View::make('home.welcome')->with('valor',$valor);
+        return View::make('home.welcome', array('valor' => $valor));
 	}
 
 		public function envio()
