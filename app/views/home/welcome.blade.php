@@ -108,46 +108,33 @@
                           
                           <div id="central-content" height="50px" >
                               <div class="page-header" >
-                              <h1><center>Descargas</center></h1>
+                              <h1><center>Descargas</center> </h1>
+                              <p>
+                               <a href="subirArchivoPublico" rel="floatbox" title="Subir archivos públicos" rev="width:450 height:250 " align="right" class="glyphicon glyphicon-plus-sign"></a>
+                               </p>
+
+
+
                             </div>
                             <div class="row">
                               <div class="col-lg-12">
                                 <div class="list-group">
-                                  <a class="list-group-item active" >
-                                    Documentos Públicos Descargables
-                                  </a>
-                                  <a 
-                                  href="#" class="list-group-item">
-                                  <p> Estafeta Docente <center><label class="glyphicon glyphicon-save"></label></p></center></p>
-                                  <h5>jol</h5>   
+                                
+                                  <a class="list-group-item active" >Documentos Públicos Descargables  </a>
+                               
+                                @if(!empty($files))
+                                  @foreach ($files as $file)
+                                       <a 
+                                  href="{{$file->DIRECCION}}" target="_blank" class="list-group-item">
+                                  <p class="glyphicon glyphicon-save"> {{$file->NOMBRE}}</p>
+                                  <h5>{{$file->DESCRIPCION}}</h5>   
+                                  <h5>{{$file->FECHA}}</h5>  
                                   
                                   </a>
+        
+                                   @endforeach
+                                   @endif
 
-                                     <a 
-                                  href="#" class="list-group-item">Estafeta Docente dfghjkl
-                                  <i  align=right class="fa fa-download"></i>
-                                  </a>
-
-                                  <a href="#" class="list-group-item">Estafeta Docente</a>
-                                  <a href="#" class="list-group-item">Estafeta Docente</a>
-                                  <a href="#" class="list-group-item">Estafeta Docente</a>
-                                  <a href="#" class="list-group-item">Estafeta Docente</a>
-                                  <a href="#" class="list-group-item">Estafeta Docente</a>
-                                  <a href="#" class="list-group-item">Estafeta Docente</a>
-                                  <a href="#" class="list-group-item">Estafeta Docente</a>
-                                  <a href="#" class="list-group-item">Estafeta Docente</a>
-                                  <a href="#" class="list-group-item">Estafeta Docente</a>
-                                  <a href="#" class="list-group-item">Estafeta Docente</a>
-                                  <a href="#" class="list-group-item">Estafeta Docente</a>
-                                  <a href="#" class="list-group-item">Estafeta Docente</a>
-                                  <a href="#" class="list-group-item">Estafeta Docente</a>
-                                  
-
- 
- 
- 
- 
- 
                                 </div>
                               </div><!-- /.col-sm-4 -->
                               </div><!-- /.col-sm-4 -->

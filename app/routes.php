@@ -13,13 +13,6 @@
 
 Route::get('/', 'HomeController@showWelcome' );
 
-    //return View::make('hello');
-   // return Redirect::to('home/welcome');
-    
-// esta sera la ruta principal de nuestra aplicación
-// aquí va a estar el formulario para registrase y para inicio de sesión
-// esta ruta debe ser publica y por lo tanto no debe llegar el filtro auth
-// 
 
 Route::get('login', function(){
     return View::make('home.welcome'); 
@@ -81,11 +74,12 @@ Route::post('layout', function(){
         Session::put('inicio', time());
         //echo("<script>console.log('PHP: ".Session::get('inicio')."');</script>");
 
-        return Redirect::to('home/welcome');//->with('mensaje_login', Auth::user()->CI);
+        //Route::get('/', array('before'=>'checkUserFilter', 'uses'=>'HomeController@showHome'));
+        return Redirect::to('welcome');//->with('mensaje_login', Auth::user()->CI);
         //return Redirect::to('home')->with('mensaje_login', json_encode($tipo));
     }else{
         //return Redirect::to('home/welcome')->with('mensaje_login', 'incorrecto');
-        return Redirect::to('home/welcome')->with('mensaje_login','incorrecto');
+        return Redirect::to('welcome')->with('mensaje_login','incorrecto');
     }
 
  
@@ -134,7 +128,7 @@ Route::get('login', function(){
 });
 
 //Route::get('home', array('uses' => 'HomeController@showWelcome'));
-Route::get('home/welcome', 'HomeController@showWelcome');
+Route::get('welcome', 'HomeController@showWelcome');
 
 //Route::get('empleados', array('uses' => 'EmpleadosController@mostrarEmp'));
 
@@ -426,6 +420,11 @@ Route::get('users/empleados/{cod}', 'UserController@listado');
 
 //Guardar Empleado
 Route::get('users/create', 'UserController@newuser');
+Route::get('subirArchivo', 'UserController@subirArchivo');
+Route::get('subirArchivoPublico', 'HomeController@subirArchivoPublico');
+Route::post('uploadPublicFile', 'HomeController@uploadPublicFile');
+Route::post('uploadfile', 'UserController@uploadfile');
+Route::get('checkFiles', 'UserController@checkFiles');
 Route::post('users/store/{esc}','UserController@store');
 
 //Editar Empleado

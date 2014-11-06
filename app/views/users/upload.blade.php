@@ -6,7 +6,10 @@
 	    {{ HTML::style('css/new.css'); }} 
 		{{ HTML::style('css/new1.css'); }} 
 		{{ HTML::style('css/Table.css');  $var=Session::get('escuela'); }} 
-
+		{{ HTML::style('css/bootstrap.min.css'); }}
+		    <script src="js/upfile.js"></script>
+		     <script src="js/bootstrap.js"></script>
+		     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	
 @stop
 
@@ -14,7 +17,7 @@
    	
    			 <div id="menu">
 						<ul>
-				       		<li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio'); }} 
+				       		<li class="nivel1"><a class="nivel1" href="welcome">Inicio </a></li>
                      	    <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a>
                        	</ul>			
           </div> 
@@ -32,7 +35,7 @@
 
 @section('body')
 
-<center><h3>Administración de empleados</h3></center>
+<center><h3>Administración de archivos</h3></center>
 	<nav class="navbar navbar-default" role="navigation">
   		<div class="container-fluid">
   			<div class="navbar-header">
@@ -52,110 +55,34 @@
 					<a class="navbar-brand" style="cursor:default;" href="#">Facultad de Empresas</a>
 				@endif
   			</div>
-    		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      			<ul class="nav navbar-nav">
-        		
-        			<li>
-    					{{ HTML::link( 'users/empleados/'.$var , 'Todos'.' ') }}
-					</li>
-					<li class="active"><a {{ HTML::link('users/create','Nuevo'); }} 
-					<li><a {{ HTML::link('users/create','Subir Archivos'); }} 
-				</ul>
-        	</div>
+
         </div>
     </nav>
 
-	<div class="panel panel-success" align="center">
-  		<div class="panel-heading"> 
-  			<h4>Registro de Empleados</h4>
-  		</div> 
-  		<div class="panel-body" >
-  			<form method="post" action="store/{{$var}}">
-			
-				<p>
-					<input type="text" id="ciComp" name="ci" placeholder="Cédula de Identidad" class="form-control" >
-				</p>
-				{{$errors->first('ci')}}
-				<p>
-					<input type="text" name="nombres" placeholder="Nombres completos" class="form-control" >
-				</p>
-					{{$errors->first('nombres')}}
-				<p>
-					<select  class="form-control" name="sexo">
-						<option selected value="H">Hombre</option>
-						<option value="M">Mujer</option>
-					</select>
-				</p>
-				<p>
-					<input type="text" name="email" placeholder="Correo Electrónico" class="form-control" >
-				</p>
-					{{$errors->first('email')}}
-				<p>
-					<input type="text" name="celular" placeholder="Teléfono Móvil" class="form-control" >
-				</p>
-				{{$errors->first('celular')}}
-				<p>
-					<input type="text" name="convencional" placeholder="Teléfono convencional" class="form-control" >
-				</p>
-				{{$errors->first('convencional')}}
+            <div class="row">
+                <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                            {{ Form::open(array('url'=>'uploadfile/', 'method' => 'post','enctype'=>'multipart/form-data') )}}
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Nombre del Archivo" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Descripción" id="desc" name="desc" required>
+                                </div>
+    
+                   				<input type="file" id="file1" name="file1" accept=".pdf" class="form-control" required> 
+                   				<center>{{ Form::submit('Subir Archivo') }}</center>
+                   				<!--<center><input id="kk" class="btn btn-xl" type="button" value="texto del botón"></center>-->
+                                <div id="success"></div>
+                                	{{ Form::close()}}
+                            </div>
+                        </div>
+                        
 
-				<fieldset>
-					  <legend>Función: </legend>
-					 <p>
-					 <table style='width: 20%' border="4">
-			   				<tr>
-				   				<td style='width: 10%' align="center">
-				   					<input type="checkbox" id="dire" name="director" value="1"> 
-				   				</td>
-				   				<td style='width: 50%' align="center">
-				   					<b>Director de Escuela</b>
-				   				</td>
-				   			</tr>
-				   			<tr>		
-						  		<td style='width: 10%' align="center">	
-						  			<input type="checkbox" id="admini" name="admin" value="2">
-						  		</td>
-						  		<td style='width: 50%' align="center">
-				   					<b>Administrativo</b>
-				   				</td>
-						  	</tr>
-						  	<tr>
-						  		<td style='width: 10%' align="center">
-						  			<input type="checkbox" id="trab" name="trabajador" value="3">
-						  		</td>
-						  		<td style='width: 50%' align="center">
-				   					<b>Trabajador</b>
-				   				</td>
-						  	</tr>
-						  	<tr>
-						  		<td style='width: 10%' align="center">
-						  			<input type="checkbox" id="doc" name="docente" value="4"> 
-						  		</td>
-						  		<td style='width: 50%' align="center">
-				   					<b>Docente</b>
-				   				</td>
-						  	</tr>
-					</table>
-						
-					</p>
-				</fieldset>
-				 @if(Session::get('exist'))
-			        <p>{{ Session::get('exist') }}</p>
-			    @endif
-				 @if(Session::get('msg'))
-			        <p>{{ Session::get('msg') }}</p>
-			    @endif
-			     @if(Session::get('mismaEsc'))
-			        <p>{{ Session::get('mismaEsc') }}</p>
-			    @endif
-			    
-				<p>
-					<input type="submit" value="Guardar" class="btn btn-success">
-				</p>
-				@if(Session::has('message'))
-					<div class="alert alert-{{ Session::get('class') }}">{{ Session::get('message')}}</div>
-				@endif	
-			</form>
-		</div>
-	</div>	
+                
+                </div>
+            </div>
+
+
 @stop
