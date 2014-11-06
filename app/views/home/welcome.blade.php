@@ -8,6 +8,13 @@
 {{ HTML::script('js/smoke.js'); }}
 {{ HTML::script('js/Browser.js'); }}
 {{ HTML::style('css/smoke.css');  }}
+      {{ HTML::style('css/bootstrap.min.css'); }}
+
+    <!-- Bootstrap Core CSS -->
+    {{ HTML::style('css/bootstrap.min.css'); }}
+
+    <!-- Custom CSS -->
+
 @stop
 @section('login')
    @parent
@@ -52,6 +59,7 @@
                                                 	<li>Mensaje de la Comision</li>
                                                 	<li>Contactanos</li>
                                                 	<li>Redes Sociales</li>
+                                                  <li>Descargas</li>
                                              	</ul>                         
                       							<div class="resp-tabs-container">
                                    			<div id="central-content">
@@ -98,7 +106,39 @@
                                    <div class="fb-like-box" data-href="https://www.facebook.com/pages/Comisi%C3%B3n-Gesti%C3%B3n-de-Calidad-FADE/659319644160604?ref_type=bookmark" data-width="650" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="true" data-show-border="true"></div> 
                           </div>
                           
-                          <div id="central-content">
+                          <div id="central-content" height="50px" >
+                              <div class="page-header" >
+                              <h1><center>Descargas</center> </h1>
+                              <p>
+                               <a href="subirArchivoPublico" rel="floatbox" title="Subir archivos públicos" rev="width:450 height:250 " align="right" class="glyphicon glyphicon-plus-sign"></a>
+                               </p>
+
+
+
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-12">
+                                <div class="list-group">
+                                
+                                  <a class="list-group-item active" >Documentos Públicos Descargables  </a>
+                               
+                                @if(!empty($files))
+                                  @foreach ($files as $file)
+                                       <a 
+                                  href="{{$file->DIRECCION}}" target="_blank" class="list-group-item">
+                                  <p class="glyphicon glyphicon-save"> {{$file->NOMBRE}}</p>
+                                  <h5>{{$file->DESCRIPCION}}</h5>   
+                                  <h5>{{$file->FECHA}}</h5>  
+                                  
+                                  </a>
+        
+                                   @endforeach
+                                   @endif
+
+                                </div>
+                              </div><!-- /.col-sm-4 -->
+                              </div><!-- /.col-sm-4 -->
+                            </div>
                           </div>
                            
                       </div>

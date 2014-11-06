@@ -59,6 +59,7 @@
     					{{ HTML::link( 'users/empleados/'.$var , 'Todos'.' ') }}
 					</li>
 					<li class="active"><a {{ HTML::link('users/create','Nuevo'); }} 
+					
 				</ul>
         	</div>
         </div>

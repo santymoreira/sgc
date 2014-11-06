@@ -318,7 +318,7 @@ class EmpleadosController extends BaseController {
         Session::forget('intervalo');
         Session::forget('inicio');
        // return View::make('home.welcome');
-        return Redirect::to('home/welcome');
+        return Redirect::to('welcome');
     }
 }
 ?>

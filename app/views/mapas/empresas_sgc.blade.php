@@ -9,7 +9,7 @@
    	
    			 <div id="menu">
 						<ul>
-				               <li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio');}}
+				                <li class="nivel1"><a class="nivel1" href="../welcome">Inicio </a></li>
 							  <li class="nivel1"><a class="nivel1" {{ HTML::link('empresas/macroprocesos', 'Macroprocesos');}}
 							  <li class="nivel1"><a onclick="Alert()" class="nivel1" {{ HTML::link('users/empleados/1', 'Administración');}} 
 							  <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a>
@@ -18,7 +18,7 @@
 									<li><a {{ HTML::link('reportes/individual/1/2', 'Mensual');}} </a></li>
                 					<li><a {{ HTML::link('reportes/mensualE/1/3', 'Mensual Empleados');}} </a></li>
                 					<li><a {{ HTML::link('reportes/mensualE/1/4', 'Individual Empleados');}} </a></li>
-                 					<li><a {{ HTML::link('descargas', 'Descargas');}} </a></li>
+                 					<li><a {{ HTML::link('checkFiles', 'Descargas');}} </a></li>
         						</ul>
 							  </li>
 						</ul>

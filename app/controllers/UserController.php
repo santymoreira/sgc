@@ -24,7 +24,6 @@ class UserController extends \BaseController {
 			return Login::tiempoSesion();
 		}	
 
-
 	//Listar los usuarios del SGC.
 	
 	public function listado($escuela){
@@ -51,6 +50,33 @@ class UserController extends \BaseController {
 	    $cedula =DB::select('SELECT ci FROM empleado');
 		return View::make('users.create')->with('ci',$cedula);
 	}
+
+		public function subirArchivo()	{
+
+		return View::make('users.upload');
+	}
+
+	public function uploadfile()	
+	{
+		$name=Input::get('name');
+		$des=Input::get('desc');
+		$address="archivos/".$name.".pdf";
+		$date=date("Y-m-d H:i:s");
+		$var=Session::get('escuela');
+			//echo("<script>console.log('PHP: ".$var."');</script>");
+          Input::file('file1')->move('archivos', Input::get('name').".pdf");
+          $d=DB::statement('call subirArchivo(\''.$name.'\',\''.$des.'\',\''.$address.'\',\''.$date.'\',\''.$var.'\')');
+
+          return Redirect::back();
+	}
+
+		public function checkFiles()	
+	{
+		$var=Session::get('escuela');
+		$file = DB::select('SELECT * FROM documento where TIPO=?',array($var));
+         return View::make('users.checkFiles', array('files' => $file));
+	}
+	
 	
 
 

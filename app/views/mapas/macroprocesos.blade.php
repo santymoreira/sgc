@@ -15,7 +15,7 @@
 
    			 <div id="menu">
 						<ul>
-				               <li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio'); }} 
+                       <li class="nivel1"><a class="nivel1" href="../welcome">Inicio </a></li>
                         @if($var == 2)  
                           <li class="nivel1"><a class="nivel1" {{ HTML::link('contabilidad/cont_audi_sgc','SGC'); }}  
                         @elseif($var ==7)

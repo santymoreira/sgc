@@ -36,8 +36,10 @@ class HomeController extends BaseController {
                 }
                 $tot=$total/6;
                 $valor+=$tot;
+
         }
-		return View::make('home.welcome')->with('valor',$valor);
+        $file = DB::select('SELECT * FROM documento where TIPO=?',array(0));
+        return View::make('home.welcome', array('valor' => $valor,'files' => $file));
 	}
 
 		public function envio()
@@ -70,6 +72,46 @@ class HomeController extends BaseController {
 		$resp='si';
 		return Response::json($resp);
 		}
+	}
+
+	public function subirArchivoPublico()
+	{
+		$tiempo=Login::tiempoSesion();
+            $tipo=Login::tipoEmpleado();
+            if ($tiempo == 1) 
+            {
+                if (($tipo==1))
+                {
+                	return View::make('home.subirArchivo');
+
+                }   
+                else
+                {
+                    return View::make('home.sinAcceso');
+                }
+                 
+            }elseif ($tiempo == -1) {
+                Login::logout();
+                return Redirect::to('welcome');
+            }
+            else
+            {
+                return View::make('home.sinAcceso');
+            }
+	}
+
+		public function uploadPublicFile()	
+	{
+		$name=Input::get('name');
+		$des=Input::get('desc');
+		$address="archivos/".$name.".pdf";
+		$date=date("Y-m-d H:i:s");
+		$var=0;
+			//echo("<script>console.log('PHP: ".$var."');</script>");
+          Input::file('file1')->move('archivos', Input::get('name').".pdf");
+          $d=DB::statement('call subirArchivo(\''.$name.'\',\''.$des.'\',\''.$address.'\',\''.$date.'\',\''.$var.'\')');
+
+          return Redirect::back();
 	}
 
 	 
