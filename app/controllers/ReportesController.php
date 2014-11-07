@@ -124,9 +124,8 @@ class ReportesController extends BaseController {
         $tipoReporte=Input::get('tipoReporte');
         $name=Input::get('name');
         $mail=Input::get('mail');
-        //echo("<script>console.log('PHP: ".$tipoReporte."');</script>");
+
         $macroprocesos=DB::select('SELECT distinct(m.COD_MACROPROCESO) as OBJETIVO,m.NOMBRE as DESCRIPCION from macroproceso as m inner join proceso as p on m.COD_MACROPROCESO=p.COD_MACROPROCESO where p.TIPO_EMPLEADO='.$tipoEmpleado.';');
-        //echo("<script>console.log('PHP: ".$escuela."');</script>");
         return View::make('reportes.macroprocesos', array('macroprocesos' => $macroprocesos,'tipoEmpleado' => $tipoEmpleado,'escuela' =>$escuela,'cedula'=>$cedula,'codigo'=>$codigo,'name'=>$name,'mail'=>$mail,'tipoReporte'=>$tipoReporte));
     }
 
