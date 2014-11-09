@@ -44,8 +44,14 @@
                                 <div id="apDiv265"><img style="cursor:pointer;" src="{{asset('images/Utilitarios/volver.png')}}" width="45" height="45"></div>
                                 <center>
                                     <h7>Cumplimiento: </h7>
-                                      <a rel="floatbox" class="fbPopup" title="Avance SGC Facultadl" rev="width:608 height:217 scrolling:no" href="../consolidadoFacultad">
-                                        <input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/> 
+                                      <a rel="floatbox" class="fbPopup" title="Avance SGC Facultad" rev="width:608 height:217 scrolling:no" href="consolidadoFacultad">
+                                     @if($valor <= 70) 
+                                          <input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/>
+                                        @elseif($valor >= 70 && $valor <= 90)
+                                          <input type="image" src="{{asset('images/Utilitarios/naranja.png'); }}"/>
+                                        @elseif($valor >= 91 && $valor <= 100)
+                                          <input type="image" src="{{asset('images/Utilitarios/verde.png'); }}"/> 
+                                  @endif
                                       </a>
                                 </center>
                                       </br>

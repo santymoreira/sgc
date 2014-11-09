@@ -9,7 +9,7 @@
    	
    			 <div id="menu">
 						<ul>
-				                <li class="nivel1"><a class="nivel1" href="../welcome">Inicio </a></li>
+				                 <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Inicio</a></li>
 							  <li class="nivel1"><a class="nivel1" {{ HTML::link('E_distancia/macroprocesos', 'Macroprocesos');}}
 							  <li class="nivel1"><a onclick="Alert()" class="nivel1" {{ HTML::link('users/empleados/2', 'Administración');}} 
 							  <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a>
