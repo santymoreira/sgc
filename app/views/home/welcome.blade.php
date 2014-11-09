@@ -45,13 +45,13 @@
                                 <center>
                                     <h7>Cumplimiento: </h7>
                                       <a rel="floatbox" class="fbPopup" title="Avance SGC Facultad" rev="width:608 height:217 scrolling:no" href="consolidadoFacultad">
-                                     @if($valor <= 70) 
-                                          <input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/>
-                                        @elseif($valor >= 70 && $valor <= 90)
-                                          <input type="image" src="{{asset('images/Utilitarios/naranja.png'); }}"/>
-                                        @elseif($valor >= 91 && $valor <= 100)
-                                          <input type="image" src="{{asset('images/Utilitarios/verde.png'); }}"/> 
-                                  @endif
+                                           @if($valor <=70 && $valor >= 0)
+                                            <input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/>
+                                          @elseif($valor >= 70 && $valor <= 90)
+                                            <input type="image" src="{{asset('images/Utilitarios/naranja.png'); }}"/>
+                                          @elseif($valor >= 91 && $valor <= 100)
+                                            <input type="image" src="{{asset('images/Utilitarios/verde.png'); }}"/> 
+                                      @endif
                                       </a>
                                 </center>
                                       </br>
@@ -116,7 +116,7 @@
                               <div class="page-header" >
                               <h1><center>Descargas</center> </h1>
                               <p>
-                               <a href="subirArchivoPublico" rel="floatbox" title="Subir archivos públicos" rev="width:450 height:250 " align="right" class="glyphicon glyphicon-plus-sign"></a>
+                               <a href="subirArchivoPublico" rel="floatbox" title="Subir archivos públicos" rev="width:450 height:290 scrolling:no "   align="right" class="glyphicon glyphicon-plus-sign"></a>
                                </p>
 
 

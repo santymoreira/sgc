@@ -8,7 +8,7 @@
    	
          <div id="menu">
             <ul>
-                       <li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio');}}
+               <li class="nivel1"><a class="nivel1" href="../welcome">Inicio </a></li>
                 <li class="nivel1"><a class="nivel1" {{ HTML::link('transportebsc/perspectivas', 'Perspectivas');}}
                 <li class="nivel1"><a onclick="Alert()" class="nivel1" {{ HTML::link('users/empleados/6', 'Administración');}} 
                 <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a>

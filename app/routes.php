@@ -204,7 +204,6 @@ Route::get('/pdfReporteMensualBalance/{a}/{b}/{c}/{d}/{e}/{f}/{g}/{h}/{i}',array
 
 //Facultad Administración de Empresas
 
-Route::get('home/welcome', 'FadeController@home');
 Route::get('fade/fade_sgc', 'FadeController@fadesgc');
 Route::get('fade/macroprocesos', 'FadeController@macroprocesos');
 Route::get('fade/MF_Administrativa', 'FadeController@administrativa');
@@ -221,7 +220,6 @@ Route::get('fade/MF_Transporte', 'FadeController@transporte');
 Route::get('fade/MF_Informatico', 'FadeController@informatico');
 
 //Escuela de Contabilidad y Auditoria
-Route::get('home/welcome', 'MapasController@home');  
 Route::get('contabilidad/cont_audi_sgc', 'MapasController@contabilidadsgc');
 Route::get('contabilidad/macroprocesos', 'MapasController@macroprocesos');
 Route::get('contabilidad/M_Administrativa', 'MapasController@administrativa');
@@ -233,7 +231,6 @@ Route::get('contabilidad/M_Asistencia', 'MapasController@asistencia');
 Route::get('contabilidad/M_Mantenimiento', 'MapasController@mantenimiento');
 
 //Escuela de Educación a Distancia
-Route::get('home/welcome', 'MapasController@home');  
 Route::get('E_distancia/distancia_sgc', 'MapasController@distanciasgc');
 Route::get('E_distancia/macroprocesos', 'MapasController@macroprocesos');
 Route::get('E_distancia/M_Administrativa', 'MapasController@administrativa');
@@ -245,7 +242,7 @@ Route::get('E_distancia/M_Asistencia', 'MapasController@asistencia');
 Route::get('E_distancia/M_Mantenimiento', 'MapasController@mantenimiento');
 
 //Escuela de Administración de Empresas
-Route::get('home/welcome', 'MapasController@home');  
+
 Route::get('empresas/empresas_sgc', 'MapasController@empresasgc');
 Route::get('empresas/macroprocesos', 'MapasController@macroprocesos');
 Route::get('empresas/M_Administrativa', 'MapasController@administrativa');
@@ -257,7 +254,7 @@ Route::get('empresas/M_Asistencia', 'MapasController@asistencia');
 Route::get('empresas/M_Mantenimiento', 'MapasController@mantenimiento');
 
 //Escuela de Comercio Exterior
-Route::get('home/welcome', 'MapasController@home');
+
 Route::get('C_exterior/exterior_sgc', 'MapasController@exteriorsgc');
 Route::get('C_exterior/macroprocesos', 'MapasController@macroprocesos');
 Route::get('C_exterior/M_Administrativa', 'MapasController@administrativa');
@@ -270,7 +267,7 @@ Route::get('C_exterior/M_Mantenimiento', 'MapasController@mantenimiento');
 
 
 //Escuela de Finanzas
-Route::get('home/welcome', 'MapasController@home');
+
 Route::get('finanzas/finanzas_sgc', 'MapasController@finanzasgc');
 Route::get('finanzas/macroprocesos', 'MapasController@macroprocesos');
 Route::get('finanzas/M_Administrativa', 'MapasController@administrativa');
@@ -282,7 +279,7 @@ Route::get('finanzas/M_Asistencia', 'MapasController@asistencia');
 Route::get('finanzas/M_Mantenimiento', 'MapasController@mantenimiento');
 
 //Escuela de Marketing
-Route::get('home/welcome', 'MapasController@home');
+
 Route::get('marketing/marketing_sgc', 'MapasController@marketingsgc');
 Route::get('marketing/macroprocesos', 'MapasController@macroprocesos');
 Route::get('marketing/M_Administrativa', 'MapasController@administrativa');
@@ -294,7 +291,7 @@ Route::get('marketing/M_Asistencia', 'MapasController@asistencia');
 Route::get('marketing/M_Mantenimiento', 'MapasController@mantenimiento');
 
 //Escuela de Gestión de Transporte
-Route::get('home/welcome', 'MapasController@home');
+
 Route::get('transporte/transporte_sgc', 'MapasController@transportesgc');
 Route::get('transporte/macroprocesos', 'MapasController@macroprocesos'); 
 Route::get('transporte/M_Administrativa', 'MapasController@administrativa');
@@ -309,7 +306,7 @@ Route::get('transporte/M_Mantenimiento', 'MapasController@mantenimiento');
 //Balanced Score Card
 
 //Balanced Contabilidad y Auditoría 
-Route::get('home/welcome', 'MapasController@home');
+
 Route::get('contabilidadbsc/cont_audi_bsc', 'MapasBalancedController@cont_audi_bsc');
 Route::get('contabilidadbsc/perspectivas', 'MapasBalancedController@perspectivas');
 Route::get('contabilidadbsc/PotenInves', 'MapasBalancedController@PotenInves');  
@@ -328,7 +325,7 @@ Route::get('contabilidadbsc/OptimiRecu', 'MapasBalancedController@OptimiRecu');
 
 
 //Balanced Empresas
-Route::get('home/welcome', 'MapasController@home');
+
 Route::get('empresasbsc/empresas_bsc', 'MapasBalancedController@empresas_bsc');
 Route::get('empresasbsc/perspectivas', 'MapasBalancedController@perspectivas');
 Route::get('empresasbsc/PotenInves', 'MapasBalancedController@PotenInves');  
@@ -346,7 +343,7 @@ Route::get('empresasbsc/OptimiRecu', 'MapasBalancedController@OptimiRecu');
 
 
 //Balanced finanzas
-Route::get('home/welcome', 'MapasController@home');
+
 Route::get('finanzasbsc/finanzas_bsc', 'MapasBalancedController@finanzas_bsc');
 Route::get('finanzasbsc/perspectivas', 'MapasBalancedController@perspectivas');
 Route::get('finanzasbsc/PotenInves', 'MapasBalancedController@PotenInves');  
@@ -364,7 +361,7 @@ Route::get('finanzasbsc/OptimiRecu', 'MapasBalancedController@OptimiRecu');
 
 
 //Balanced marketing
-Route::get('home/welcome', 'MapasController@home');
+
 Route::get('marketingbsc/marketing_bsc', 'MapasBalancedController@marketing_bsc');
 Route::get('marketingbsc/perspectivas', 'MapasBalancedController@perspectivas'); 
 Route::get('marketingbsc/PotenInves', 'MapasBalancedController@PotenInves');  
@@ -381,7 +378,7 @@ Route::get('marketingbsc/OptimiRecu', 'MapasBalancedController@OptimiRecu');
 
 
 //Balanced transporte
-Route::get('home/welcome', 'MapasController@home');
+
 Route::get('transportebsc/transporte_bsc', 'MapasBalancedController@transporte_bsc');
 Route::get('transportebsc/perspectivas', 'MapasBalancedController@perspectivas'); 
 Route::get('transportebsc/PotenInves', 'MapasBalancedController@PotenInves');  
@@ -397,7 +394,7 @@ Route::get('transportebsc/MejorarClimaLab', 'MapasBalancedController@MejorarClim
 Route::get('transportebsc/OptimiRecu', 'MapasBalancedController@OptimiRecu');
 
 
-Route::get('home/welcome', 'MapasController@home');
+//Fade BSC
 Route::get('fadebsc/fade_bsc', 'MapasBalancedController@fade_bsc');
 Route::get('fadebsc/perspectivas', 'MapasBalancedController@perspectivas'); 
 Route::get('fadebsc/PotenInves', 'MapasBalancedController@PotenInves');  

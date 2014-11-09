@@ -9,7 +9,7 @@
    	
    			 <div id="menu">
 						<ul>
-				                <li class="nivel1"><a class="nivel1" href="../welcome">Inicio </a></li>
+				         <li class="nivel1"><a class="nivel1" href="../welcome">Inicio </a></li>
 							  <li class="nivel1"><a class="nivel1" {{ HTML::link('transporte/macroprocesos', 'Macroprocesos');}}
 							  <li class="nivel1"><a onclick="Alert()" class="nivel1" {{ HTML::link('users/empleados/6', 'Administración');}} 
 							  <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a>
@@ -51,7 +51,7 @@
                     </a>
                  <br/>
                 <!-- Logo SGC escuela -->    
-                  <img src="{{ asset('images/Transporte/transporte.png') }}" width="850" height="295">
+                  <img src="{{ asset('images/Transporte/transporte.png') }}" width="800" height="275">
             </center>     
 
 

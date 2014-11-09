@@ -19,7 +19,7 @@ class HomeController extends BaseController {
 	{
 		$valor=0;
         $tot=0;
-        
+        $temp =1;
         for ($i=1; $i <=7 ; $i++) 
         { 
             //escuela
@@ -39,7 +39,7 @@ class HomeController extends BaseController {
 
         }
         $file = DB::select('SELECT * FROM documento where TIPO=?',array(0));
-        return View::make('home.welcome', array('valor' => $valor,'files' => $file));
+        return View::make('home.welcome', array('temp' => $temp,'valor' => $valor,'files' => $file));
 	}
 
 		public function envio()
@@ -111,7 +111,10 @@ class HomeController extends BaseController {
           Input::file('file1')->move('archivos', Input::get('name').".pdf");
           $d=DB::statement('call subirArchivo(\''.$name.'\',\''.$des.'\',\''.$address.'\',\''.$date.'\',\''.$var.'\')');
 
-          return Redirect::back();
+          Session::flash('message','Actualizado correctamente!');
+		  Session::flash('class','success');
+       
+        return Redirect::back();
 	}
 
 	 
