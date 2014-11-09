@@ -31,13 +31,13 @@
     <div id="imagen"><img src="{{ asset('images/SGCheader.png'); }}" width="490" height="70"/></div>
              <center>
            
-        <a  rel="floatbox"  href="../../../imagenReporteMensual/{{$escuela}}/{{$macroproceso}}/{{$proceso}}/{{$mes}}/{{$cedula}}/{{$codigo}}/{{$suma}}/1"
+        <a  rel="floatbox" title="Reportes empleados" rev="width:920 height:350 scrolling:no"  href="../../../imagenReporteMensual/{{$escuela}}/{{$macroproceso}}/{{$proceso}}/{{$mes}}/{{$cedula}}/{{$codigo}}/{{$suma}}/1"
                   <button rel="floatbox" type="submit" class='buttons'  type='submit'  name='submit' id='brender'>
-                    <img src="{{ asset('images/chart_bar.png'); }}" alt=""/> Imagen
+                    <img src="{{ asset('images/chart_bar.png'); }}" alt=""/> Previa
                   </button> 
 
                 </a>
-       
+       <br/> <br/>
             </center>
 
              <center> 
@@ -45,7 +45,7 @@
                 <a href="../../../pdfReporteMensual/{{$escuela}}/{{$macroproceso}}/{{$proceso}}/{{$mes}}/{{$cedula}}/{{$codigo}}/{{$suma}}/{{$name}}/{{$mail}}" target="_blank" >
                   <button type="submit" class='buttons'  type='submit'  name='submit' id='bpdf'>
                     <img src="{{ asset('images/pdfd.png'); }}" alt=""/> PDF 
-                  </button> 
+                  </button> <br/> <br/>
                 </a>
               </center>
 

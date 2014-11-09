@@ -41,10 +41,10 @@
             <center>
               <td> 
 
-                <a  rel="floatbox"  href="../../../imagenReporteBalance/{{$escuela}}/{{$macroproceso}}/{{$proceso}}/{{$indicador->FECHA_INICIO}}/{{$indicador->FECHA_FIN}}/{{$cedula}}/{{$codigo}}/1"
+                <a  rel="floatbox" title="Reportes empleados" rev="width:920 height:350 scrolling:no"  href="../../../imagenReporteBalance/{{$escuela}}/{{$macroproceso}}/{{$proceso}}/{{$indicador->FECHA_INICIO}}/{{$indicador->FECHA_FIN}}/{{$cedula}}/{{$codigo}}/1"
                   <button rel="floatbox" type="submit" class='buttons'  type='submit'  name='submit' id='brender'>
-                    <img src="{{ asset('images/chart_bar.png'); }}" alt=""/> Render
-                  </button> 
+                    <img src="{{ asset('images/chart_bar.png'); }}" alt=""/> Previa
+                  </button> <br/><br/>
                 </a>
               </td>
             </center>
@@ -54,7 +54,7 @@
                 <a href="../../../pdfReporteBalance/{{$escuela}}/{{$macroproceso}}/{{$proceso}}/{{$indicador->FECHA_INICIO}}/{{$indicador->FECHA_FIN}}/{{$cedula}}/{{$codigo}}/{{$name}}/{{$mail}}" target="_blank" >
                   <button type="submit" class='buttons'  type='submit'  name='submit' id='bpdf'>
                     <img src="{{ asset('images/pdfd.png'); }}" alt=""/> PDF 
-                  </button> 
+                  </button> <br/><br/>
                 </a>
               </td></center>
               </tr>

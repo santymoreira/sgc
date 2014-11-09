@@ -86,6 +86,9 @@ class UserController extends \BaseController {
           Input::file('file1')->move('archivos', Input::get('name').".pdf");
           $d=DB::statement('call subirArchivo(\''.$name.'\',\''.$des.'\',\''.$address.'\',\''.$date.'\',\''.$var.'\')');
 
+          Session::flash('message','Archivo Subido!');
+		  Session::flash('class','success');
+
           return Redirect::back();
 	}
 
@@ -94,10 +97,10 @@ class UserController extends \BaseController {
 		$var=Session::get('escuela');
 		if ($this->permiso()==1) 
 			{
-        			if ($this->getEscuela()==1) {
+        			if ($this->getEscuela1()==1) {
           				$file = DB::select('SELECT * FROM documento where TIPO=?',array($var));
 				        return View::make('users.checkFiles', array('files' => $file));
-        			}else{}
+        			}else{return Redirect::back();}
         	}
         	else{Login::logout();return Redirect::back();}	
 	}

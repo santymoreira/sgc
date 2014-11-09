@@ -38,10 +38,6 @@ class MapasController extends BaseController {
 			return Login::tiempoSesion();
 		}
 
-	public function home()
-		{
-			return View::make('home.welcome');
-		}
 	public function distanciasgc()
 		{
 			if ($this->permiso()==1) 

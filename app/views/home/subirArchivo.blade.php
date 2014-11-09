@@ -1,6 +1,6 @@
 
         {{ HTML::style('css/bootstrap.min.css'); }}
-        <a align="center" class="navbar-brand" style="cursor:default;" href="#">Documentos públicos</a>
+    <center> <h3>Subir documentos públicos</h3></center>
 <div class="row">
                 <div class="col-lg-12">
                         <div class="row">
@@ -14,9 +14,12 @@
                                 </div>
     
                    				<input type="file" id="file1" name="file1" accept=".pdf" class="form-control" required> 
-                   				<center>{{ Form::submit('Subir Archivo') }}</center>
-                   				<!--<center><input id="kk" class="btn btn-xl" type="button" value="texto del botón"></center>-->
-                                <div id="success"></div>
+                                <br/>
+                   				 <center><input type="submit" value="Guardar" class="btn btn-success"></center>
+                               @if(Session::has('message'))
+                                        <div class="alert alert-{{ Session::get('class') }}">{{ Session::get('message')}}</div>
+                               @endif
+                          <div id="success"></div>
                                 	{{ Form::close()}}
                             </div>
                         </div>

@@ -9,7 +9,7 @@
    	
    			 <div id="menu">
 						<ul>
-				                <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Inicio</a></li>
+				        <li class="nivel1"><a class="nivel1" href="../welcome">Inicio </a></li>
 							  <li class="nivel1"><a class="nivel1" {{ HTML::link('empresas/macroprocesos', 'Macroprocesos');}}
 							  <li class="nivel1"><a onclick="Alert()" class="nivel1" {{ HTML::link('users/empleados/1', 'Administración');}} 
 							  <li class="nivel1"><a onclick="Alert()" class="nivel1">Reportes</a>
@@ -49,7 +49,7 @@
                     </a>
                  <br/>
                 <!-- Logo SGC escuela -->    
-                  <img src="{{ asset('images/Empresas/empresas.png') }}" width="850" height="295">
+                  <img src="{{ asset('images/Empresas/empresas.png') }}" width="800" height="275">
             </center>     
 
 

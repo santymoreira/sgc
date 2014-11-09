@@ -15,12 +15,7 @@
 
 @section('options')
    	
-   			 <div id="menu">
-						<ul>
-				       		<li class="nivel1"><a class="nivel1" href="welcome">Inicio </a></li>
-                     	    <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a>
-                       	</ul>			
-          </div> 
+   			
 
 @stop
 
@@ -54,7 +49,14 @@
 				@elseif($var == 8)
 					<a class="navbar-brand" style="cursor:default;" href="#">Facultad de Empresas</a>
 				@endif
-  			</div>
+       	</div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li>
+              {{ HTML::link( 'users/empleados/'.$var , 'Volver'.' ') }}
+             </li>
+           </ul>
+        </div>
 
         </div>
     </nav>
@@ -72,8 +74,11 @@
                                 </div>
     
                    				<input type="file" id="file1" name="file1" accept=".pdf" class="form-control" required> 
-                   				<center>{{ Form::submit('Subir Archivo') }}</center>
-                   				<!--<center><input id="kk" class="btn btn-xl" type="button" value="texto del botón"></center>-->
+                          <br/>
+                   			 <center><input type="submit" value="Guardar" class="btn btn-success"></center>
+                              @if(Session::has('message'))
+                            <div class="alert alert-{{ Session::get('class') }}">{{ Session::get('message')}}</div>
+                          @endif
                                 <div id="success"></div>
                                 	{{ Form::close()}}
                             </div>
