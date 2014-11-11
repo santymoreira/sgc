@@ -29,7 +29,7 @@
  @parent
    
 @stop
-
+   
 @section('content')
 @stop
 
