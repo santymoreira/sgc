@@ -22,7 +22,7 @@
 @section('content')
 @stop
 
-
+    
 @section('body')
 <script type='text/javascript'>
       var brw = new Browser();
