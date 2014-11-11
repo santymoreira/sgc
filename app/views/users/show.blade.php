@@ -15,12 +15,21 @@
    	
    			 <div id="menu">
 						<ul>
-				       		<li class="nivel1"><a class="nivel1" {{ HTML::link('home/welcome', 'Inicio'); }} 
+				       	<li class="nivel1"><a class="nivel1" href="../../welcome">Inicio </a></li> 
                        		<li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a>
                        	</ul>			
           </div> 
 @stop
-
+@section('modificar')
+   @if(file_exists('images/Login/'.Auth::user()->CI.'.png'))
+      <div id="fotoperfil"><a href="../../users/editp/{{Auth::user()->COD_EMPLEADO}}" class="fbPopup1" rel="floatbox" title="Cambiar Informacion Personal" rev="width:450 height:570 scrolling:no" >
+        <img src="{{ asset('images/Login/'.Auth::user()->CI.'.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></a></div>
+   @else
+    <div id="fotoperfil"><a href="../../users/editp/{{Auth::user()->COD_EMPLEADO}}" class="fbPopup1" rel="floatbox" title="Cambiar Informacion Personal" rev="width:450 height:570 scrolling:no">
+      <img src="{{ asset('images/Login/fotoreal.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92">
+    </a></div>
+   @endif
+  @stop
 @section('login')
  @parent
    
