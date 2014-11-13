@@ -73,9 +73,10 @@
 @endif
 
                          <!--    <div id="fotoperfil"><img src="{{ asset('images/fotoreal.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>-->
+ @section('modificar')
 @if (Auth::user())
 <!--<div id="fotoperfil"><img src="images/{{Session::get('ci') }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>-->
-  @section('modificar')
+ 
 @if(file_exists('images/Login/'.Auth::user()->CI.'.png'))
   
       <div id="fotoperfil"><a href="users/editp/{{Auth::user()->COD_EMPLEADO}}" class="fbPopup1" rel="floatbox" title="Cambiar Informacion Personal" rev="width:450 height:570 scrolling:no" >
@@ -86,15 +87,15 @@
       <img src="{{ asset('images/Login/fotoreal.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92">
     </a></div>
    @endif
-@show
-    <div id="nombres" width="20" height="300">
-     <p><b>{{ Auth::user()->NOMBRES }}</b></p> 
-   </div> 
-   </a>
-@else
-   <div id="fotoperfil"><img src="{{ asset('images/Login/fotoreal.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>
-@endif
 
+        <div id="nombres" width="20" height="300">
+         <p><b>{{ Auth::user()->NOMBRES }}</b></p> 
+       </div> 
+       </a>
+    @else
+       <div id="fotoperfil"><img src="{{ asset('images/Login/fotoreal.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>
+    @endif
+@show
   
                            
                         </a>        
