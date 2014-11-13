@@ -17,6 +17,7 @@
 
 @stop
 @section('modificar')
+<<<<<<< HEAD
    @if(file_exists('images/Login/'.Auth::user()->CI.'.png'))
       <div id="fotoperfil"><a href="../users/editp/{{Auth::user()->COD_EMPLEADO}}" class="fbPopup1" rel="floatbox" title="Cambiar Informacion Personal" rev="width:450 height:570" >
         <img src="{{ asset('images/Login/'.Auth::user()->CI.'.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></a></div>
@@ -25,6 +26,27 @@
       <img src="{{ asset('images/Login/fotoreal.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92">
     </a></div>
    @endif
+=======
+   @if (Auth::user())
+    <!-- foto del usuario logueado -->
+    @if(file_exists('images/Login/'.Auth::user()->CI.'.png'))
+          <div id="fotoperfil"><a href="../users/editp/{{Auth::user()->COD_EMPLEADO}}" class="fbPopup1" rel="floatbox" title="Cambiar Informacion Personal" rev="width:450 height:570 scrolling:no" >
+              <img src="{{ asset('images/Login/'.Auth::user()->CI.'.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></a>
+          </div>
+       @else  <!-- Foto por defencto del usuario logueado -->
+            <div id="fotoperfil"><a href="../users/editp/{{Auth::user()->COD_EMPLEADO}}" class="fbPopup1" rel="floatbox" title="Cambiar Informacion Personal" rev="width:450 height:570 scrolling:no">
+              <img src="{{ asset('images/Login/fotoreal.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92">
+            </a></div>
+     @endif
+     <!-- Carga nombres del usuario logueado -->
+      <div id="nombres" width="20" height="300">
+         <p><b>{{ Auth::user()->NOMBRES }}</b></p> 
+       </div> 
+       </a>
+    @else <!-- foto por defecto usuario no logueado -->
+       <div id="fotoperfil"><img src="{{ asset('images/Login/fotoreal.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>
+    @endif
+>>>>>>> d4b4f6320e00c9e195c368d7ce6b0995d8997233
   @stop
 @section('options')
    	  
