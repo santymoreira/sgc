@@ -17,7 +17,7 @@
 		<ul>
 					<li class="nivel1"><a class="nivel1" href="../../../welcome">Inicio </a></li>
 			
-			<li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">SGC</a>
+			<li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">BSC</a>
 
          </ul>			
     </div> 
