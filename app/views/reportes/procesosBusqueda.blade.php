@@ -1,6 +1,6 @@
 
 
-<label><b>PROYECTO: </b></label>
+<label><b>PROCESO: </b></label>
 <select id="combo3" class="select" style="width: 200px;">
 <option value="1" selected>Seleccione opción</option>
 @foreach ($procesos as $tipo)

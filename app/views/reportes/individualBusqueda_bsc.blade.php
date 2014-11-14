@@ -15,10 +15,11 @@
 </div>
 
 
-<div  id="contenido">
+<div  id="conte">
   <label><b>PROYECTO: </b></label>
   <select id="cgh" class="select" style="width: 200px;" disabled="true">
   <option value="1" selected>Seleccione opción</option>
+  </select>
 </div>
 
 <input type="hidden" id="esc" value="{{ $escuela }}">
@@ -41,7 +42,7 @@
        var mail=$('#mail').val();
 
 
-           $("#contenido").load("../../../combo2_bsc",
+           $("#conte").load("../../../combo2_bsc",
             {macroproceso: macroproceso,escuela: escuela,tipoReporte:tipoReporte,codigo:codigo,cedula:ci,name:nombres,mail:mail}
             );
 
