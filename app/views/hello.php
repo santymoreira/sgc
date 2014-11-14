@@ -27,7 +27,7 @@
 			text-decoration:none;
 		}
 
-		h1 {
+		h1 {   
 			font-size: 32px;
 			margin: 16px 0 0 0;
 		}
