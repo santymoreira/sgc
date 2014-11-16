@@ -1,12 +1,14 @@
 @extends('home.layout')
 
+
+
 @section('Different_Styles')
 	@parent
-	
+
 	    {{ HTML::style('css/new.css'); }} 
 		{{ HTML::style('css/new1.css'); }} 
-		{{ HTML::style('css/Table.css');  $var=Session::get('escuela'); }} 
-
+	    {{ HTML::style('css/Table.css'); $var=Session::get('escuela'); }}
+	
 	
 @stop
 
@@ -15,20 +17,20 @@
    			 <div id="menu">
 						<ul>
 				       		<li class="nivel1"><a class="nivel1" href="../welcome">Inicio </a></li>
-                     	    <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a>
+                      	    <li class="nivel1"><a class="nivel1" href="{{ URL::previous() }}">Volver</a>
                        	</ul>			
           </div> 
-
 @stop
+
 @section('modificar')
-     @if (Auth::user())
+    @if (Auth::user())
     <!-- foto del usuario logueado -->
     @if(file_exists('images/Login/'.Auth::user()->CI.'.png'))
-          <div id="fotoperfil"><a href="../users/editp/{{Auth::user()->COD_EMPLEADO}}" class="fbPopup1" rel="floatbox" title="Cambiar Informacion Personal" rev="width:450 height:570 scrolling:no" >
+          <div id="fotoperfil"><a href="../../users/editp/{{Auth::user()->COD_EMPLEADO}}" class="fbPopup1" rel="floatbox" title="Cambiar Informacion Personal" rev="width:450 height:570 scrolling:no" >
               <img src="{{ asset('images/Login/'.Auth::user()->CI.'.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></a>
           </div>
        @else  <!-- Foto por defencto del usuario logueado -->
-            <div id="fotoperfil"><a href="../users/editp/{{Auth::user()->COD_EMPLEADO}}" class="fbPopup1" rel="floatbox" title="Cambiar Informacion Personal" rev="width:450 height:570 scrolling:no">
+            <div id="fotoperfil"><a href="../../users/editp/{{Auth::user()->COD_EMPLEADO}}" class="fbPopup1" rel="floatbox" title="Cambiar Informacion Personal" rev="width:450 height:570 scrolling:no">
               <img src="{{ asset('images/Login/fotoreal.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92">
             </a></div>
      @endif
@@ -41,96 +43,98 @@
        <div id="fotoperfil"><img src="{{ asset('images/Login/fotoreal.png'); }}" style="border: solid 5px #00003d; cursor: pointer;"  width="92" height="92"></div>
     @endif
   @stop
+
 @section('login')
  @parent
+   
 @stop
+
 
 @section('content')
 @stop
 
-
-
 @section('body')
 
-<center><h3>Administración de empleados</h3></center>
+	<center><h3>Administración de empleados</h3></center>
 	<nav class="navbar navbar-default" role="navigation">
   		<div class="container-fluid">
   			<div class="navbar-header">
-				@if($var == 1)
-					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Empresas</a>
-				@elseif($var == 2)
-					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Contabilidad y Auditoría</a>
-				@elseif($var == 3)
-					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Comercio Exterior</a>
-				@elseif($var == 4)
-					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería Financiera</a>
-				@elseif($var == 5)
-					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Marketing</a>
-				@elseif($var == 6)
-					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Gestión de Transporte</a>
-				@elseif($var == 8)
+				@if($var == 8)
 					<a class="navbar-brand" style="cursor:default;" href="#">Facultad de Empresas</a>
 				@endif
   			</div>
     		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       			<ul class="nav navbar-nav">
-        		
         			<li>
     					{{ HTML::link( 'users/empleados/'.$var , 'Todos'.' ') }}
 					</li>
-					<li class="active"><a {{ HTML::link('users/create','Nuevo'); }} 
-					
-				</ul>
+        			<li class="active"><a {{ HTML::link('users/create','Nuevo'); }} 
+        		</ul>
         	</div>
         </div>
     </nav>
 
 	<div class="panel panel-success" align="center">
   		<div class="panel-heading"> 
-  			<h4>Registro de Empleados</h4>
-  		</div> 
+  			<h4>Actualización de Empleados</h4>
+  		</div>
   		<div class="panel-body" >
-  			<form method="post" action="store/{{$var}}">
-			
+		  	@if(!empty($user))
+  				<form method="post" action="../updatefade/{{ $user->COD_EMPLEADO}},{{$var}}">
 				<p>
-					<input type="text" id="ciComp" name="ci" placeholder="Cédula de Identidad" class="form-control" >
+						<input value="{{ $user->CI }}" type="text" name="ci" placeholder="Cédula de Identidad" class="form-control" required>
 				</p>
-				{{$errors->first('ci')}}
+					{{$errors->first('ci')}}
 				<p>
-					<input type="text" name="nombres" placeholder="Nombres completos" class="form-control" >
+					<input value="{{ $user->NOMBRES }}" type="text" name="nombres" placeholder="Nombres completos" class="form-control" required>
 				</p>
 					{{$errors->first('nombres')}}
 				<p>
+				@if( $user->SEXO == 'H')
 					<select  class="form-control" name="sexo">
 						<option selected value="H">Hombre</option>
 						<option value="M">Mujer</option>
 					</select>
+				@else
+					<select  class="form-control" name="sexo">
+						<option selected value="M">Mujer</option>
+						<option value="H">Hombre</option>
+					</select>
+				@endif
 				</p>
 				<p>
-					<input type="text" name="email" placeholder="Correo Electrónico" class="form-control" >
+					<input value="{{ $user->EMAIL }}" type="text" name="email" placeholder="Correo Electrónico" class="form-control" >
 				</p>
 					{{$errors->first('email')}}
 				<p>
-					<input type="text" name="celular" placeholder="Teléfono Móvil" class="form-control" >
+					<input value="{{ $user->CELULAR }}" type="text" name="celular" placeholder="Teléfono Móvil" class="form-control" >
 				</p>
-				{{$errors->first('celular')}}
+					{{$errors->first('celular')}}
 				<p>
-					<input type="text" name="convencional" placeholder="Teléfono convencional" class="form-control" >
+					<input value="{{ $user->CONVENCIONAL }}" type="text" name="convencional" placeholder="Teléfono convencional" class="form-control" >
 				</p>
-				{{$errors->first('convencional')}}
-
-				<fieldset>
+					{{$errors->first('convencional')}}
+			   @endif
+			   <fieldset>
 					  <legend>Función: </legend>
-					 <p>
-					 <table style='width: 20%' border="4">
+			   <p>
+			   		<table style='width: 20%' border="4">
 			   				<tr>
 				   				<td style='width: 10%' align="center">
-				   					<input type="checkbox" id="dire" name="director" value="1"> 
+				   					<input type="checkbox" id="dec" name="decano" value="5"> 
 				   				</td>
 				   				<td style='width: 50%' align="center">
-				   					<b>Director de Escuela</b>
+				   					<b>Decano</b>
 				   				</td>
 				   			</tr>
+				   			<tr>
+						  		<td style='width: 10%' align="center">
+						  			<input type="checkbox" id="vdec" name="vicedec" value="6"> 
+						  		</td>
+						  		<td style='width: 50%' align="center">
+				   					<b>Vicedecano</b>
+				   				</td>
+						  	</tr>
 				   			<tr>		
 						  		<td style='width: 10%' align="center">	
 						  			<input type="checkbox" id="admini" name="admin" value="2">
@@ -147,16 +151,8 @@
 				   					<b>Trabajador</b>
 				   				</td>
 						  	</tr>
-						  	<tr>
-						  		<td style='width: 10%' align="center">
-						  			<input type="checkbox" id="doc" name="docente" value="4"> 
-						  		</td>
-						  		<td style='width: 50%' align="center">
-				   					<b>Docente</b>
-				   				</td>
-						  	</tr>
-						</table>
-					</p>
+					</table>
+				</p>		
 				</fieldset>
 				 @if(Session::get('exist'))
 			        <p>{{ Session::get('exist') }}</p>
@@ -164,17 +160,45 @@
 				 @if(Session::get('msg'))
 			        <p>{{ Session::get('msg') }}</p>
 			    @endif
-			     @if(Session::get('mismaEsc'))
-			        <p>{{ Session::get('mismaEsc') }}</p>
-			    @endif
-			    
-				<p>
-					<input type="submit" value="Guardar" class="btn btn-success">
 				</p>
-				@if(Session::has('message'))
+					  @foreach($funcion as $funcion)
+			   			
+					  	<div>
+					  		<input type="hidden" id="{{$funcion->COD_TIPO}}" value="{{$funcion->COD_TIPO}}">
+					  		
+					  	</div>
+					  
+					@endforeach
+					<script type="text/javascript">
+						$( document ).ready(function() {
+  							if ($("#5").val()==5)
+  							 {
+  							 	$('#dec').attr('checked', "true");
+  							 };
+  							 if ($("#6").val()==6)
+  							 {
+  							 	$('#vdec').attr('checked', "true");
+  							 };
+  							 if ($("#2").val()==2)
+  							 {
+  							 	$('#admini').attr('checked', "true");
+  							 };
+  							 if ($("#3").val()==3)
+  							 {
+  							 	$('#trab').attr('checked', "true");
+  							 };
+						});
+											
+					</script>
+			   </p>
+				   
+					 <input type="submit" value="Guardar" class="btn btn-success">
+					  <a href="../empleados/{{$var}}" class="btn btn-default">Regresar</a>
+					  @if(Session::has('message'))
 					<div class="alert alert-{{ Session::get('class') }}">{{ Session::get('message')}}</div>
-				@endif	
-			</form>
+				@endif
+				</form>
+		 
 		</div>
-	</div>	
+
 @stop

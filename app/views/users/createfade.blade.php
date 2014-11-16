@@ -56,19 +56,7 @@
 	<nav class="navbar navbar-default" role="navigation">
   		<div class="container-fluid">
   			<div class="navbar-header">
-				@if($var == 1)
-					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Empresas</a>
-				@elseif($var == 2)
-					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Contabilidad y Auditoría</a>
-				@elseif($var == 3)
-					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Comercio Exterior</a>
-				@elseif($var == 4)
-					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería Financiera</a>
-				@elseif($var == 5)
-					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Marketing</a>
-				@elseif($var == 6)
-					<a class="navbar-brand" style="cursor:default;" href="#">Escuela de Ingeniería en Gestión de Transporte</a>
-				@elseif($var == 8)
+				@if($var == 8)
 					<a class="navbar-brand" style="cursor:default;" href="#">Facultad de Empresas</a>
 				@endif
   			</div>
@@ -90,7 +78,7 @@
   			<h4>Registro de Empleados</h4>
   		</div> 
   		<div class="panel-body" >
-  			<form method="post" action="store/{{$var}}">
+  			<form method="post" action="storefade/{{$var}}">
 			
 				<p>
 					<input type="text" id="ciComp" name="ci" placeholder="Cédula de Identidad" class="form-control" >
@@ -125,21 +113,21 @@
 					 <table style='width: 20%' border="4">
 			   				<tr>
 				   				<td style='width: 10%' align="center">
-				   					<input type="checkbox" id="dire" name="director" value="1"> 
+				   					<input type="checkbox" id="dec" name="decano" value="5"> 
 				   				</td>
 				   				<td style='width: 50%' align="center">
-				   					<b>Director de Escuela</b>
+				   					<b>Decano</b>
 				   				</td>
 				   			</tr>
-				   			<tr>		
-						  		<td style='width: 10%' align="center">	
-						  			<input type="checkbox" id="admini" name="admin" value="2">
+				   			<tr>
+						  		<td style='width: 10%' align="center">
+						  			<input type="checkbox" id="vice" name="vicedec" value="6"> 
 						  		</td>
 						  		<td style='width: 50%' align="center">
-				   					<b>Administrativo</b>
+				   					<b>Vicedecano</b>
 				   				</td>
 						  	</tr>
-						  	<tr>
+				   		  	<tr>
 						  		<td style='width: 10%' align="center">
 						  			<input type="checkbox" id="trab" name="trabajador" value="3">
 						  		</td>
@@ -147,12 +135,12 @@
 				   					<b>Trabajador</b>
 				   				</td>
 						  	</tr>
-						  	<tr>
-						  		<td style='width: 10%' align="center">
-						  			<input type="checkbox" id="doc" name="docente" value="4"> 
+						  	<tr>		
+						  		<td style='width: 10%' align="center">	
+						  			<input type="checkbox" id="admini" name="admin" value="2">
 						  		</td>
 						  		<td style='width: 50%' align="center">
-				   					<b>Docente</b>
+				   					<b>Administrativo</b>
 				   				</td>
 						  	</tr>
 						</table>

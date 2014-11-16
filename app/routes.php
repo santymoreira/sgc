@@ -417,12 +417,17 @@ Route::get('users/empleados/{cod}', 'UserController@listado');
 
 //Guardar Empleado
 Route::get('users/create', 'UserController@newuser');
+//usuario de facultad
+ Route::get('users/createfade', 'UserController@newuser_fade');
+ 
 Route::get('subirArchivo', 'UserController@subirArchivo');
 Route::get('subirArchivoPublico', 'HomeController@subirArchivoPublico');
 Route::post('uploadPublicFile', 'HomeController@uploadPublicFile');
 Route::post('uploadfile', 'UserController@uploadfile');
 Route::get('checkFiles', 'UserController@checkFiles');
 Route::post('users/store/{esc}','UserController@store');
+//Store Fade
+Route::post('users/storefade/{esc}','UserController@storefade');
 
 //Editar Empleado
 Route::get('users/editp/{cod}', 'UserController@editp');
@@ -430,7 +435,12 @@ Route::post('users/updatep/{cod}','UserController@updatep');
 
 //Editar Empleado
 Route::get('users/edit/{cod},{esc}', 'UserController@edit');
+//Editar empleados FACULTAD
+Route::get('users/editfade/{cod},{esc}', 'UserController@editfade');
+
 Route::post('users/update/{cod},{esc}','UserController@update');
+//Update empleado FACULTAD
+Route::post('users/updatefade/{cod},{esc}','UserController@updatefade');
 
 //Eliminar Empleado
 Route::get('users/destroy/{cod},{esc}','UserController@destroy');

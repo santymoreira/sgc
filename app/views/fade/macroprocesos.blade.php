@@ -99,7 +99,7 @@
               @endif
            @if(Session::get('denied'))
                  <script type="text/javascript">
-                    smoke.alert('Ud no tiene acceso, No pertenece a esta Escuela')
+                    smoke.alert('Ud no tiene acceso a los  macroprocesos de Facultad')
                  </script>
               @endif
 

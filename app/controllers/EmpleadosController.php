@@ -56,11 +56,11 @@ class EmpleadosController extends BaseController {
         #recibe el tipo de empleado actual
         $tipo=Login::tipoEmpleado();
         #verifica si el tiempo esta vigente
-        if ($tiempo==1) 
+        if ($tiempo==1 ) 
         {
             
             #verifica si es administrador
-            if ($tipo==1) 
+            if ($tipo==1 || $tipo==2 || $tipo==3) 
             {
                 return View::make('empleados.evaluacion', array('procesos' => $a,'docentes' => $b,'macroproceso' => $c,'escuela' => $d,'proceso' => $e,'tipo' =>$f,'objeto' =>$g));
             }   

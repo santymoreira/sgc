@@ -71,9 +71,11 @@
 	    		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      			<ul class="nav navbar-nav">
 	        			<li class="active"><a style="cursor:pointer;" onclick="window.location.reload()">Todos</a></li>
-	        		<li>
-    					{{ HTML::link( 'users/create', 'Nuevo'.' ') }}
-					</li>
+	        		@if($var==8)
+		        		<li>
+	    					{{ HTML::link( 'users/createfade', 'Nuevo'.' ') }}
+						</li>
+					@endif
 					<li> {{ HTML::link('subirArchivo','Subir Archivos'); }} 
 	        		</ul>
 	        	</div>
@@ -106,11 +108,13 @@
 							<td class="fuentes">{{ $user->EMAIL }}</td>
 							<td class="fuentes">{{ $user->CELULAR }}</td>
 							<td class="fuentes">{{ $user->CONVENCIONAL }}</td>
-							<td class="fuentes">
-								<a href="../show/{{ $user->COD_EMPLEADO }},{{$var}}"><span class="label label-info">Ver</span></a>
-								<a href="../edit/{{ $user->COD_EMPLEADO }},{{$var}}"><span class="label label-success">Editar</span></a>
-								<a href="{{ url('users/destroy',$user->COD_EMPLEADO) }},{{$var}}"><span class="label label-danger">Eliminar</span></a>
-							</td>
+							@if($var ==8)
+								<td class="fuentes">
+									<a href="../show/{{ $user->COD_EMPLEADO }},{{$var}}"><span class="label label-info">Ver</span></a>
+									<a href="../editfade/{{ $user->COD_EMPLEADO }},{{$var}}"><span class="label label-success">Editar</span></a>
+									<a href="{{ url('users/destroy',$user->COD_EMPLEADO) }},{{$var}}"><span class="label label-danger">Eliminar</span></a>
+								</td>
+							@endif
 						</tr>
 					@endforeach
 				</tbody>
