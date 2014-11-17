@@ -69,6 +69,12 @@ class UserController extends \BaseController {
 	    $cedula =DB::select('SELECT ci FROM empleado');
 		return View::make('users.create')->with('ci',$cedula);
 	}
+	//Usuarios de Facultad
+	public function newuser_fade()	{
+
+	    $cedula =DB::select('SELECT ci FROM empleado');
+		return View::make('users.createfade')->with('ci',$cedula);
+	}
 
 		public function subirArchivo()	{
 
@@ -283,6 +289,191 @@ class UserController extends \BaseController {
 	}
 }
 
+public function storefade($esc)
+	{
+		$empleado = new Empleado;
+		
+		//Valiables table empleado
+		$var=Input::get('nombres');
+		$cedu=Input::get('ci');
+		//Tipos empleado
+		$temp1=Input::get('decano');
+		$temp2=Input::get('admin');
+		$temp3=Input::get('trabajador');
+		$temp4=Input::get('vicedec');
+
+		//Información Peronal
+		$empleado->CI= Input::get('ci');
+		$empleado->NOMBRES= Input::get('nombres');
+		$empleado->SEXO= Input::get('sexo');
+		$empleado->EMAIL= Input::get('email');
+		$empleado->CELULAR= Input::get('celular');
+		$empleado->CONVENCIONAL= Input::get('convencional');
+		$empleado->password= Hash::make(Input::get('ci'));
+
+
+		//Empleado en otra escuela
+		$Uexist=DB::select('SELECT COUNT(COD_EMPLEADO) as valor FROM empleado WHERE CI =?', array($cedu));
+					foreach ($Uexist as $cont) {	$ced = $cont->valor; }
+	
+		if($ced ==0)
+		{
+			$inputs	= Input::all();
+			$reglas = array(
+				  'ci' => 'required|regex:/^([0-9])+$/i|size:10|unique:empleado,CI',
+				  'nombres' => 'required',
+				  'email' => 'required|email',
+				  'celular' => 'regex:/^([0-9])+$/i|size:10',
+				  'convencional' => 'regex:/^([0-9])+$/i|size:9',
+			);
+		}
+		else{ 
+					$query3=DB::select('SELECT COD_EMPLEADO FROM empleado WHERE CI =?', array($cedu));
+						foreach ($query3 as $cont1) {	$aux2 = $cont1->COD_EMPLEADO; }
+			
+				$ExistEsc=DB::select('SELECT COUNT(COD_EMPLEADO) as valor FROM empleado_escuela WHERE COD_EMPLEADO =? AND COD_ESCUELA=?', array($aux2,$esc));
+					foreach ($ExistEsc as $cont) {	$escueMisma = $cont->valor; }
+
+					if($escueMisma == 0){ 
+
+						$inputs	= Input::all();
+						$reglas = array(
+							  'ci' => 'required|regex:/^([0-9])+$/i|size:10a',   
+							  'nombres' => 'required',
+							  'email' => 'required|email',
+							  'celular' => 'regex:/^([0-9])+$/i|size:10',
+							  'convencional' => 'regex:/^([0-9])+$/i|size:9',	
+					);
+				}
+				 else{
+					  	return Redirect::back()->with('mismaEsc', 'Este empleado ya se encuentra registrado en la Facultad.');
+					 }
+		}
+			$mensajes = array(
+					'required' => 'Campo Obligatorio',
+					'size' => 'El campo debe tener la cantidad de dígitos correcta, vuelva a intenralo',
+					'email' => 'El email no tiene la sintaxis correcta, vuelva a intenralo',
+					'unique' => 'El cédula ingresada ya existe, vuelva a intenralo',
+					'regex' => 'Solo se acepta caracteres numéricos, vuelva a intenralo',
+				);	
+
+			$validar = Validator::make($inputs,$reglas,$mensajes);
+	
+
+	if($validar->fails())
+	{
+			return Redirect::back()->withErrors($validar);
+	}
+	else{
+
+		if(!empty($temp1) || !empty($temp2) || !empty($temp3) || !empty($temp4))
+	{
+		//Buscar decano en la base
+		$decano= DB::select('SELECT COUNT(empe.COD_TIPO) AS valor FROM empleado_tipo AS empe WHERE empe.COD_TIPO=? AND empe.COD_ESCUELA = ?', array($temp1,$esc));
+		foreach ($decano as $cont) {	$contador = $cont->valor; }
+		//buscar vicedecano en la base
+		
+		$vicedecano= DB::select('SELECT COUNT(empe.COD_TIPO) AS valor FROM empleado_tipo AS empe WHERE empe.COD_TIPO=? AND empe.COD_ESCUELA = ?', array($temp4,$esc));
+		foreach ($vicedecano as $cont1) {	$contador1 = $cont1->valor; }
+
+	if($contador == 0)
+	{	
+	  if($contador1 == 0)
+	  {
+		if($ced == 0)
+		{
+		  if($empleado->save()){
+
+			$query=DB::select('SELECT COD_EMPLEADO FROM empleado WHERE NOMBRES =?', array($var));
+			foreach ($query as $cont) {	$aux = $cont->COD_EMPLEADO; }
+			
+			
+			//Id del usuario.
+			 $emp=Empleado::find($aux);
+			
+    
+		   //Save in the table pivot (empleado_tipo) and (empleado_escuela)	
+
+			 	$escuelas=Escuela::find($esc); 
+			    $empleado->escuelas()->save($escuelas);
+			  
+			    if (!empty($temp1))
+			    {
+			  		 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp1,$aux,$esc));
+		
+			   }
+			    if (!empty($temp2))
+			    {
+			    	 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp2,$aux,$esc));
+			    }
+			    if (!empty($temp3))
+			    {
+			    	  DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp3,$aux,$esc));
+			    }
+			    if (!empty($temp4))
+			    {
+			    	 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp4,$aux,$esc));
+			    }
+ 		
+			Session::flash('message','Guardado correctamente!');
+			Session::flash('class','success');
+		   
+		}
+
+		else{
+				Session::flash('message','A ocurrido un error!');
+				Session::flash('class','danger');	
+			}
+		return Redirect::to('users/createfade'); 
+	  }
+	  else
+	  {
+	  	$query1=DB::select('SELECT COD_EMPLEADO FROM empleado WHERE CI =?', array($cedu));
+			foreach ($query1 as $cont1) {	$aux1 = $cont1->COD_EMPLEADO; }
+			
+			
+		 DB::insert('insert into empleado_escuela (COD_EMPLEADO, COD_ESCUELA) values (?, ?)', array($aux1,$esc));
+		
+			  
+			    if (!empty($temp1))
+			    {
+			  		 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp1,$aux1,$esc));
+		
+			   }
+			    if (!empty($temp2))
+			    {
+			    	 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp2,$aux1,$esc));
+			    }
+			    if (!empty($temp3))
+			    {
+			    	  DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp3,$aux1,$esc));
+			    }
+			    if (!empty($temp4))
+			    {
+			    	 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp4,$aux1,$esc));
+			    }
+ 		
+			Session::flash('message','Guardado correctamente!');
+			Session::flash('class','success');
+
+		return Redirect::to('users/createfade');
+	  }
+	}
+	  else{
+	  	return Redirect::back()->with('exist', 'Ya existe un vicedecano registrado, Ingrese otra función al Empleado.');
+	  }
+	}
+		else{
+			return Redirect::back()->with('exist', 'Ya existe un decano registrado, Ingrese otra función al Empleado.');
+	 	}
+	}
+		else
+		{
+			return Redirect::back()->with('msg', 'Tiene que asignarle almenos una función al empleado, vuelve a intentarlo.');
+		}
+	}
+}
+
 	public function show($id,$esc)
 	{
 		$user= DB::select('CALL ShowEmpleado('.$id.','.$esc.')');
@@ -396,6 +587,15 @@ class UserController extends \BaseController {
 
 		return View::make('users.edit',array('user'=>$user,'funcion'=>$funcion));
 	}
+	public function editfade($id,$esc)
+	{
+		//$user= DB::select('CALL ShowEmpleado('.$id.')');
+		$user =  Empleado::find($id);
+		$funcion= DB::select('CALL FuncionEmp('.$id.','.$esc.')');
+
+		return View::make('users.editfade',array('user'=>$user,'funcion'=>$funcion));
+	}
+
 	/**
 	 * Update the specified resource in storage.
 	 *
@@ -617,6 +817,235 @@ class UserController extends \BaseController {
 		}
 
 			return Redirect::to('users/edit/'.$id.','.$escu);
+  }
+		else
+		{
+			return Redirect::back()->with('msg', 'Tiene que asignarle almenos una función al empleado, vuelve a intentarlo.');
+		}
+	}
+}
+
+public function updatefade($id,$escu)
+	{
+		$empleado= Empleado::find($id);
+		
+		$var= Input::get('ci');
+		$empleado->CI= Input::get('ci');
+		$empleado->NOMBRES= Input::get('nombres');
+		$empleado->SEXO= Input::get('sexo');
+		$empleado->EMAIL= Input::get('email');
+		$empleado->CELULAR= Input::get('celular');
+		$empleado->CONVENCIONAL= Input::get('convencional');
+		$empleado->password= Hash::make(Input::get('ci'));
+		
+		//Variable de tipos
+		$temp1=Input::get('decano');
+		$temp2=Input::get('admin');
+		$temp3=Input::get('trabajador');
+		$temp4=Input::get('vicedec');
+
+	
+	//Validaciones del Formulario 
+	$Ciexist=DB::select('SELECT COUNT(COD_EMPLEADO) as valor FROM empleado WHERE CI =? AND COD_EMPLEADO= ?', array($var,$id));
+					foreach ($Ciexist as $cont) {	$ced = $cont->valor; }
+
+		if($ced ==0)
+		{
+			$inputs	= Input::all();
+			$reglas = array(
+				  'ci' => 'required|regex:/^([0-9])+$/i|size:10|unique:empleado,CI',
+				  'nombres' => 'required',
+				  'email' => 'required|email',
+				  'celular' => 'regex:/^([0-9])+$/i|size:10',
+				  'convencional' => 'regex:/^([0-9])+$/i|size:9',
+			);
+		}
+		else{
+
+			$inputs	= Input::all();
+			$reglas = array(
+				  'ci' => 'required|regex:/^([0-9])+$/i|size:10a',
+				  'nombres' => 'required',
+				  'email' => 'required|email',
+				  'celular' => 'regex:/^([0-9])+$/i|size:10',
+				  'convencional' => 'regex:/^([0-9])+$/i|size:9',	
+			);
+		}
+
+			$mensajes = array(
+					'required' => 'Campo Obligatorio',
+					'size' => 'El campo debe tener la dígitos correcta,, vuelva a intentarlo',
+					'email' => 'El email no tiene la sintaxis correcta, vuelva a intentarlo',
+					'unique' => 'El cédula ingresada ya existe, vuelva a intentarlo',
+					'regex' => 'Solo se acepta caracteres numéricos, vuelva a intentarlo',
+				);	
+
+			$validar = Validator::make($inputs,$reglas,$mensajes);
+	if($validar->fails())
+	{
+			return Redirect::back()->withErrors($validar);
+	}
+	else{
+
+		if(!empty($temp1) || !empty($temp2) || !empty($temp3) || !empty($temp4))
+	{
+		
+		if($empleado->save()){
+
+			//Variables auxiliares del tipoEmpleado para que funcionen por el else
+			$auxdi=5;
+			$auxa=2;
+			$auxt=3;
+			$auxd=6;
+		
+			//Tipo = Decano
+
+			if(!empty($temp1))
+			{
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp1.' AND COD_ESCUELA='.$escu.';');
+
+					foreach ($query as $cont) 
+					{	
+						$ban = $cont->valor; 
+					}
+				
+				if($ban == 0)
+				{
+					$directorEs= DB::select('SELECT COUNT(empe.COD_TIPO) AS valor FROM empleado_tipo AS empe WHERE empe.COD_TIPO=? AND empe.COD_ESCUELA = ?', array($temp1,$escu));
+							foreach ($directorEs as $cont) {	$contador = $cont->valor; }
+					if($contador ==0){		
+					  DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp1,$id,$escu));
+					}
+					else
+					{
+						return Redirect::back()->with('exist', 'Ya existe un Decano registrado, Ingrese otra función al Empleado.');
+					}
+				}
+			}
+			else{
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxdi.' AND COD_ESCUELA='.$escu.';');
+
+					foreach ($query as $cont) 
+					{	
+						$ban = $cont->valor; 
+					}
+				
+				if($ban ==1 ) 
+				{
+					DB::delete('DELETE FROM empleado_tipo WHERE  COD_TIPO = ? AND COD_EMPLEADO = ? AND COD_ESCUELA= ?', array($auxdi,$id,$escu));
+				} 	
+			} 
+
+			//Tipo = Administrativo
+
+			if(!empty($temp2))
+			{
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp2.' AND COD_ESCUELA='.$escu.';');
+
+					foreach ($query as $cont) 
+					{	
+						$ban = $cont->valor; 
+					}
+				
+				if($ban == 0)
+				{
+					  DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp2,$id,$escu));
+				}
+			}
+			else{
+					
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxa.' AND COD_ESCUELA='.$escu.';');
+
+					foreach ($query as $cont) 
+					{	
+						$ban = $cont->valor; 
+					}
+				
+				if($ban ==1 ) 
+				{
+					DB::delete('DELETE FROM empleado_tipo WHERE  COD_TIPO = ? AND COD_EMPLEADO = ? AND COD_ESCUELA= ?', array($auxa,$id,$escu));
+				} 	
+			} 
+
+			//Tipo = Trabajador
+
+			if(!empty($temp3))
+			{
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp3.' AND COD_ESCUELA='.$escu.';');
+
+					foreach ($query as $cont) 
+					{	
+						$ban = $cont->valor; 
+					}
+				
+				if($ban ==0)
+				{
+					 DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp3,$id,$escu));
+				}
+			}
+			else{
+					
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxt.' AND COD_ESCUELA='.$escu.';');
+
+					foreach ($query as $cont) 
+					{	
+						$ban = $cont->valor; 
+					}
+				
+				if($ban ==1 ) 
+				{
+					DB::delete('DELETE FROM empleado_tipo WHERE  COD_TIPO = ? AND COD_EMPLEADO = ? AND COD_ESCUELA= ?', array($auxt,$id,$escu));
+				} 	
+			} 
+
+			// Tipo = Vicedecano
+
+			if(!empty($temp4))
+			{
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$temp4.' AND COD_ESCUELA='.$escu.';');
+
+					foreach ($query as $cont) 
+					{	
+						$ban = $cont->valor; 
+					}
+				
+				if($ban == 0)
+				{
+					$vicedecano= DB::select('SELECT COUNT(empe.COD_TIPO) AS valor FROM empleado_tipo AS empe WHERE empe.COD_TIPO=? AND empe.COD_ESCUELA = ?', array($temp1,$escu));
+							foreach ($vicedecano as $cont) {	$contador = $cont->valor; }
+					if($contador ==0){		
+					  DB::insert('insert into empleado_tipo (COD_TIPO, COD_EMPLEADO, COD_ESCUELA) values (?, ?, ?)', array($temp4,$id,$escu));
+					}
+					else
+					{
+						return Redirect::back()->with('exist', 'Ya existe un Vicedecano registrado, Ingrese otra función al Empleado.');
+					}
+				}
+			}
+			else{
+				$query= DB::select('SELECT COUNT(COD_EMPLEADO) AS valor FROM empleado_tipo WHERE COD_EMPLEADO='.$id.' AND COD_TIPO='.$auxd.' AND COD_ESCUELA='.$escu.';');
+
+					foreach ($query as $cont) 
+					{	
+						$ban = $cont->valor; 
+					}
+				
+				if($ban ==1 ) 
+				{
+					DB::delete('DELETE FROM empleado_tipo WHERE  COD_TIPO = ? AND COD_EMPLEADO = ? AND COD_ESCUELA= ?', array($auxd,$id,$escu));
+				} 	
+			} 
+
+				Session::flash('message','Actualizado correctamente!');
+				Session::flash('class','success');			
+		}
+		else
+		{
+			Session::flash('message','A ocurrido un error!');
+			Session::flash('class','danger');	
+		}
+
+			return Redirect::to('users/editfade/'.$id.','.$escu);
   }
 		else
 		{
