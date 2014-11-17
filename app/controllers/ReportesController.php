@@ -1146,10 +1146,10 @@ class ReportesController extends BaseController {
                     $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.','.$escuela.')');
                     foreach ($Indicadores as $indicador) 
                     {
-                        $total+=$indicador->resultado;
+                        $total+=$indicador->avance;
                           $f1=$indicador->fecha1;
                          $f2=$indicador->fecha2;
-                         //echo("<script>console.log('PHP: ".$total."');</script>");
+                         echo("<script>console.log('PHP: ".$total."');</script>");
                     }
                 }
         if ($total>100) {$total=100;}

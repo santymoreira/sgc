@@ -32,7 +32,7 @@
           var nombres=$('#'+empleado+'nombres').val();
           var mail=$('#'+empleado+'mail').val();
         //var consult = $("#busqueda").val();
-           $("#displayBox").load("../../../individualBusquedaBalance",
+           $("#contenido").load("../../../individualBusquedaBalance",
             {escuela: escuela,empleado:empleado,ci:ci,nombres:nombres,mail:mail,tipoReporte:tipoReporte}
            );
 });
