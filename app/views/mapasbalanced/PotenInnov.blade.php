@@ -140,12 +140,12 @@
                    <!-- Evaluacion Acciones -->
 
                     <div id="apDiv219">
-                     <a style="cursor:default;" rev="width:1000 height:300 scrolling:no" href="../evaluacionBalance/Relación Investigación - Docentes/22/{{Session::get('escuela')}}/5/2/2"  rel="floatbox">
+                     <a style="cursor:default;" rev="width:1200 height:300 scrolling:no" href="../evaluacionBalance/Relación Investigación - Docentes/22/{{Session::get('escuela')}}/5/2/2"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a> 
                    </div>
                    <div id="apDiv220">
-                      <a style="cursor:default;" rev="width:1000 height:300 scrolling:no" href="../evaluacionBalance/Relación Investigación - Estudiantes/22/{{Session::get('escuela')}}/6/2/2"  rel="floatbox">
+                      <a style="cursor:default;" rev="width:1200 height:300 scrolling:no" href="../evaluacionBalance/Relación Investigación - Estudiantes/22/{{Session::get('escuela')}}/6/2/2"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a> 
                    </div>

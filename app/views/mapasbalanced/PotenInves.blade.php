@@ -126,23 +126,23 @@
                       <!-- nombre del proyecto/macroproceso/escuela/proceso/objeto/peso-->
                  
                   <div id="apDiv237">
-                      <a style="cursor:default;" rev="width:1000 height:300" href="../evaluacionBalance/Plan de investigación/20/{{Session::get('escuela')}}/1/1/1.5"  rel="floatbox">
+                      <a style="cursor:default;" rev="width:1200 height:300" href="../evaluacionBalance/Plan de investigación/20/{{Session::get('escuela')}}/1/1/1.5"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a> 
                   </div>
 
                    <div id="apDiv238">
-                      <a style="cursor:default;" rev="width:1000 height:300"  href="../evaluacionBalance/Producciones Científicas/20/{{Session::get('escuela')}}/2/2/4.5"  rel="floatbox">
+                      <a style="cursor:default;" rev="width:1200 height:300"  href="../evaluacionBalance/Producciones Científicas/20/{{Session::get('escuela')}}/2/2/4.5"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a> 
                    </div>
                    <div id="apDiv239">
-                      <a style="cursor:default;" rev="width:1000 height:300" href="../evaluacionBalance/Cantidad de libros revisados por pares/20/{{Session::get('escuela')}}/3/1/3"  rel="floatbox">
+                      <a style="cursor:default;" rev="width:1200 height:300" href="../evaluacionBalance/Cantidad de libros revisados por pares/20/{{Session::get('escuela')}}/3/1/3"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a> 
                    </div>
                    <div id="apDiv240">
-                     <a style="cursor:default;" rev="width:1000 height:300"  href="../evaluacionBalance/Producciones regionales/20/{{Session::get('escuela')}}/4/1/1"  rel="floatbox">
+                     <a style="cursor:default;" rev="width:1200 height:300"  href="../evaluacionBalance/Producciones regionales/20/{{Session::get('escuela')}}/4/1/1"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a> 
                    </div>

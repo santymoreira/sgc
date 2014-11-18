@@ -137,12 +137,12 @@
                   <!-- Evaluación Acciones -->
 
                      <div id="apDiv203">
-                      <a style="cursor:default;" rev="width:1000 height:300 scrolling:no" href="../evaluacionBalance/Plan de Vinculación/22/{{Session::get('escuela')}}/7/1/2"  rel="floatbox">
+                      <a style="cursor:default;" rev="width:1200 height:300 scrolling:no" href="../evaluacionBalance/Plan de Vinculación/22/{{Session::get('escuela')}}/7/1/2"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a>  
                      </div>
                       <div id="apDiv263">
-                      <a style="cursor:default;" rev="width:1000 height:300 scrolling:no" href="../evaluacionBalance/Programa de vinculación con la sociedad/22/{{Session::get('escuela')}}/8/2/2"  rel="floatbox">
+                      <a style="cursor:default;" rev="width:1200 height:300 scrolling:no" href="../evaluacionBalance/Programa de vinculación con la sociedad/22/{{Session::get('escuela')}}/8/2/2"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a>   
                      </div>
