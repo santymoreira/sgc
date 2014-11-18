@@ -58,14 +58,14 @@
         <div id="position1" class="layout-cell content">    
              <center> <label>Avance BSC</label>
                     <a rel="floatbox" class="fbPopup" title="Avance BSC Marketing" rev="width:608 height:217 scrolling:no" href="../consolidadoEscuela_bsc/{{Session::get('escuela')}}">
-                    {{$total}}
-                  <!--    @if($total <= 70) 
+                   
+                      @if($total <= 70) 
                           <input type="image" src="{{asset('images/Utilitarios/rojo.png'); }}"/>
                            @elseif($total >= 70 && $total <= 90)
                              <input type="image" src="{{asset('images/Utilitarios/naranja.png'); }}"/>
                            @elseif($total >= 91 && $total <= 100)
                              <input type="image" src="{{asset('images/Utilitarios/verde.png'); }}"/> 
-                        @endif -->
+                        @endif 
                     </a>
                     <br/>
                 <!-- Logo SGC escuela -->    

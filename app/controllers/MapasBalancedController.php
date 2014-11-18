@@ -54,7 +54,7 @@ class MapasBalancedController extends BaseController {
                     $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.',1)');
                     foreach ($Indicadores as $indicador) 
                     {
-                        $total+=$indicador->resultado;
+                        $total+=$indicador->avance;
                     }
                 }
 			if ($this->permiso()==1) 
@@ -71,7 +71,7 @@ class MapasBalancedController extends BaseController {
                     $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.',2)');
                     foreach ($Indicadores as $indicador) 
                     {
-                        $total+=$indicador->resultado;
+                        $total+=$indicador->avance;
                     }
                 }
 			if ($this->permiso()==1) 
@@ -88,7 +88,7 @@ class MapasBalancedController extends BaseController {
                     $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.',4)');
                     foreach ($Indicadores as $indicador) 
                     {
-                        $total+=$indicador->resultado;
+                        $total+=$indicador->avance;
                     }
                 }
 			if ($this->permiso()==1) 
@@ -105,7 +105,7 @@ class MapasBalancedController extends BaseController {
                     $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.',5)');
                     foreach ($Indicadores as $indicador) 
                     {
-                        $total+=$indicador->resultado;
+                        $total+=$indicador->avance;
                     }
                 }
 			if ($this->permiso()==1) 
@@ -122,7 +122,7 @@ class MapasBalancedController extends BaseController {
                     $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.',5)');
                     foreach ($Indicadores as $indicador) 
                     {
-                        $total+=$indicador->resultado;
+                        $total+=$indicador->avance;
                     }
                 }
 			if ($this->permiso()==1) 
@@ -139,7 +139,7 @@ class MapasBalancedController extends BaseController {
                     $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.',8)');
                     foreach ($Indicadores as $indicador) 
                     {
-                        $total+=$indicador->resultado;
+                        $total+=$indicador->avance;
                     }
                 }
 			if ($this->permiso()==1) 

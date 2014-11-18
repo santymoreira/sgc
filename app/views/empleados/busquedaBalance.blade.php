@@ -30,20 +30,22 @@ color: #FFF;
 <input type="hidden" id="objeto" value="{{ $objeto }}">
 <input type="hidden" id="peso" value="{{ $peso }}">
 
+
+<div id="contenido">
   @foreach ($empleados as $empleado)
 <a id="{{$empleado->COD_EMPLEADO}}" style="text-decoration:none;"> 
   <div id="displayBox" align="left" >
-
         <img src="{{ asset('images/fotoreal.jpg'); }}" width="30" height="30" />
         <font color="#0B0B61"><b>{{$empleado->NOMBRES}}</b></font>
         <br/><br/>
         <input type="hidden" id="{{$empleado->COD_EMPLEADO}}ci" value="{{$empleado->CI}}">
         <input type="hidden" id="{{$empleado->COD_EMPLEADO}}nombres" value="{{$empleado->NOMBRES}}">
         <input type="hidden" id="{{$empleado->COD_EMPLEADO}}mail" value="{{$empleado->EMAIL}}">
-        
-      @endforeach
+        @endforeach
   </div>
 </a> 
+
+</div>
  
 
  <script type="text/javascript">
@@ -64,7 +66,7 @@ color: #FFF;
           var macro=$('#macro').val();
           var peso=$('#peso').val();
         //var consult = $("#busqueda").val();
-           $("#displayBox").load("../../../../../../listadoBalance",
+           $("#contenido").load("../../../../../../listadoBalance",
             {escuela: escuela,empleado:empleado,ci:ci,nombres:nombres,fecha1:fecha1,fecha2:fecha2,proceso:proceso,objeto:objeto,macro:macro,peso:peso}
            );
 });
