@@ -147,17 +147,17 @@
 
 
                   <div id="apDiv195">
-                    <a style="cursor:default;" rev="width:1000 height:300 scrolling:no" href="../evaluacionBalance/Cumplimiento de estafeta/22/{{Session::get('escuela')}}/1/2/1.33"  rel="floatbox">
+                    <a style="cursor:default;" rev="width:1200 height:300 scrolling:no" href="../evaluacionBalance/Cumplimiento de estafeta/22/{{Session::get('escuela')}}/1/2/1.33"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a>  
                     </div>
                     <div id="apDiv197">
-                    <a style="cursor:default;" rev="width:1000 height:300 scrolling:no" href="../evaluacionBalance/Cumplimiento de sílabos/22/{{Session::get('escuela')}}/2/2/1.33"  rel="floatbox">
+                    <a style="cursor:default;" rev="width:1200 height:300 scrolling:no" href="../evaluacionBalance/Cumplimiento de sílabos/22/{{Session::get('escuela')}}/2/2/1.33"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a>
                     </div>
                     <div id="apDiv196">
-                      <a style="cursor:default;" rev="width:1000 height:300 scrolling:no" href="../evaluacionBalance/Horas de atención/22/{{Session::get('escuela')}}/3/2/1.33"  rel="floatbox">
+                      <a style="cursor:default;" rev="width:1200 height:300 scrolling:no" href="../evaluacionBalance/Horas de atención/22/{{Session::get('escuela')}}/3/2/1.33"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a> 
                     </div>

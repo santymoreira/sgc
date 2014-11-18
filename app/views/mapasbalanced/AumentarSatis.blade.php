@@ -122,7 +122,7 @@
                 <!-- evaluacion Acciones -->    
                  <!-- nombre del proyecto/macroproceso/escuela/proceso/objeto/peso-->  
                 <div id="apDiv182">
-                                          <a style="cursor:default;" rev="width:1000 height:300 scrolling:no" href="../evaluacionBalance/Satisfacción del estudiante/21/{{Session::get('escuela')}}/1/1/20"  rel="floatbox">
+                                          <a style="cursor:default;" rev="width:1200 height:300 scrolling:no" href="../evaluacionBalance/Satisfacción del estudiante/21/{{Session::get('escuela')}}/1/1/20"  rel="floatbox">
                       <img src="{{ asset('images/semaforo/rojo.png') }}">  
                       </a> 
                 </div>
