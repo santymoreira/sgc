@@ -72,6 +72,7 @@
                                   <h5>{{$file->FECHA}}</h5>  
                                   
                                   </a>
+                                  <center><a href="eliminar/{{$file->NOMBRE}}" title="Eliminar archivo: {{$file->NOMBRE}} "> <p style="color: red;" class="glyphicon glyphicon-remove"> </p> </a></center>
         
                                    @endforeach
 
