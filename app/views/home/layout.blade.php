@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+<link rel="shortcut icon" href="img/paul.ico">
   {{ HTML::script('js/smoke.js'); }}
   {{ HTML::script('js/jquery-1.8.2.min.js'); }}
   {{ HTML::script('js/ResponsiveTabs.js'); }}
@@ -48,6 +49,7 @@
   <!-- Modal Editar Datos Personales -->
 
 {{ HTML::script('js/n_explorer.js'); }}
+
 
  
 

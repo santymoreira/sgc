@@ -41,7 +41,11 @@
                         <div class="layout-cell content">     
                             <div id="central">
                                 <div id="central-content"> 
-                                <div id="apDiv265"><img style="cursor:pointer;" src="{{asset('images/Utilitarios/volver.png')}}" width="45" height="45"></div>
+                                <div id="apDiv265">
+                                    <a href="info">
+                                    <img style="cursor:pointer;" src="{{asset('images/Utilitarios/volver.png')}}" width="45" height="45">
+                                    </a>
+                                </div>
                                 <center>
                                     <h7>Cumplimiento: </h7>
                                       <a rel="floatbox" class="fbPopup" title="Avance SGC Facultad" rev="width:608 height:217 scrolling:no" href="consolidadoFacultad">
@@ -136,7 +140,8 @@
                                   <h5>{{$file->DESCRIPCION}}</h5>   
                                   <h5>{{$file->FECHA}}</h5>  
                                   
-                                  </a>
+                                  </a> 
+                                  <center><a href="eliminar/{{$file->NOMBRE}}" title="Eliminar archivo: {{$file->NOMBRE}} "> <p style="color: red;" class="glyphicon glyphicon-remove"> </p> </a></center>
         
                                    @endforeach
                                    @endif

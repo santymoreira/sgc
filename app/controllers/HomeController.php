@@ -117,5 +117,11 @@ class HomeController extends BaseController {
         return Redirect::back();
 	}
 
+		public function eliminar($a)
+	{
+		$eliminado = DB::delete('DELETE FROM documento WHERE NOMBRE = ? ', array($a) );
+		return Redirect::back();
+	}
+
 	 
 }
