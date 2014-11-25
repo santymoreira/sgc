@@ -52,12 +52,12 @@
               <td scope='row'> {{ $nombres }} </td>
               <td>
                 <label>
-                  <input type="text" class="numeric" id="t1" required></input>
+                  <input type="text" style="width:100px" class="numeric" id="t1" required></input>
                 </label>
               </td>
               <td>
               <label>
-                <input disabled type="text" class="numeric" id="t2" required></input>
+                <input disabled type="text" style="width:100px" class="numeric" id="t2" required></input>
               </label>
               </td>
               @if ($cumpli==1)
@@ -71,9 +71,10 @@
               @endif
                 <td scope='row'> 
                   {{ Form::open(array('url'=>'upload/', 'method' => 'post','enctype'=>'multipart/form-data') )}}
-                   <center><input type="file" id="photo" name="photo" accept=".pdf" class="form-control"></center>
+                   <input type="file"  style="width:220px" id="photo" name="photo" accept=".pdf" class="form-control">
+                   <input type="submit" value="Subir"/>      
 
-                {{ Form::submit('subir') }}
+               <!-- {{ Form::submit('subir') }} -->
                 {{ Form::hidden('id', $ci.$f1.$f2) }}
 
                 {{ Form::close()}}
