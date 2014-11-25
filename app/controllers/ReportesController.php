@@ -552,6 +552,10 @@ class ReportesController extends BaseController {
         
          $porcen=$this->getPorcentaje($codigo,$proceso,$macroproceso,$f1,$f2,$escuela);
 
+         $totalP=round(100*$porcen/$maximo,2);
+         if ($totalP>100) {
+             $totalP=100;
+         }
 
         //echo("<script>console.log('PHP: ".$maximo."');</script>");
         //echo("<script>console.log('PHP: ".$porcen."');</script>");
@@ -622,7 +626,7 @@ class ReportesController extends BaseController {
          $IndicatorSections[] = array("Start"=>91,"End"=>100,"Caption"=>"Alto","R"=>0,"G"=>140,"B"=>0);
          /* Draw the 1st indicator */
          //$IndicatorSettings = array("Values"=>array(round($cumplimiento['cumple'],2)),"ValueFontName"=>"../fonts/Forgotte.ttf","ValueFontSize"=>12,"IndicatorSections"=>$IndicatorSections,"SubCaptionColorFactor"=>300);
-         $IndicatorSettings = array("Values"=>array(round(100*$porcen/$maximo,2)),"ValueFontName"=>"pChart2.1.4/fonts/Forgotte.ttf","ValueFontSize"=>12,"IndicatorSections"=>$IndicatorSections,"SubCaptionColorFactor"=>300);
+         $IndicatorSettings = array("Values"=>array($totalP),"ValueFontName"=>"pChart2.1.4/fonts/Forgotte.ttf","ValueFontSize"=>12,"IndicatorSections"=>$IndicatorSections,"SubCaptionColorFactor"=>300);
          $Indicator->draw(80,100,750,70,$IndicatorSettings);
          /* Render the picture (choose the best way) */
          //$myPicture->autoOutput("pictures/example.drawIndicator.jpg");
@@ -951,27 +955,24 @@ class ReportesController extends BaseController {
         //echo("<script>console.log('PHP: ".$total."');</script>");
         
         $valor=0;
-        $tot=0;
         //macroprocesos
-        //
         for ($i=1; $i <=7 ; $i++) 
         { 
             //escuela
                 $total=0;
                 for ($j=1; $j <= 6; $j++) 
                 { 
-                    
                     $Indicadores=Empleado::storedProcedureCall('CALL consolidadoMacroprocesos('.$i.','.$j.')');
                     foreach ($Indicadores as $indicador) 
-                    {
-                        $total+=$indicador->avance;
-                         // echo("<script>console.log('Escuela: ".$j.' '.$total."');</script>");
-                    }
-                    
+                    { $total+=$indicador->avance; }  
                 }
-                $tot=$total/6;
-                    $valor+=$tot;
-        }
+                $valor+=$total/6;
+         }
+         
+                //$tot=$total/6;
+                //$valor+=$tot;
+       
+
         if ($valor>100) {$valor=100;}
 
         $macro="";

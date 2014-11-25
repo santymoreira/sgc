@@ -11,7 +11,15 @@
 |
 */
 
+Route::get('info', function(){
+    return View::make('home.info'); 
+});
+
+
+
 Route::get('/', 'HomeController@showWelcome' );
+
+ Route::get('eliminar/{e}', 'HomeController@eliminar');
 
 
 Route::get('login', function(){
