@@ -130,6 +130,8 @@
                         <li>{{ HTML::link('transportebsc/transporte_bsc', 'Escuela de Ingeniería en Gestión de Transporte'); }}</li>
                     </ul>
                   </li>
+                  <li class="nivel1"><a href="#" class="nivel1">SGA</a>
+                  </li>
                   </ul></center>
               </div>    
                     @show
